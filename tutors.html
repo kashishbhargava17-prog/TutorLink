@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find a Tutor | TutorLink</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+
+                <div class="brand-icon">🎓</div>
+
+                <div>
+                    <strong>TutorLink</strong>
+                    <span>LEARN • TEACH • CONNECT</span>
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="learn.html">Learn</a>
+
+                <a href="about.html">About</a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a href="login.html" class="nav-login">
+                    Log In
+                </a>
+
+                <a href="signup.html" class="nav-signup">
+                    Sign Up
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <section class="tutors-page">
+
+            <div class="tutors-header">
+
+                <div>
+
+                    <span class="section-badge">
+                        FIND YOUR MATCH
+                    </span>
+
+                    <h1>
+                        Learn from the right tutor.
+                    </h1>
+
+                    <p>
+                        Explore trusted tutors, compare teaching styles,
+                        check availability, and find someone who fits
+                        the way you learn.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SEARCH ================= -->
+
+            <div class="tutor-search-card">
+
+                <div class="search-main">
+
+                    <input
+                        type="text"
+                        id="tutorSearch"
+                        placeholder="Search by tutor, subject or skill..."
+                    >
+
+                    <button
+                        class="search-button"
+                        id="searchTutorsButton"
+                    >
+                        🔎 Search
+                    </button>
+
+                </div>
+
+
+                <div class="tutor-filters">
+
+                    <select id="subjectFilter">
+
+                        <option value="all">
+                            All Subjects
+                        </option>
+
+                        <option value="Mathematics">
+                            Mathematics
+                        </option>
+
+                        <option value="Physics">
+                            Physics
+                        </option>
+
+                        <option value="English">
+                            English
+                        </option>
+
+                        <option value="Computer Science">
+                            Computer Science
+                        </option>
+
+                        <option value="Economics">
+                            Economics
+                        </option>
+
+                        <option value="Business Studies">
+                            Business Studies
+                        </option>
+
+                        <option value="Hindi">
+                            Hindi
+                        </option>
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                    </select>
+
+
+                    <select id="levelFilter">
+
+                        <option value="all">
+                            All Levels
+                        </option>
+
+                        <option value="School">
+                            School
+                        </option>
+
+                        <option value="College">
+                            College
+                        </option>
+
+                    </select>
+
+
+                    <select id="ratingFilter">
+
+                        <option value="all">
+                            Any Rating
+                        </option>
+
+                        <option value="4.5">
+                            4.5+ ⭐
+                        </option>
+
+                        <option value="4.8">
+                            4.8+ ⭐
+                        </option>
+
+                    </select>
+
+
+                    <select id="priceFilter">
+
+                        <option value="all">
+                            Any Price
+                        </option>
+
+                        <option value="300">
+                            Up to ₹300/hr
+                        </option>
+
+                        <option value="250">
+                            Up to ₹250/hr
+                        </option>
+
+                        <option value="200">
+                            Up to ₹200/hr
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RESULTS ================= -->
+
+            <div class="results-top">
+
+                <div>
+
+                    <h2>
+                        Recommended Tutors
+                    </h2>
+
+                    <p id="tutorResultCount">
+                        Showing tutors for you
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="match-button"
+                    id="tutorMatchButton"
+                >
+                    ✨ Find My Tutor Match
+                </button>
+
+            </div>
+
+
+            <div
+                class="tutor-grid"
+                id="tutorGrid"
+            >
+
+                <!-- Tutors generated by JavaScript -->
+
+            </div>
+
+
+            <div
+                class="empty-tutors"
+                id="emptyTutors"
+                style="display:none;"
+            >
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    No tutors found
+                </h3>
+
+                <p>
+                    Try changing your filters or search terms.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
