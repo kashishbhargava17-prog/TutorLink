@@ -1617,74 +1617,88 @@ document.addEventListener(
                 ? getCurrentUser()
                 : null;
 
-
         if (!currentUser) {
-
-            window.location.href =
-                "login.html";
-
+            window.location.href = "login.html";
             return;
-
         }
-
 
         if (currentUser.role !== "tutor") {
-
-            window.location.href =
-                "student-dashboard.html";
-
+            window.location.href = "student-dashboard.html";
             return;
-
         }
-
 
         const STORAGE_KEY =
             "tutorlink_availability";
 
-
         const saveButton =
-            document.getElementById(
-                "saveAvailability"
-            );
-
+            document.getElementById("saveAvailability");
 
         const resetButton =
-            document.getElementById(
-                "resetAvailability"
-            );
-
+            document.getElementById("resetAvailability");
 
         const savedStatus =
-            document.getElementById(
-                "savedStatus"
-            );
-
+            document.getElementById("savedStatus");
 
         const slotCount =
-            document.getElementById(
-                "slotCount"
-            );
-
+            document.getElementById("slotCount");
 
         const summaryGrid =
-            document.getElementById(
-                "summaryGrid"
-            );
-
+            document.getElementById("summaryGrid");
 
         const dayToggles =
-            document.querySelectorAll(
-                ".day-toggle"
-            );
-
+            document.querySelectorAll(".day-toggle");
 
         const timeInputs =
-            document.querySelectorAll(
-                ".time-option input"
-            );
+            document.querySelectorAll(".time-option input");
 
 
-        function getStorage() {
+        /* ---------------------------------
+           FIND THIS TUTOR'S PROFILE ID
+        --------------------------------- */
+
+        function getTutorProfileId() {
+
+            if (currentUser.tutorId) {
+                return currentUser.tutorId;
+            }
+
+            if (
+                typeof TUTORS !== "undefined" &&
+                Array.isArray(TUTORS)
+            ) {
+
+                const matchingTutor =
+                    TUTORS.find(function (tutor) {
+
+                        return (
+                            tutor.name &&
+                            currentUser.name &&
+                            tutor.name.toLowerCase() ===
+                            currentUser.name.toLowerCase()
+                        );
+
+                    });
+
+                if (matchingTutor) {
+                    return matchingTutor.id;
+                }
+
+            }
+
+            return currentUser.id;
+
+        }
+
+
+        const tutorProfileId =
+            getTutorProfileId();
+
+
+        /* ---------------------------------
+           STORAGE
+        --------------------------------- */
+
+        function getAllAvailability() {
 
             try {
 
@@ -1703,7 +1717,7 @@ document.addEventListener(
         }
 
 
-        function setStorage(data) {
+        function saveAllAvailability(data) {
 
             localStorage.setItem(
                 STORAGE_KEY,
@@ -1712,6 +1726,68 @@ document.addEventListener(
 
         }
 
+
+        function getCurrentTutorAvailability() {
+
+            const allAvailability =
+                getAllAvailability();
+
+            return (
+                allAvailability[tutorProfileId] ||
+                allAvailability[currentUser.id] ||
+                {}
+            );
+
+        }
+
+
+        function saveCurrentTutorAvailability(
+            availability
+        ) {
+
+            const allAvailability =
+                getAllAvailability();
+
+
+            /*
+             * Save using the tutor profile ID.
+             * This is what booking.html uses
+             * when students select a tutor.
+             */
+
+            allAvailability[tutorProfileId] =
+                availability;
+
+
+            /*
+             * Also save using the tutor account ID
+             * when it is different.
+             *
+             * This keeps the tutor's own account
+             * connected to the same schedule.
+             */
+
+            if (
+                currentUser.id &&
+                currentUser.id !== tutorProfileId
+            ) {
+
+                allAvailability[currentUser.id] =
+                    availability;
+
+            }
+
+
+            saveAllAvailability(
+                allAvailability
+            );
+
+        }
+
+
+        /* ---------------------------------
+           DEFAULT AVAILABILITY
+        --------------------------------- */
 
         function getDefaultAvailability() {
 
@@ -1759,13 +1835,20 @@ document.addEventListener(
         }
 
 
+        /* ---------------------------------
+           LOAD SAVED AVAILABILITY
+        --------------------------------- */
+
         function loadAvailability() {
 
             const saved =
-                getStorage();
+                getCurrentTutorAvailability();
 
 
-            if (!saved || !Object.keys(saved).length) {
+            if (
+                !saved ||
+                !Object.keys(saved).length
+            ) {
 
                 updateDisabledStates();
 
@@ -1798,10 +1881,12 @@ document.addEventListener(
                         function (input) {
 
                             input.checked =
-                                saved[day].times
-                                    .includes(
-                                        input.value
-                                    );
+                                Array.isArray(
+                                    saved[day].times
+                                ) &&
+                                saved[day].times.includes(
+                                    input.value
+                                );
 
                         }
                     );
@@ -1814,6 +1899,7 @@ document.addEventListener(
 
             updateSummary();
 
+
             savedStatus.textContent =
                 "Saved";
 
@@ -1823,6 +1909,10 @@ document.addEventListener(
 
         }
 
+
+        /* ---------------------------------
+           ENABLE / DISABLE TIME SLOTS
+        --------------------------------- */
 
         function updateDisabledStates() {
 
@@ -1854,6 +1944,10 @@ document.addEventListener(
         }
 
 
+        /* ---------------------------------
+           SUMMARY
+        --------------------------------- */
+
         function updateSummary() {
 
             let totalSlots = 0;
@@ -1879,7 +1973,9 @@ document.addEventListener(
                             )
                         ).filter(
                             function (input) {
+
                                 return !input.disabled;
+
                             }
                         );
 
@@ -1899,9 +1995,11 @@ document.addEventListener(
 
 
                     if (!enabled) {
+
                         summary.classList.add(
                             "off"
                         );
+
                     }
 
 
@@ -1943,6 +2041,10 @@ document.addEventListener(
         }
 
 
+        /* ---------------------------------
+           DAY TOGGLE EVENTS
+        --------------------------------- */
+
         dayToggles.forEach(
             function (toggle) {
 
@@ -1968,6 +2070,10 @@ document.addEventListener(
         );
 
 
+        /* ---------------------------------
+           TIME SLOT EVENTS
+        --------------------------------- */
+
         timeInputs.forEach(
             function (input) {
 
@@ -1991,6 +2097,10 @@ document.addEventListener(
         );
 
 
+        /* ---------------------------------
+           SAVE
+        --------------------------------- */
+
         saveButton.addEventListener(
             "click",
             function () {
@@ -1999,7 +2109,7 @@ document.addEventListener(
                     getDefaultAvailability();
 
 
-                setStorage(
+                saveCurrentTutorAvailability(
                     availability
                 );
 
@@ -2030,12 +2140,38 @@ document.addEventListener(
         );
 
 
+        /* ---------------------------------
+           RESET ONLY THIS TUTOR'S
+           AVAILABILITY
+        --------------------------------- */
+
         resetButton.addEventListener(
             "click",
             function () {
 
-                localStorage.removeItem(
-                    STORAGE_KEY
+                const allAvailability =
+                    getAllAvailability();
+
+
+                delete allAvailability[
+                    tutorProfileId
+                ];
+
+
+                if (
+                    currentUser.id &&
+                    currentUser.id !== tutorProfileId
+                ) {
+
+                    delete allAvailability[
+                        currentUser.id
+                    ];
+
+                }
+
+
+                saveAllAvailability(
+                    allAvailability
                 );
 
 
@@ -2044,6 +2180,10 @@ document.addEventListener(
             }
         );
 
+
+        /* ---------------------------------
+           LOGOUT
+        --------------------------------- */
 
         const logoutButton =
             document.querySelector(
@@ -2063,6 +2203,10 @@ document.addEventListener(
 
         }
 
+
+        /* ---------------------------------
+           INITIAL LOAD
+        --------------------------------- */
 
         loadAvailability();
 
