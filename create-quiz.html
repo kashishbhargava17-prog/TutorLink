@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Quiz | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="quiz-navbar">
+
+    <div class="quiz-nav-container">
+
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="tutor-dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="learn.html">Learn</a>
+
+            <a href="about.html">About</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="quiz-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="quiz-header">
+
+        <div>
+
+            <span class="page-eyebrow">
+                TUTOR TOOLS
+            </span>
+
+            <h1>
+                Create a Quiz
+            </h1>
+
+            <p>
+                Build a quick knowledge check for your students
+                and make learning more interactive.
+            </p>
+
+        </div>
+
+        <a
+            href="tutor-dashboard.html"
+            class="back-dashboard"
+        >
+            ← Dashboard
+        </a>
+
+    </section>
+
+
+    <!-- INFO BANNER -->
+
+    <div class="quiz-info">
+
+        <div class="quiz-info-icon">
+            ✨
+        </div>
+
+        <div>
+
+            <strong>
+                Make learning interactive
+            </strong>
+
+            <p>
+                Create short quizzes that students can complete
+                after a lesson or practice activity. Completing
+                a quiz can earn the student +25 Tute.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CREATE FORM -->
+
+    <section class="quiz-builder-card">
+
+        <div class="builder-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    QUIZ DETAILS
+                </span>
+
+                <h2>
+                    Start your quiz
+                </h2>
+
+            </div>
+
+            <span class="draft-label" id="draftLabel">
+                New Quiz
+            </span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="form-field">
+
+                <label for="quizTitle">
+                    Quiz Title
+                </label>
+
+                <input
+                    id="quizTitle"
+                    type="text"
+                    placeholder="e.g. Quadratic Equations — Quick Check"
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="quizSubject">
+                    Subject
+                </label>
+
+                <select id="quizSubject">
+
+                    <option value="">
+                        Select subject
+                    </option>
+
+                    <option>
+                        Mathematics
+                    </option>
+
+                    <option>
+                        Physics
+                    </option>
+
+                    <option>
+                        English
+                    </option>
+
+                    <option>
+                        Computer Science
+                    </option>
+
+                    <option>
+                        Economics
+                    </option>
+
+                    <option>
+                        Business Studies
+                    </option>
+
+                    <option>
+                        Hindi
+                    </option>
+
+                    <option>
+                        Python
+                    </option>
+
+                    <option>
+                        Accounting
+                    </option>
+
+                    <option>
+                        Marketing
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-field full-field">
+
+                <label for="quizTopic">
+                    Topic
+                </label>
+
+                <input
+                    id="quizTopic"
+                    type="text"
+                    placeholder="e.g. Solving quadratic equations"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <div class="questions-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    QUESTIONS
+                </span>
+
+                <h2>
+                    Build your questions
+                </h2>
+
+            </div>
+
+            <span id="questionCount">
+                1 Question
+            </span>
+
+        </div>
+
+
+        <div id="questionsContainer">
+
+            <!-- QUESTION 1 -->
+
+            <div class="question-card" data-question="1">
+
+                <div class="question-top">
+
+                    <div class="question-number">
+                        Question 1
+                    </div>
+
+                    <button
+                        type="button"
+                        class="remove-question"
+                        disabled
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+
+                <div class="question-field">
+
+                    <label>
+                        Question
+                    </label>
+
+                    <textarea
+                        class="question-text"
+                        rows="3"
+                        placeholder="Write your question..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="options-grid">
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            A
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="A"
+                            placeholder="Answer option A"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            B
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="B"
+                            placeholder="Answer option B"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            C
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="C"
+                            placeholder="Answer option C"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            D
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="D"
+                            placeholder="Answer option D"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="correct-answer-row">
+
+                    <label for="correct-1">
+                        Correct answer
+                    </label>
+
+                    <select
+                        id="correct-1"
+                        class="correct-answer"
+                    >
+
+                        <option value="">
+                            Select correct answer
+                        </option>
+
+                        <option value="A">
+                            A
+                        </option>
+
+                        <option value="B">
+                            B
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                        <option value="D">
+                            D
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="add-question-button"
+            id="addQuestion"
+        >
+            + Add Another Question
+        </button>
+
+
+        <!-- SAVE -->
+
+        <div class="save-area">
+
+            <div>
+
+                <strong>
+                    Ready to publish?
+                </strong>
+
+                <p>
+                    Students will be able to see the quiz in
+                    their learning activities.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="save-quiz-button"
+                id="saveQuiz"
+            >
+                Save Quiz
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAVED QUIZZES -->
+
+    <section class="saved-quizzes-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR CONTENT
+                </span>
+
+                <h2>
+                    Saved Quizzes
+                </h2>
+
+            </div>
+
+            <span id="savedQuizCount">
+                0 quizzes
+            </span>
+
+        </div>
+
+
+        <div
+            class="saved-quizzes-grid"
+            id="savedQuizzes"
+        ></div>
+
+    </section>
+
+</main>
+
+
+<!-- SUCCESS MODAL -->
+
+<div
+    class="success-overlay"
+    id="successOverlay"
+>
+
+    <div class="success-modal">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Quiz Saved!
+        </h2>
+
+        <p>
+            Your quiz has been saved to TutorLink and is ready
+            to be used as a learning activity.
+        </p>
+
+        <div class="success-actions">
+
+            <button
+                type="button"
+                id="createAnother"
+                class="secondary-success-button"
+            >
+                Create Another
+            </button>
+
+            <a
+                href="tutor-dashboard.html"
+                class="primary-success-button"
+            >
+                Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+    font-family: "Inter", sans-serif;
+}
+
+
+/* NAVBAR */
+
+.quiz-navbar {
+    min-height: 76px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.quiz-nav-container {
+    width: min(1200px, calc(100% - 35px));
+    min-height: 76px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.quiz-navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #0f172a;
+    text-decoration: none;
+}
+
+.quiz-navbar .brand-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+}
+
+.quiz-navbar .brand-text strong {
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.quiz-navbar .brand-text small {
+    display: block;
+
+    color: #94a3b8;
+    font-size: .61rem;
+    letter-spacing: .4px;
+}
+
+.quiz-navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.quiz-navbar .nav-links a {
+    color: #64748b;
+    text-decoration: none;
+
+    font-size: .73rem;
+    font-weight: 600;
+}
+
+.quiz-navbar .nav-links a:hover,
+.quiz-navbar .nav-links a.active {
+    color: #5b4bff;
+}
+
+.quiz-navbar .nav-login {
+    padding: 9px 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+
+    background: white;
+    color: #475569;
+
+    font-size: .7rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* PAGE */
+
+.quiz-page {
+    width: min(1050px, calc(100% - 35px));
+    margin: auto;
+
+    padding: 42px 0 70px;
+}
+
+.quiz-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 22px;
+}
+
+.page-eyebrow,
+.section-eyebrow {
+    color: #5b4bff;
+
+    font-size: .63rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+}
+
+.quiz-header h1 {
+    margin: 7px 0;
+
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -.9px;
+}
+
+.quiz-header p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .78rem;
+    line-height: 1.65;
+}
+
+.back-dashboard {
+    padding: 10px 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+
+    background: white;
+    color: #5b4bff;
+
+    text-decoration: none;
+
+    font-size: .64rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* INFO */
+
+.quiz-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 18px;
+    padding: 14px 17px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 15px;
+
+    background: #faf9ff;
+}
+
+.quiz-info-icon {
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: white;
+}
+
+.quiz-info strong {
+    display: block;
+
+    color: #4c1d95;
+
+    font-size: .66rem;
+}
+
+.quiz-info p {
+    margin: 3px 0 0;
+
+    color: #6d28d9;
+
+    font-size: .57rem;
+    line-height: 1.5;
+}
+
+
+/* BUILDER */
+
+.quiz-builder-card {
+    padding: 24px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 8px 25px
+        rgba(15,23,42,.035);
+}
+
+.builder-heading,
+.questions-heading,
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.builder-heading {
+    margin-bottom: 20px;
+}
+
+.builder-heading h2,
+.questions-heading h2,
+.section-heading h2 {
+    margin: 4px 0 0;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.draft-label {
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: .52rem;
+    font-weight: 700;
+}
+
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.full-field {
+    grid-column: 1 / -1;
+}
+
+.form-field label,
+.question-field label,
+.correct-answer-row label {
+    color: #334155;
+
+    font-size: .62rem;
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field select,
+.question-field textarea,
+.option-input,
+.correct-answer {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+
+    outline: none;
+
+    background: white;
+    color: #0f172a;
+
+    font-family: inherit;
+    font-size: .64rem;
+
+    transition: .15s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.question-field textarea:focus,
+.option-input:focus,
+.correct-answer:focus {
+    border-color: #a78bfa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,.08);
+}
+
+.question-field textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+
+/* QUESTIONS */
+
+.questions-heading {
+    margin: 24px 0 13px;
+}
+
+#questionCount {
+    color: #94a3b8;
+    font-size: .57rem;
+}
+
+.question-card {
+    padding: 19px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    background: #fcfcff;
+}
+
+.question-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.question-number {
+    color: #5b4bff;
+
+    font-family: "Poppins", sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+.remove-question {
+    padding: 5px 8px;
+
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+
+    background: white;
+    color: #dc2626;
+
+    font-size: .51rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.remove-question:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.question-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* OPTIONS */
+
+.options-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.option-field {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.option-letter {
+    width: 25px;
+    height: 25px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 7px;
+
+    background: #ede9fe;
+    color: #5b4bff;
+
+    font-size: .57rem;
+    font-weight: 800;
+}
+
+.correct-answer-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 13px;
+}
+
+.correct-answer {
+    width: 180px;
+    padding: 8px 10px;
+}
+
+
+/* ADD QUESTION */
+
+.add-question-button {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px dashed #c4b5fd;
+    border-radius: 10px;
+
+    background: #faf9ff;
+    color: #5b4bff;
+
+    font-family: inherit;
+
+    font-size: .61rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .15s ease;
+}
+
+.add-question-button:hover {
+    background: #f5f3ff;
+}
+
+
+/* SAVE AREA */
+
+.save-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 23px;
+    padding: 17px;
+
+    border-radius: 13px;
+
+    background: #f8fafc;
+}
+
+.save-area strong {
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .7rem;
+}
+
+.save-area p {
+    margin: 3px 0 0;
+
+    color: #64748b;
+
+    font-size: .56rem;
+}
+
+.save-quiz-button {
+    padding: 11px 17px;
+
+    border: 0;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: .61rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* SAVED QUIZZES */
+
+.saved-quizzes-section {
+    margin-top: 32px;
+}
+
+.section-heading {
+    margin-bottom: 13px;
+}
+
+#savedQuizCount {
+    color: #94a3b8;
+    font-size: .57rem;
+}
+
+.saved-quizzes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.saved-quiz-card {
+    padding: 17px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 18px
+        rgba(15,23,42,.025);
+}
+
+.saved-quiz-card .quiz-icon {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 11px;
+
+    border-radius: 9px;
+
+    background: #ede9fe;
+
+    font-size: .85rem;
+}
+
+.saved-quiz-card h3 {
+    margin: 0 0 5px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .72rem;
+}
+
+.saved-quiz-card p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .56rem;
+    line-height: 1.5;
+}
+
+.quiz-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 11px;
+}
+
+.quiz-meta span {
+    padding: 5px 7px;
+
+    border-radius: 999px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: .48rem;
+    font-weight: 700;
+}
+
+
+/* EMPTY STATE */
+
+.empty-quizzes {
+    grid-column: 1 / -1;
+
+    padding: 28px;
+
+    border: 1px dashed #cbd5e1;
+    border-radius: 14px;
+
+    background: white;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+.empty-quizzes strong {
+    display: block;
+
+    color: #334155;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .72rem;
+}
+
+.empty-quizzes p {
+    margin: 5px 0 0;
+
+    font-size: .57rem;
+}
+
+
+/* MODAL */
+
+.success-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(15,23,42,.55);
+
+    z-index: 1000;
+}
+
+.success-overlay.show {
+    display: flex;
+}
+
+.success-modal {
+    width: min(420px, 100%);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px
+        rgba(15,23,42,.2);
+}
+
+.success-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+    color: #16a34a;
+
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.success-modal h2 {
+    margin: 0;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.success-modal p {
+    margin: 9px 0 20px;
+
+    color: #64748b;
+
+    font-size: .64rem;
+    line-height: 1.6;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.secondary-success-button,
+.primary-success-button {
+    padding: 10px 13px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: .58rem;
+    font-weight: 700;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.secondary-success-button {
+    border: 1px solid #e2e8f0;
+
+    background: white;
+    color: #64748b;
+}
+
+.primary-success-button {
+    border: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: white;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .saved-quizzes-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .quiz-nav-container {
+        width: calc(100% - 20px);
+    }
+
+    .quiz-navbar .nav-links {
+        display: none;
+    }
+
+    .quiz-page {
+        width: calc(100% - 20px);
+        padding-top: 28px;
+    }
+
+    .quiz-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .quiz-builder-card {
+        padding: 17px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-field {
+        grid-column: auto;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .saved-quizzes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .save-area {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .save-quiz-button {
+        width: 100%;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+
+    .secondary-success-button,
+    .primary-success-button {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "tutor") {
+
+            window.location.href =
+                "student-dashboard.html";
+
+            return;
+
+        }
+
+
+        const QUIZ_KEY =
+            "tutorlink_tutor_quizzes";
+
+
+        const questionsContainer =
+            document.getElementById(
+                "questionsContainer"
+            );
+
+
+        const questionCount =
+            document.getElementById(
+                "questionCount"
+            );
+
+
+        const addQuestionButton =
+            document.getElementById(
+                "addQuestion"
+            );
+
+
+        const saveQuizButton =
+            document.getElementById(
+                "saveQuiz"
+            );
+
+
+        const savedQuizzes =
+            document.getElementById(
+                "savedQuizzes"
+            );
+
+
+        const savedQuizCount =
+            document.getElementById(
+                "savedQuizCount"
+            );
+
+
+        const successOverlay =
+            document.getElementById(
+                "successOverlay"
+            );
+
+
+        const createAnother =
+            document.getElementById(
+                "createAnother"
+            );
+
+
+        function getQuizzes() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        QUIZ_KEY
+                    )
+                ) || [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        function saveQuizzes(
+            quizzes
+        ) {
+
+            localStorage.setItem(
+                QUIZ_KEY,
+                JSON.stringify(quizzes)
+            );
+
+        }
+
+
+        function updateQuestionNumbers() {
+
+            const cards =
+                document.querySelectorAll(
+                    ".question-card"
+                );
+
+
+            cards.forEach(
+                function (card, index) {
+
+                    card.dataset.question =
+                        index + 1;
+
+
+                    const number =
+                        card.querySelector(
+                            ".question-number"
+                        );
+
+
+                    number.textContent =
+                        `Question ${index + 1}`;
+
+
+                    const removeButton =
+                        card.querySelector(
+                            ".remove-question"
+                        );
+
+
+                    removeButton.disabled =
+                        cards.length === 1;
+
+
+                    const select =
+                        card.querySelector(
+                            ".correct-answer"
+                        );
+
+
+                    select.id =
+                        `correct-${index + 1}`;
+
+                }
+            );
+
+
+            questionCount.textContent =
+                `${cards.length} ${
+                    cards.length === 1
+                        ? "Question"
+                        : "Questions"
+                }`;
+
+        }
+
+
+        function createQuestionCard(
+            number
+        ) {
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "question-card";
+
+
+            card.dataset.question =
+                number;
+
+
+            card.innerHTML = `
+
+                <div class="question-top">
+
+                    <div class="question-number">
+                        Question ${number}
+                    </div>
+
+                    <button
+                        type="button"
+                        class="remove-question"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+
+                <div class="question-field">
+
+                    <label>
+                        Question
+                    </label>
+
+                    <textarea
+                        class="question-text"
+                        rows="3"
+                        placeholder="Write your question..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="options-grid">
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            A
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="A"
+                            placeholder="Answer option A"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            B
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="B"
+                            placeholder="Answer option B"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            C
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="C"
+                            placeholder="Answer option C"
+                        >
+
+                    </div>
+
+
+                    <div class="option-field">
+
+                        <span class="option-letter">
+                            D
+                        </span>
+
+                        <input
+                            type="text"
+                            class="option-input"
+                            data-option="D"
+                            placeholder="Answer option D"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="correct-answer-row">
+
+                    <label>
+                        Correct answer
+                    </label>
+
+                    <select
+                        class="correct-answer"
+                    >
+
+                        <option value="">
+                            Select correct answer
+                        </option>
+
+                        <option value="A">
+                            A
+                        </option>
+
+                        <option value="B">
+                            B
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                        <option value="D">
+                            D
+                        </option>
+
+                    </select>
+
+                </div>
+            `;
+
+
+            return card;
+
+        }
+
+
+        addQuestionButton.addEventListener(
+            "click",
+            function () {
+
+                const cards =
+                    document.querySelectorAll(
+                        ".question-card"
+                    );
+
+
+                if (cards.length >= 10) {
+
+                    alert(
+                        "You can create a maximum of 10 questions per quiz."
+                    );
+
+                    return;
+
+                }
+
+
+                const newCard =
+                    createQuestionCard(
+                        cards.length + 1
+                    );
+
+
+                questionsContainer.appendChild(
+                    newCard
+                );
+
+
+                updateQuestionNumbers();
+
+                newCard.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+        );
+
+
+        questionsContainer.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !event.target.classList.contains(
+                        "remove-question"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                const card =
+                    event.target.closest(
+                        ".question-card"
+                    );
+
+
+                if (card) {
+
+                    card.remove();
+
+                    updateQuestionNumbers();
+
+                }
+
+            }
+        );
+
+
+        function collectQuestions() {
+
+            const cards =
+                document.querySelectorAll(
+                    ".question-card"
+                );
+
+
+            const questions = [];
+
+
+            for (
+                let index = 0;
+                index < cards.length;
+                index++
+            ) {
+
+                const card =
+                    cards[index];
+
+
+                const questionText =
+                    card.querySelector(
+                        ".question-text"
+                    ).value.trim();
+
+
+                const optionInputs =
+                    card.querySelectorAll(
+                        ".option-input"
+                    );
+
+
+                const options = {};
+
+
+                optionInputs.forEach(
+                    function (input) {
+
+                        options[
+                            input.dataset.option
+                        ] =
+                            input.value.trim();
+
+                    }
+                );
+
+
+                const correctAnswer =
+                    card.querySelector(
+                        ".correct-answer"
+                    ).value;
+
+
+                if (!questionText) {
+
+                    alert(
+                        `Please write Question ${
+                            index + 1
+                        }.`
+                    );
+
+                    return null;
+
+                }
+
+
+                if (
+                    !options.A ||
+                    !options.B ||
+                    !options.C ||
+                    !options.D
+                ) {
+
+                    alert(
+                        `Please fill all four answer options for Question ${
+                            index + 1
+                        }.`
+                    );
+
+                    return null;
+
+                }
+
+
+                if (!correctAnswer) {
+
+                    alert(
+                        `Please select the correct answer for Question ${
+                            index + 1
+                        }.`
+                    );
+
+                    return null;
+
+                }
+
+
+                questions.push({
+                    id:
+                        `question_${Date.now()}_${index}`,
+
+                    question:
+                        questionText,
+
+                    options,
+
+                    correctAnswer
+
+                });
+
+            }
+
+
+            return questions;
+
+        }
+
+
+        function clearForm() {
+
+            document.getElementById(
+                "quizTitle"
+            ).value = "";
+
+
+            document.getElementById(
+                "quizSubject"
+            ).value = "";
+
+
+            document.getElementById(
+                "quizTopic"
+            ).value = "";
+
+
+            questionsContainer.innerHTML =
+                "";
+
+
+            questionsContainer.appendChild(
+                createQuestionCard(1)
+            );
+
+
+            updateQuestionNumbers();
+
+        }
+
+
+        function renderSavedQuizzes() {
+
+            const quizzes =
+                getQuizzes();
+
+
+            savedQuizzes.innerHTML =
+                "";
+
+
+            savedQuizCount.textContent =
+                `${quizzes.length} ${
+                    quizzes.length === 1
+                        ? "quiz"
+                        : "quizzes"
+                }`;
+
+
+            if (!quizzes.length) {
+
+                savedQuizzes.innerHTML = `
+
+                    <div class="empty-quizzes">
+
+                        <strong>
+                            No quizzes yet
+                        </strong>
+
+                        <p>
+                            Your quizzes will appear here
+                            after you create them.
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            quizzes
+                .slice()
+                .reverse()
+                .forEach(
+                    function (quiz) {
+
+                        const card =
+                            document.createElement(
+                                "article"
+                            );
+
+
+                        card.className =
+                            "saved-quiz-card";
+
+
+                        card.innerHTML = `
+
+                            <div class="quiz-icon">
+                                🧠
+                            </div>
+
+                            <h3>
+                                ${escapeHTML(
+                                    quiz.title
+                                )}
+                            </h3>
+
+                            <p>
+                                ${escapeHTML(
+                                    quiz.topic ||
+                                    "Learning activity"
+                                )}
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    ${escapeHTML(
+                                        quiz.subject
+                                    )}
+                                </span>
+
+                                <span>
+                                    ${
+                                        quiz.questions.length
+                                    }
+                                    ${
+                                        quiz.questions.length === 1
+                                            ? "Question"
+                                            : "Questions"
+                                    }
+                                </span>
+
+                                <span>
+                                    +25 Tute
+                                </span>
+
+                            </div>
+
+                        `;
+
+
+                        savedQuizzes.appendChild(
+                            card
+                        );
+
+                    }
+                );
+
+        }
+
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        saveQuizButton.addEventListener(
+            "click",
+            function () {
+
+                const title =
+                    document.getElementById(
+                        "quizTitle"
+                    ).value.trim();
+
+
+                const subject =
+                    document.getElementById(
+                        "quizSubject"
+                    ).value;
+
+
+                const topic =
+                    document.getElementById(
+                        "quizTopic"
+                    ).value.trim();
+
+
+                if (!title) {
+
+                    alert(
+                        "Please enter a quiz title."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!subject) {
+
+                    alert(
+                        "Please select a subject."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!topic) {
+
+                    alert(
+                        "Please enter the quiz topic."
+                    );
+
+                    return;
+
+                }
+
+
+                const questions =
+                    collectQuestions();
+
+
+                if (!questions) {
+                    return;
+                }
+
+
+                const quizzes =
+                    getQuizzes();
+
+
+                const quiz = {
+
+                    id:
+                        `quiz_${Date.now()}`,
+
+                    title,
+
+                    subject,
+
+                    topic,
+
+                    questions,
+
+                    tutorId:
+                        currentUser.id,
+
+                    tutorName:
+                        currentUser.name ||
+                        "Tutor",
+
+                    createdAt:
+                        new Date().toISOString(),
+
+                    reward:
+                        25
+
+                };
+
+
+                quizzes.push(
+                    quiz
+                );
+
+
+                saveQuizzes(
+                    quizzes
+                );
+
+
+                renderSavedQuizzes();
+
+
+                successOverlay.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+
+        createAnother.addEventListener(
+            "click",
+            function () {
+
+                successOverlay.classList.remove(
+                    "show"
+                );
+
+                clearForm();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        const logoutButton =
+            document.querySelector(
+                "[data-logout]"
+            );
+
+
+        if (
+            logoutButton &&
+            typeof logout === "function"
+        ) {
+
+            logoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+
+        updateQuestionNumbers();
+
+        renderSavedQuizzes();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
