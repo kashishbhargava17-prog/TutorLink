@@ -62,26 +62,6 @@ function redirectByRole(role) {
 }
 
 
-/* ---------- Homepage Buttons ---------- */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const findTutorButton = document.getElementById("findTutorButton");
-    const becomeTutorButton = document.getElementById("becomeTutorButton");
-
-    if (findTutorButton) {
-        findTutorButton.addEventListener("click", function () {
-            goToLogin("student");
-        });
-    }
-
-    if (becomeTutorButton) {
-        becomeTutorButton.addEventListener("click", function () {
-            goToLogin("tutor");
-        });
-    }
-
-
     /* ---------- Login Form ---------- */
 
     const loginForm = document.getElementById("loginForm");
