@@ -1,238 +1,291 @@
-/* =========================================
+/* =========================================================
    TUTORLINK APP.JS
-   Authentication + Tutors + Search + Saves
-========================================= */
+   Main website logic
+   ========================================================= */
+
+
+/* =========================================================
+   STORAGE KEYS
+   ========================================================= */
 
 const USERS_KEY = "tutorlink_users";
 const CURRENT_USER_KEY = "tutorlink_current_user";
 const SAVED_TUTORS_KEY = "tutorlink_saved_tutors";
+const PENDING_BOOKING_KEY = "tutorlink_pending_booking";
 
 
-/* =========================================
-   TUTOR DATABASE
-========================================= */
+/* =========================================================
+   DEMO TUTORS
+   Fictional prototype data
+   ========================================================= */
 
-const tutors = [
+const TUTORS = [
 
     {
-        id: "tutor_001",
+        id: "ananya-sharma",
         name: "Ananya Sharma",
         subject: "Mathematics",
         level: "School",
         rating: 4.9,
-        reviews: 128,
+        reviews: 124,
         experience: 4,
-        sessions: 342,
+        sessions: 386,
         price: 300,
         languages: ["English", "Hindi"],
-        teachingStyle: "Concept-based and visual",
-        availability: "Mon–Fri • 4 PM–8 PM",
+        teachingStyle: "Concept-focused and interactive",
+        availability: ["Monday", "Wednesday", "Friday"],
         qualifications: "B.Sc. Mathematics",
         students: 86,
         verified: true,
-        bio: "Makes difficult mathematical concepts easier through examples, visuals and step-by-step explanations.",
-        avatar: "AS"
+        badge: "Top Rated",
+        avatar: "AS",
+        bio: "Helps students build strong mathematical foundations through simple explanations, examples and guided practice."
     },
 
     {
-        id: "tutor_002",
+        id: "aarav-mehta",
         name: "Aarav Mehta",
         subject: "Physics",
         level: "School",
         rating: 4.8,
-        reviews: 94,
+        reviews: 98,
         experience: 3,
-        sessions: 218,
+        sessions: 274,
         price: 280,
         languages: ["English", "Hindi"],
-        teachingStyle: "Practical and problem-solving",
-        availability: "Mon, Wed, Fri • 5 PM–9 PM",
-        qualifications: "B.Tech. Mechanical Engineering",
+        teachingStyle: "Visual and problem-solving based",
+        availability: ["Tuesday", "Thursday", "Saturday"],
+        qualifications: "B.Sc. Physics",
         students: 61,
         verified: true,
-        bio: "Focuses on understanding the logic behind physics instead of memorising formulas.",
-        avatar: "AM"
+        badge: "Verified Tutor",
+        avatar: "AM",
+        bio: "Makes difficult physics concepts easier using visual explanations, real-world examples and practice questions."
     },
 
     {
-        id: "tutor_003",
+        id: "riya-deshmukh",
         name: "Riya Deshmukh",
         subject: "English",
         level: "School",
         rating: 4.9,
-        reviews: 151,
+        reviews: 143,
         experience: 5,
-        sessions: 410,
+        sessions: 421,
         price: 250,
         languages: ["English", "Hindi", "Marathi"],
-        teachingStyle: "Interactive and conversational",
-        availability: "Tue–Sat • 3 PM–7 PM",
-        qualifications: "M.A. English",
+        teachingStyle: "Conversational and activity-based",
+        availability: ["Monday", "Tuesday", "Thursday"],
+        qualifications: "B.A. English Literature",
         students: 104,
         verified: true,
-        bio: "Helps students improve grammar, writing, communication and confidence through interactive lessons.",
-        avatar: "RD"
+        badge: "Top Rated",
+        avatar: "RD",
+        bio: "Focuses on communication, grammar, writing and confidence-building through practical activities."
     },
 
     {
-        id: "tutor_004",
+        id: "kabir-shah",
         name: "Kabir Shah",
         subject: "Computer Science",
         level: "College",
         rating: 4.8,
-        reviews: 76,
+        reviews: 117,
         experience: 3,
-        sessions: 196,
+        sessions: 312,
         price: 300,
         languages: ["English", "Hindi"],
-        teachingStyle: "Project-based learning",
-        availability: "Mon–Thu • 6 PM–10 PM",
-        qualifications: "B.Sc. Computer Science",
-        students: 48,
+        teachingStyle: "Hands-on and project-based",
+        availability: ["Monday", "Wednesday", "Saturday"],
+        qualifications: "B.Tech. Computer Science",
+        students: 73,
         verified: true,
-        bio: "Teaches programming and computer science through practical projects and real-world examples.",
-        avatar: "KS"
+        badge: "Experienced Tutor",
+        avatar: "KS",
+        bio: "Teaches programming and computer science through practical examples, coding exercises and mini projects."
     },
 
     {
-        id: "tutor_005",
+        id: "meera-iyer",
         name: "Meera Iyer",
         subject: "Economics",
         level: "College",
         rating: 4.7,
-        reviews: 63,
+        reviews: 89,
         experience: 6,
-        sessions: 287,
+        sessions: 348,
         price: 300,
-        languages: ["English", "Hindi", "Tamil"],
-        teachingStyle: "Discussion and case studies",
-        availability: "Mon, Tue, Thu • 5 PM–9 PM",
+        languages: ["English", "Hindi"],
+        teachingStyle: "Discussion and case-study based",
+        availability: ["Tuesday", "Thursday", "Friday"],
         qualifications: "M.A. Economics",
-        students: 72,
+        students: 68,
         verified: true,
-        bio: "Connects economic theory with everyday situations, business examples and case studies.",
-        avatar: "MI"
+        badge: "Experienced Tutor",
+        avatar: "MI",
+        bio: "Connects economics theory with current examples, business cases and easy-to-understand explanations."
     },
 
     {
-        id: "tutor_006",
+        id: "vihaan-patel",
         name: "Vihaan Patel",
         subject: "Business Studies",
         level: "College",
         rating: 4.9,
-        reviews: 87,
+        reviews: 102,
         experience: 4,
-        sessions: 251,
+        sessions: 295,
         price: 275,
         languages: ["English", "Hindi", "Gujarati"],
-        teachingStyle: "Case-based and practical",
-        availability: "Wed–Sun • 4 PM–9 PM",
+        teachingStyle: "Practical and example-driven",
+        availability: ["Monday", "Thursday", "Saturday"],
         qualifications: "BBA",
-        students: 67,
+        students: 79,
         verified: true,
-        bio: "Turns business concepts into practical case studies that students can relate to.",
-        avatar: "VP"
+        badge: "Top Rated",
+        avatar: "VP",
+        bio: "Uses real business examples and practical activities to make management and business concepts easier."
     },
 
     {
-        id: "tutor_007",
+        id: "sana-khan",
         name: "Sana Khan",
         subject: "Hindi",
         level: "School",
         rating: 4.8,
-        reviews: 112,
+        reviews: 76,
         experience: 5,
-        sessions: 329,
+        sessions: 251,
         price: 220,
-        languages: ["Hindi", "English", "Urdu"],
-        teachingStyle: "Storytelling and discussion",
-        availability: "Mon–Fri • 3 PM–7 PM",
-        qualifications: "M.A. Hindi",
-        students: 91,
+        languages: ["Hindi", "English"],
+        teachingStyle: "Storytelling and practice-based",
+        availability: ["Monday", "Wednesday", "Friday"],
+        qualifications: "B.A. Hindi",
+        students: 57,
         verified: true,
-        bio: "Uses stories, conversations and cultural context to make Hindi engaging and memorable.",
-        avatar: "SK"
+        badge: "Verified Tutor",
+        avatar: "SK",
+        bio: "Uses stories, conversations and writing practice to make Hindi engaging and easy to remember."
     },
 
     {
-        id: "tutor_008",
+        id: "arjun-nair",
         name: "Arjun Nair",
         subject: "Python",
         level: "College",
         rating: 4.9,
-        reviews: 103,
+        reviews: 135,
         experience: 3,
-        sessions: 275,
+        sessions: 364,
         price: 300,
         languages: ["English", "Hindi", "Malayalam"],
         teachingStyle: "Hands-on coding",
-        availability: "Tue–Sun • 6 PM–10 PM",
-        qualifications: "BCA",
-        students: 59,
+        availability: ["Tuesday", "Wednesday", "Saturday"],
+        qualifications: "B.Sc. Computer Science",
+        students: 91,
         verified: true,
-        bio: "Teaches Python by building small applications and gradually moving towards larger projects.",
-        avatar: "AN"
+        badge: "Top Rated",
+        avatar: "AN",
+        bio: "Helps college learners understand Python through coding exercises, debugging and small projects."
     },
 
     {
-        id: "tutor_009",
+        id: "ishita-rao",
         name: "Ishita Rao",
         subject: "Mathematics",
         level: "College",
         rating: 4.8,
-        reviews: 71,
+        reviews: 91,
         experience: 3,
-        sessions: 184,
+        sessions: 267,
         price: 260,
         languages: ["English", "Hindi"],
-        teachingStyle: "Structured and analytical",
-        availability: "Mon–Fri • 7 PM–10 PM",
-        qualifications: "B.Sc. Mathematics",
-        students: 52,
+        teachingStyle: "Step-by-step and practice-focused",
+        availability: ["Monday", "Tuesday", "Friday"],
+        qualifications: "M.Sc. Mathematics",
+        students: 63,
         verified: true,
-        bio: "Breaks complex college mathematics into manageable steps with focused practice.",
-        avatar: "IR"
+        badge: "Verified Tutor",
+        avatar: "IR",
+        bio: "Supports college students with clear step-by-step explanations and targeted problem solving."
     },
 
     {
-        id: "tutor_010",
+        id: "dev-malhotra",
         name: "Dev Malhotra",
         subject: "Computer Science",
         level: "College",
         rating: 4.7,
-        reviews: 58,
+        reviews: 84,
         experience: 4,
-        sessions: 203,
+        sessions: 289,
         price: 250,
         languages: ["English", "Hindi"],
-        teachingStyle: "Practical and project-focused",
-        availability: "Sat–Sun • 10 AM–4 PM",
-        qualifications: "B.Tech. Computer Engineering",
-        students: 44,
+        teachingStyle: "Project and practice based",
+        availability: ["Monday", "Thursday", "Saturday"],
+        qualifications: "BCA",
+        students: 70,
         verified: true,
-        bio: "Helps students understand programming fundamentals by building useful mini-projects.",
-        avatar: "DM"
+        badge: "Verified Tutor",
+        avatar: "DM",
+        bio: "Focuses on programming fundamentals, web development and practical college projects."
+    },
+
+    {
+        id: "neha-joshi",
+        name: "Neha Joshi",
+        subject: "Accounting",
+        level: "College",
+        rating: 4.8,
+        reviews: 72,
+        experience: 4,
+        sessions: 230,
+        price: 270,
+        languages: ["English", "Hindi", "Marathi"],
+        teachingStyle: "Practice and problem-solving",
+        availability: ["Tuesday", "Thursday", "Sunday"],
+        qualifications: "B.Com.",
+        students: 54,
+        verified: true,
+        badge: "Experienced Tutor",
+        avatar: "NJ",
+        bio: "Helps commerce students understand accounting concepts through worked examples and practice."
+    },
+
+    {
+        id: "rohan-kapoor",
+        name: "Rohan Kapoor",
+        subject: "Marketing",
+        level: "College",
+        rating: 4.7,
+        reviews: 65,
+        experience: 3,
+        sessions: 198,
+        price: 280,
+        languages: ["English", "Hindi"],
+        teachingStyle: "Case-study and discussion based",
+        availability: ["Wednesday", "Friday", "Sunday"],
+        qualifications: "MBA Marketing",
+        students: 48,
+        verified: true,
+        badge: "Verified Tutor",
+        avatar: "RK",
+        bio: "Uses brand examples, campaigns and real business cases to teach marketing concepts."
     }
 
 ];
 
 
-/* =========================================
-   STORAGE FUNCTIONS
-========================================= */
+/* =========================================================
+   BASIC STORAGE HELPERS
+   ========================================================= */
 
 function getUsers() {
 
     try {
-
-        return JSON.parse(
-            localStorage.getItem(USERS_KEY)
-        ) || [];
-
+        return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
     } catch (error) {
-
         return [];
-
     }
 
 }
@@ -251,15 +304,11 @@ function saveUsers(users) {
 function getCurrentUser() {
 
     try {
-
         return JSON.parse(
             localStorage.getItem(CURRENT_USER_KEY)
         );
-
     } catch (error) {
-
         return null;
-
     }
 
 }
@@ -275,75 +324,123 @@ function setCurrentUser(user) {
 }
 
 
-/* =========================================
-   SAVED TUTORS
-========================================= */
-
 function getSavedTutors() {
+
+    try {
+        return JSON.parse(
+            localStorage.getItem(SAVED_TUTORS_KEY)
+        ) || [];
+    } catch (error) {
+        return [];
+    }
+
+}
+
+
+function saveSavedTutors(tutors) {
+
+    localStorage.setItem(
+        SAVED_TUTORS_KEY,
+        JSON.stringify(tutors)
+    );
+
+}
+
+
+/* =========================================================
+   PENDING BOOKING
+   ========================================================= */
+
+function savePendingBooking(tutorId) {
+
+    localStorage.setItem(
+        PENDING_BOOKING_KEY,
+        JSON.stringify({
+            tutorId: tutorId,
+            createdAt: Date.now()
+        })
+    );
+
+}
+
+
+function getPendingBooking() {
 
     try {
 
         return JSON.parse(
-            localStorage.getItem(SAVED_TUTORS_KEY)
-        ) || [];
+            localStorage.getItem(PENDING_BOOKING_KEY)
+        );
 
     } catch (error) {
 
-        return [];
+        return null;
 
     }
 
 }
 
 
-function toggleSavedTutor(tutorId) {
+function clearPendingBooking() {
 
-    let savedTutors = getSavedTutors();
+    localStorage.removeItem(PENDING_BOOKING_KEY);
 
-    if (savedTutors.includes(tutorId)) {
-
-        savedTutors =
-            savedTutors.filter(function (id) {
-
-                return id !== tutorId;
-
-            });
-
-    } else {
-
-        savedTutors.push(tutorId);
-
-    }
-
-    localStorage.setItem(
-        SAVED_TUTORS_KEY,
-        JSON.stringify(savedTutors)
-    );
-
-    return savedTutors.includes(tutorId);
 }
 
 
-/* =========================================
-   ROLE REDIRECT
-========================================= */
+/* =========================================================
+   ROLE REDIRECTION
+   ========================================================= */
 
-function redirectByRole(role) {
+function redirectByRole(user) {
 
-    if (role === "student") {
+    if (!user) {
+
+        window.location.href = "choose-role.html?v=1020";
+        return;
+
+    }
+
+
+    /*
+       If the student was trying to book a tutor before
+       logging in, continue to that booking after login.
+    */
+
+    const pending = getPendingBooking();
+
+    if (
+        pending &&
+        user.role === "student" &&
+        pending.tutorId
+    ) {
+
+        clearPendingBooking();
 
         window.location.href =
-            "student-dashboard.html?v=1017";
+            "booking.html?id=" +
+            encodeURIComponent(pending.tutorId) +
+            "&v=1020";
 
         return;
 
     }
 
 
-    if (role === "tutor") {
+    if (user.role === "student") {
 
         window.location.href =
-            "tutor-dashboard.html?v=1017";
+            "student-dashboard.html?v=1020";
+
+        return;
+
+    }
+
+
+    if (user.role === "tutor") {
+
+        window.location.href =
+            "tutor-dashboard.html?v=1020";
 
         return;
 
@@ -351,39 +448,149 @@ function redirectByRole(role) {
 
 
     window.location.href =
-        "choose-role.html?v=1017";
+        "choose-role.html?v=1020";
 
 }
 
 
-/* =========================================
+/* =========================================================
    LOGOUT
-========================================= */
+   ========================================================= */
 
 function logout() {
 
-    localStorage.removeItem(
-        CURRENT_USER_KEY
-    );
+    localStorage.removeItem(CURRENT_USER_KEY);
 
-    window.location.href =
-        "index.html?v=1017";
+    window.location.href = "login.html?v=1020";
 
 }
 
 
-/* =========================================
-   CREATE TUTOR CARD
-========================================= */
+/* =========================================================
+   BOOK SESSION
+   ========================================================= */
 
-function createTutorCard(tutor) {
+function handleBookSession(tutorId) {
 
-    const saved =
-        getSavedTutors().includes(tutor.id);
+    const currentUser = getCurrentUser();
+
+
+    /*
+       Student already logged in:
+       go directly to booking.
+    */
+
+    if (
+        currentUser &&
+        currentUser.role === "student"
+    ) {
+
+        window.location.href =
+            "booking.html?id=" +
+            encodeURIComponent(tutorId) +
+            "&v=1020";
+
+        return;
+
+    }
+
+
+    /*
+       Tutor trying to book:
+       send them to the role-appropriate place.
+    */
+
+    if (
+        currentUser &&
+        currentUser.role === "tutor"
+    ) {
+
+        alert(
+            "Tutor accounts cannot book tutoring sessions. Please use a student account."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Nobody logged in:
+       remember the tutor and ask them to log in.
+    */
+
+    savePendingBooking(tutorId);
+
+    window.location.href =
+        "login.html?role=student&redirect=booking&id=" +
+        encodeURIComponent(tutorId) +
+        "&v=1020";
+
+}
+
+
+/* =========================================================
+   SAVE TUTOR
+   ========================================================= */
+
+function toggleSaveTutor(tutorId, button) {
+
+    let saved = getSavedTutors();
+
+    if (saved.includes(tutorId)) {
+
+        saved = saved.filter(
+            id => id !== tutorId
+        );
+
+        if (button) {
+
+            button.classList.remove("saved");
+            button.innerHTML = "♡";
+
+        }
+
+    } else {
+
+        saved.push(tutorId);
+
+        if (button) {
+
+            button.classList.add("saved");
+            button.innerHTML = "♥";
+
+        }
+
+    }
+
+    saveSavedTutors(saved);
+
+}
+
+
+/* =========================================================
+   TUTOR CARD
+   ========================================================= */
+
+function createTutorCard(
+    tutor,
+    matchReason = ""
+) {
+
+    const saved = getSavedTutors()
+        .includes(tutor.id);
+
+    const matchHTML = matchReason
+        ? `
+            <div class="tutor-match-reason">
+                <strong>Why this tutor matches</strong>
+                <span>${matchReason}</span>
+            </div>
+        `
+        : "";
 
 
     return `
-
         <article class="tutor-card">
 
             <div class="tutor-card-top">
@@ -393,10 +600,10 @@ function createTutorCard(tutor) {
                 </div>
 
                 <button
-                    class="save-tutor ${saved ? "saved" : ""}"
-                    data-save-tutor="${tutor.id}"
-                    title="Save tutor"
                     type="button"
+                    class="save-tutor ${saved ? "saved" : ""}"
+                    onclick="toggleSaveTutor('${tutor.id}', this)"
+                    aria-label="Save ${tutor.name}"
                 >
                     ${saved ? "♥" : "♡"}
                 </button>
@@ -404,105 +611,119 @@ function createTutorCard(tutor) {
             </div>
 
 
-            <h3>
-                ${tutor.name}
-            </h3>
+            <div class="tutor-card-content">
 
+                <div class="tutor-name-row">
 
-            <div class="tutor-subject">
-                ${tutor.subject}
-            </div>
+                    <h3>
+                        ${tutor.name}
+                    </h3>
 
-
-            <p class="tutor-bio">
-                ${tutor.bio}
-            </p>
-
-
-            <div class="tutor-meta">
-
-                <span class="tutor-tag">
-                    🎓 ${tutor.level}
-                </span>
-
-                <span class="tutor-tag">
-                    ${tutor.experience} years
-                </span>
-
-                <span class="tutor-tag">
-                    ${tutor.sessions} sessions
-                </span>
-
-            </div>
-
-
-            <div class="tutor-rating">
-
-                ⭐ ${tutor.rating}
-
-                <span>
-                    (${tutor.reviews} reviews)
-                </span>
-
-            </div>
-
-
-            <div class="tutor-price-row">
-
-                <div class="tutor-price">
-
-                    ₹${tutor.price}
-
-                    <small>
-                        / hour
-                    </small>
+                    ${
+                        tutor.verified
+                            ? `<span class="verified-badge">✓ Verified</span>`
+                            : ""
+                    }
 
                 </div>
 
 
-                ${
-                    tutor.verified
-                    ?
-                    `<span class="verified-badge">
-                        ✓ VERIFIED
-                    </span>`
-                    :
-                    ""
-                }
-
-            </div>
+                <p class="tutor-subject">
+                    ${tutor.subject}
+                </p>
 
 
-            <div class="tutor-card-actions">
+                <p class="tutor-bio">
+                    ${tutor.bio}
+                </p>
 
-                <a
-                    href="tutor-profile.html?id=${tutor.id}"
-                    class="view-profile"
-                >
-                    View Profile
-                </a>
 
-                <a
-                    href="login.html?role=student"
-                    class="book-tutor"
-                >
-                    Book Session
-                </a>
+                <div class="tutor-meta">
+
+                    <span>
+                        🎓 ${tutor.level}
+                    </span>
+
+                    <span>
+                        💼 ${tutor.experience} yrs
+                    </span>
+
+                    <span>
+                        👥 ${tutor.students} students
+                    </span>
+
+                </div>
+
+
+                <div class="tutor-rating">
+
+                    <strong>
+                        ⭐ ${tutor.rating}
+                    </strong>
+
+                    <span>
+                        (${tutor.reviews} reviews)
+                    </span>
+
+                </div>
+
+
+                <div class="tutor-card-bottom">
+
+                    <div class="tutor-price">
+
+                        <strong>
+                            ₹${tutor.price}
+                        </strong>
+
+                        <span>
+                            / hour
+                        </span>
+
+                    </div>
+
+                    <span class="tutor-badge">
+                        ${tutor.badge}
+                    </span>
+
+                </div>
+
+
+                ${matchHTML}
+
+
+                <div class="tutor-card-actions">
+
+                    <a
+                        href="tutor-profile.html?id=${encodeURIComponent(tutor.id)}&v=1020"
+                        class="btn-secondary"
+                    >
+                        View Profile
+                    </a>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="handleBookSession('${tutor.id}')"
+                    >
+                        Book Session
+                    </button>
+
+                </div>
 
             </div>
 
         </article>
-
     `;
 
 }
 
 
-/* =========================================
+/* =========================================================
    RENDER TUTORS
-========================================= */
+   ========================================================= */
 
-function renderTutors(tutorList) {
+function renderTutors(tutors = TUTORS) {
 
     const grid =
         document.getElementById("tutorGrid");
@@ -519,19 +740,397 @@ function renderTutors(tutorList) {
     }
 
 
-    grid.innerHTML = "";
+    if (count) {
+
+        count.textContent =
+            `${tutors.length} tutor${tutors.length === 1 ? "" : "s"} found`;
+
+    }
 
 
-    if (tutorList.length === 0) {
+    if (!tutors.length) {
+
+        grid.innerHTML = "";
 
         if (empty) {
             empty.style.display = "block";
         }
 
-        if (count) {
-            count.textContent =
-                "No tutors match your search.";
+        return;
+
+    }
+
+
+    if (empty) {
+        empty.style.display = "none";
+    }
+
+
+    grid.innerHTML = tutors
+        .map(tutor => createTutorCard(tutor))
+        .join("");
+
+}
+
+
+/* =========================================================
+   NORMAL SEARCH + FILTER
+   ========================================================= */
+
+function filterTutors() {
+
+    const searchInput =
+        document.getElementById("tutorSearch");
+
+    const subjectFilter =
+        document.getElementById("subjectFilter");
+
+    const levelFilter =
+        document.getElementById("levelFilter");
+
+    const ratingFilter =
+        document.getElementById("ratingFilter");
+
+    const priceFilter =
+        document.getElementById("priceFilter");
+
+
+    const search =
+        searchInput
+            ? searchInput.value.trim().toLowerCase()
+            : "";
+
+
+    const subject =
+        subjectFilter
+            ? subjectFilter.value
+            : "";
+
+
+    const level =
+        levelFilter
+            ? levelFilter.value
+            : "";
+
+
+    const rating =
+        ratingFilter
+            ? ratingFilter.value
+            : "";
+
+
+    const price =
+        priceFilter
+            ? priceFilter.value
+            : "";
+
+
+    const results = TUTORS.filter(tutor => {
+
+        const matchesSearch =
+            !search ||
+            tutor.name.toLowerCase().includes(search) ||
+            tutor.subject.toLowerCase().includes(search) ||
+            tutor.bio.toLowerCase().includes(search);
+
+
+        const matchesSubject =
+            !subject ||
+            tutor.subject === subject;
+
+
+        const matchesLevel =
+            !level ||
+            tutor.level === level;
+
+
+        const matchesRating =
+            !rating ||
+            tutor.rating >= Number(rating);
+
+
+        let matchesPrice = true;
+
+
+        if (price === "under-250") {
+
+            matchesPrice =
+                tutor.price < 250;
+
+        } else if (price === "250-300") {
+
+            matchesPrice =
+                tutor.price >= 250 &&
+                tutor.price <= 300;
+
+        } else if (price === "300-plus") {
+
+            matchesPrice =
+                tutor.price >= 300;
+
         }
+
+
+        return (
+            matchesSearch &&
+            matchesSubject &&
+            matchesLevel &&
+            matchesRating &&
+            matchesPrice
+        );
+
+    });
+
+
+    renderTutors(results);
+
+}
+
+
+/* =========================================================
+   TUTORMATCH
+   Recommends 2–3 tutors
+   ========================================================= */
+
+function getTutorMatchRecommendations() {
+
+    const subjectFilter =
+        document.getElementById("subjectFilter");
+
+    const levelFilter =
+        document.getElementById("levelFilter");
+
+    const priceFilter =
+        document.getElementById("priceFilter");
+
+
+    const subject =
+        subjectFilter
+            ? subjectFilter.value
+            : "";
+
+
+    const level =
+        levelFilter
+            ? levelFilter.value
+            : "";
+
+
+    const price =
+        priceFilter
+            ? priceFilter.value
+            : "";
+
+
+    /*
+       If nothing has been selected,
+       show a useful mixed recommendation.
+    */
+
+    let candidates = TUTORS.map(tutor => {
+
+        let score = 0;
+        const reasons = [];
+
+
+        if (subject) {
+
+            if (tutor.subject === subject) {
+
+                score += 50;
+
+                reasons.push(
+                    `teaches ${subject}`
+                );
+
+            }
+
+        }
+
+
+        if (level) {
+
+            if (tutor.level === level) {
+
+                score += 30;
+
+                reasons.push(
+                    `${level}-level tutor`
+                );
+
+            }
+
+        }
+
+
+        if (price === "under-250") {
+
+            if (tutor.price < 250) {
+
+                score += 15;
+
+                reasons.push(
+                    "fits your budget"
+                );
+
+            }
+
+        }
+
+
+        if (price === "250-300") {
+
+            if (
+                tutor.price >= 250 &&
+                tutor.price <= 300
+            ) {
+
+                score += 15;
+
+                reasons.push(
+                    "fits your budget"
+                );
+
+            }
+
+        }
+
+
+        if (price === "300-plus") {
+
+            if (tutor.price >= 300) {
+
+                score += 15;
+
+                reasons.push(
+                    "fits your budget"
+                );
+
+            }
+
+        }
+
+
+        /*
+           Strong tutors get a small quality bonus.
+        */
+
+        score += tutor.rating * 3;
+
+        if (tutor.rating >= 4.8) {
+
+            reasons.push(
+                "highly rated"
+            );
+
+        }
+
+
+        if (tutor.verified) {
+
+            score += 3;
+
+            reasons.push(
+                "verified"
+            );
+
+        }
+
+
+        return {
+            tutor,
+            score,
+            reasons
+        };
+
+    });
+
+
+    candidates.sort(
+        (a, b) => b.score - a.score
+    );
+
+
+    /*
+       Prefer exact matches first.
+       Then fill to at least 3 recommendations
+       when possible.
+    */
+
+    let recommendations =
+        candidates.slice(0, 3);
+
+
+    /*
+       If a specific subject was selected,
+       make sure we prioritize subject matches.
+    */
+
+    if (subject) {
+
+        const subjectMatches =
+            candidates.filter(
+                item =>
+                    item.tutor.subject === subject
+            );
+
+
+        if (subjectMatches.length >= 3) {
+
+            recommendations =
+                subjectMatches.slice(0, 3);
+
+        } else if (subjectMatches.length > 0) {
+
+            const combined = [
+                ...subjectMatches,
+                ...candidates.filter(
+                    item =>
+                        item.tutor.subject !== subject
+                )
+            ];
+
+            recommendations =
+                combined.slice(0, 3);
+
+        }
+
+    }
+
+
+    return recommendations;
+
+}
+
+
+/* =========================================================
+   RENDER TUTORMATCH RESULTS
+   ========================================================= */
+
+function renderTutorMatch() {
+
+    const grid =
+        document.getElementById("tutorGrid");
+
+    const empty =
+        document.getElementById("emptyTutors");
+
+    const count =
+        document.getElementById("tutorResultCount");
+
+
+    if (!grid) {
+        return;
+    }
+
+
+    const recommendations =
+        getTutorMatchRecommendations();
+
+
+    if (!recommendations.length) {
+
+        renderTutors([]);
 
         return;
 
@@ -546,225 +1145,75 @@ function renderTutors(tutorList) {
     if (count) {
 
         count.textContent =
-            `Showing ${tutorList.length} tutor${tutorList.length === 1 ? "" : "s"}`;
+            `${recommendations.length} recommended tutors`;
 
     }
 
 
-    tutorList.forEach(function (tutor) {
+    grid.innerHTML =
+        recommendations
+            .map(item => {
 
-        grid.insertAdjacentHTML(
-            "beforeend",
-            createTutorCard(tutor)
-        );
-
-    });
+                let reason =
+                    item.reasons.slice(0, 3).join(" • ");
 
 
-    /* Attach Save buttons */
+                if (!reason) {
 
-    document
-        .querySelectorAll("[data-save-tutor]")
-        .forEach(function (button) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    const tutorId =
-                        button.dataset.saveTutor;
-
-
-                    const nowSaved =
-                        toggleSavedTutor(tutorId);
-
-
-                    button.classList.toggle(
-                        "saved",
-                        nowSaved
-                    );
-
-
-                    button.textContent =
-                        nowSaved ? "♥" : "♡";
+                    reason =
+                        "Strong overall TutorLink match";
 
                 }
-            );
-
-        });
-
-}
 
 
-/* =========================================
-   FILTER TUTORS
-========================================= */
+                return createTutorCard(
+                    item.tutor,
+                    reason
+                );
 
-function filterTutors() {
-
-    const searchInput =
-        document.getElementById("tutorSearch");
-
-    const subjectInput =
-        document.getElementById("subjectFilter");
-
-    const levelInput =
-        document.getElementById("levelFilter");
-
-    const ratingInput =
-        document.getElementById("ratingFilter");
-
-    const priceInput =
-        document.getElementById("priceFilter");
-
-
-    if (
-        !searchInput ||
-        !subjectInput ||
-        !levelInput ||
-        !ratingInput ||
-        !priceInput
-    ) {
-
-        return;
-
-    }
-
-
-    const search =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-
-    const subject =
-        subjectInput.value;
-
-
-    const level =
-        levelInput.value;
-
-
-    const rating =
-        ratingInput.value;
-
-
-    const price =
-        priceInput.value;
-
-
-    const filtered =
-        tutors.filter(function (tutor) {
-
-
-            const searchableText = [
-
-                tutor.name,
-
-                tutor.subject,
-
-                tutor.level,
-
-                tutor.teachingStyle,
-
-                tutor.qualifications,
-
-                tutor.languages.join(" ")
-
-            ]
-                .join(" ")
-                .toLowerCase();
-
-
-            const matchesSearch =
-                !search ||
-                searchableText.includes(search);
-
-
-            const matchesSubject =
-                subject === "all" ||
-                tutor.subject === subject;
-
-
-            const matchesLevel =
-                level === "all" ||
-                tutor.level === level;
-
-
-            const matchesRating =
-                rating === "all" ||
-                tutor.rating >= Number(rating);
-
-
-            const matchesPrice =
-                price === "all" ||
-                tutor.price <= Number(price);
-
-
-            return (
-                matchesSearch &&
-                matchesSubject &&
-                matchesLevel &&
-                matchesRating &&
-                matchesPrice
-            );
-
-        });
-
-
-    renderTutors(filtered);
+            })
+            .join("");
 
 }
 
 
-/* =========================================
+/* =========================================================
    LOGIN
-========================================= */
+   ========================================================= */
 
 function initializeLogin() {
 
-    const loginForm =
+    const form =
         document.getElementById("loginForm");
 
-
-    if (!loginForm) {
+    if (!form) {
         return;
     }
 
 
-    loginForm.addEventListener(
+    form.addEventListener(
         "submit",
-        function (event) {
+        function(event) {
 
             event.preventDefault();
 
 
-            const emailInput =
-                document.getElementById(
-                    "loginEmail"
-                );
-
-
-            const passwordInput =
-                document.getElementById(
-                    "loginPassword"
-                );
-
-
-            const message =
-                document.getElementById(
-                    "loginMessage"
-                );
-
-
             const email =
-                emailInput.value
+                document
+                    .getElementById("loginEmail")
+                    ?.value
                     .trim()
                     .toLowerCase();
 
 
             const password =
-                passwordInput.value;
+                document
+                    .getElementById("loginPassword")
+                    ?.value;
+
+
+            const message =
+                document.getElementById("loginMessage");
 
 
             const users =
@@ -773,24 +1222,23 @@ function initializeLogin() {
 
             const user =
                 users.find(
-                    function (account) {
-
-                        return (
-                            account.email === email &&
-                            account.password === password
-                        );
-
-                    }
+                    item =>
+                        item.email.toLowerCase() === email &&
+                        item.password === password
                 );
 
 
             if (!user) {
 
-                message.textContent =
-                    "Email or password is incorrect.";
+                if (message) {
 
-                message.className =
-                    "auth-message error";
+                    message.textContent =
+                        "Incorrect email or password.";
+
+                    message.className =
+                        "auth-message error";
+
+                }
 
                 return;
 
@@ -800,22 +1248,20 @@ function initializeLogin() {
             setCurrentUser(user);
 
 
-            message.textContent =
-                "Login successful! Opening your dashboard...";
+            if (message) {
 
-            message.className =
-                "auth-message success";
+                message.textContent =
+                    "Login successful!";
+
+                message.className =
+                    "auth-message success";
+
+            }
 
 
             setTimeout(
-                function () {
-
-                    redirectByRole(
-                        user.role
-                    );
-
-                },
-                300
+                () => redirectByRole(user),
+                250
             );
 
         }
@@ -824,125 +1270,80 @@ function initializeLogin() {
 }
 
 
-/* =========================================
+/* =========================================================
    SIGN UP
-========================================= */
+   ========================================================= */
 
 function initializeSignup() {
 
-    const signupForm =
-        document.getElementById(
-            "signupForm"
-        );
+    const form =
+        document.getElementById("signupForm");
 
-
-    if (!signupForm) {
+    if (!form) {
         return;
     }
 
 
-    signupForm.addEventListener(
+    form.addEventListener(
         "submit",
-        function (event) {
+        function(event) {
 
             event.preventDefault();
 
 
             const name =
                 document
-                    .getElementById(
-                        "signupName"
-                    )
-                    .value
+                    .getElementById("signupName")
+                    ?.value
                     .trim();
 
 
             const email =
                 document
-                    .getElementById(
-                        "signupEmail"
-                    )
-                    .value
+                    .getElementById("signupEmail")
+                    ?.value
                     .trim()
                     .toLowerCase();
 
 
             const password =
                 document
-                    .getElementById(
-                        "signupPassword"
-                    )
-                    .value;
+                    .getElementById("signupPassword")
+                    ?.value;
 
 
             const role =
                 document
-                    .getElementById(
-                        "signupRole"
-                    )
-                    .value;
+                    .getElementById("signupRole")
+                    ?.value;
 
 
             const message =
-                document.getElementById(
-                    "signupMessage"
-                );
-
-
-            if (
-                !name ||
-                !email ||
-                !password ||
-                !role
-            ) {
-
-                message.textContent =
-                    "Please fill in all fields.";
-
-                message.className =
-                    "auth-message error";
-
-                return;
-
-            }
-
-
-            if (password.length < 6) {
-
-                message.textContent =
-                    "Password must contain at least 6 characters.";
-
-                message.className =
-                    "auth-message error";
-
-                return;
-
-            }
+                document.getElementById("signupMessage");
 
 
             const users =
                 getUsers();
 
 
-            const existingUser =
+            const existing =
                 users.find(
-                    function (account) {
-
-                        return (
-                            account.email === email
-                        );
-
-                    }
+                    user =>
+                        user.email.toLowerCase() === email
                 );
 
 
-            if (existingUser) {
+            if (existing) {
 
-                message.textContent =
-                    "An account with this email already exists.";
+                if (message) {
 
-                message.className =
-                    "auth-message error";
+                    message.textContent =
+                        "An account with this email already exists.";
+
+                    message.className =
+                        "auth-message error";
+
+                }
 
                 return;
 
@@ -955,28 +1356,10 @@ function initializeSignup() {
                     "user_" +
                     Date.now(),
 
-                name: name,
-
-                email: email,
-
-                password: password,
-
-                role: role,
-
-                tute: 0,
-
-                classesRemaining: 0,
-
-                savedTutors: [],
-
-                bookings: [],
-
-                quizResults: [],
-
-                reviews: [],
-
-                createdAt:
-                    new Date().toISOString()
+                name,
+                email,
+                password,
+                role
 
             };
 
@@ -988,19 +1371,19 @@ function initializeSignup() {
             setCurrentUser(newUser);
 
 
-            message.textContent =
-                "Account created! Opening your dashboard...";
+            if (message) {
 
-            message.className =
-                "auth-message success";
+                message.textContent =
+                    "Account created successfully!";
+
+                message.className =
+                    "auth-message success";
+
+            }
 
 
             setTimeout(
-                function () {
-
-                    redirectByRole(role);
-
-                },
+                () => redirectByRole(newUser),
                 300
             );
 
@@ -1010,38 +1393,27 @@ function initializeSignup() {
 }
 
 
-/* =========================================
+/* =========================================================
    ROLE SELECTION
-========================================= */
+   ========================================================= */
 
 function initializeRoleSelection() {
 
-    const studentRoleButton =
-        document.getElementById(
-            "studentRoleButton"
-        );
+    const studentButton =
+        document.getElementById("studentRoleButton");
+
+    const tutorButton =
+        document.getElementById("tutorRoleButton");
 
 
-    const tutorRoleButton =
-        document.getElementById(
-            "tutorRoleButton"
-        );
+    if (studentButton) {
 
-
-    if (studentRoleButton) {
-
-        studentRoleButton.addEventListener(
+        studentButton.addEventListener(
             "click",
-            function () {
-
-                localStorage.setItem(
-                    "tutorlink_selected_role",
-                    "student"
-                );
-
+            () => {
 
                 window.location.href =
-                    "signup.html?v=1017";
+                    "login.html?role=student";
 
             }
         );
@@ -1049,20 +1421,14 @@ function initializeRoleSelection() {
     }
 
 
-    if (tutorRoleButton) {
+    if (tutorButton) {
 
-        tutorRoleButton.addEventListener(
+        tutorButton.addEventListener(
             "click",
-            function () {
-
-                localStorage.setItem(
-                    "tutorlink_selected_role",
-                    "tutor"
-                );
-
+            () => {
 
                 window.location.href =
-                    "signup.html?v=1017";
+                    "login.html?role=tutor";
 
             }
         );
@@ -1072,84 +1438,124 @@ function initializeRoleSelection() {
 }
 
 
-/* =========================================
-   USER NAME
-========================================= */
+/* =========================================================
+   USER NAME DISPLAY
+   ========================================================= */
 
 function initializeUserNames() {
 
-    const currentUser =
+    const user =
         getCurrentUser();
 
 
-    document
-        .querySelectorAll(
+    if (!user) {
+        return;
+    }
+
+
+    const nameElements =
+        document.querySelectorAll(
             "[data-user-name]"
-        )
-        .forEach(function (element) {
+        );
 
-            if (currentUser) {
 
-                element.textContent =
-                    currentUser.name;
+    nameElements.forEach(
+        element => {
 
-            }
+            element.textContent =
+                user.name || "Learner";
 
-        });
+        }
+    );
+
+
+    const firstNameElements =
+        document.querySelectorAll(
+            "[data-user-first-name]"
+        );
+
+
+    firstNameElements.forEach(
+        element => {
+
+            element.textContent =
+                (user.name || "Learner")
+                    .split(" ")[0];
+
+        }
+    );
 
 }
 
 
-/* =========================================
+/* =========================================================
    LOGOUT BUTTONS
-========================================= */
+   ========================================================= */
 
 function initializeLogoutButtons() {
 
-    document
-        .querySelectorAll(
+    const buttons =
+        document.querySelectorAll(
             "[data-logout]"
-        )
-        .forEach(function (button) {
+        );
+
+
+    buttons.forEach(
+        button => {
 
             button.addEventListener(
                 "click",
                 logout
             );
 
-        });
+        }
+    );
 
 }
 
 
-/* =========================================
+/* =========================================================
    TUTOR PAGE
-========================================= */
+   ========================================================= */
 
 function initializeTutorPage() {
 
-    const tutorGrid =
-        document.getElementById(
-            "tutorGrid"
-        );
+    const grid =
+        document.getElementById("tutorGrid");
 
-
-    if (!tutorGrid) {
+    if (!grid) {
         return;
     }
 
 
-    /* Show all tutors initially */
-
-    renderTutors(tutors);
-
-
-    /* Search button */
+    const search =
+        document.getElementById("tutorSearch");
 
     const searchButton =
-        document.getElementById(
-            "searchTutorsButton"
+        document.getElementById("searchTutorsButton");
+
+    const tutorMatchButton =
+        document.getElementById("tutorMatchButton");
+
+    const filters = [
+        "subjectFilter",
+        "levelFilter",
+        "ratingFilter",
+        "priceFilter"
+    ];
+
+
+    renderTutors();
+
+
+    if (search) {
+
+        search.addEventListener(
+            "input",
+            filterTutors
         );
+
+    }
 
 
     if (searchButton) {
@@ -1162,46 +1568,15 @@ function initializeTutorPage() {
     }
 
 
-    /* Live search */
+    filters.forEach(
+        id => {
 
-    const searchInput =
-        document.getElementById(
-            "tutorSearch"
-        );
-
-
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            filterTutors
-        );
-
-    }
-
-
-    /* Filters */
-
-    const filterIds = [
-
-        "subjectFilter",
-        "levelFilter",
-        "ratingFilter",
-        "priceFilter"
-
-    ];
-
-
-    filterIds.forEach(
-        function (id) {
-
-            const filter =
+            const element =
                 document.getElementById(id);
 
+            if (element) {
 
-            if (filter) {
-
-                filter.addEventListener(
+                element.addEventListener(
                     "change",
                     filterTutors
                 );
@@ -1211,16 +1586,55 @@ function initializeTutorPage() {
         }
     );
 
+
+    if (tutorMatchButton) {
+
+        tutorMatchButton.addEventListener(
+            "click",
+            renderTutorMatch
+        );
+
+    }
+
 }
 
 
-/* =========================================
-   PAGE START
-========================================= */
+/* =========================================================
+   TUTOR PROFILE HELPERS
+   ========================================================= */
+
+function getTutorFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const tutorId =
+        params.get("id");
+
+
+    if (!tutorId) {
+        return null;
+    }
+
+
+    return TUTORS.find(
+        tutor =>
+            tutor.id === tutorId
+    ) || null;
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    function() {
 
         initializeLogin();
 
