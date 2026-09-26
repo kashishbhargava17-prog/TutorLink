@@ -14,7 +14,1402 @@
         name="description"
         content="TutorLink Student Dashboard — Manage classes, learning progress, tutors and Tute."
     >
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="TutorLink Student Dashboard — Manage classes, learning progress, tutors and Tute."
+    >
+
+    <title>Student Dashboard | TutorLink</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Styles -->
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+
+
+    <style>
+
+        /* =====================================================
+           STUDENT DASHBOARD
+        ====================================================== */
+
+        .dashboard-page {
+            min-height: calc(100vh - 82px);
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(139, 92, 246, 0.08),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(34, 211, 238, 0.07),
+                    transparent 28%
+                ),
+                #f8fafc;
+
+            padding: 42px 0 70px;
+        }
+
+        .dashboard-container {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* =====================================================
+           DASHBOARD TOP
+        ====================================================== */
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+            margin-bottom: 32px;
+        }
+
+        .dashboard-eyebrow {
+            display: inline-block;
+            color: #5b4bff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-top h1 {
+            font-family: "Poppins", sans-serif;
+            color: #0f172a;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 9px;
+        }
+
+        .dashboard-top p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .profile-chip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.06);
+        }
+
+        .profile-avatar {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b4bff,
+                    #8b5cf6
+                );
+            color: white;
+            font-weight: 800;
+        }
+
+        .profile-info strong {
+            display: block;
+            color: #0f172a;
+            font-size: 0.9rem;
+        }
+
+        .profile-info span {
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+
+        /* =====================================================
+           STAT CARDS
+        ====================================================== */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 23px;
+            box-shadow:
+                0 10px 30px rgba(15, 23, 42, 0.055);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 15px 35px rgba(91, 75, 255, 0.10);
+        }
+
+        .stat-icon {
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            font-size: 20px;
+            margin-bottom: 17px;
+        }
+
+        .icon-purple {
+            background: rgba(91, 75, 255, 0.11);
+        }
+
+        .icon-cyan {
+            background: rgba(34, 211, 238, 0.12);
+        }
+
+        .icon-pink {
+            background: rgba(236, 72, 153, 0.11);
+        }
+
+        .icon-green {
+            background: rgba(34, 197, 94, 0.11);
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.82rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            color: #0f172a;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
+        }
+
+        .stat-sub {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        /* =====================================================
+           MAIN DASHBOARD GRID
+        ====================================================== */
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.5fr)
+                minmax(280px, 0.8fr);
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 25px;
+            box-shadow:
+                0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .card-heading h2 {
+            color: #0f172a;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.15rem;
+        }
+
+        .card-link {
+            color: #5b4bff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           UPCOMING CLASS
+        ====================================================== */
+
+        .class-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 19px;
+            border-radius: 17px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(91, 75, 255, 0.07),
+                    rgba(139, 92, 246, 0.04)
+                );
+            border: 1px solid rgba(91, 75, 255, 0.12);
+        }
+
+        .class-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tutor-avatar {
+            width: 53px;
+            height: 53px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b5cf6,
+                    #ec4899
+                );
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .class-details strong {
+            display: block;
+            color: #0f172a;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .class-details span {
+            display: block;
+            color: #64748b;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .join-button {
+            border: none;
+            border-radius: 11px;
+            padding: 11px 16px;
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b4bff,
+                    #8b5cf6
+                );
+            font-weight: 800;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /* =====================================================
+           LEARNING ACTIVITY
+        ====================================================== */
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 13px;
+            border-radius: 14px;
+            background: #f8fafc;
+        }
+
+        .activity-icon {
+            width: 39px;
+            height: 39px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: rgba(91, 75, 255, 0.10);
+            flex-shrink: 0;
+        }
+
+        .activity-info {
+            flex: 1;
+        }
+
+        .activity-info strong {
+            display: block;
+            color: #334155;
+            font-size: 0.83rem;
+            margin-bottom: 3px;
+        }
+
+        .activity-info span {
+            color: #94a3b8;
+            font-size: 0.72rem;
+        }
+
+        .activity-score {
+            color: #5b4bff;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        /* =====================================================
+           TUTE CARD
+        ====================================================== */
+
+        .tute-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #5b4bff,
+                    #8b5cf6 60%,
+                    #ec4899
+                );
+            border: none;
+            color: white;
+        }
+
+        .tute-card .card-heading h2 {
+            color: white;
+        }
+
+        .tute-number {
+            font-family: "Poppins", sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 7px;
+        }
+
+        .tute-card p {
+            color: rgba(255,255,255,0.78);
+            font-size: 0.78rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .reward-link {
+            display: inline-block;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           PROGRESS
+        ====================================================== */
+
+        .progress-block {
+            margin-bottom: 22px;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 9px;
+        }
+
+        .progress-top span:first-child {
+            color: #475569;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .progress-top span:last-child {
+            color: #5b4bff;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .progress-bar {
+            height: 9px;
+            background: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 84%;
+            height: 100%;
+            border-radius: 99px;
+            background:
+                linear-gradient(
+                    90deg,
+                    #5b4bff,
+                    #8b5cf6
+                );
+        }
+
+        /* =====================================================
+           QUICK ACTIONS
+        ====================================================== */
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .quick-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 100px;
+            padding: 15px;
+            border-radius: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .quick-action:hover {
+            transform: translateY(-3px);
+            border-color: #c4b5fd;
+            background: #faf9ff;
+        }
+
+        .quick-action-icon {
+            font-size: 22px;
+        }
+
+        .quick-action span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* =====================================================
+           SAVED TUTORS
+        ====================================================== */
+
+        .tutor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mini-tutor {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 12px;
+            border-radius: 14px;
+            background: #f8fafc;
+        }
+
+        .mini-avatar {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #22d3ee,
+                    #5b4bff
+                );
+            color: white;
+            font-weight: 800;
+        }
+
+        .mini-tutor-info {
+            flex: 1;
+        }
+
+        .mini-tutor-info strong {
+            display: block;
+            color: #334155;
+            font-size: 0.82rem;
+        }
+
+        .mini-tutor-info span {
+            color: #94a3b8;
+            font-size: 0.7rem;
+        }
+
+        .rating {
+            color: #f59e0b;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 1000px) {
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .dashboard-page {
+                padding-top: 30px;
+            }
+
+            .dashboard-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .profile-chip {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .class-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .join-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .dashboard-container {
+                width: min(
+                    100% - 24px,
+                    1200px
+                );
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-card {
+                padding: 19px;
+            }
+
+            .dashboard-top h1 {
+                font-size: 2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="dashboard-body">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- TutorLink Brand -->
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="TutorLink home"
+            >
+
+                <span class="brand-icon">T</span>
+
+                <span class="brand-text">
+                    TutorLink
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                aria-label="Main navigation"
+            >
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a
+                    href="student-dashboard.html"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+
+                <a href="learn.html">
+                    Learn
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    type="button"
+                    class="btn-login"
+                    data-logout
+                >
+                    Log Out
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-page">
+
+        <div class="dashboard-container">
+
+
+            <!-- TOP -->
+
+            <section class="dashboard-top">
+
+                <div>
+
+                    <span class="dashboard-eyebrow">
+                        STUDENT DASHBOARD
+                    </span>
+
+                    <h1>
+                        Good evening,
+                        <span data-user-name>
+                            Student
+                        </span>
+                        👋
+                    </h1>
+
+                    <p>
+                        Keep learning, track your progress,
+                        and make your next step count.
+                    </p>
+
+                </div>
+
+
+                <div class="profile-chip">
+
+                    <div class="profile-avatar">
+                        🎓
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong data-user-name>
+                            Student
+                        </strong>
+
+                        <span>
+                            Student account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATS
+            ================================================== -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon icon-purple">
+                        📚
+                    </div>
+
+                    <div class="stat-label">
+                        Classes Remaining
+                    </div>
+
+                    <div class="stat-value">
+                        8 / 12
+                    </div>
+
+                    <div class="stat-sub">
+                        Focused Plan
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon icon-pink">
+                        ✦
+                    </div>
+
+                    <div class="stat-label">
+                        Tute Balance
+                    </div>
+
+                    <div class="stat-value">
+                        275
+                    </div>
+
+                    <div class="stat-sub">
+                        Learning rewards
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon icon-cyan">
+                        📈
+                    </div>
+
+                    <div class="stat-label">
+                        Learning Progress
+                    </div>
+
+                    <div class="stat-value">
+                        84%
+                    </div>
+
+                    <div class="stat-sub">
+                        This month
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon icon-green">
+                        🏆
+                    </div>
+
+                    <div class="stat-label">
+                        Sessions Completed
+                    </div>
+
+                    <div class="stat-value">
+                        24
+                    </div>
+
+                    <div class="stat-sub">
+                        Keep going!
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MAIN GRID
+            ================================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- UPCOMING CLASS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <h2>
+                            Upcoming Class
+                        </h2>
+
+                        <a
+                            href="bookings.html"
+                            class="card-link"
+                        >
+                            View all
+                        </a>
+
+                    </div>
+
+
+                    <div class="class-card">
+
+                        <div class="class-left">
+
+                            <div class="tutor-avatar">
+                                AS
+                            </div>
+
+                            <div class="class-details">
+
+                                <strong>
+                                    Mathematics with Ananya Sharma
+                                </strong>
+
+                                <span>
+                                    📅 Today • 6:00 PM – 7:00 PM
+                                </span>
+
+                                <span>
+                                    📘 Quadratic Equations
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="virtual-classroom.html"
+                            class="join-button"
+                        >
+                            JOIN SESSION
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TUTE -->
+
+                <div class="dashboard-card tute-card">
+
+                    <div class="card-heading">
+
+                        <h2>
+                            Your Tute
+                        </h2>
+
+                        <span>
+                            ✦
+                        </span>
+
+                    </div>
+
+
+                    <div class="tute-number">
+                        275
+                    </div>
+
+                    <p>
+                        Earn Tute by learning, completing quizzes,
+                        attending sessions and sharing useful feedback.
+                    </p>
+
+
+                    <a
+                        href="rewards.html"
+                        class="reward-link"
+                    >
+                        View rewards →
+                    </a>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 SECOND GRID
+            ================================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- LEARNING ACTIVITY -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <h2>
+                            Learning Activity
+                        </h2>
+
+                        <a
+                            href="learn.html"
+                            class="card-link"
+                        >
+                            Explore learning
+                        </a>
+
+                    </div>
+
+
+                    <div class="activity-list">
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                🧮
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Quadratic Equations — Quick Check
+                                </strong>
+
+                                <span>
+                                    Completed today
+                                </span>
+
+                            </div>
+
+                            <div class="activity-score">
+                                4 / 5
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                📖
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Functions & Graphs
+                                </strong>
+
+                                <span>
+                                    Lesson completed yesterday
+                                </span>
+
+                            </div>
+
+                            <div class="activity-score">
+                                82%
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon">
+                                ✦
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    +25 Tute earned
+                                </strong>
+
+                                <span>
+                                    Quiz completion reward
+                                </span>
+
+                            </div>
+
+                            <div class="activity-score">
+                                +25
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <h2>
+                            My Progress
+                        </h2>
+
+                    </div>
+
+
+                    <div class="progress-block">
+
+                        <div class="progress-top">
+
+                            <span>
+                                Overall learning
+                            </span>
+
+                            <span>
+                                84%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="progress-fill"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-block">
+
+                        <div class="progress-top">
+
+                            <span>
+                                Mathematics
+                            </span>
+
+                            <span>
+                                91%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill"
+                                style="width:91%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-block">
+
+                        <div class="progress-top">
+
+                            <span>
+                                Physics
+                            </span>
+
+                            <span>
+                                76%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-fill"
+                                style="width:76%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="dashboard-card">
+
+                <div class="card-heading">
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="tutors.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon">
+                            🔎
+                        </div>
+
+                        <span>
+                            Find a Tutor
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="bookings.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon">
+                            📅
+                        </div>
+
+                        <span>
+                            My Bookings
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="saved.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon">
+                            ❤️
+                        </div>
+
+                        <span>
+                            Saved Tutors
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="student-profile.html"
+                        class="quick-action"
+                    >
+
+                        <div class="quick-action-icon">
+                            👤
+                        </div>
+
+                        <span>
+                            My Profile
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SAVED / RECOMMENDED TUTORS
+            ================================================== -->
+
+            <section
+                class="dashboard-card"
+                style="margin-top:22px;"
+            >
+
+                <div class="card-heading">
+
+                    <h2>
+                        Recommended Tutors
+                    </h2>
+
+                    <a
+                        href="tutors.html"
+                        class="card-link"
+                    >
+                        See all tutors
+                    </a>
+
+                </div>
+
+
+                <div class="tutor-list">
+
+
+                    <div class="mini-tutor">
+
+                        <div class="mini-avatar">
+                            AS
+                        </div>
+
+                        <div class="mini-tutor-info">
+
+                            <strong>
+                                Ananya Sharma
+                            </strong>
+
+                            <span>
+                                Mathematics • School
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★ 4.9
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-tutor">
+
+                        <div class="mini-avatar">
+                            AM
+                        </div>
+
+                        <div class="mini-tutor-info">
+
+                            <strong>
+                                Aarav Mehta
+                            </strong>
+
+                            <span>
+                                Physics • School / College
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★ 4.8
+                        </div>
+
+                    </div>
+
+
+                    <div class="mini-tutor">
+
+                        <div class="mini-avatar">
+                            RI
+                        </div>
+
+                        <div class="mini-tutor-info">
+
+                            <strong>
+                                Riya Iyer
+                            </strong>
+
+                            <span>
+                                English • School
+                            </span>
+
+                        </div>
+
+                        <div class="rating">
+                            ★ 4.9
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
     <title>Student Dashboard | TutorLink</title>
 
     <!-- Google Fonts -->
