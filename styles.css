@@ -2765,4 +2765,93 @@ button {
 }
 
 .hero-buttons .btn-primary:hover {
-    transform: translateY
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(91, 75, 255, 0.30);
+}
+
+.hero-buttons .btn-secondary {
+    color: #475569;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(91, 75, 255, 0.16);
+
+    box-shadow:
+        0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.hero-buttons .btn-secondary:hover {
+    color: var(--primary);
+
+    transform: translateY(-2px);
+
+    border-color: rgba(91, 75, 255, 0.30);
+
+    box-shadow:
+        0 10px 24px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .ecosystem-card {
+        width: min(100%, 520px);
+
+        padding: 28px 25px 24px;
+    }
+
+    .ecosystem-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .floating-card.one {
+        right: 5px;
+        top: 20px;
+    }
+
+    .floating-card.two {
+        left: 5px;
+        bottom: 20px;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .ecosystem-card {
+        padding: 24px 18px 21px;
+
+        border-radius: 24px;
+    }
+
+    .ecosystem-card h2 {
+        font-size: 1.65rem;
+
+        letter-spacing: -0.8px;
+    }
+
+    .ecosystem-card > p {
+        font-size: 0.82rem;
+    }
+
+    .ecosystem-node,
+    .ecosystem-platform {
+        padding: 14px;
+    }
+
+    .ecosystem-footer {
+        font-size: 0.65rem;
+
+        gap: 5px;
+    }
+
+    .floating-card {
+        display: none;
+    }
+}
