@@ -1822,6 +1822,55 @@ function getTutorFromURL() {
 
 }
 
+/* =========================================================
+   UPDATE NAVBAR FOR LOGGED-IN USER
+   ========================================================= */
+
+function updateNavbarForUser() {
+
+    const user = getCurrentUser();
+
+    const authLinks =
+        document.querySelector(".nav-auth");
+
+    if (!authLinks) {
+        return;
+    }
+
+    if (user) {
+
+        authLinks.innerHTML = `
+            <button
+                type="button"
+                class="nav-login"
+                onclick="logout()"
+            >
+                Log Out
+            </button>
+        `;
+
+    } else {
+
+        authLinks.innerHTML = `
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Log In
+            </a>
+
+            <a
+                href="signup.html"
+                class="nav-signup"
+            >
+                Sign Up
+            </a>
+        `;
+
+    }
+
+}
+
 
 /* =========================================================
    INITIALIZE
@@ -1842,6 +1891,8 @@ document.addEventListener(
         initializeLogoutButtons();
 
         initializeTutorPage();
+
+        updateNavbarForUser();
 
     }
 );
