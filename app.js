@@ -1830,7 +1830,14 @@ function updateNavbarForUser() {
 
     const currentPage = window.location.pathname.split("/").pop();
 
-    // Only update the navbar on logged-in/dashboard pages
+    // HOMEPAGE: always show Log In + Sign Up
+    if (
+        currentPage === "" ||
+        currentPage === "index.html"
+    ) {
+        return;
+    }
+
     const loggedInPages = [
         "student-dashboard.html",
         "tutor-dashboard.html",
@@ -1855,7 +1862,6 @@ function updateNavbarForUser() {
         "learn.html"
     ];
 
-    // Leave the homepage and auth pages alone
     if (!loggedInPages.includes(currentPage)) {
         return;
     }
@@ -1872,7 +1878,7 @@ function updateNavbarForUser() {
         authLinks.innerHTML = `
             <button
                 type="button"
-                class="nav-login"
+                class="nav-logout"
                 onclick="logout()"
             >
                 Log Out
@@ -1882,17 +1888,11 @@ function updateNavbarForUser() {
     } else {
 
         authLinks.innerHTML = `
-            <a
-                href="login.html"
-                class="nav-login"
-            >
+            <a href="login.html" class="nav-login">
                 Log In
             </a>
 
-            <a
-                href="signup.html"
-                class="nav-signup"
-            >
+            <a href="signup.html" class="nav-signup">
                 Sign Up
             </a>
         `;
