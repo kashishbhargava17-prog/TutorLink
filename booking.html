@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Session | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+
+    <style>
+
+        .booking-page {
+            min-height: calc(100vh - 82px);
+            padding: 45px 20px 70px;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(139,92,246,.10), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(34,211,238,.10), transparent 30%),
+                #f8fafc;
+        }
+
+        .booking-container {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+        .booking-header {
+            margin-bottom: 28px;
+        }
+
+        .booking-header .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: #5B4BFF;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+        }
+
+        .booking-header h1 {
+            margin: 0 0 10px;
+            color: #0F172A;
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .booking-header p {
+            margin: 0;
+            max-width: 680px;
+            color: #64748B;
+            line-height: 1.7;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        .booking-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 50px rgba(15,23,42,.07);
+        }
+
+        .booking-card h2 {
+            margin: 0 0 20px;
+            color: #0F172A;
+            font-family: "Poppins", sans-serif;
+            font-size: 1.3rem;
+        }
+
+        .tutor-summary {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            padding: 18px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #f5f3ff, #faf5ff);
+        }
+
+        .booking-avatar {
+            width: 62px;
+            height: 62px;
+            flex: 0 0 62px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #5B4BFF, #8B5CF6);
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .tutor-summary h3 {
+            margin: 0 0 4px;
+            font-family: "Poppins", sans-serif;
+            color: #0F172A;
+        }
+
+        .tutor-summary p {
+            margin: 3px 0;
+            color: #64748B;
+            font-size: .9rem;
+        }
+
+        .verified-small {
+            display: inline-flex;
+            margin-top: 5px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #ecfdf5;
+            color: #047857;
+            font-size: .72rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0F172A;
+            font-size: .9rem;
+            font-weight: 700;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            background: #fff;
+            color: #0F172A;
+            font: inherit;
+            outline: none;
+            transition: .2s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: #5B4BFF;
+            box-shadow: 0 0 0 4px rgba(91,75,255,.10);
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .package-option {
+            position: relative;
+        }
+
+        .package-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .package-label {
+            display: block;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .package-label:hover {
+            border-color: #a78bfa;
+            transform: translateY(-2px);
+        }
+
+        .package-option input:checked + .package-label {
+            border-color: #5B4BFF;
+            background: #f5f3ff;
+            box-shadow: 0 8px 25px rgba(91,75,255,.10);
+        }
+
+        .package-name {
+            display: block;
+            margin-bottom: 4px;
+            color: #0F172A;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .package-details {
+            display: block;
+            color: #64748B;
+            font-size: .78rem;
+            line-height: 1.5;
+        }
+
+        .package-price {
+            display: block;
+            margin-top: 8px;
+            color: #5B4BFF;
+            font-weight: 800;
+        }
+
+        .schedule-note {
+            padding: 14px;
+            margin-top: 10px;
+            border-radius: 12px;
+            background: #f8fafc;
+            color: #64748B;
+            font-size: .82rem;
+            line-height: 1.6;
+        }
+
+        .price-summary {
+            margin-top: 24px;
+            padding: 20px;
+            border-radius: 18px;
+            background: #0F172A;
+            color: #fff;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+            font-size: .9rem;
+        }
+
+        .price-row.total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,.12);
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .demo-payment {
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 15px;
+            background: #ecfeff;
+            border: 1px solid #a5f3fc;
+            color: #155e75;
+            font-size: .82rem;
+            line-height: 1.6;
+        }
+
+        .booking-submit {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px 20px;
+            border: 0;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #5B4BFF, #8B5CF6);
+            color: #fff;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(91,75,255,.22);
+            transition: .2s ease;
+        }
+
+        .booking-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .booking-message {
+            display: none;
+            margin-top: 15px;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .booking-message.error {
+            display: block;
+            background: #fef2f2;
+            color: #b91c1c;
+        }
+
+        .booking-message.success {
+            display: block;
+            background: #ecfdf5;
+            color: #047857;
+        }
+
+        .summary-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: .9rem;
+        }
+
+        .summary-item:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .summary-item span:first-child {
+            color: #64748B;
+        }
+
+        .summary-item strong {
+            color: #0F172A;
+            text-align: right;
+        }
+
+        .access-fund {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #fff1f2, #fdf4ff);
+        }
+
+        .access-fund strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #be185d;
+        }
+
+        .access-fund p {
+            margin: 0;
+            color: #64748B;
+            font-size: .8rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 800px) {
+
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 520px) {
+
+            .booking-page {
+                padding: 30px 15px 50px;
+            }
+
+            .booking-card {
+                padding: 20px;
+                border-radius: 19px;
+            }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+            </span>
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="tutors.html">
+                Find Tutors
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Log In
+            </a>
+
+            <a
+                href="signup.html"
+                class="nav-signup"
+            >
+                Sign Up
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="booking-page">
+
+    <div class="booking-container">
+
+        <div class="booking-header">
+
+            <span class="eyebrow">
+                BOOK YOUR LEARNING SESSION
+            </span>
+
+            <h1>
+                Plan your next learning session.
+            </h1>
+
+            <p>
+                Choose a TutorLink learning package, select your preferred schedule,
+                and confirm your booking. Your payment is a demo transaction for this prototype.
+            </p>
+
+        </div>
+
+
+        <div class="booking-layout">
+
+
+            <!-- LEFT SIDE -->
+
+            <section class="booking-card">
+
+                <h2>
+                    Session details
+                </h2>
+
+
+                <div
+                    id="tutorSummary"
+                    class="tutor-summary"
+                >
+                    Loading tutor...
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Choose your learning package
+                    </label>
+
+
+                    <div class="package-grid">
+
+
+                        <div class="package-option">
+
+                            <input
+                                type="radio"
+                                name="package"
+                                id="starterPackage"
+                                value="Starter"
+                                data-classes="4"
+                                data-price="1140"
+                            >
+
+                            <label
+                                class="package-label"
+                                for="starterPackage"
+                            >
+
+                                <span class="package-name">
+                                    Starter
+                                </span>
+
+                                <span class="package-details">
+                                    4 × 60-minute classes
+                                </span>
+
+                                <span class="package-price">
+                                    ₹1,140 / month
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="package-option">
+
+                            <input
+                                type="radio"
+                                name="package"
+                                id="regularPackage"
+                                value="Regular"
+                                data-classes="8"
+                                data-price="2280"
+                            >
+
+                            <label
+                                class="package-label"
+                                for="regularPackage"
+                            >
+
+                                <span class="package-name">
+                                    Regular
+                                </span>
+
+                                <span class="package-details">
+                                    8 × 60-minute classes
+                                </span>
+
+                                <span class="package-price">
+                                    ₹2,280 / month
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="package-option">
+
+                            <input
+                                type="radio"
+                                name="package"
+                                id="focusedPackage"
+                                value="Focused"
+                                data-classes="12"
+                                data-price="3420"
+                                checked
+                            >
+
+                            <label
+                                class="package-label"
+                                for="focusedPackage"
+                            >
+
+                                <span class="package-name">
+                                    Focused
+                                </span>
+
+                                <span class="package-details">
+                                    12 × 60-minute classes
+                                </span>
+
+                                <span class="package-price">
+                                    ₹3,420 / month
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="package-option">
+
+                            <input
+                                type="radio"
+                                name="package"
+                                id="intensivePackage"
+                                value="Intensive"
+                                data-classes="20"
+                                data-price="5700"
+                            >
+
+                            <label
+                                class="package-label"
+                                for="intensivePackage"
+                            >
+
+                                <span class="package-name">
+                                    Intensive
+                                </span>
+
+                                <span class="package-details">
+                                    20 × 60-minute classes
+                                </span>
+
+                                <span class="package-price">
+                                    ₹5,700 / month
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="preferredDay">
+                        Preferred day
+                    </label>
+
+                    <select id="preferredDay">
+
+                        <option value="">
+                            Select a day
+                        </option>
+
+                        <option value="Monday">
+                            Monday
+                        </option>
+
+                        <option value="Tuesday">
+                            Tuesday
+                        </option>
+
+                        <option value="Wednesday">
+                            Wednesday
+                        </option>
+
+                        <option value="Thursday">
+                            Thursday
+                        </option>
+
+                        <option value="Friday">
+                            Friday
+                        </option>
+
+                        <option value="Saturday">
+                            Saturday
+                        </option>
+
+                        <option value="Sunday">
+                            Sunday
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="preferredTime">
+                        Preferred time
+                    </label>
+
+                    <select id="preferredTime">
+
+                        <option value="">
+                            Select a time
+                        </option>
+
+                        <option value="8:00 AM">
+                            8:00 AM
+                        </option>
+
+                        <option value="10:00 AM">
+                            10:00 AM
+                        </option>
+
+                        <option value="12:00 PM">
+                            12:00 PM
+                        </option>
+
+                        <option value="2:00 PM">
+                            2:00 PM
+                        </option>
+
+                        <option value="4:00 PM">
+                            4:00 PM
+                        </option>
+
+                        <option value="6:00 PM">
+                            6:00 PM
+                        </option>
+
+                        <option value="8:00 PM">
+                            8:00 PM
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="schedule-note">
+
+                    TutorLink checks the selected tutor's availability
+                    and creates the monthly learning schedule around your
+                    selected day and time.
+
+                </div>
+
+
+                <div
+                    id="bookingMessage"
+                    class="booking-message"
+                ></div>
+
+
+                <button
+                    type="button"
+                    class="booking-submit"
+                    id="confirmBooking"
+                >
+                    Continue to Demo Payment
+                </button>
+
+            </section>
+
+
+            <!-- RIGHT SIDE -->
+
+            <aside class="booking-card">
+
+                <h2>
+                    Booking summary
+                </h2>
+
+
+                <div class="summary-list">
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            Tutor
+                        </span>
+
+                        <strong id="summaryTutor">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            Package
+                        </span>
+
+                        <strong id="summaryPackage">
+                            Focused
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            Classes
+                        </span>
+
+                        <strong id="summaryClasses">
+                            12
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            Schedule
+                        </span>
+
+                        <strong id="summarySchedule">
+                            Choose a day & time
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            TutorLink commission
+                        </span>
+
+                        <strong id="summaryCommission">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            Access Fund
+                        </span>
+
+                        <strong id="summaryFund">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="price-summary">
+
+                    <div class="price-row">
+
+                        <span>
+                            Monthly package
+                        </span>
+
+                        <strong id="summaryPrice">
+                            ₹3,420
+                        </strong>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <span>
+                            Payment method
+                        </span>
+
+                        <strong>
+                            Demo Payment
+                        </strong>
+
+                    </div>
+
+
+                    <div class="price-row total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="summaryTotal">
+                            ₹3,420
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-payment">
+
+                    <strong>
+                        Demo Payment — No real transaction
+                    </strong>
+
+                    <br>
+
+                    This prototype simulates the payment step.
+                    No money is charged and no banking information
+                    is collected.
+
+                </div>
+
+
+                <div class="access-fund">
+
+                    <strong>
+                        📚 TutorLink Access Fund
+                    </strong>
+
+                    <p>
+                        5% of TutorLink's commission from eligible
+                        transactions supports subsidized learning
+                        opportunities for students.
+
+                    </p>
+
+                </div>
+
+            </aside>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* -----------------------------------------
+           GET CURRENT USER
+        ----------------------------------------- */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (
+            !currentUser ||
+            currentUser.role !== "student"
+        ) {
+
+            window.location.href =
+                "login.html?role=student";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           GET TUTOR FROM URL
+        ----------------------------------------- */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const tutorId =
+            params.get("id");
+
+
+        const tutor =
+            typeof TUTORS !== "undefined"
+                ? TUTORS.find(
+                    item =>
+                        item.id === tutorId
+                )
+                : null;
+
+
+        if (!tutor) {
+
+            document.getElementById(
+                "tutorSummary"
+            ).innerHTML = `
+                <div>
+                    <h3>Tutor not found</h3>
+                    <p>
+                        Please return to the tutor directory
+                        and choose a tutor again.
+                    </p>
+                </div>
+            `;
+
+            document.getElementById(
+                "confirmBooking"
+            ).disabled = true;
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           DISPLAY TUTOR
+        ----------------------------------------- */
+
+        document.getElementById(
+            "tutorSummary"
+        ).innerHTML = `
+
+            <div class="booking-avatar">
+                ${tutor.avatar}
+            </div>
+
+            <div>
+
+                <h3>
+                    ${tutor.name}
+                </h3>
+
+                <p>
+                    ${tutor.subject} • ${tutor.level}
+                </p>
+
+                <p>
+                    ⭐ ${tutor.rating}
+                    (${tutor.reviews} reviews)
+                </p>
+
+                ${
+                    tutor.verified
+                        ? `
+                            <span class="verified-small">
+                                ✓ Verified Tutor
+                            </span>
+                        `
+                        : ""
+                }
+
+            </div>
+        `;
+
+
+        document.getElementById(
+            "summaryTutor"
+        ).textContent =
+            tutor.name;
+
+
+        /* -----------------------------------------
+           PACKAGE ELEMENTS
+        ----------------------------------------- */
+
+        const packageInputs =
+            document.querySelectorAll(
+                'input[name="package"]'
+            );
+
+
+        const dayInput =
+            document.getElementById(
+                "preferredDay"
+            );
+
+
+        const timeInput =
+            document.getElementById(
+                "preferredTime"
+            );
+
+
+        const summaryPackage =
+            document.getElementById(
+                "summaryPackage"
+            );
+
+
+        const summaryClasses =
+            document.getElementById(
+                "summaryClasses"
+            );
+
+
+        const summarySchedule =
+            document.getElementById(
+                "summarySchedule"
+            );
+
+
+        const summaryPrice =
+            document.getElementById(
+                "summaryPrice"
+            );
+
+
+        const summaryTotal =
+            document.getElementById(
+                "summaryTotal"
+            );
+
+
+        const summaryCommission =
+            document.getElementById(
+                "summaryCommission"
+            );
+
+
+        const summaryFund =
+            document.getElementById(
+                "summaryFund"
+            );
+
+
+        /* -----------------------------------------
+           UPDATE SUMMARY
+        ----------------------------------------- */
+
+        function updateSummary() {
+
+            const selected =
+                document.querySelector(
+                    'input[name="package"]:checked'
+                );
+
+
+            if (!selected) {
+                return;
+            }
+
+
+            const packageName =
+                selected.value;
+
+
+            const classes =
+                Number(
+                    selected.dataset.classes
+                );
+
+
+            const price =
+                Number(
+                    selected.dataset.price
+                );
+
+
+            const commission =
+                price * 0.12;
+
+
+            const accessFund =
+                commission * 0.05;
+
+
+            summaryPackage.textContent =
+                packageName;
+
+
+            summaryClasses.textContent =
+                `${classes} × 60 min`;
+
+
+            summaryPrice.textContent =
+                `₹${price.toLocaleString("en-IN")}`;
+
+
+            summaryTotal.textContent =
+                `₹${price.toLocaleString("en-IN")}`;
+
+
+            summaryCommission.textContent =
+                `₹${commission.toFixed(2)}`;
+
+
+            summaryFund.textContent =
+                `₹${accessFund.toFixed(2)}`;
+
+
+            if (
+                dayInput.value &&
+                timeInput.value
+            ) {
+
+                summarySchedule.textContent =
+                    `${dayInput.value}, ${timeInput.value}`;
+
+            } else {
+
+                summarySchedule.textContent =
+                    "Choose a day & time";
+
+            }
+
+        }
+
+
+        packageInputs.forEach(
+            input => {
+
+                input.addEventListener(
+                    "change",
+                    updateSummary
+                );
+
+            }
+        );
+
+
+        dayInput.addEventListener(
+            "change",
+            updateSummary
+        );
+
+
+        timeInput.addEventListener(
+            "change",
+            updateSummary
+        );
+
+
+        updateSummary();
+
+
+        /* -----------------------------------------
+           BOOKING
+        ----------------------------------------- */
+
+        document
+            .getElementById("confirmBooking")
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    const selected =
+                        document.querySelector(
+                            'input[name="package"]:checked'
+                        );
+
+
+                    const day =
+                        dayInput.value;
+
+
+                    const time =
+                        timeInput.value;
+
+
+                    const message =
+                        document.getElementById(
+                            "bookingMessage"
+                        );
+
+
+                    if (!selected) {
+
+                        message.textContent =
+                            "Please choose a learning package.";
+
+                        message.className =
+                            "booking-message error";
+
+                        return;
+
+                    }
+
+
+                    if (!day) {
+
+                        message.textContent =
+                            "Please choose your preferred day.";
+
+                        message.className =
+                            "booking-message error";
+
+                        return;
+
+                    }
+
+
+                    if (!time) {
+
+                        message.textContent =
+                            "Please choose your preferred time.";
+
+                        message.className =
+                            "booking-message error";
+
+                        return;
+
+                    }
+
+
+                    /* --------------------------------
+                       CHECK BASIC AVAILABILITY
+                    -------------------------------- */
+
+                    const shortDay =
+                        day.substring(
+                            0,
+                            3
+                        );
+
+
+                    if (
+                        tutor.availability &&
+                        !tutor.availability.includes(
+                            shortDay
+                        )
+                    ) {
+
+                        message.textContent =
+                            `${tutor.name} is not currently listed as available on ${day}. Please choose another day.`;
+
+                        message.className =
+                            "booking-message error";
+
+                        return;
+
+                    }
+
+
+                    /* --------------------------------
+                       CREATE DEMO BOOKING
+                    -------------------------------- */
+
+                    const classes =
+                        Number(
+                            selected.dataset.classes
+                        );
+
+
+                    const price =
+                        Number(
+                            selected.dataset.price
+                        );
+
+
+                    const commission =
+                        price * 0.12;
+
+
+                    const accessFund =
+                        commission * 0.05;
+
+
+                    const booking = {
+
+                        id:
+                            "booking_" +
+                            Date.now(),
+
+                        tutorId:
+                            tutor.id,
+
+                        tutorName:
+                            tutor.name,
+
+                        tutorSubject:
+                            tutor.subject,
+
+                        studentId:
+                            currentUser.id,
+
+                        studentName:
+                            currentUser.name,
+
+                        package:
+                            selected.value,
+
+                        totalClasses:
+                            classes,
+
+                        classesRemaining:
+                            classes,
+
+                        price:
+                            price,
+
+                        commission:
+                            Number(
+                                commission.toFixed(2)
+                            ),
+
+                        accessFund:
+                            Number(
+                                accessFund.toFixed(2)
+                            ),
+
+                        preferredDay:
+                            day,
+
+                        preferredTime:
+                            time,
+
+                        status:
+                            "confirmed",
+
+                        paymentStatus:
+                            "demo-paid",
+
+                        createdAt:
+                            new Date().toISOString(),
+
+                        nextSession:
+                            `${day}, ${time}`
+
+                    };
+
+
+                    /* --------------------------------
+                       SAVE BOOKING
+                    -------------------------------- */
+
+                    const bookings =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "tutorlink_bookings"
+                            )
+                        ) || [];
+
+
+                    bookings.push(
+                        booking
+                    );
+
+
+                    localStorage.setItem(
+                        "tutorlink_bookings",
+                        JSON.stringify(
+                            bookings
+                        )
+                    );
+
+
+                    /* --------------------------------
+                       SAVE STUDENT PACKAGE DATA
+                    -------------------------------- */
+
+                    const studentPlans =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "tutorlink_student_plans"
+                            )
+                        ) || {};
+
+
+                    studentPlans[
+                        currentUser.id
+                    ] = {
+
+                        bookingId:
+                            booking.id,
+
+                        tutorId:
+                            tutor.id,
+
+                        tutorName:
+                            tutor.name,
+
+                        package:
+                            selected.value,
+
+                        totalClasses:
+                            classes,
+
+                        classesRemaining:
+                            classes,
+
+                        price:
+                            price,
+
+                        nextSession:
+                            `${day}, ${time}`
+
+                    };
+
+
+                    localStorage.setItem(
+                        "tutorlink_student_plans",
+                        JSON.stringify(
+                            studentPlans
+                        )
+                    );
+
+
+                    /* --------------------------------
+                       UPDATE CURRENT USER
+                    -------------------------------- */
+
+                    const users =
+                        typeof getUsers === "function"
+                            ? getUsers()
+                            : [];
+
+
+                    const userIndex =
+                        users.findIndex(
+                            user =>
+                                user.id ===
+                                currentUser.id
+                        );
+
+
+                    if (
+                        userIndex !== -1
+                    ) {
+
+                        users[
+                            userIndex
+                        ].activeBooking =
+                            booking.id;
+
+                        users[
+                            userIndex
+                        ].classesRemaining =
+                            classes;
+
+                        users[
+                            userIndex
+                        ].tute =
+                            Number(
+                                users[
+                                    userIndex
+                                ].tute || 0
+                            );
+
+                        localStorage.setItem(
+                            "tutorlink_users",
+                            JSON.stringify(
+                                users
+                            )
+                        );
+
+                        localStorage.setItem(
+                            "tutorlink_current_user",
+                            JSON.stringify(
+                                users[
+                                    userIndex
+                                ]
+                            )
+                        );
+
+                    }
+
+
+                    /* --------------------------------
+                       SUCCESS
+                    -------------------------------- */
+
+                    message.textContent =
+                        "Booking confirmed! Your demo payment was successful.";
+
+                    message.className =
+                        "booking-message success";
+
+
+                    setTimeout(
+                        function () {
+
+                            window.location.href =
+                                "student-dashboard.html?v=1023";
+
+                        },
+                        700
+                    );
+
+                }
+            );
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>
