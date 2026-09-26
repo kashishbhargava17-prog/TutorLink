@@ -9,7 +9,11 @@ const CURRENT_USER_KEY = "tutorlink_current_user";
 /* ---------- Storage ---------- */
 
 function getUsers() {
-    return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+    try {
+        return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
 }
 
 function saveUsers(users) {
@@ -17,9 +21,11 @@ function saveUsers(users) {
 }
 
 function getCurrentUser() {
-    return JSON.parse(
-        localStorage.getItem(CURRENT_USER_KEY)
-    );
+    try {
+        return JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
+    } catch (error) {
+        return null;
+    }
 }
 
 function setCurrentUser(user) {
@@ -30,31 +36,29 @@ function setCurrentUser(user) {
 }
 
 
-/* ---------- Role Redirect ---------- */
+/* ---------- Redirect ---------- */
 
 function redirectByRole(role) {
 
     if (role === "student") {
-        window.location.href = "student-dashboard.html";
+        window.location.href = "student-dashboard.html?v=1016";
         return;
     }
 
     if (role === "tutor") {
-        window.location.href = "tutor-dashboard.html";
+        window.location.href = "tutor-dashboard.html?v=1016";
         return;
     }
 
-    window.location.href = "choose-role.html";
+    window.location.href = "choose-role.html?v=1016";
 }
 
 
 /* ---------- Logout ---------- */
 
 function logout() {
-
     localStorage.removeItem(CURRENT_USER_KEY);
-
-    window.location.href = "index.html";
+    window.location.href = "index.html?v=1016";
 }
 
 
@@ -69,80 +73,85 @@ document.addEventListener("DOMContentLoaded", function () {
        LOGIN
     ===================================== */
 
-    const loginForm =
-        document.getElementById("loginForm");
+    const loginForm = document.getElementById("loginForm");
 
     if (loginForm) {
 
-        loginForm.addEventListener(
-            "submit",
-            function (event) {
+        loginForm.addEventListener("submit", function (event) {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                const email =
-                    document
-                        .getElementById("loginEmail")
-                        .value
-                        .trim()
-                        .toLowerCase();
+            const emailInput =
+                document.getElementById("loginEmail");
 
-                const password =
-                    document
-                        .getElementById("loginPassword")
-                        .value;
+            const passwordInput =
+                document.getElementById("loginPassword");
 
-                const message =
-                    document.getElementById(
-                        "loginMessage"
-                    );
-
-                const users = getUsers();
-
-                const user = users.find(function (account) {
-
-                    return (
-                        account.email === email &&
-                        account.password === password
-                    );
-
-                });
+            const message =
+                document.getElementById("loginMessage");
 
 
-                if (!user) {
+            const email =
+                emailInput.value.trim().toLowerCase();
 
-                    message.textContent =
-                        "Email or password is incorrect.";
-
-                    message.className =
-                        "auth-message error";
-
-                    return;
-                }
+            const password =
+                passwordInput.value;
 
 
-                /* Save logged-in user */
+            /* Get saved accounts */
 
-                setCurrentUser(user);
+            const users = getUsers();
 
+
+            /* Find matching account */
+
+            const user = users.find(function (account) {
+
+                return (
+                    account.email === email &&
+                    account.password === password
+                );
+
+            });
+
+
+            /* No matching account */
+
+            if (!user) {
 
                 message.textContent =
-                    "Login successful! Opening your dashboard...";
+                    "Email or password is incorrect.";
 
                 message.className =
-                    "auth-message success";
+                    "auth-message error";
 
-
-                /* Go to correct dashboard */
-
-                setTimeout(function () {
-
-                    redirectByRole(user.role);
-
-                }, 500);
-
+                return;
             }
-        );
+
+
+            /* Save current user */
+
+            setCurrentUser(user);
+
+
+            /* Show success */
+
+            message.textContent =
+                "Login successful! Opening your dashboard...";
+
+            message.className =
+                "auth-message success";
+
+
+            /* Redirect */
+
+            setTimeout(function () {
+
+                redirectByRole(user.role);
+
+            }, 300);
+
+        });
 
     }
 
@@ -154,266 +163,217 @@ document.addEventListener("DOMContentLoaded", function () {
     const signupForm =
         document.getElementById("signupForm");
 
+
     if (signupForm) {
 
-        signupForm.addEventListener(
-            "submit",
-            function (event) {
+        signupForm.addEventListener("submit", function (event) {
 
-                event.preventDefault();
+            event.preventDefault();
 
 
-                const name =
-                    document
-                        .getElementById("signupName")
-                        .value
-                        .trim();
+            const name =
+                document.getElementById("signupName")
+                    .value.trim();
 
-                const email =
-                    document
-                        .getElementById("signupEmail")
-                        .value
-                        .trim()
-                        .toLowerCase();
+            const email =
+                document.getElementById("signupEmail")
+                    .value.trim()
+                    .toLowerCase();
 
-                const password =
-                    document
-                        .getElementById("signupPassword")
-                        .value;
+            const password =
+                document.getElementById("signupPassword")
+                    .value;
 
-                const role =
-                    document
-                        .getElementById("signupRole")
-                        .value;
+            const role =
+                document.getElementById("signupRole")
+                    .value;
 
-                const message =
-                    document.getElementById(
-                        "signupMessage"
-                    );
+            const message =
+                document.getElementById("signupMessage");
 
 
-                /* Validation */
-
-                if (
-                    !name ||
-                    !email ||
-                    !password ||
-                    !role
-                ) {
-
-                    message.textContent =
-                        "Please fill in all fields.";
-
-                    message.className =
-                        "auth-message error";
-
-                    return;
-                }
-
-
-                if (password.length < 6) {
-
-                    message.textContent =
-                        "Password must contain at least 6 characters.";
-
-                    message.className =
-                        "auth-message error";
-
-                    return;
-                }
-
-
-                const users = getUsers();
-
-
-                /* Check existing account */
-
-                const existingUser =
-                    users.find(function (account) {
-
-                        return account.email === email;
-
-                    });
-
-
-                if (existingUser) {
-
-                    message.textContent =
-                        "An account with this email already exists.";
-
-                    message.className =
-                        "auth-message error";
-
-                    return;
-                }
-
-
-                /* Create account */
-
-                const newUser = {
-
-                    id:
-                        "user_" +
-                        Date.now(),
-
-                    name: name,
-
-                    email: email,
-
-                    password: password,
-
-                    role: role,
-
-                    tute: 0,
-
-                    classesRemaining: 0,
-
-                    savedTutors: [],
-
-                    bookings: [],
-
-                    quizResults: [],
-
-                    reviews: [],
-
-                    createdAt:
-                        new Date().toISOString()
-
-                };
-
-
-                users.push(newUser);
-
-                saveUsers(users);
-
-                setCurrentUser(newUser);
-
+            if (!name || !email || !password || !role) {
 
                 message.textContent =
-                    "Account created! Opening your dashboard...";
+                    "Please fill in all fields.";
 
                 message.className =
-                    "auth-message success";
+                    "auth-message error";
 
-
-                setTimeout(function () {
-
-                    redirectByRole(role);
-
-                }, 500);
-
+                return;
             }
-        );
+
+
+            if (password.length < 6) {
+
+                message.textContent =
+                    "Password must contain at least 6 characters.";
+
+                message.className =
+                    "auth-message error";
+
+                return;
+            }
+
+
+            const users = getUsers();
+
+
+            const existingUser =
+                users.find(function (account) {
+
+                    return account.email === email;
+
+                });
+
+
+            if (existingUser) {
+
+                message.textContent =
+                    "An account with this email already exists.";
+
+                message.className =
+                    "auth-message error";
+
+                return;
+            }
+
+
+            const newUser = {
+
+                id: "user_" + Date.now(),
+
+                name: name,
+
+                email: email,
+
+                password: password,
+
+                role: role,
+
+                tute: 0,
+
+                classesRemaining: 0,
+
+                savedTutors: [],
+
+                bookings: [],
+
+                quizResults: [],
+
+                reviews: [],
+
+                createdAt:
+                    new Date().toISOString()
+
+            };
+
+
+            users.push(newUser);
+
+            saveUsers(users);
+
+            setCurrentUser(newUser);
+
+
+            message.textContent =
+                "Account created! Opening your dashboard...";
+
+            message.className =
+                "auth-message success";
+
+
+            setTimeout(function () {
+
+                redirectByRole(role);
+
+            }, 300);
+
+        });
 
     }
 
 
     /* =====================================
        ROLE SELECTION
-    ===================================== */
+===================================== */
 
     const studentRoleButton =
-        document.getElementById(
-            "studentRoleButton"
-        );
+        document.getElementById("studentRoleButton");
 
     const tutorRoleButton =
-        document.getElementById(
-            "tutorRoleButton"
-        );
+        document.getElementById("tutorRoleButton");
 
 
     if (studentRoleButton) {
 
-        studentRoleButton.addEventListener(
-            "click",
-            function () {
+        studentRoleButton.addEventListener("click", function () {
 
-                localStorage.setItem(
-                    "tutorlink_selected_role",
-                    "student"
-                );
+            localStorage.setItem(
+                "tutorlink_selected_role",
+                "student"
+            );
 
-                window.location.href =
-                    "signup.html";
+            window.location.href =
+                "signup.html?v=1016";
 
-            }
-        );
+        });
 
     }
 
 
     if (tutorRoleButton) {
 
-        tutorRoleButton.addEventListener(
-            "click",
-            function () {
+        tutorRoleButton.addEventListener("click", function () {
 
-                localStorage.setItem(
-                    "tutorlink_selected_role",
-                    "tutor"
-                );
+            localStorage.setItem(
+                "tutorlink_selected_role",
+                "tutor"
+            );
 
-                window.location.href =
-                    "signup.html";
+            window.location.href =
+                "signup.html?v=1016";
 
-            }
-        );
+        });
 
     }
 
 
     /* =====================================
-       DISPLAY USER NAME
-    ===================================== */
+       USER NAME
+===================================== */
 
-    const currentUser =
-        getCurrentUser();
-
+    const currentUser = getCurrentUser();
 
     const userNameElements =
-        document.querySelectorAll(
-            "[data-user-name]"
-        );
+        document.querySelectorAll("[data-user-name]");
 
 
-    userNameElements.forEach(
-        function (element) {
+    userNameElements.forEach(function (element) {
 
-            if (currentUser) {
-
-                element.textContent =
-                    currentUser.name;
-
-            }
-
+        if (currentUser) {
+            element.textContent = currentUser.name;
         }
-    );
+
+    });
 
 
     /* =====================================
-       LOGOUT BUTTONS
-    ===================================== */
+       LOGOUT
+===================================== */
 
     const logoutButtons =
-        document.querySelectorAll(
-            "[data-logout]"
-        );
+        document.querySelectorAll("[data-logout]");
 
 
-    logoutButtons.forEach(
-        function (button) {
+    logoutButtons.forEach(function (button) {
 
-            button.addEventListener(
-                "click",
-                function () {
+        button.addEventListener("click", function () {
 
-                    logout();
+            logout();
 
-                }
-            );
+        });
 
-        }
-    );
+    });
 
 });
