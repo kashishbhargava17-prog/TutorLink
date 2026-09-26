@@ -1685,3 +1685,563 @@ button {
     }
 
 }
+
+/* =========================================================
+   TUTORLINK HOMEPAGE + NAVBAR VISUAL REPAIR
+   ========================================================= */
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.nav-container {
+    width: min(1180px, calc(100% - 40px));
+    min-height: 82px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* ---------- TUTORLINK BRAND ---------- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    text-decoration: none;
+    color: #0f172a;
+
+    flex-shrink: 0;
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #5B4BFF,
+        #8B5CF6
+    );
+
+    color: #ffffff;
+
+    font-size: 1.25rem;
+
+    box-shadow:
+        0 8px 20px rgba(91, 75, 255, 0.22);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.brand-text strong {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.12rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: #0f172a;
+}
+
+.brand-text small {
+    font-family: "Inter", sans-serif;
+    font-size: 0.59rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 1.15px;
+    color: #64748b;
+}
+
+/* ---------- NAVIGATION LINKS ---------- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    position: relative;
+
+    text-decoration: none;
+    color: #475569;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+
+    padding: 8px 0;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        #5B4BFF,
+        #EC4899
+    );
+
+    transform: translateX(-50%);
+
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #5B4BFF;
+    text-decoration: none;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ---------- LOGIN / SIGN UP ---------- */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.nav-login,
+.nav-signup {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    border-radius: 11px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.nav-login {
+    padding: 10px 16px;
+
+    color: #475569;
+    background: transparent;
+}
+
+.nav-login:hover {
+    color: #5B4BFF;
+    background: rgba(91, 75, 255, 0.07);
+    text-decoration: none;
+}
+
+.nav-signup {
+    padding: 11px 18px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #5B4BFF,
+        #8B5CF6
+    );
+
+    box-shadow:
+        0 7px 18px rgba(91, 75, 255, 0.20);
+}
+
+.nav-signup:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 22px rgba(91, 75, 255, 0.28);
+
+    text-decoration: none;
+}
+
+/* ---------- LOGGED-IN LOGOUT BUTTON ---------- */
+
+.nav-logout {
+    border: 1px solid rgba(91, 75, 255, 0.20);
+
+    background: #ffffff;
+    color: #5B4BFF;
+
+    padding: 10px 18px;
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+.nav-logout:hover {
+    background: #5B4BFF;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(91, 75, 255, 0.20);
+}
+
+
+/* =========================================================
+   HOMEPAGE FLOATING CARDS
+   ========================================================= */
+
+.floating-card {
+    position: absolute;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 13px 17px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(91, 75, 255, 0.08);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
+
+    color: #0f172a;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    animation: floatingCard 4s ease-in-out infinite;
+}
+
+.floating-card strong {
+    color: #0f172a;
+}
+
+.floating-card span {
+    color: #5B4BFF;
+}
+
+.floating-card.one {
+    top: 48px;
+    right: -18px;
+
+    animation-delay: 0s;
+}
+
+.floating-card.two {
+    bottom: 45px;
+    left: -30px;
+
+    animation-delay: 1.2s;
+}
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   HOMEPAGE HERO — PRESERVE THE EXISTING DESIGN
+   ========================================================= */
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 83px);
+
+    overflow: hidden;
+
+    padding: 48px 0 58px;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.03fr
+        0.97fr;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: "Poppins", sans-serif;
+
+    font-size:
+        clamp(2.65rem, 4.2vw, 4.15rem);
+
+    line-height: 1.05;
+
+    margin-bottom: 17px;
+
+    letter-spacing: -2px;
+
+    color: #0f172a;
+}
+
+.hero-description {
+    max-width: 600px;
+
+    margin-bottom: 24px;
+
+    font-size: 1rem;
+    line-height: 1.7;
+
+    color: #64748b;
+}
+
+.hero-note {
+    margin-top: 18px;
+
+    color: #94a3b8;
+
+    font-size: 0.84rem;
+}
+
+.hero-visual {
+    position: relative;
+
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE NAVBAR
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+        width: min(100% - 30px, 1180px);
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .brand-text small {
+        letter-spacing: 0.8px;
+    }
+
+    .floating-card.one {
+        right: 0;
+    }
+
+    .floating-card.two {
+        left: 0;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .nav-container {
+        min-height: 74px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
+    }
+
+    .nav-actions {
+        gap: 5px;
+    }
+
+    .nav-login {
+        padding: 9px 10px;
+    }
+
+    .nav-signup {
+        padding: 9px 12px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 50px 0 65px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .hero-visual {
+        min-height: 460px;
+    }
+
+    .floating-card.one {
+        right: 10px;
+        top: 25px;
+    }
+
+    .floating-card.two {
+        left: 10px;
+        bottom: 25px;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .nav-container {
+        width: calc(100% - 24px);
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        font-size: 1.05rem;
+    }
+
+    .brand-text strong {
+        font-size: 1rem;
+    }
+
+    .brand-text small {
+        font-size: 0.5rem;
+        letter-spacing: 0.7px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+    }
+
+    .nav-login {
+        padding: 8px 9px;
+        font-size: 0.78rem;
+    }
+
+    .nav-signup {
+        padding: 9px 11px;
+        font-size: 0.78rem;
+    }
+
+    .hero {
+        padding: 42px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem;
+        line-height: 1.08;
+        letter-spacing: -1.2px;
+    }
+
+    .hero-description {
+        font-size: 0.94rem;
+        line-height: 1.65;
+    }
+
+    .hero-visual {
+        min-height: 430px;
+    }
+
+    .floating-card {
+        padding: 10px 12px;
+        font-size: 0.72rem;
+    }
+
+    .floating-card.one {
+        right: 0;
+        top: 15px;
+    }
+
+    .floating-card.two {
+        left: 0;
+        bottom: 15px;
+    }
+}
