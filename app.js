@@ -1831,7 +1831,7 @@ function updateNavbarForUser() {
     const user = getCurrentUser();
 
     const authLinks =
-        document.querySelector(".nav-auth");
+        document.querySelector(".nav-actions");
 
     if (!authLinks) {
         return;
