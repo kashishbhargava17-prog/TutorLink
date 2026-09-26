@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,21 +12,14 @@
 
     <meta
         name="description"
-        content="TutorLink — an online learning marketplace connecting students with trusted tutors."
-    >
-
-    <meta
-        name="theme-color"
-        content="#5B4BFF"
+        content="TutorLink — Learn. Teach. Connect. A digital tutoring platform connecting students with tutors."
     >
 
     <title>TutorLink — Learn. Teach. Connect.</title>
 
     <!-- Google Fonts -->
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
         rel="preconnect"
@@ -34,63 +28,66 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- TutorLink Global Styles -->
-    <link
-        rel="stylesheet"
-        href="styles.css"
-    >
+    <!-- Main Styles -->
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+
 </head>
 
 
 <body class="home-page">
 
-    <!-- =========================================
+
+    <!-- =====================================================
          NAVBAR
-    ========================================== -->
+    ====================================================== -->
 
     <header class="navbar">
 
         <div class="nav-container">
 
-            <!-- BRAND -->
+            <!-- TutorLink Logo -->
 
             <a
                 href="index.html"
-                class="brand"
+                class="logo"
                 aria-label="TutorLink home"
             >
 
-                <span class="brand-icon">
+                <div class="logo-icon">
                     🎓
-                </span>
+                </div>
 
-                <span class="brand-text">
+                <div class="logo-text">
 
-                    <strong>
+                    <span class="logo-name">
                         TutorLink
-                    </strong>
+                    </span>
 
-                    <small>
+                    <span class="logo-tagline">
                         LEARN • TEACH • CONNECT
-                    </small>
+                    </span>
 
-                </span>
+                </div>
 
             </a>
 
 
-            <!-- NAVIGATION -->
+            <!-- Main Navigation -->
 
             <nav
                 class="nav-links"
                 aria-label="Main navigation"
             >
 
-                <a href="index.html">
+                <a
+                    href="index.html"
+                    class="active"
+                >
                     Home
                 </a>
 
@@ -105,20 +102,20 @@
             </nav>
 
 
-            <!-- AUTH ACTIONS -->
+            <!-- Authentication -->
 
             <div class="nav-actions">
 
                 <a
                     href="login.html"
-                    class="nav-login"
+                    class="btn-login"
                 >
                     Log In
                 </a>
 
                 <a
                     href="signup.html"
-                    class="nav-signup"
+                    class="btn-signup"
                 >
                     Sign Up
                 </a>
@@ -130,24 +127,18 @@
     </header>
 
 
-    <!-- =========================================
-         MAIN CONTENT
-    ========================================== -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
     <main>
-
-        <!-- =====================================
-             HERO
-        ====================================== -->
 
         <section class="hero">
 
             <div class="hero-container">
 
 
-                <!-- =================================
-                     HERO TEXT
-                ================================== -->
+                <!-- HERO CONTENT -->
 
                 <div class="hero-content">
 
@@ -163,16 +154,23 @@
 
 
                     <h1>
+
                         Where learning
-                        <span>meets opportunity.</span>
+
+                        <span>
+                            meets opportunity.
+                        </span>
+
                     </h1>
 
 
                     <p class="hero-description">
-                        TutorLink connects students with trusted tutors
-                        and gives educators a platform to share their
-                        knowledge, grow their teaching journey, and make
-                        a meaningful impact.
+
+                        TutorLink connects students with trusted
+                        tutors and gives educators a platform to
+                        share their knowledge, grow their teaching
+                        journey, and make a meaningful impact.
+
                     </p>
 
 
@@ -210,25 +208,17 @@
                     </div>
 
 
-                    <!-- HERO BENEFITS -->
-
                     <div class="hero-note">
 
-                        <span>
-                            ✓
-                        </span>
+                        <span>✓</span>
 
                         Learn online
 
-                        <span>
-                            ✓
-                        </span>
+                        <span>✓</span>
 
                         Flexible schedules
 
-                        <span>
-                            ✓
-                        </span>
+                        <span>✓</span>
 
                         Personalized support
 
@@ -237,19 +227,22 @@
                 </div>
 
 
-                <!-- =================================
-                     ECOSYSTEM VISUAL
-                ================================== -->
+                <!-- =================================================
+                     HERO VISUAL
+                ================================================== -->
 
                 <div class="hero-visual">
 
+                    <!-- Decorative glow -->
 
-                    <!-- MAIN ECOSYSTEM CARD -->
+                    <div class="hero-glow hero-glow-one"></div>
+
+                    <div class="hero-glow hero-glow-two"></div>
+
+
+                    <!-- Main Ecosystem Card -->
 
                     <div class="ecosystem-card">
-
-
-                        <!-- LABEL -->
 
                         <div class="ecosystem-label">
 
@@ -260,24 +253,25 @@
                         </div>
 
 
-                        <!-- TITLE -->
-
                         <h2>
+
                             Learn.
                             <span>Teach.</span>
                             Connect.
+
                         </h2>
 
 
-                        <!-- DESCRIPTION -->
-
                         <p>
-                            One platform connecting learners and tutors
-                            through a simple digital learning marketplace.
+
+                            One platform connecting learners
+                            and tutors through a simple digital
+                            learning marketplace.
+
                         </p>
 
 
-                        <!-- STUDENTS -->
+                        <!-- Students -->
 
                         <div class="ecosystem-node student-node">
 
@@ -300,7 +294,7 @@
                         </div>
 
 
-                        <!-- TUTORLINK -->
+                        <!-- TutorLink -->
 
                         <div class="ecosystem-platform">
 
@@ -323,7 +317,7 @@
                         </div>
 
 
-                        <!-- TUTORS -->
+                        <!-- Tutors -->
 
                         <div class="ecosystem-node tutor-node">
 
@@ -345,8 +339,6 @@
 
                         </div>
 
-
-                        <!-- ECOSYSTEM FOOTER -->
 
                         <div class="ecosystem-footer">
 
@@ -375,9 +367,7 @@
                     </div>
 
 
-                    <!-- =================================
-                         FLOATING CARD 1
-                    ================================== -->
+                    <!-- Floating cards -->
 
                     <div class="floating-card one">
 
@@ -391,10 +381,6 @@
 
                     </div>
 
-
-                    <!-- =================================
-                         FLOATING CARD 2
-                    ================================== -->
 
                     <div class="floating-card two">
 
@@ -417,9 +403,7 @@
     </main>
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
+    <!-- JavaScript -->
 
     <script src="app.js"></script>
 
