@@ -1,6 +1,6 @@
 /* =========================================================
    TUTORLINK APP.JS
-   Main website logic
+   Prototype application logic
    ========================================================= */
 
 
@@ -20,6 +20,7 @@ const PENDING_BOOKING_KEY = "tutorlink_pending_booking";
    ========================================================= */
 
 const TUTORS = [
+
     {
         id: "ananya-sharma",
         name: "Ananya Sharma",
@@ -313,6 +314,7 @@ const TUTORS = [
         avatar: "RK",
         bio: "Uses marketing campaigns, brand examples and case studies to explain marketing concepts."
     }
+
 ];
 
 
@@ -323,9 +325,15 @@ const TUTORS = [
 function getUsers() {
 
     try {
-        return JSON.parse(localStorage.getItem(USERS_KEY)) || [];
+
+        return JSON.parse(
+            localStorage.getItem(USERS_KEY)
+        ) || [];
+
     } catch (error) {
+
         return [];
+
     }
 
 }
@@ -344,11 +352,15 @@ function saveUsers(users) {
 function getCurrentUser() {
 
     try {
+
         return JSON.parse(
             localStorage.getItem(CURRENT_USER_KEY)
         );
+
     } catch (error) {
+
         return null;
+
     }
 
 }
@@ -367,11 +379,15 @@ function setCurrentUser(user) {
 function getSavedTutors() {
 
     try {
+
         return JSON.parse(
             localStorage.getItem(SAVED_TUTORS_KEY)
         ) || [];
+
     } catch (error) {
+
         return [];
+
     }
 
 }
@@ -423,7 +439,9 @@ function getPendingBooking() {
 
 function clearPendingBooking() {
 
-    localStorage.removeItem(PENDING_BOOKING_KEY);
+    localStorage.removeItem(
+        PENDING_BOOKING_KEY
+    );
 
 }
 
@@ -436,18 +454,17 @@ function redirectByRole(user) {
 
     if (!user) {
 
-        window.location.href = "choose-role.html?v=1020";
+        window.location.href =
+            "choose-role.html?v=1023";
+
         return;
 
     }
 
 
-    /*
-       If the student was trying to book a tutor before
-       logging in, continue to that booking after login.
-    */
+    const pending =
+        getPendingBooking();
 
-    const pending = getPendingBooking();
 
     if (
         pending &&
@@ -460,7 +477,7 @@ function redirectByRole(user) {
         window.location.href =
             "booking.html?id=" +
             encodeURIComponent(pending.tutorId) +
-            "&v=1020";
+            "&v=1023";
 
         return;
 
@@ -470,7 +487,7 @@ function redirectByRole(user) {
     if (user.role === "student") {
 
         window.location.href =
-            "student-dashboard.html?v=1020";
+            "student-dashboard.html?v=1023";
 
         return;
 
@@ -480,7 +497,7 @@ function redirectByRole(user) {
     if (user.role === "tutor") {
 
         window.location.href =
-            "tutor-dashboard.html?v=1020";
+            "tutor-dashboard.html?v=1023";
 
         return;
 
@@ -488,7 +505,7 @@ function redirectByRole(user) {
 
 
     window.location.href =
-        "choose-role.html?v=1020";
+        "choose-role.html?v=1023";
 
 }
 
@@ -499,9 +516,12 @@ function redirectByRole(user) {
 
 function logout() {
 
-    localStorage.removeItem(CURRENT_USER_KEY);
+    localStorage.removeItem(
+        CURRENT_USER_KEY
+    );
 
-    window.location.href = "login.html?v=1020";
+    window.location.href =
+        "login.html?v=1023";
 
 }
 
@@ -512,13 +532,9 @@ function logout() {
 
 function handleBookSession(tutorId) {
 
-    const currentUser = getCurrentUser();
+    const currentUser =
+        getCurrentUser();
 
-
-    /*
-       Student already logged in:
-       go directly to booking.
-    */
 
     if (
         currentUser &&
@@ -528,17 +544,12 @@ function handleBookSession(tutorId) {
         window.location.href =
             "booking.html?id=" +
             encodeURIComponent(tutorId) +
-            "&v=1020";
+            "&v=1023";
 
         return;
 
     }
 
-
-    /*
-       Tutor trying to book:
-       send them to the role-appropriate place.
-    */
 
     if (
         currentUser &&
@@ -554,17 +565,12 @@ function handleBookSession(tutorId) {
     }
 
 
-    /*
-       Nobody logged in:
-       remember the tutor and ask them to log in.
-    */
-
     savePendingBooking(tutorId);
 
     window.location.href =
         "login.html?role=student&redirect=booking&id=" +
         encodeURIComponent(tutorId) +
-        "&v=1020";
+        "&v=1023";
 
 }
 
@@ -575,17 +581,24 @@ function handleBookSession(tutorId) {
 
 function toggleSaveTutor(tutorId, button) {
 
-    let saved = getSavedTutors();
+    let saved =
+        getSavedTutors();
+
 
     if (saved.includes(tutorId)) {
 
-        saved = saved.filter(
-            id => id !== tutorId
-        );
+        saved =
+            saved.filter(
+                id => id !== tutorId
+            );
+
 
         if (button) {
 
-            button.classList.remove("saved");
+            button.classList.remove(
+                "saved"
+            );
+
             button.innerHTML = "♡";
 
         }
@@ -594,14 +607,19 @@ function toggleSaveTutor(tutorId, button) {
 
         saved.push(tutorId);
 
+
         if (button) {
 
-            button.classList.add("saved");
+            button.classList.add(
+                "saved"
+            );
+
             button.innerHTML = "♥";
 
         }
 
     }
+
 
     saveSavedTutors(saved);
 
@@ -617,17 +635,27 @@ function createTutorCard(
     matchReason = ""
 ) {
 
-    const saved = getSavedTutors()
-        .includes(tutor.id);
+    const saved =
+        getSavedTutors()
+            .includes(tutor.id);
 
-    const matchHTML = matchReason
-        ? `
-            <div class="tutor-match-reason">
-                <strong>Why this tutor matches</strong>
-                <span>${matchReason}</span>
-            </div>
-        `
-        : "";
+
+    const matchHTML =
+        matchReason
+            ? `
+                <div class="tutor-match-reason">
+
+                    <strong>
+                        Why this tutor matches
+                    </strong>
+
+                    <span>
+                        ${matchReason}
+                    </span>
+
+                </div>
+            `
+            : "";
 
 
     return `
@@ -661,7 +689,11 @@ function createTutorCard(
 
                     ${
                         tutor.verified
-                            ? `<span class="verified-badge">✓ Verified</span>`
+                            ? `
+                                <span class="verified-badge">
+                                    ✓ Verified
+                                </span>
+                            `
                             : ""
                     }
 
@@ -685,7 +717,7 @@ function createTutorCard(
                     </span>
 
                     <span>
-                        💼 ${tutor.experience} yrs
+                        💼 ${tutor.experience}
                     </span>
 
                     <span>
@@ -735,7 +767,7 @@ function createTutorCard(
                 <div class="tutor-card-actions">
 
                     <a
-                        href="tutor-profile.html?id=${encodeURIComponent(tutor.id)}&v=1020"
+                        href="tutor-profile.html?id=${encodeURIComponent(tutor.id)}&v=1023"
                         class="btn-secondary"
                     >
                         View Profile
@@ -763,16 +795,24 @@ function createTutorCard(
    RENDER TUTORS
    ========================================================= */
 
-function renderTutors(tutors = TUTORS) {
+function renderTutors(
+    tutors = TUTORS
+) {
 
     const grid =
-        document.getElementById("tutorGrid");
+        document.getElementById(
+            "tutorGrid"
+        );
 
     const empty =
-        document.getElementById("emptyTutors");
+        document.getElementById(
+            "emptyTutors"
+        );
 
     const count =
-        document.getElementById("tutorResultCount");
+        document.getElementById(
+            "tutorResultCount"
+        );
 
 
     if (!grid) {
@@ -792,8 +832,12 @@ function renderTutors(tutors = TUTORS) {
 
         grid.innerHTML = "";
 
+
         if (empty) {
-            empty.style.display = "block";
+
+            empty.style.display =
+                "block";
+
         }
 
         return;
@@ -802,13 +846,20 @@ function renderTutors(tutors = TUTORS) {
 
 
     if (empty) {
-        empty.style.display = "none";
+
+        empty.style.display =
+            "none";
+
     }
 
 
-    grid.innerHTML = tutors
-        .map(tutor => createTutorCard(tutor))
-        .join("");
+    grid.innerHTML =
+        tutors
+            .map(
+                tutor =>
+                    createTutorCard(tutor)
+            )
+            .join("");
 
 }
 
@@ -820,24 +871,36 @@ function renderTutors(tutors = TUTORS) {
 function filterTutors() {
 
     const searchInput =
-        document.getElementById("tutorSearch");
+        document.getElementById(
+            "tutorSearch"
+        );
 
     const subjectFilter =
-        document.getElementById("subjectFilter");
+        document.getElementById(
+            "subjectFilter"
+        );
 
     const levelFilter =
-        document.getElementById("levelFilter");
+        document.getElementById(
+            "levelFilter"
+        );
 
     const ratingFilter =
-        document.getElementById("ratingFilter");
+        document.getElementById(
+            "ratingFilter"
+        );
 
     const priceFilter =
-        document.getElementById("priceFilter");
+        document.getElementById(
+            "priceFilter"
+        );
 
 
     const search =
         searchInput
-            ? searchInput.value.trim().toLowerCase()
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
             : "";
 
 
@@ -865,61 +928,69 @@ function filterTutors() {
             : "";
 
 
-    const results = TUTORS.filter(tutor => {
+    const results =
+        TUTORS.filter(tutor => {
 
-        const matchesSearch =
-            !search ||
-            tutor.name.toLowerCase().includes(search) ||
-            tutor.subject.toLowerCase().includes(search) ||
-            tutor.bio.toLowerCase().includes(search);
-
-
-        const matchesSubject =
-            !subject ||
-            tutor.subject === subject;
-
-
-        const matchesLevel =
-            !level ||
-            tutor.level === level;
+            const matchesSearch =
+                !search ||
+                tutor.name
+                    .toLowerCase()
+                    .includes(search) ||
+                tutor.subject
+                    .toLowerCase()
+                    .includes(search) ||
+                tutor.bio
+                    .toLowerCase()
+                    .includes(search);
 
 
-        const matchesRating =
-            !rating ||
-            tutor.rating >= Number(rating);
+            const matchesSubject =
+                !subject ||
+                tutor.subject === subject;
 
 
-        let matchesPrice = true;
+            const matchesLevel =
+                !level ||
+                tutor.level === level;
 
 
-        if (price === "under-250") {
-
-            matchesPrice =
-                tutor.price < 250;
-
-        } else if (price === "250-300") {
-
-            matchesPrice =
-                tutor.price >= 250 &&
-                tutor.price <= 300;
-
-        } else if (price === "300-plus") {
-
-            matchesPrice =
-                tutor.price >= 300;
-
-        }
+            const matchesRating =
+                !rating ||
+                tutor.rating >= Number(rating);
 
 
-        return (
-            matchesSearch &&
-            matchesSubject &&
-            matchesLevel &&
-            matchesRating &&
-            matchesPrice
-        );
+            let matchesPrice =
+                true;
 
-    });
+
+            if (price === "under-250") {
+
+                matchesPrice =
+                    tutor.price < 250;
+
+            } else if (price === "250-300") {
+
+                matchesPrice =
+                    tutor.price >= 250 &&
+                    tutor.price <= 300;
+
+            } else if (price === "300-plus") {
+
+                matchesPrice =
+                    tutor.price >= 300;
+
+            }
+
+
+            return (
+                matchesSearch &&
+                matchesSubject &&
+                matchesLevel &&
+                matchesRating &&
+                matchesPrice
+            );
+
+        });
 
 
     renderTutors(results);
@@ -929,19 +1000,25 @@ function filterTutors() {
 
 /* =========================================================
    TUTORMATCH
-   Recommends 2–3 tutors
+   Recommends 2–3 relevant tutors
    ========================================================= */
 
 function getTutorMatchRecommendations() {
 
     const subjectFilter =
-        document.getElementById("subjectFilter");
+        document.getElementById(
+            "subjectFilter"
+        );
 
     const levelFilter =
-        document.getElementById("levelFilter");
+        document.getElementById(
+            "levelFilter"
+        );
 
     const priceFilter =
-        document.getElementById("priceFilter");
+        document.getElementById(
+            "priceFilter"
+        );
 
 
     const subject =
@@ -963,19 +1040,46 @@ function getTutorMatchRecommendations() {
 
 
     /*
-       If nothing has been selected,
-       show a useful mixed recommendation.
+       SUBJECT IS A HARD REQUIREMENT.
+
+       If the student selects a subject,
+       only tutors teaching that subject
+       can be recommended.
     */
 
-    let candidates = TUTORS.map(tutor => {
+    let candidates =
+        TUTORS.filter(tutor => {
 
-        let score = 0;
-        const reasons = [];
+            if (!subject) {
+                return true;
+            }
+
+            return (
+                tutor.subject
+                    .toLowerCase() ===
+                subject.toLowerCase()
+            );
+
+        });
 
 
-        if (subject) {
+    /*
+       Calculate match score.
+    */
 
-            if (tutor.subject === subject) {
+    candidates =
+        candidates.map(tutor => {
+
+            let score = 0;
+
+            const reasons = [];
+
+
+            /*
+               Subject match
+            */
+
+            if (subject) {
 
                 score += 50;
 
@@ -985,12 +1089,17 @@ function getTutorMatchRecommendations() {
 
             }
 
-        }
 
+            /*
+               Level match
+            */
 
-        if (level) {
-
-            if (tutor.level === level) {
+            if (
+                level &&
+                tutor.level
+                    .toLowerCase() ===
+                level.toLowerCase()
+            ) {
 
                 score += 30;
 
@@ -1000,145 +1109,119 @@ function getTutorMatchRecommendations() {
 
             }
 
-        }
+
+            /*
+               Price match
+            */
+
+            if (price === "under-250") {
+
+                if (tutor.price < 250) {
+
+                    score += 15;
+
+                    reasons.push(
+                        "fits your budget"
+                    );
+
+                }
+
+            }
 
 
-        if (price === "under-250") {
+            if (price === "250-300") {
 
-            if (tutor.price < 250) {
+                if (
+                    tutor.price >= 250 &&
+                    tutor.price <= 300
+                ) {
 
-                score += 15;
+                    score += 15;
+
+                    reasons.push(
+                        "fits your budget"
+                    );
+
+                }
+
+            }
+
+
+            if (price === "300-plus") {
+
+                if (tutor.price >= 300) {
+
+                    score += 15;
+
+                    reasons.push(
+                        "fits your budget"
+                    );
+
+                }
+
+            }
+
+
+            /*
+               Rating bonus
+            */
+
+            score +=
+                tutor.rating * 3;
+
+
+            if (tutor.rating >= 4.8) {
 
                 reasons.push(
-                    "fits your budget"
+                    "highly rated"
                 );
 
             }
 
-        }
 
+            /*
+               Verification bonus
+            */
 
-        if (price === "250-300") {
+            if (tutor.verified) {
 
-            if (
-                tutor.price >= 250 &&
-                tutor.price <= 300
-            ) {
-
-                score += 15;
+                score += 3;
 
                 reasons.push(
-                    "fits your budget"
+                    "verified"
                 );
 
             }
 
-        }
+
+            return {
+                tutor: tutor,
+                score: score,
+                reasons: reasons
+            };
+
+        });
 
 
-        if (price === "300-plus") {
-
-            if (tutor.price >= 300) {
-
-                score += 15;
-
-                reasons.push(
-                    "fits your budget"
-                );
-
-            }
-
-        }
-
-
-        /*
-           Strong tutors get a small quality bonus.
-        */
-
-        score += tutor.rating * 3;
-
-        if (tutor.rating >= 4.8) {
-
-            reasons.push(
-                "highly rated"
-            );
-
-        }
-
-
-        if (tutor.verified) {
-
-            score += 3;
-
-            reasons.push(
-                "verified"
-            );
-
-        }
-
-
-        return {
-            tutor,
-            score,
-            reasons
-        };
-
-    });
-
+    /*
+       Highest score first.
+    */
 
     candidates.sort(
-        (a, b) => b.score - a.score
+        (a, b) =>
+            b.score - a.score
     );
 
 
     /*
-       Prefer exact matches first.
-       Then fill to at least 3 recommendations
-       when possible.
+       Maximum 3 recommendations.
+
+       Because subject filtering happens
+       BEFORE scoring, unrelated subjects
+       can NEVER appear here.
     */
 
-    let recommendations =
-        candidates.slice(0, 3);
-
-
-    /*
-       If a specific subject was selected,
-       make sure we prioritize subject matches.
-    */
-
-    if (subject) {
-
-        const subjectMatches =
-            candidates.filter(
-                item =>
-                    item.tutor.subject === subject
-            );
-
-
-        if (subjectMatches.length >= 3) {
-
-            recommendations =
-                subjectMatches.slice(0, 3);
-
-        } else if (subjectMatches.length > 0) {
-
-            const combined = [
-                ...subjectMatches,
-                ...candidates.filter(
-                    item =>
-                        item.tutor.subject !== subject
-                )
-            ];
-
-            recommendations =
-                combined.slice(0, 3);
-
-        }
-
-    }
-
-
-    return recommendations;
+    return candidates.slice(0, 3);
 
 }
 
@@ -1150,13 +1233,19 @@ function getTutorMatchRecommendations() {
 function renderTutorMatch() {
 
     const grid =
-        document.getElementById("tutorGrid");
+        document.getElementById(
+            "tutorGrid"
+        );
 
     const empty =
-        document.getElementById("emptyTutors");
+        document.getElementById(
+            "emptyTutors"
+        );
 
     const count =
-        document.getElementById("tutorResultCount");
+        document.getElementById(
+            "tutorResultCount"
+        );
 
 
     if (!grid) {
@@ -1178,7 +1267,10 @@ function renderTutorMatch() {
 
 
     if (empty) {
-        empty.style.display = "none";
+
+        empty.style.display =
+            "none";
+
     }
 
 
@@ -1195,7 +1287,9 @@ function renderTutorMatch() {
             .map(item => {
 
                 let reason =
-                    item.reasons.slice(0, 3).join(" • ");
+                    item.reasons
+                        .slice(0, 3)
+                        .join(" • ");
 
 
                 if (!reason) {
@@ -1224,7 +1318,10 @@ function renderTutorMatch() {
 function initializeLogin() {
 
     const form =
-        document.getElementById("loginForm");
+        document.getElementById(
+            "loginForm"
+        );
+
 
     if (!form) {
         return;
@@ -1240,7 +1337,9 @@ function initializeLogin() {
 
             const email =
                 document
-                    .getElementById("loginEmail")
+                    .getElementById(
+                        "loginEmail"
+                    )
                     ?.value
                     .trim()
                     .toLowerCase();
@@ -1248,12 +1347,16 @@ function initializeLogin() {
 
             const password =
                 document
-                    .getElementById("loginPassword")
+                    .getElementById(
+                        "loginPassword"
+                    )
                     ?.value;
 
 
             const message =
-                document.getElementById("loginMessage");
+                document.getElementById(
+                    "loginMessage"
+                );
 
 
             const users =
@@ -1263,8 +1366,11 @@ function initializeLogin() {
             const user =
                 users.find(
                     item =>
-                        item.email.toLowerCase() === email &&
-                        item.password === password
+                        item.email
+                            .toLowerCase() ===
+                        email &&
+                        item.password ===
+                        password
                 );
 
 
@@ -1300,7 +1406,8 @@ function initializeLogin() {
 
 
             setTimeout(
-                () => redirectByRole(user),
+                () =>
+                    redirectByRole(user),
                 250
             );
 
@@ -1317,7 +1424,10 @@ function initializeLogin() {
 function initializeSignup() {
 
     const form =
-        document.getElementById("signupForm");
+        document.getElementById(
+            "signupForm"
+        );
+
 
     if (!form) {
         return;
@@ -1333,14 +1443,18 @@ function initializeSignup() {
 
             const name =
                 document
-                    .getElementById("signupName")
+                    .getElementById(
+                        "signupName"
+                    )
                     ?.value
                     .trim();
 
 
             const email =
                 document
-                    .getElementById("signupEmail")
+                    .getElementById(
+                        "signupEmail"
+                    )
                     ?.value
                     .trim()
                     .toLowerCase();
@@ -1348,18 +1462,24 @@ function initializeSignup() {
 
             const password =
                 document
-                    .getElementById("signupPassword")
+                    .getElementById(
+                        "signupPassword"
+                    )
                     ?.value;
 
 
             const role =
                 document
-                    .getElementById("signupRole")
+                    .getElementById(
+                        "signupRole"
+                    )
                     ?.value;
 
 
             const message =
-                document.getElementById("signupMessage");
+                document.getElementById(
+                    "signupMessage"
+                );
 
 
             const users =
@@ -1369,7 +1489,9 @@ function initializeSignup() {
             const existing =
                 users.find(
                     user =>
-                        user.email.toLowerCase() === email
+                        user.email
+                            .toLowerCase() ===
+                        email
                 );
 
 
@@ -1396,10 +1518,17 @@ function initializeSignup() {
                     "user_" +
                     Date.now(),
 
-                name,
-                email,
-                password,
-                role
+                name:
+                    name,
+
+                email:
+                    email,
+
+                password:
+                    password,
+
+                role:
+                    role
 
             };
 
@@ -1423,7 +1552,8 @@ function initializeSignup() {
 
 
             setTimeout(
-                () => redirectByRole(newUser),
+                () =>
+                    redirectByRole(newUser),
                 300
             );
 
@@ -1440,10 +1570,14 @@ function initializeSignup() {
 function initializeRoleSelection() {
 
     const studentButton =
-        document.getElementById("studentRoleButton");
+        document.getElementById(
+            "studentRoleButton"
+        );
 
     const tutorButton =
-        document.getElementById("tutorRoleButton");
+        document.getElementById(
+            "tutorRoleButton"
+        );
 
 
     if (studentButton) {
@@ -1503,7 +1637,8 @@ function initializeUserNames() {
         element => {
 
             element.textContent =
-                user.name || "Learner";
+                user.name ||
+                "Learner";
 
         }
     );
@@ -1519,7 +1654,10 @@ function initializeUserNames() {
         element => {
 
             element.textContent =
-                (user.name || "Learner")
+                (
+                    user.name ||
+                    "Learner"
+                )
                     .split(" ")[0];
 
         }
@@ -1561,7 +1699,10 @@ function initializeLogoutButtons() {
 function initializeTutorPage() {
 
     const grid =
-        document.getElementById("tutorGrid");
+        document.getElementById(
+            "tutorGrid"
+        );
+
 
     if (!grid) {
         return;
@@ -1569,19 +1710,30 @@ function initializeTutorPage() {
 
 
     const search =
-        document.getElementById("tutorSearch");
+        document.getElementById(
+            "tutorSearch"
+        );
+
 
     const searchButton =
-        document.getElementById("searchTutorsButton");
+        document.getElementById(
+            "searchTutorsButton"
+        );
+
 
     const tutorMatchButton =
-        document.getElementById("tutorMatchButton");
+        document.getElementById(
+            "tutorMatchButton"
+        );
+
 
     const filters = [
+
         "subjectFilter",
         "levelFilter",
         "ratingFilter",
         "priceFilter"
+
     ];
 
 
@@ -1612,7 +1764,10 @@ function initializeTutorPage() {
         id => {
 
             const element =
-                document.getElementById(id);
+                document.getElementById(
+                    id
+                );
+
 
             if (element) {
 
@@ -1667,6 +1822,84 @@ function getTutorFromURL() {
 
 }
 
+/* =========================================================
+   UPDATE NAVBAR FOR LOGGED-IN USER
+   ========================================================= */
+
+function updateNavbarForUser() {
+
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // Only update the navbar on logged-in/dashboard pages
+    const loggedInPages = [
+        "student-dashboard.html",
+        "tutor-dashboard.html",
+        "tutors.html",
+        "tutor-profile.html",
+        "booking.html",
+        "bookings.html",
+        "saved.html",
+        "rewards.html",
+        "student-profile.html",
+        "virtual-classroom.html",
+        "quiz.html",
+        "tutor-students.html",
+        "tutor-classes.html",
+        "tutor-earnings.html",
+        "tutor-availability.html",
+        "session-complete.html",
+        "create-quiz.html",
+        "support.html",
+        "impact.html",
+        "business-model.html",
+        "learn.html"
+    ];
+
+    // Leave the homepage and auth pages alone
+    if (!loggedInPages.includes(currentPage)) {
+        return;
+    }
+
+    const user = getCurrentUser();
+    const authLinks = document.querySelector(".nav-actions");
+
+    if (!authLinks) {
+        return;
+    }
+
+    if (user) {
+
+        authLinks.innerHTML = `
+            <button
+                type="button"
+                class="nav-login"
+                onclick="logout()"
+            >
+                Log Out
+            </button>
+        `;
+
+    } else {
+
+        authLinks.innerHTML = `
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Log In
+            </a>
+
+            <a
+                href="signup.html"
+                class="nav-signup"
+            >
+                Sign Up
+            </a>
+        `;
+
+    }
+}
+
 
 /* =========================================================
    INITIALIZE
@@ -1687,6 +1920,8 @@ document.addEventListener(
         initializeLogoutButtons();
 
         initializeTutorPage();
+
+        updateNavbarForUser();
 
     }
 );
