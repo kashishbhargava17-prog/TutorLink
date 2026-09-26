@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="student-dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="profile-page">
+
+    <!-- PROFILE HERO -->
+
+    <section class="profile-hero">
+
+        <div class="profile-avatar" id="profileAvatar">
+            S
+        </div>
+
+        <div class="profile-heading">
+
+            <span class="eyebrow">
+                STUDENT PROFILE
+            </span>
+
+            <h1 id="profileName">
+                Student
+            </h1>
+
+            <p id="profileEmail">
+                student@example.com
+            </p>
+
+            <span class="student-badge">
+                🎓 Student
+            </span>
+
+        </div>
+
+        <button
+            type="button"
+            class="profile-edit-button"
+            id="editProfileButton"
+        >
+            ✏️ Edit Profile
+        </button>
+
+    </section>
+
+
+    <!-- MAIN GRID -->
+
+    <section class="profile-grid">
+
+
+        <!-- PERSONAL INFORMATION -->
+
+        <article class="profile-card personal-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        PERSONAL INFORMATION
+                    </span>
+
+                    <h2>
+                        About you
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    👤
+                </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span>
+                        Full Name
+                    </span>
+
+                    <strong id="infoName">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="infoEmail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Account Type
+                    </span>
+
+                    <strong>
+                        Student
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Member Since
+                    </span>
+
+                    <strong id="memberSince">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- LEARNING PROFILE -->
+
+        <article class="profile-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        LEARNING PROFILE
+                    </span>
+
+                    <h2>
+                        Your learning journey
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    📚
+                </div>
+
+            </div>
+
+
+            <div class="learning-details">
+
+                <div class="learning-detail">
+
+                    <div class="detail-icon">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Learning Level
+                        </span>
+
+                        <strong id="learningLevel">
+                            Not set
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="learning-detail">
+
+                    <div class="detail-icon">
+                        📖
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Favourite Subject
+                        </span>
+
+                        <strong id="favoriteSubject">
+                            Not set
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="learning-detail">
+
+                    <div class="detail-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Tute Balance
+                        </span>
+
+                        <strong id="profileTute">
+                            0 Tute
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- ACTIVE PLAN -->
+
+        <article class="profile-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        ACTIVE PLAN
+                    </span>
+
+                    <h2>
+                        Your tutoring plan
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    🗓️
+                </div>
+
+            </div>
+
+
+            <div
+                id="planContent"
+                class="plan-content"
+            >
+
+                <div class="plan-empty">
+
+                    <div>
+                        📚
+                    </div>
+
+                    <strong>
+                        No active tutoring plan
+                    </strong>
+
+                    <p>
+                        Book a tutor to start your personalised
+                        learning journey.
+                    </p>
+
+                    <a
+                        href="tutors.html"
+                        class="profile-action"
+                    >
+                        Find a Tutor →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PROGRESS -->
+
+        <article class="profile-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        LEARNING PROGRESS
+                    </span>
+
+                    <h2>
+                        Keep growing
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    📈
+                </div>
+
+            </div>
+
+
+            <div class="progress-list">
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Overall Progress
+                        </span>
+
+                        <strong id="overallProgress">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <div
+                            class="progress-fill"
+                            id="overallProgressBar"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Sessions Completed
+                        </span>
+
+                        <strong id="completedSessions">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-fill"
+                            id="sessionProgressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Quizzes Completed
+                        </span>
+
+                        <strong id="completedQuizzes">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+
+                        <div
+                            class="progress-fill"
+                            id="quizProgressBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- QUICK LINKS -->
+
+        <article class="profile-card quick-links-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Manage your TutorLink
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    ⚡
+                </div>
+
+            </div>
+
+
+            <div class="profile-links">
+
+                <a href="bookings.html" class="profile-link">
+
+                    <span class="link-icon">
+                        🗓️
+                    </span>
+
+                    <span>
+                        <strong>
+                            My Bookings
+                        </strong>
+
+                        <small>
+                            View upcoming and past sessions
+                        </small>
+                    </span>
+
+                    <b>
+                        →
+                    </b>
+
+                </a>
+
+
+                <a href="saved.html" class="profile-link">
+
+                    <span class="link-icon">
+                        ❤️
+                    </span>
+
+                    <span>
+                        <strong>
+                            Saved Tutors
+                        </strong>
+
+                        <small>
+                            View tutors you've saved
+                        </small>
+                    </span>
+
+                    <b>
+                        →
+                    </b>
+
+                </a>
+
+
+                <a href="rewards.html" class="profile-link">
+
+                    <span class="link-icon">
+                        ⭐
+                    </span>
+
+                    <span>
+                        <strong>
+                            Tute & Rewards
+                        </strong>
+
+                        <small>
+                            Track your learning rewards
+                        </small>
+                    </span>
+
+                    <b>
+                        →
+                    </b>
+
+                </a>
+
+
+                <a href="learn.html" class="profile-link">
+
+                    <span class="link-icon">
+                        🧠
+                    </span>
+
+                    <span>
+                        <strong>
+                            Learning Hub
+                        </strong>
+
+                        <small>
+                            Lessons, quizzes and practice
+                        </small>
+                    </span>
+
+                    <b>
+                        →
+                    </b>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- SECURITY -->
+
+        <article class="profile-card security-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <span>
+                        ACCOUNT & SECURITY
+                    </span>
+
+                    <h2>
+                        Keep your account safe
+                    </h2>
+                </div>
+
+                <div class="card-heading-icon">
+                    🔒
+                </div>
+
+            </div>
+
+
+            <div class="security-box">
+
+                <div class="security-status">
+                    <span class="security-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            Account active
+                        </strong>
+
+                        <p>
+                            Your TutorLink account is currently
+                            signed in on this device.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="securityLogout"
+                    class="security-button"
+                >
+                    Log Out
+                </button>
+
+            </div>
+
+            <p class="security-note">
+                TutorLink's current prototype stores account
+                information locally in your browser. A production
+                version would use secure server-side authentication,
+                encrypted storage and proper account recovery.
+            </p>
+
+        </article>
+
+    </section>
+
+
+    <!-- EDIT PROFILE MODAL -->
+
+    <div
+        class="profile-modal"
+        id="profileModal"
+        hidden
+    >
+
+        <div class="modal-overlay" id="modalOverlay"></div>
+
+        <div
+            class="profile-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="editProfileTitle"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeProfileModal"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <span class="eyebrow">
+                EDIT PROFILE
+            </span>
+
+            <h2 id="editProfileTitle">
+                Update your learning profile
+            </h2>
+
+            <p class="modal-description">
+                Keep your learning information up to date so
+                TutorLink can personalise your experience.
+            </p>
+
+
+            <form id="profileForm">
+
+                <label>
+                    Full Name
+
+                    <input
+                        type="text"
+                        id="editName"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Learning Level
+
+                    <select id="editLevel">
+
+                        <option value="">
+                            Select your level
+                        </option>
+
+                        <option value="School">
+                            School
+                        </option>
+
+                        <option value="College">
+                            College
+                        </option>
+
+                        <option value="University">
+                            University
+                        </option>
+
+                        <option value="Professional">
+                            Professional
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <label>
+                    Favourite Subject
+
+                    <input
+                        type="text"
+                        id="editSubject"
+                        placeholder="e.g. Mathematics"
+                    >
+                </label>
+
+
+                <div
+                    class="form-message"
+                    id="profileMessage"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    class="save-profile-button"
+                >
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<style>
+
+    .profile-page {
+        min-height: calc(100vh - 82px);
+
+        padding: 45px 20px 80px;
+
+        background:
+            radial-gradient(
+                circle at 5% 5%,
+                rgba(139,92,246,.09),
+                transparent 28%
+            ),
+            radial-gradient(
+                circle at 95% 10%,
+                rgba(34,211,238,.08),
+                transparent 28%
+            ),
+            #f8fafc;
+    }
+
+
+    /* PROFILE HERO */
+
+    .profile-hero {
+        width: min(1120px, 100%);
+
+        margin: 0 auto 25px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 20px;
+
+        padding: 28px;
+
+        border-radius: 25px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #ffffff,
+                #f8f7ff
+            );
+
+        border: 1px solid #e2e8f0;
+
+        box-shadow:
+            0 15px 40px
+            rgba(15,23,42,.06);
+    }
+
+
+    .profile-avatar {
+        width: 78px;
+        height: 78px;
+
+        flex-shrink: 0;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 24px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5B4BFF,
+                #EC4899
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 2rem;
+
+        font-weight: 700;
+
+        box-shadow:
+            0 10px 25px
+            rgba(91,75,255,.2);
+    }
+
+
+    .profile-heading {
+        flex: 1;
+    }
+
+
+    .profile-heading h1 {
+        margin: 3px 0 3px;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 2rem;
+    }
+
+
+    .profile-heading p {
+        margin: 0 0 9px;
+
+        color: #64748B;
+
+        font-size: .88rem;
+    }
+
+
+    .eyebrow {
+        color: #5B4BFF;
+
+        font-size: .7rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .student-badge {
+        display: inline-block;
+
+        padding: 6px 10px;
+
+        border-radius: 999px;
+
+        background: #ede9fe;
+
+        color: #5B4BFF;
+
+        font-size: .72rem;
+
+        font-weight: 700;
+    }
+
+
+    .profile-edit-button {
+        padding: 11px 17px;
+
+        border: 0;
+
+        border-radius: 12px;
+
+        background: #5B4BFF;
+
+        color: white;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition: .2s ease;
+    }
+
+
+    .profile-edit-button:hover {
+        transform: translateY(-2px);
+
+        background: #4c3ee8;
+    }
+
+
+    /* GRID */
+
+    .profile-grid {
+        width: min(1120px, 100%);
+
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 17px;
+    }
+
+
+    .profile-card {
+        padding: 24px;
+
+        background: white;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 21px;
+
+        box-shadow:
+            0 10px 30px
+            rgba(15,23,42,.045);
+    }
+
+
+    .card-heading {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        margin-bottom: 22px;
+    }
+
+
+    .card-heading > div:first-child > span {
+        color: #5B4BFF;
+
+        font-size: .68rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1.2px;
+    }
+
+
+    .card-heading h2 {
+        margin: 5px 0 0;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.25rem;
+    }
+
+
+    .card-heading-icon {
+        width: 40px;
+        height: 40px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        background: #f1f5ff;
+
+        font-size: 1rem;
+    }
+
+
+    /* PERSONAL */
+
+    .info-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px 25px;
+    }
+
+
+    .info-item span {
+        display: block;
+
+        margin-bottom: 5px;
+
+        color: #94a3b8;
+
+        font-size: .72rem;
+    }
+
+
+    .info-item strong {
+        color: #334155;
+
+        font-size: .88rem;
+
+        word-break: break-word;
+    }
+
+
+    /* LEARNING */
+
+    .learning-details {
+        display: grid;
+
+        gap: 13px;
+    }
+
+
+    .learning-detail {
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        padding: 12px;
+
+        border-radius: 14px;
+
+        background: #f8fafc;
+    }
+
+
+    .detail-icon {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 11px;
+
+        background: #ede9fe;
+    }
+
+
+    .learning-detail span {
+        display: block;
+
+        color: #94a3b8;
+
+        font-size: .7rem;
+
+        margin-bottom: 2px;
+    }
+
+
+    .learning-detail strong {
+        color: #334155;
+
+        font-size: .86rem;
+    }
+
+
+    /* PLAN */
+
+    .plan-content {
+        min-height: 150px;
+    }
+
+
+    .plan-empty {
+        text-align: center;
+
+        padding: 15px;
+    }
+
+
+    .plan-empty > div {
+        font-size: 1.7rem;
+
+        margin-bottom: 8px;
+    }
+
+
+    .plan-empty strong {
+        display: block;
+
+        color: #334155;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .95rem;
+
+        margin-bottom: 5px;
+    }
+
+
+    .plan-empty p {
+        max-width: 300px;
+
+        margin: 0 auto 14px;
+
+        color: #64748B;
+
+        font-size: .77rem;
+
+        line-height: 1.5;
+    }
+
+
+    .profile-action {
+        display: inline-block;
+
+        padding: 9px 14px;
+
+        border-radius: 10px;
+
+        background: #5B4BFF;
+
+        color: white;
+
+        text-decoration: none;
+
+        font-size: .76rem;
+
+        font-weight: 700;
+    }
+
+
+    .active-plan {
+        padding: 16px;
+
+        border-radius: 16px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f5f3ff,
+                #faf5ff
+            );
+
+        border: 1px solid #ddd6fe;
+    }
+
+
+    .plan-name {
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .plan-name strong {
+        color: #312e81;
+
+        font-family: "Poppins", sans-serif;
+    }
+
+
+    .plan-name span {
+        color: #5B4BFF;
+
+        font-size: .75rem;
+
+        font-weight: 800;
+    }
+
+
+    .plan-progress-label {
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-bottom: 6px;
+
+        color: #64748B;
+
+        font-size: .72rem;
+    }
+
+
+    .plan-progress {
+        height: 8px;
+
+        overflow: hidden;
+
+        border-radius: 99px;
+
+        background: #ddd6fe;
+    }
+
+
+    .plan-progress div {
+        height: 100%;
+
+        border-radius: inherit;
+
+        background:
+            linear-gradient(
+                90deg,
+                #5B4BFF,
+                #EC4899
+            );
+    }
+
+
+    .plan-next {
+        margin-top: 13px;
+
+        color: #64748B;
+
+        font-size: .75rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* PROGRESS */
+
+    .progress-list {
+        display: grid;
+
+        gap: 20px;
+    }
+
+
+    .progress-label {
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-bottom: 7px;
+
+        color: #475569;
+
+        font-size: .78rem;
+    }
+
+
+    .progress-label strong {
+        color: #5B4BFF;
+    }
+
+
+    .progress-track {
+        height: 9px;
+
+        overflow: hidden;
+
+        border-radius: 99px;
+
+        background: #e2e8f0;
+    }
+
+
+    .progress-fill {
+        width: 0;
+
+        height: 100%;
+
+        border-radius: inherit;
+
+        background:
+            linear-gradient(
+                90deg,
+                #5B4BFF,
+                #8B5CF6
+            );
+
+        transition: width .5s ease;
+    }
+
+
+    /* QUICK LINKS */
+
+    .profile-links {
+        display: grid;
+
+        gap: 8px;
+    }
+
+
+    .profile-link {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 12px;
+
+        border-radius: 13px;
+
+        text-decoration: none;
+
+        transition: .18s ease;
+    }
+
+
+    .profile-link:hover {
+        background: #f8fafc;
+
+        transform: translateX(3px);
+    }
+
+
+    .link-icon {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 11px;
+
+        background: #f1f5ff;
+    }
+
+
+    .profile-link > span:nth-child(2) {
+        flex: 1;
+    }
+
+
+    .profile-link strong {
+        display: block;
+
+        color: #334155;
+
+        font-size: .82rem;
+    }
+
+
+    .profile-link small {
+        display: block;
+
+        margin-top: 2px;
+
+        color: #94a3b8;
+
+        font-size: .68rem;
+    }
+
+
+    .profile-link b {
+        color: #5B4BFF;
+
+        font-size: 1rem;
+    }
+
+
+    /* SECURITY */
+
+    .security-box {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        padding: 15px;
+
+        border-radius: 15px;
+
+        background: #f8fafc;
+    }
+
+
+    .security-status {
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+    }
+
+
+    .security-dot {
+        width: 10px;
+        height: 10px;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background: #22c55e;
+
+        box-shadow:
+            0 0 0 5px
+            rgba(34,197,94,.1);
+    }
+
+
+    .security-status strong {
+        display: block;
+
+        color: #334155;
+
+        font-size: .82rem;
+    }
+
+
+    .security-status p {
+        margin: 3px 0 0;
+
+        color: #94a3b8;
+
+        font-size: .68rem;
+    }
+
+
+    .security-button {
+        padding: 8px 12px;
+
+        border: 1px solid #fecaca;
+
+        border-radius: 9px;
+
+        background: white;
+
+        color: #dc2626;
+
+        font-size: .72rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    .security-note {
+        margin: 13px 0 0;
+
+        color: #94a3b8;
+
+        font-size: .68rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* MODAL */
+
+    .profile-modal[hidden] {
+        display: none;
+    }
+
+
+    .profile-modal {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 1000;
+
+        display: grid;
+
+        place-items: center;
+
+        padding: 20px;
+    }
+
+
+    .modal-overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            rgba(15,23,42,.55);
+
+        backdrop-filter: blur(5px);
+    }
+
+
+    .profile-modal-card {
+        position: relative;
+
+        z-index: 2;
+
+        width: min(480px, 100%);
+
+        padding: 30px;
+
+        border-radius: 23px;
+
+        background: white;
+
+        box-shadow:
+            0 30px 80px
+            rgba(15,23,42,.25);
+    }
+
+
+    .modal-close {
+        position: absolute;
+
+        top: 15px;
+        right: 17px;
+
+        width: 34px;
+        height: 34px;
+
+        border: 0;
+
+        border-radius: 10px;
+
+        background: #f1f5f9;
+
+        color: #475569;
+
+        font-size: 1.3rem;
+
+        cursor: pointer;
+    }
+
+
+    .profile-modal-card h2 {
+        margin: 6px 0 8px;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+    }
+
+
+    .modal-description {
+        margin: 0 0 22px;
+
+        color: #64748B;
+
+        font-size: .8rem;
+
+        line-height: 1.6;
+    }
+
+
+    #profileForm {
+        display: grid;
+
+        gap: 16px;
+    }
+
+
+    #profileForm label {
+        display: grid;
+
+        gap: 7px;
+
+        color: #334155;
+
+        font-size: .76rem;
+
+        font-weight: 700;
+    }
+
+
+    #profileForm input,
+    #profileForm select {
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 12px 13px;
+
+        border: 1px solid #cbd5e1;
+
+        border-radius: 11px;
+
+        background: white;
+
+        color: #334155;
+
+        font-family: inherit;
+
+        outline: none;
+    }
+
+
+    #profileForm input:focus,
+    #profileForm select:focus {
+        border-color: #8B5CF6;
+
+        box-shadow:
+            0 0 0 3px
+            rgba(139,92,246,.1);
+    }
+
+
+    .form-message {
+        min-height: 18px;
+
+        color: #16a34a;
+
+        font-size: .75rem;
+    }
+
+
+    .save-profile-button {
+        padding: 13px;
+
+        border: 0;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5B4BFF,
+                #8B5CF6
+            );
+
+        color: white;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    @media (max-width: 800px) {
+
+        .profile-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .profile-hero {
+            align-items: flex-start;
+
+            flex-wrap: wrap;
+        }
+
+        .profile-edit-button {
+            margin-left: 98px;
+        }
+
+    }
+
+
+    @media (max-width: 550px) {
+
+        .profile-page {
+            padding: 30px 15px 60px;
+        }
+
+        .profile-hero {
+            padding: 20px;
+        }
+
+        .profile-avatar {
+            width: 65px;
+            height: 65px;
+
+            border-radius: 19px;
+
+            font-size: 1.6rem;
+        }
+
+        .profile-heading h1 {
+            font-size: 1.55rem;
+        }
+
+        .profile-edit-button {
+            width: 100%;
+
+            margin-left: 0;
+        }
+
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .security-box {
+            align-items: flex-start;
+
+            flex-direction: column;
+        }
+
+        .security-button {
+            width: 100%;
+        }
+
+    }
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const user =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!user) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (user.role !== "student") {
+
+            window.location.href =
+                "tutor-dashboard.html";
+
+            return;
+
+        }
+
+
+        /* -------------------------
+           BASIC USER INFORMATION
+        ------------------------- */
+
+        const name =
+            user.name ||
+            "Student";
+
+
+        const email =
+            user.email ||
+            "No email available";
+
+
+        document.getElementById(
+            "profileName"
+        ).textContent = name;
+
+
+        document.getElementById(
+            "profileEmail"
+        ).textContent = email;
+
+
+        document.getElementById(
+            "infoName"
+        ).textContent = name;
+
+
+        document.getElementById(
+            "infoEmail"
+        ).textContent = email;
+
+
+        const firstLetter =
+            name
+                .trim()
+                .charAt(0)
+                .toUpperCase() ||
+            "S";
+
+
+        document.getElementById(
+            "profileAvatar"
+        ).textContent =
+            firstLetter;
+
+
+        /* -------------------------
+           MEMBER SINCE
+        ------------------------- */
+
+        let memberDate =
+            user.createdAt ||
+            user.joinedAt;
+
+
+        if (memberDate) {
+
+            const date =
+                new Date(memberDate);
+
+
+            if (!isNaN(date)) {
+
+                document.getElementById(
+                    "memberSince"
+                ).textContent =
+                    date.toLocaleDateString(
+                        "en-IN",
+                        {
+                            month: "short",
+                            year: "numeric"
+                        }
+                    );
+
+            }
+
+        }
+
+
+        if (
+            document.getElementById(
+                "memberSince"
+            ).textContent === "—"
+        ) {
+
+            document.getElementById(
+                "memberSince"
+            ).textContent =
+                "TutorLink member";
+
+        }
+
+
+        /* -------------------------
+           LEARNING DETAILS
+        ------------------------- */
+
+        document.getElementById(
+            "learningLevel"
+        ).textContent =
+            user.learningLevel ||
+            user.level ||
+            "Not set";
+
+
+        document.getElementById(
+            "favoriteSubject"
+        ).textContent =
+            user.favoriteSubject ||
+            user.subject ||
+            "Not set";
+
+
+        const tute =
+            Number(user.tute) || 0;
+
+
+        document.getElementById(
+            "profileTute"
+        ).textContent =
+            `${tute} Tute`;
+
+
+        /* -------------------------
+           BOOKINGS
+        ------------------------- */
+
+        const bookings =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_bookings"
+                )
+            ) || [];
+
+
+        const userBookings =
+            bookings.filter(
+                booking =>
+                    booking.studentId ===
+                    user.id
+            );
+
+
+        const completed =
+            userBookings.filter(
+                booking =>
+                    booking.status ===
+                    "completed"
+            );
+
+
+        document.getElementById(
+            "completedSessions"
+        ).textContent =
+            completed.length;
+
+
+        const sessionPercent =
+            Math.min(
+                completed.length * 10,
+                100
+            );
+
+
+        document.getElementById(
+            "sessionProgressBar"
+        ).style.width =
+            `${sessionPercent}%`;
+
+
+        /* -------------------------
+           QUIZZES
+        ------------------------- */
+
+        const quizResults =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_quiz_results"
+                )
+            ) || [];
+
+
+        const userQuizzes =
+            quizResults.filter(
+                result =>
+                    result.userId ===
+                    user.id
+            );
+
+
+        document.getElementById(
+            "completedQuizzes"
+        ).textContent =
+            userQuizzes.length;
+
+
+        const quizPercent =
+            Math.min(
+                userQuizzes.length * 20,
+                100
+            );
+
+
+        document.getElementById(
+            "quizProgressBar"
+        ).style.width =
+            `${quizPercent}%`;
+
+
+        /* -------------------------
+           OVERALL PROGRESS
+        ------------------------- */
+
+        let overallProgress =
+            Number(user.progress);
+
+
+        if (
+            !Number.isFinite(
+                overallProgress
+            )
+        ) {
+
+            overallProgress =
+                completed.length > 0 ||
+                userQuizzes.length > 0
+                    ? Math.min(
+                        50 +
+                        completed.length * 5 +
+                        userQuizzes.length * 5,
+                        100
+                    )
+                    : 0;
+
+        }
+
+
+        document.getElementById(
+            "overallProgress"
+        ).textContent =
+            `${overallProgress}%`;
+
+
+        document.getElementById(
+            "overallProgressBar"
+        ).style.width =
+            `${overallProgress}%`;
+
+
+        /* -------------------------
+           ACTIVE PLAN
+        ------------------------- */
+
+        const plan =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_student_plans"
+                )
+            ) || {};
+
+
+        const activePlan =
+            plan[user.id];
+
+
+        const planContent =
+            document.getElementById(
+                "planContent"
+            );
+
+
+        if (activePlan) {
+
+            const total =
+                Number(
+                    activePlan.totalClasses
+                ) || 0;
+
+
+            const remaining =
+                Number(
+                    activePlan.classesRemaining
+                ) || 0;
+
+
+            const used =
+                Math.max(
+                    total - remaining,
+                    0
+                );
+
+
+            const percentage =
+                total > 0
+                    ? Math.round(
+                        (used / total) * 100
+                    )
+                    : 0;
+
+
+            planContent.innerHTML = `
+
+                <div class="active-plan">
+
+                    <div class="plan-name">
+
+                        <strong>
+                            ${activePlan.package || "TutorLink Plan"}
+                        </strong>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="plan-progress-label">
+
+                        <span>
+                            Classes completed
+                        </span>
+
+                        <strong>
+                            ${used} / ${total}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="plan-progress">
+
+                        <div
+                            style="width:${percentage}%"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="plan-next">
+
+                        <strong>
+                            ${remaining}
+                        </strong>
+                        Classes Remaining
+
+                        ${
+                            activePlan.nextSession
+                                ? `<br>Next session: ${activePlan.nextSession}`
+                                : ""
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* -------------------------
+           EDIT PROFILE
+        ------------------------- */
+
+        const modal =
+            document.getElementById(
+                "profileModal"
+            );
+
+
+        const openButton =
+            document.getElementById(
+                "editProfileButton"
+            );
+
+
+        const closeButton =
+            document.getElementById(
+                "closeProfileModal"
+            );
+
+
+        const overlay =
+            document.getElementById(
+                "modalOverlay"
+            );
+
+
+        const form =
+            document.getElementById(
+                "profileForm"
+            );
+
+
+        document.getElementById(
+            "editName"
+        ).value =
+            user.name || "";
+
+
+        document.getElementById(
+            "editLevel"
+        ).value =
+            user.learningLevel ||
+            user.level ||
+            "";
+
+
+        document.getElementById(
+            "editSubject"
+        ).value =
+            user.favoriteSubject ||
+            user.subject ||
+            "";
+
+
+        openButton.addEventListener(
+            "click",
+            function () {
+
+                modal.hidden = false;
+
+            }
+        );
+
+
+        function closeModal() {
+
+            modal.hidden = true;
+
+        }
+
+
+        closeButton.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        overlay.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const newName =
+                    document.getElementById(
+                        "editName"
+                    ).value.trim();
+
+
+                const newLevel =
+                    document.getElementById(
+                        "editLevel"
+                    ).value;
+
+
+                const newSubject =
+                    document.getElementById(
+                        "editSubject"
+                    ).value.trim();
+
+
+                if (!newName) {
+
+                    return;
+
+                }
+
+
+                const users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_users"
+                        )
+                    ) || [];
+
+
+                const index =
+                    users.findIndex(
+                        existingUser =>
+                            existingUser.id ===
+                            user.id
+                    );
+
+
+                const updatedUser = {
+
+                    ...user,
+
+                    name: newName,
+
+                    learningLevel:
+                        newLevel,
+
+                    favoriteSubject:
+                        newSubject
+
+                };
+
+
+                if (index !== -1) {
+
+                    users[index] =
+                        updatedUser;
+
+                    localStorage.setItem(
+                        "tutorlink_users",
+                        JSON.stringify(
+                            users
+                        )
+                    );
+
+                }
+
+
+                localStorage.setItem(
+                    "tutorlink_current_user",
+                    JSON.stringify(
+                        updatedUser
+                    )
+                );
+
+
+                document.getElementById(
+                    "profileName"
+                ).textContent =
+                    newName;
+
+
+                document.getElementById(
+                    "infoName"
+                ).textContent =
+                    newName;
+
+
+                document.getElementById(
+                    "profileEmail"
+                ).textContent =
+                    updatedUser.email;
+
+
+                document.getElementById(
+                    "profileAvatar"
+                ).textContent =
+                    newName
+                        .charAt(0)
+                        .toUpperCase();
+
+
+                document.getElementById(
+                    "learningLevel"
+                ).textContent =
+                    newLevel ||
+                    "Not set";
+
+
+                document.getElementById(
+                    "favoriteSubject"
+                ).textContent =
+                    newSubject ||
+                    "Not set";
+
+
+                const message =
+                    document.getElementById(
+                        "profileMessage"
+                    );
+
+
+                message.textContent =
+                    "Profile updated successfully.";
+
+
+                setTimeout(
+                    function () {
+
+                        closeModal();
+
+                        message.textContent =
+                            "";
+
+                    },
+                    800
+                );
+
+            }
+        );
+
+
+        /* -------------------------
+           LOG OUT
+        ------------------------- */
+
+        document.getElementById(
+            "securityLogout"
+        ).addEventListener(
+            "click",
+            function () {
+
+                if (
+                    typeof logout ===
+                    "function"
+                ) {
+
+                    logout();
+
+                } else {
+
+                    localStorage.removeItem(
+                        "tutorlink_current_user"
+                    );
+
+                    window.location.href =
+                        "login.html";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
