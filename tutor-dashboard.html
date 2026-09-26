@@ -384,25 +384,25 @@
             </div>
 
 
-            <div class="verification-card">
+            <div class="verification-card" id="verificationCard">
 
-                <div class="verification-icon">
-                    ✓
-                </div>
+    <div class="verification-icon" id="verificationIcon">
+        ✓
+    </div>
 
-                <div>
+    <div>
+        <strong id="verificationTitle">
+            Verified Tutor
+        </strong>
 
-                    <strong>
-                        Verified Tutor
-                    </strong>
+        <span id="verificationMessage">
+            Your tutor profile is ready.
+        </span>
+    </div>
 
-                    <span>
-                        Your tutor profile is ready.
-                    </span>
+</div>
 
-                </div>
-
-            </div>
+<div id="verificationAction" style="margin-top:12px;"></div>
 
 
             <div class="profile-details">
@@ -2149,6 +2149,221 @@ document.addEventListener(
                     name
                         .charAt(0)
                         .toUpperCase();
+            }
+
+                }
+
+        /* ================================
+           PROTOTYPE TUTOR VERIFICATION
+        ================================= */
+
+        const verificationCard =
+            document.getElementById("verificationCard");
+
+        const verificationIcon =
+            document.getElementById("verificationIcon");
+
+        const verificationTitle =
+            document.getElementById("verificationTitle");
+
+        const verificationMessage =
+            document.getElementById("verificationMessage");
+
+        const verificationAction =
+            document.getElementById("verificationAction");
+
+        if (currentUser && currentUser.role === "tutor") {
+
+            let users =
+                JSON.parse(
+                    localStorage.getItem("tutorlink_users") || "[]"
+                );
+
+            let applications =
+                JSON.parse(
+                    localStorage.getItem("tutorlink_tutor_applications") || "[]"
+                );
+
+            const application =
+                applications.find(function (app) {
+
+                    return (
+                        app.userId === currentUser.id ||
+                        app.email === currentUser.email
+                    );
+
+                });
+
+            if (application) {
+
+                const status =
+                    application.status ||
+                    application.applicationStatus ||
+                    "verification-pending";
+
+                /* APPROVED */
+
+                if (
+                    status === "approved" ||
+                    status === "verification-approved" ||
+                    status === "verified" ||
+                    status === "active"
+                ) {
+
+                    verificationIcon.textContent = "✓";
+                    verificationTitle.textContent =
+                        "Verified Tutor";
+
+                    verificationMessage.textContent =
+                        "Your tutor profile is live on TutorLink.";
+
+                    verificationCard.style.background =
+                        "#f0fdf4";
+
+                    verificationCard.style.borderColor =
+                        "#bbf7d0";
+
+                    verificationAction.innerHTML =
+                        '<span style="color:#16a34a;font-size:.45rem;font-weight:700;">✓ Your profile can now appear in Find Tutors.</span>';
+
+                }
+
+                /* PENDING */
+
+                else {
+
+                    verificationIcon.textContent = "!";
+                    verificationTitle.textContent =
+                        "Verification Pending";
+
+                    verificationMessage.textContent =
+                        "Your application has been submitted and is waiting for approval.";
+
+                    verificationCard.style.background =
+                        "#fffbeb";
+
+                    verificationCard.style.borderColor =
+                        "#fde68a";
+
+                    verificationIcon.style.background =
+                        "#f59e0b";
+
+                    verificationAction.innerHTML = `
+                        <button
+                            type="button"
+                            id="prototypeApproveTutor"
+                            style="
+                                width:100%;
+                                padding:10px 12px;
+                                border:0;
+                                border-radius:9px;
+                                background:linear-gradient(135deg,#5b4bff,#8b5cf6);
+                                color:white;
+                                font-size:.48rem;
+                                font-weight:700;
+                                cursor:pointer;
+                            "
+                        >
+                            Prototype: Approve Tutor Profile
+                        </button>
+
+                        <p style="
+                            margin:7px 0 0;
+                            color:#94a3b8;
+                            font-size:.39rem;
+                            line-height:1.5;
+                        ">
+                            Demo-only approval for this college prototype.
+                            A production platform would use real verification.
+                        </p>
+                    `;
+
+                    const approveButton =
+                        document.getElementById(
+                            "prototypeApproveTutor"
+                        );
+
+                    if (approveButton) {
+
+                        approveButton.addEventListener(
+                            "click",
+                            function () {
+
+                                /* Update application */
+
+                                application.status =
+                                    "approved";
+
+                                application.applicationStatus =
+                                    "approved";
+
+                                /* Give this tutor a permanent profile ID */
+
+                                const tutorId =
+                                    currentUser.tutorId ||
+                                    "account-tutor-" +
+                                    currentUser.id;
+
+                                application.tutorId =
+                                    tutorId;
+
+                                /* Update user account */
+
+                                currentUser.tutorId =
+                                    tutorId;
+
+                                currentUser.tutorApplicationStatus =
+                                    "approved";
+
+                                /* Save application */
+
+                                localStorage.setItem(
+                                    "tutorlink_tutor_applications",
+                                    JSON.stringify(applications)
+                                );
+
+                                /* Save user */
+
+                                const userIndex =
+                                    users.findIndex(function (user) {
+
+                                        return user.id === currentUser.id;
+
+                                    });
+
+                                if (userIndex !== -1) {
+
+                                    users[userIndex].tutorId =
+                                        tutorId;
+
+                                    users[userIndex].tutorApplicationStatus =
+                                        "approved";
+
+                                    localStorage.setItem(
+                                        "tutorlink_users",
+                                        JSON.stringify(users)
+                                    );
+
+                                }
+
+                                /* Save current logged-in user */
+
+                                localStorage.setItem(
+                                    "tutorlink_current_user",
+                                    JSON.stringify(currentUser)
+                                );
+
+                                /* Refresh dashboard */
+
+                                window.location.reload();
+
+                            }
+                        );
+
+                    }
+
+                }
+
             }
 
         }
