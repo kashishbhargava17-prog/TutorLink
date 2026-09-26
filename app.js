@@ -404,6 +404,347 @@ function saveSavedTutors(tutors) {
 
 
 /* =========================================================
+   APPROVED / REGISTERED TUTOR PROFILES
+   Connects tutor accounts with the marketplace.
+   Existing demo tutors are NEVER removed.
+   ========================================================= */
+
+function getTutorApplications() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "tutorlink_tutor_applications"
+            )
+        ) || [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function getRegisteredTutorProfiles() {
+
+    const users =
+        getUsers();
+
+    const applications =
+        getTutorApplications();
+
+    const profiles = [];
+
+
+    users.forEach(
+        function (user) {
+
+            if (
+                !user ||
+                user.role !== "tutor"
+            ) {
+
+                return;
+
+            }
+
+
+            const application =
+                applications.find(
+                    function (item) {
+
+                        return (
+                            item.userId === user.id ||
+                            item.email === user.email
+                        );
+
+                    }
+                );
+
+
+            /*
+             * Only show tutor accounts that have
+             * gone through the tutor application flow.
+             *
+             * If an older prototype account has no
+             * application, it remains private.
+             */
+
+            if (!application) {
+                return;
+            }
+
+
+            const applicationStatus =
+                (
+                    application.status ||
+                    application.applicationStatus ||
+                    user.tutorApplicationStatus ||
+                    "verification-pending"
+                ).toLowerCase();
+
+
+            /*
+             * A tutor application becomes publicly
+             * visible when it has an approved/verified
+             * status.
+             *
+             * "verification-pending" remains private.
+             */
+
+            const approved =
+                [
+                    "approved",
+                    "verification-approved",
+                    "verified",
+                    "active"
+                ].includes(
+                    applicationStatus
+                );
+
+
+            if (!approved) {
+                return;
+            }
+
+
+            const subjects =
+                application.subjects ||
+                application.subject ||
+                "General Tutoring";
+
+
+            const subjectText =
+                Array.isArray(subjects)
+                    ? subjects.join(", ")
+                    : String(subjects);
+
+
+            const primarySubject =
+                Array.isArray(subjects)
+                    ? (
+                        subjects[0] ||
+                        "General Tutoring"
+                    )
+                    : (
+                        String(subjects)
+                            .split(",")[0]
+                            .trim() ||
+                        "General Tutoring"
+                    );
+
+
+            const experience =
+                application.experience ||
+                "Tutor";
+
+
+            const qualifications =
+                application.qualifications ||
+                "TutorLink verified tutor";
+
+
+            const preferredHours =
+                application.preferredHours ||
+                application.preferredTeachingHours ||
+                "";
+
+
+            const avatar =
+                (user.name || "Tutor")
+                    .split(" ")
+                    .map(
+                        function (part) {
+                            return part.charAt(0);
+                        }
+                    )
+                    .join("")
+                    .substring(0, 2)
+                    .toUpperCase();
+
+
+            /*
+             * Use the user's tutor ID if one exists.
+             * Otherwise create a stable profile ID
+             * from the account ID.
+             */
+
+            const tutorId =
+                user.tutorId ||
+                application.tutorId ||
+                "account-tutor-" + user.id;
+
+
+            /*
+             * Prevent duplicate profiles if an account
+             * was already added.
+             */
+
+            if (
+                TUTORS.some(
+                    function (tutor) {
+                        return tutor.id === tutorId;
+                    }
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            profiles.push({
+
+                id: tutorId,
+
+                userId: user.id,
+
+                name:
+                    user.name ||
+                    application.name ||
+                    "Tutor",
+
+                email:
+                    user.email ||
+                    application.email ||
+                    "",
+
+                subject:
+                    primarySubject,
+
+                subjects:
+                    subjects,
+
+                level:
+                    application.level ||
+                    "School & College",
+
+                rating:
+                    Number(
+                        application.rating
+                    ) || 5.0,
+
+                reviews:
+                    Number(
+                        application.reviews
+                    ) || 0,
+
+                experience:
+                    experience,
+
+                sessions:
+                    Number(
+                        application.sessions
+                    ) || 0,
+
+                price:
+                    Number(
+                        application.price
+                    ) || 300,
+
+                languages:
+                    application.languages ||
+                    ["English"],
+
+                teachingStyle:
+                    application.teachingStyle ||
+                    "Personalized and student-focused",
+
+                availability:
+                    application.availability ||
+                    [],
+
+                qualifications:
+                    qualifications,
+
+                students:
+                    Number(
+                        application.students
+                    ) || 0,
+
+                verified:
+                    true,
+
+                badge:
+                    "Verified Tutor",
+
+                avatar:
+                    avatar,
+
+                bio:
+                    application.intro ||
+                    application.shortIntro ||
+                    "A verified TutorLink tutor ready to help students learn.",
+
+                preferredHours:
+                    preferredHours,
+
+                isRegisteredTutor:
+                    true
+
+            });
+
+        }
+    );
+
+
+    return profiles;
+
+}
+
+
+/*
+ * Add approved tutor accounts to the existing
+ * TUTORS array without replacing the 14 demo tutors.
+ *
+ * This is intentionally done in-place so existing
+ * pages that already use TUTORS continue working.
+ */
+
+function mergeRegisteredTutors() {
+
+    const registeredTutors =
+        getRegisteredTutorProfiles();
+
+
+    registeredTutors.forEach(
+        function (tutor) {
+
+            const existingIndex =
+                TUTORS.findIndex(
+                    function (existingTutor) {
+
+                        return (
+                            existingTutor.id ===
+                            tutor.id
+                        );
+
+                    }
+                );
+
+
+            if (existingIndex === -1) {
+
+                TUTORS.push(tutor);
+
+            } else {
+
+                /*
+                 * Keep existing demo tutor data intact.
+                 */
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    PENDING BOOKING
    ========================================================= */
 
@@ -1039,14 +1380,6 @@ function getTutorMatchRecommendations() {
             : "";
 
 
-    /*
-       SUBJECT IS A HARD REQUIREMENT.
-
-       If the student selects a subject,
-       only tutors teaching that subject
-       can be recommended.
-    */
-
     let candidates =
         TUTORS.filter(tutor => {
 
@@ -1063,10 +1396,6 @@ function getTutorMatchRecommendations() {
         });
 
 
-    /*
-       Calculate match score.
-    */
-
     candidates =
         candidates.map(tutor => {
 
@@ -1074,10 +1403,6 @@ function getTutorMatchRecommendations() {
 
             const reasons = [];
 
-
-            /*
-               Subject match
-            */
 
             if (subject) {
 
@@ -1089,10 +1414,6 @@ function getTutorMatchRecommendations() {
 
             }
 
-
-            /*
-               Level match
-            */
 
             if (
                 level &&
@@ -1109,10 +1430,6 @@ function getTutorMatchRecommendations() {
 
             }
 
-
-            /*
-               Price match
-            */
 
             if (price === "under-250") {
 
@@ -1162,10 +1479,6 @@ function getTutorMatchRecommendations() {
             }
 
 
-            /*
-               Rating bonus
-            */
-
             score +=
                 tutor.rating * 3;
 
@@ -1178,10 +1491,6 @@ function getTutorMatchRecommendations() {
 
             }
 
-
-            /*
-               Verification bonus
-            */
 
             if (tutor.verified) {
 
@@ -1203,23 +1512,11 @@ function getTutorMatchRecommendations() {
         });
 
 
-    /*
-       Highest score first.
-    */
-
     candidates.sort(
         (a, b) =>
             b.score - a.score
     );
 
-
-    /*
-       Maximum 3 recommendations.
-
-       Because subject filtering happens
-       BEFORE scoring, unrelated subjects
-       can NEVER appear here.
-    */
 
     return candidates.slice(0, 3);
 
@@ -1822,6 +2119,7 @@ function getTutorFromURL() {
 
 }
 
+
 /* =========================================================
    UPDATE NAVBAR FOR LOGGED-IN USER
    ========================================================= */
@@ -1879,6 +2177,13 @@ function updateNavbarForUser() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
+        /*
+         * Merge approved tutor accounts BEFORE
+         * any tutor page tries to render TUTORS.
+         */
+
+        mergeRegisteredTutors();
 
         initializeLogin();
 
