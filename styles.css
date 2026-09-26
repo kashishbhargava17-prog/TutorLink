@@ -2338,3 +2338,431 @@ button {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   FINAL TUTORLINK HOMEPAGE ECOSYSTEM FIX
+   Matches the ACTUAL index.html structure
+========================================================= */
+
+/* ---------- HERO HEADING ---------- */
+
+.hero h1 span {
+    display: inline;
+    color: var(--primary);
+}
+
+
+/* ---------- ECOSYSTEM CARD ---------- */
+
+.hero-visual {
+    position: relative;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ecosystem-card {
+    position: relative;
+
+    width: min(100%, 530px);
+
+    padding: 32px 34px 27px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(91, 75, 255, 0.10);
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.10),
+        0 0 0 1px rgba(255, 255, 255, 0.8);
+
+    text-align: left;
+
+    overflow: visible;
+}
+
+
+/* ---------- ECOSYSTEM LABEL ---------- */
+
+.ecosystem-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--primary);
+
+    font-size: 0.68rem;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.ecosystem-label .status-dot {
+    width: 9px;
+    height: 9px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background: #10b981;
+
+    box-shadow:
+        0 0 0 5px rgba(16, 185, 129, 0.10);
+}
+
+
+/* ---------- ECOSYSTEM HEADING ---------- */
+
+.ecosystem-card h2 {
+    margin: 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+
+    line-height: 1.12;
+
+    letter-spacing: -1.2px;
+
+    color: var(--navy);
+
+    font-weight: 800;
+}
+
+.ecosystem-card h2 span {
+    color: var(--primary);
+}
+
+
+/* ---------- ECOSYSTEM DESCRIPTION ---------- */
+
+.ecosystem-card > p {
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+
+    max-width: 440px;
+}
+
+
+/* ---------- ECOSYSTEM NODES ---------- */
+
+.ecosystem-node {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+
+    padding: 16px 17px;
+
+    margin-top: 16px;
+
+    border-radius: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e8edf4;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ecosystem-node:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+
+/* ---------- NODE ICON ---------- */
+
+.ecosystem-node .ecosystem-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(91, 75, 255, 0.10),
+            rgba(139, 92, 246, 0.12)
+        );
+
+    font-size: 1.25rem;
+}
+
+
+/* ---------- NODE TEXT ---------- */
+
+.ecosystem-node strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+}
+
+.ecosystem-node span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+}
+
+
+/* ---------- TUTORLINK CENTER PLATFORM ---------- */
+
+.ecosystem-platform {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 16px 17px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5B4BFF,
+            #8B5CF6 55%,
+            #EC4899
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 15px 30px rgba(91, 75, 255, 0.24);
+}
+
+
+/* ---------- PLATFORM ICON ---------- */
+
+.platform-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    color: #ffffff;
+
+    font-size: 1.2rem;
+
+    font-weight: 900;
+}
+
+
+/* ---------- PLATFORM TEXT ---------- */
+
+.ecosystem-platform strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.92rem;
+
+    font-weight: 800;
+}
+
+.ecosystem-platform span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 0.72rem;
+}
+
+
+/* ---------- ECOSYSTEM FOOTER ---------- */
+
+.ecosystem-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 20px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #eef2f7;
+
+    color: #64748b;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+}
+
+.ecosystem-footer .ecosystem-line {
+    color: var(--primary);
+
+    font-size: 0.95rem;
+}
+
+
+/* ---------- FLOATING CARDS ---------- */
+
+.floating-card {
+    position: absolute;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 13px 17px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid rgba(91, 75, 255, 0.08);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
+
+    color: var(--navy);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    animation: tutorlinkFloat 4s ease-in-out infinite;
+}
+
+.floating-card strong {
+    color: var(--navy);
+}
+
+.floating-card span {
+    color: var(--primary);
+}
+
+.floating-card.one {
+    top: 45px;
+    right: -18px;
+
+    animation-delay: 0s;
+}
+
+.floating-card.two {
+    bottom: 42px;
+    left: -30px;
+
+    animation-delay: 1.2s;
+}
+
+@keyframes tutorlinkFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   HERO BUTTONS — MATCH THE REFERENCE
+========================================================= */
+
+.hero-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 54px;
+
+    padding: 14px 21px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hero-buttons .btn span {
+    color: inherit;
+}
+
+.hero-buttons .btn-primary {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5B4BFF,
+            #8B5CF6
+        );
+
+    border: none;
+
+    box-shadow:
+        0 10px 25px rgba(91, 75, 255, 0.25);
+}
+
+.hero-buttons .btn-primary:hover {
+    transform: translateY
