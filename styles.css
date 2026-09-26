@@ -75,6 +75,8 @@ html {
 
 body {
 
+    margin: 0;
+
     font-family: "Inter", sans-serif;
 
     color: var(--text);
@@ -114,6 +116,74 @@ body {
 
 }
 
+
+/* =========================================================
+   HOMEPAGE VIEWPORT CONTROL
+========================================================= */
+
+/*
+   The homepage consists only of:
+   NAVBAR + HERO
+
+   The navbar is 83px tall including its border.
+   The hero fills the exact remaining viewport height.
+
+   This prevents the homepage from becoming 1–2px taller
+   than the browser window and creating an unwanted scrollbar.
+*/
+
+body.home-page {
+
+    height: 100vh;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+body.home-page .navbar {
+
+    height: 83px;
+
+    flex-shrink: 0;
+
+}
+
+
+body.home-page .nav-container {
+
+    height: 82px;
+
+    min-height: 82px;
+
+}
+
+
+body.home-page main {
+
+    height: calc(100vh - 83px);
+
+    overflow: hidden;
+
+}
+
+
+body.home-page .hero {
+
+    height: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   GENERAL ELEMENTS
+========================================================= */
 
 img {
 
@@ -701,22 +771,9 @@ p {
    HERO
 ========================================================= */
 
-/*
-   IMPORTANT:
-   Navbar content is 82px high and the navbar also has
-   a 1px bottom border.
-
-   Therefore the desktop hero uses 83px instead of 82px.
-   This prevents the page from becoming 1px taller than
-   the viewport and creating an unnecessary scrollbar.
-*/
-
 .hero {
 
     position: relative;
-
-    min-height:
-        calc(100vh - 83px);
 
     overflow: hidden;
 
@@ -858,7 +915,9 @@ p {
 }
 
 
-/* COMPACT HERO HEADING */
+/* =========================================================
+   HERO HEADING
+========================================================= */
 
 .hero h1 {
 
@@ -976,7 +1035,7 @@ p {
 }
 
 
-/* decorative glow */
+/* Decorative glow */
 
 .hero-glow {
 
@@ -1137,7 +1196,9 @@ p {
 }
 
 
-/* ecosystem nodes */
+/* =========================================================
+   ECOSYSTEM NODES
+========================================================= */
 
 .ecosystem-node {
 
@@ -1230,7 +1291,9 @@ p {
 }
 
 
-/* platform */
+/* =========================================================
+   PLATFORM
+========================================================= */
 
 .ecosystem-platform {
 
@@ -1306,7 +1369,9 @@ p {
 }
 
 
-/* ecosystem footer */
+/* =========================================================
+   ECOSYSTEM FOOTER
+========================================================= */
 
 .ecosystem-footer {
 
@@ -1436,7 +1501,7 @@ p {
 
 
 /* =========================================================
-   GENERAL BUTTON / CARD STYLES FOR OTHER PAGES
+   GENERAL BUTTON / CARD STYLES
 ========================================================= */
 
 .btn-pink {
@@ -2086,57 +2151,47 @@ p {
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ========================================================= */
 
-@media (max-width: 1050px) {
-
-    .nav-container {
-
-        width: 94%;
-
-    }
-
-
-    .nav-links {
-
-        gap: 20px;
-
-    }
-
-
-    .hero-container {
-
-        gap: 40px;
-
-    }
-
-
-    .floating-card.one {
-
-        right: -5px;
-
-    }
-
-
-    .floating-card.two {
-
-        left: -10px;
-
-    }
-
-
-    .subject-grid {
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-    }
-
-}
-
-
 @media (max-width: 800px) {
+
+    /*
+       Mobile/tablet pages should be scrollable.
+       Only the desktop homepage uses the locked viewport layout.
+    */
+
+    body.home-page {
+
+        height: auto;
+
+        min-height: 100vh;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+
+    }
+
+
+    body.home-page main {
+
+        height: auto;
+
+        overflow: visible;
+
+    }
+
+
+    body.home-page .hero {
+
+        height: auto;
+
+        min-height: 0;
+
+        overflow: hidden;
+
+    }
 
 
     /* NAVBAR */
@@ -2145,7 +2200,25 @@ p {
 
         min-height: 74px;
 
+        height: 74px;
+
         gap: 12px;
+
+    }
+
+
+    body.home-page .navbar {
+
+        height: 75px;
+
+    }
+
+
+    body.home-page .nav-container {
+
+        height: 74px;
+
+        min-height: 74px;
 
     }
 
@@ -2371,8 +2444,11 @@ p {
 }
 
 
-@media (max-width: 560px) {
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
 
+@media (max-width: 560px) {
 
     .nav-container {
 
