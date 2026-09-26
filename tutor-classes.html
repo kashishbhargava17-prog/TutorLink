@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Classes | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="classes-navbar">
+
+    <div class="classes-nav-container">
+
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="tutor-dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="learn.html">Learn</a>
+
+            <a href="about.html">About</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="classes-page">
+
+    <!-- HEADER -->
+
+    <section class="classes-header">
+
+        <div>
+
+            <span class="page-eyebrow">
+                TUTOR SPACE
+            </span>
+
+            <h1>
+                My Classes
+            </h1>
+
+            <p>
+                View your teaching schedule, upcoming sessions
+                and completed classes in one place.
+            </p>
+
+        </div>
+
+        <a
+            href="tutor-dashboard.html"
+            class="back-dashboard"
+        >
+            ← Dashboard
+        </a>
+
+    </section>
+
+
+    <!-- QUICK STATS -->
+
+    <section class="class-stats">
+
+        <div class="class-stat">
+
+            <div class="stat-icon purple">
+                📅
+            </div>
+
+            <div>
+                <span>Today's Classes</span>
+                <strong id="todayCount">3</strong>
+            </div>
+
+        </div>
+
+
+        <div class="class-stat">
+
+            <div class="stat-icon cyan">
+                ⏰
+            </div>
+
+            <div>
+                <span>Upcoming</span>
+                <strong id="upcomingCount">5</strong>
+            </div>
+
+        </div>
+
+
+        <div class="class-stat">
+
+            <div class="stat-icon pink">
+                ✓
+            </div>
+
+            <div>
+                <span>Completed</span>
+                <strong>24</strong>
+            </div>
+
+        </div>
+
+
+        <div class="class-stat">
+
+            <div class="stat-icon green">
+                ⭐
+            </div>
+
+            <div>
+                <span>Rating</span>
+                <strong>4.8</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DAY FILTER -->
+
+    <section class="class-controls">
+
+        <div class="class-tabs">
+
+            <button
+                type="button"
+                class="class-tab active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+            <button
+                type="button"
+                class="class-tab"
+                data-filter="today"
+            >
+                Today
+            </button>
+
+            <button
+                type="button"
+                class="class-tab"
+                data-filter="upcoming"
+            >
+                Upcoming
+            </button>
+
+            <button
+                type="button"
+                class="class-tab"
+                data-filter="completed"
+            >
+                Completed
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- TODAY -->
+
+    <section class="classes-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-eyebrow">
+                    YOUR SCHEDULE
+                </span>
+
+                <h2>
+                    Today's Classes
+                </h2>
+            </div>
+
+            <span class="section-date">
+                Today
+            </span>
+
+        </div>
+
+
+        <div class="classes-list">
+
+
+            <!-- CLASS 1 -->
+
+            <article
+                class="class-card"
+                data-status="today"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        6:00 PM
+                    </strong>
+
+                    <span>
+                        60 min
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar purple">
+                    A
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Aarav
+                    </h3>
+
+                    <p>
+                        Mathematics
+                    </p>
+
+                    <span>
+                        Quadratic Equations
+                    </span>
+
+                </div>
+
+
+                <div class="class-status live">
+                    Starting soon
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    Join Session
+                </a>
+
+            </article>
+
+
+            <!-- CLASS 2 -->
+
+            <article
+                class="class-card"
+                data-status="today"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        7:30 PM
+                    </strong>
+
+                    <span>
+                        60 min
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar cyan">
+                    M
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Meera
+                    </h3>
+
+                    <p>
+                        Mathematics
+                    </p>
+
+                    <span>
+                        Functions & Graphs
+                    </span>
+
+                </div>
+
+
+                <div class="class-status confirmed">
+                    Confirmed
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    Join Session
+                </a>
+
+            </article>
+
+
+            <!-- CLASS 3 -->
+
+            <article
+                class="class-card"
+                data-status="today"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        9:00 PM
+                    </strong>
+
+                    <span>
+                        60 min
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar pink">
+                    R
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Rohan
+                    </h3>
+
+                    <p>
+                        Physics
+                    </p>
+
+                    <span>
+                        Motion & Forces
+                    </span>
+
+                </div>
+
+
+                <div class="class-status confirmed">
+                    Confirmed
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    Join Session
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- UPCOMING -->
+
+    <section class="classes-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    NEXT UP
+                </span>
+
+                <h2>
+                    Upcoming Classes
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="classes-list">
+
+
+            <!-- UPCOMING 1 -->
+
+            <article
+                class="class-card"
+                data-status="upcoming"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        Mon
+                    </strong>
+
+                    <span>
+                        6:00 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar green">
+                    A
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Anaya
+                    </h3>
+
+                    <p>
+                        English
+                    </p>
+
+                    <span>
+                        Writing & Communication
+                    </span>
+
+                </div>
+
+
+                <div class="class-status confirmed">
+                    Confirmed
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    View Class
+                </a>
+
+            </article>
+
+
+            <!-- UPCOMING 2 -->
+
+            <article
+                class="class-card"
+                data-status="upcoming"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        Tue
+                    </strong>
+
+                    <span>
+                        7:00 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar purple">
+                    K
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Kabir
+                    </h3>
+
+                    <p>
+                        Computer Science
+                    </p>
+
+                    <span>
+                        Python Fundamentals
+                    </span>
+
+                </div>
+
+
+                <div class="class-status confirmed">
+                    Confirmed
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    View Class
+                </a>
+
+            </article>
+
+
+            <!-- UPCOMING 3 -->
+
+            <article
+                class="class-card"
+                data-status="upcoming"
+            >
+
+                <div class="class-time">
+
+                    <strong>
+                        Wed
+                    </strong>
+
+                    <span>
+                        6:30 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-student-avatar cyan">
+                    I
+                </div>
+
+
+                <div class="class-info">
+
+                    <h3>
+                        Ishaan
+                    </h3>
+
+                    <p>
+                        Mathematics
+                    </p>
+
+                    <span>
+                        Algebra Practice
+                    </span>
+
+                </div>
+
+
+                <div class="class-status confirmed">
+                    Confirmed
+                </div>
+
+
+                <a
+                    href="virtual-classroom.html"
+                    class="join-class"
+                >
+                    View Class
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMPLETED -->
+
+    <section class="classes-section completed-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    HISTORY
+                </span>
+
+                <h2>
+                    Recently Completed
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="completed-grid">
+
+
+            <article
+                class="completed-card"
+                data-status="completed"
+            >
+
+                <div class="completed-check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Aarav • Mathematics
+                    </strong>
+
+                    <span>
+                        Quadratic Equations
+                    </span>
+
+                </div>
+
+                <small>
+                    Completed
+                </small>
+
+            </article>
+
+
+            <article
+                class="completed-card"
+                data-status="completed"
+            >
+
+                <div class="completed-check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Rohan • Physics
+                    </strong>
+
+                    <span>
+                        Newton's Laws
+                    </span>
+
+                </div>
+
+                <small>
+                    Completed
+                </small>
+
+            </article>
+
+
+            <article
+                class="completed-card"
+                data-status="completed"
+            >
+
+                <div class="completed-check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Meera • Mathematics
+                    </strong>
+
+                    <span>
+                        Functions & Graphs
+                    </span>
+
+                </div>
+
+                <small>
+                    Completed
+                </small>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- REMINDER -->
+
+    <section class="class-reminder">
+
+        <div class="reminder-icon">
+            💡
+        </div>
+
+        <div>
+
+            <strong>
+                Teaching tip
+            </strong>
+
+            <p>
+                Review your student's recent activity before
+                each session so you can keep the lesson focused
+                on what they need most.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        margin: 0;
+
+        background: #f8fafc;
+
+        color: #0f172a;
+
+        font-family: "Inter", sans-serif;
+    }
+
+
+    /* NAVBAR */
+
+    .classes-navbar {
+        min-height: 76px;
+
+        background: white;
+
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+
+    .classes-nav-container {
+        width: min(1200px, calc(100% - 35px));
+
+        min-height: 76px;
+
+        margin: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 25px;
+    }
+
+
+    .classes-navbar .brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #0f172a;
+
+        text-decoration: none;
+    }
+
+
+    .classes-navbar .brand-icon {
+        width: 40px;
+        height: 40px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 800;
+    }
+
+
+    .classes-navbar .brand-text strong {
+        display: block;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    .classes-navbar .brand-text small {
+        display: block;
+
+        color: #94a3b8;
+
+        font-size: .61rem;
+
+        letter-spacing: .4px;
+    }
+
+
+    .classes-navbar .nav-links {
+        display: flex;
+
+        align-items: center;
+
+        gap: 25px;
+    }
+
+
+    .classes-navbar .nav-links a {
+        color: #64748b;
+
+        text-decoration: none;
+
+        font-size: .73rem;
+
+        font-weight: 600;
+    }
+
+
+    .classes-navbar .nav-links a:hover,
+    .classes-navbar .nav-links a.active {
+        color: #5b4bff;
+    }
+
+
+    .classes-navbar .nav-login {
+        padding: 9px 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 9px;
+
+        background: white;
+
+        color: #475569;
+
+        font-size: .7rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    /* PAGE */
+
+    .classes-page {
+        width: min(1200px, calc(100% - 35px));
+
+        margin: auto;
+
+        padding: 42px 0 65px;
+    }
+
+
+    .classes-header {
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        gap: 25px;
+
+        margin-bottom: 27px;
+    }
+
+
+    .page-eyebrow,
+    .section-eyebrow {
+        color: #5b4bff;
+
+        font-size: .63rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1.1px;
+    }
+
+
+    .classes-header h1 {
+        margin: 7px 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: clamp(2rem, 4vw, 3rem);
+
+        line-height: 1.05;
+
+        letter-spacing: -.9px;
+    }
+
+
+    .classes-header p {
+        max-width: 620px;
+
+        margin: 0;
+
+        color: #64748b;
+
+        font-size: .78rem;
+
+        line-height: 1.65;
+    }
+
+
+    .back-dashboard {
+        padding: 10px 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 10px;
+
+        background: white;
+
+        color: #5b4bff;
+
+        text-decoration: none;
+
+        font-size: .64rem;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+
+    /* STATS */
+
+    .class-stats {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 14px;
+
+        margin-bottom: 21px;
+    }
+
+
+    .class-stat {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 17px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 17px;
+
+        background: white;
+
+        box-shadow:
+            0 7px 22px
+            rgba(15,23,42,.035);
+    }
+
+
+    .stat-icon {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 12px;
+    }
+
+
+    .stat-icon.purple {
+        background: #ede9fe;
+    }
+
+
+    .stat-icon.cyan {
+        background: #cffafe;
+    }
+
+
+    .stat-icon.pink {
+        background: #fce7f3;
+    }
+
+
+    .stat-icon.green {
+        background: #dcfce7;
+    }
+
+
+    .class-stat span {
+        display: block;
+
+        color: #64748b;
+
+        font-size: .61rem;
+    }
+
+
+    .class-stat strong {
+        display: block;
+
+        margin-top: 3px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.15rem;
+    }
+
+
+    /* CONTROLS */
+
+    .class-controls {
+        margin-bottom: 28px;
+    }
+
+
+    .class-tabs {
+        display: inline-flex;
+
+        padding: 4px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 12px;
+
+        background: white;
+    }
+
+
+    .class-tab {
+        padding: 8px 13px;
+
+        border: 0;
+
+        border-radius: 8px;
+
+        background: transparent;
+
+        color: #64748b;
+
+        font-family: inherit;
+
+        font-size: .61rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    .class-tab.active {
+        background: #ede9fe;
+
+        color: #5b4bff;
+    }
+
+
+    /* SECTION */
+
+    .classes-section {
+        margin-bottom: 31px;
+    }
+
+
+    .section-heading {
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        margin-bottom: 13px;
+    }
+
+
+    .section-heading h2 {
+        margin: 4px 0 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    .section-date {
+        color: #94a3b8;
+
+        font-size: .62rem;
+    }
+
+
+    /* CLASS CARD */
+
+    .classes-list {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 9px;
+    }
+
+
+    .class-card {
+        display: grid;
+
+        grid-template-columns:
+            90px 45px 1fr auto auto;
+
+        align-items: center;
+
+        gap: 15px;
+
+        padding: 14px 17px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 15px;
+
+        background: white;
+
+        box-shadow:
+            0 5px 18px
+            rgba(15,23,42,.025);
+
+        transition: .18s ease;
+    }
+
+
+    .class-card:hover {
+        transform: translateY(-2px);
+
+        border-color: #c4b5fd;
+
+        box-shadow:
+            0 10px 25px
+            rgba(91,75,255,.07);
+    }
+
+
+    .class-card.hidden {
+        display: none;
+    }
+
+
+    .class-time strong {
+        display: block;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .78rem;
+    }
+
+
+    .class-time span {
+        display: block;
+
+        margin-top: 2px;
+
+        color: #94a3b8;
+
+        font-size: .55rem;
+    }
+
+
+    .class-student-avatar {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 800;
+    }
+
+
+    .class-student-avatar.purple {
+        background:
+            linear-gradient(
+                135deg,
+                #8b5cf6,
+                #5b4bff
+            );
+    }
+
+
+    .class-student-avatar.cyan {
+        background:
+            linear-gradient(
+                135deg,
+                #22d3ee,
+                #0891b2
+            );
+    }
+
+
+    .class-student-avatar.pink {
+        background:
+            linear-gradient(
+                135deg,
+                #ec4899,
+                #db2777
+            );
+    }
+
+
+    .class-student-avatar.green {
+        background:
+            linear-gradient(
+                135deg,
+                #22c55e,
+                #16a34a
+            );
+    }
+
+
+    .class-info h3 {
+        margin: 0 0 3px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .78rem;
+    }
+
+
+    .class-info p {
+        margin: 0 0 2px;
+
+        color: #475569;
+
+        font-size: .61rem;
+
+        font-weight: 600;
+    }
+
+
+    .class-info span {
+        color: #94a3b8;
+
+        font-size: .56rem;
+    }
+
+
+    .class-status {
+        padding: 6px 9px;
+
+        border-radius: 999px;
+
+        font-size: .51rem;
+
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+
+    .class-status.live {
+        background: #fef3c7;
+
+        color: #b45309;
+    }
+
+
+    .class-status.confirmed {
+        background: #dcfce7;
+
+        color: #15803d;
+    }
+
+
+    .join-class {
+        padding: 8px 11px;
+
+        border-radius: 8px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        text-decoration: none;
+
+        font-size: .56rem;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+
+    /* COMPLETED */
+
+    .completed-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .completed-card {
+        display: grid;
+
+        grid-template-columns:
+            33px 1fr auto;
+
+        align-items: center;
+
+        gap: 10px;
+
+        padding: 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 14px;
+
+        background: white;
+    }
+
+
+    .completed-check {
+        width: 30px;
+        height: 30px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 9px;
+
+        background: #dcfce7;
+
+        color: #16a34a;
+
+        font-size: .75rem;
+
+        font-weight: 800;
+    }
+
+
+    .completed-card strong {
+        display: block;
+
+        font-size: .59rem;
+    }
+
+
+    .completed-card span {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #94a3b8;
+
+        font-size: .53rem;
+    }
+
+
+    .completed-card small {
+        color: #16a34a;
+
+        font-size: .5rem;
+
+        font-weight: 700;
+    }
+
+
+    /* REMINDER */
+
+    .class-reminder {
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        padding: 15px 17px;
+
+        border: 1px solid #bae6fd;
+
+        border-radius: 15px;
+
+        background: #f0f9ff;
+    }
+
+
+    .reminder-icon {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 11px;
+
+        background: white;
+    }
+
+
+    .class-reminder strong {
+        display: block;
+
+        color: #0c4a6e;
+
+        font-size: .68rem;
+    }
+
+
+    .class-reminder p {
+        margin: 3px 0 0;
+
+        color: #0369a1;
+
+        font-size: .59rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+
+        .class-stats {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+
+        .completed-grid {
+            grid-template-columns:
+                1fr;
+        }
+
+
+        .class-card {
+            grid-template-columns:
+                70px 45px 1fr auto;
+        }
+
+
+        .class-card .join-class {
+            grid-column: 3 / -1;
+
+            justify-self: start;
+        }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+        .classes-nav-container {
+            width: calc(100% - 20px);
+        }
+
+
+        .classes-navbar .nav-links {
+            display: none;
+        }
+
+
+        .classes-page {
+            width: calc(100% - 20px);
+
+            padding-top: 28px;
+        }
+
+
+        .classes-header {
+            align-items: flex-start;
+
+            flex-direction: column;
+        }
+
+
+        .class-tabs {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+        }
+
+
+        .class-tab {
+            padding: 8px 4px;
+        }
+
+
+        .class-card {
+            grid-template-columns:
+                1fr auto;
+
+            gap: 10px;
+        }
+
+
+        .class-time {
+            grid-column: 1;
+        }
+
+
+        .class-student-avatar {
+            display: none;
+        }
+
+
+        .class-info {
+            grid-column: 1 / -1;
+        }
+
+
+        .class-status {
+            grid-column: 2;
+
+            grid-row: 1;
+
+            justify-self: end;
+        }
+
+
+        .class-card .join-class {
+            grid-column: 1 / -1;
+
+            width: 100%;
+
+            text-align: center;
+        }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+        .class-stats {
+            grid-template-columns: 1fr;
+        }
+
+
+        .class-tabs {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* AUTH */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "tutor") {
+
+            window.location.href =
+                "student-dashboard.html";
+
+            return;
+
+        }
+
+
+        /* FILTERS */
+
+        const tabs =
+            document.querySelectorAll(
+                ".class-tab"
+            );
+
+
+        const cards =
+            document.querySelectorAll(
+                ".class-card"
+            );
+
+
+        tabs.forEach(
+            function (tab) {
+
+                tab.addEventListener(
+                    "click",
+                    function () {
+
+                        tabs.forEach(
+                            function (item) {
+                                item.classList.remove(
+                                    "active"
+                                );
+                            }
+                        );
+
+
+                        this.classList.add(
+                            "active"
+                        );
+
+
+                        const filter =
+                            this.dataset.filter;
+
+
+                        cards.forEach(
+                            function (card) {
+
+                                const status =
+                                    card.dataset.status;
+
+
+                                let visible = true;
+
+
+                                if (
+                                    filter !== "all" &&
+                                    status !== filter
+                                ) {
+
+                                    visible = false;
+
+                                }
+
+
+                                card.classList.toggle(
+                                    "hidden",
+                                    !visible
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* LOGOUT */
+
+        const logoutButton =
+            document.querySelector(
+                "[data-logout]"
+            );
+
+
+        if (
+            logoutButton &&
+            typeof logout === "function"
+        ) {
+
+            logoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
