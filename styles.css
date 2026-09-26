@@ -701,12 +701,22 @@ p {
    HERO
 ========================================================= */
 
+/*
+   IMPORTANT:
+   Navbar content is 82px high and the navbar also has
+   a 1px bottom border.
+
+   Therefore the desktop hero uses 83px instead of 82px.
+   This prevents the page from becoming 1px taller than
+   the viewport and creating an unnecessary scrollbar.
+*/
+
 .hero {
 
     position: relative;
 
     min-height:
-        calc(100vh - 82px);
+        calc(100vh - 83px);
 
     overflow: hidden;
 
