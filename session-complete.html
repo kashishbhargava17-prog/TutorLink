@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Session Complete | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="complete-navbar">
+
+    <a href="student-dashboard.html" class="complete-brand">
+        <span class="complete-brand-icon">T</span>
+
+        <span>
+            <strong>TutorLink</strong>
+            <small>Learn • Teach • Connect</small>
+        </span>
+    </a>
+
+    <a
+        href="student-dashboard.html"
+        class="back-dashboard"
+    >
+        Dashboard
+    </a>
+
+</header>
+
+
+<main class="complete-page">
+
+    <!-- SUCCESS HERO -->
+
+    <section class="completion-hero">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <span class="complete-eyebrow">
+            SESSION COMPLETED
+        </span>
+
+        <h1>
+            Great work! You finished your session.
+        </h1>
+
+        <p>
+            Your learning session has been recorded.
+            Keep building your learning journey with TutorLink.
+        </p>
+
+        <div class="tute-earned-card">
+
+            <span class="tute-star">
+                ✦
+            </span>
+
+            <div>
+                <small>
+                    TUTE EARNED
+                </small>
+
+                <strong>
+                    +50 Tute
+                </strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SESSION SUMMARY -->
+
+    <section class="complete-grid">
+
+        <div class="summary-card">
+
+            <div class="card-title">
+                <span>📚</span>
+
+                <div>
+                    <h2>Session Summary</h2>
+                    <p>Your completed learning session</p>
+                </div>
+            </div>
+
+
+            <div class="summary-profile">
+
+                <div
+                    class="summary-avatar"
+                    id="tutorAvatar"
+                >
+                    A
+                </div>
+
+                <div>
+
+                    <strong id="tutorName">
+                        Your Tutor
+                    </strong>
+
+                    <span id="tutorSubject">
+                        Subject
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div>
+                    <span>Topic</span>
+                    <strong id="sessionTopic">
+                        Learning Session
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Student</span>
+                    <strong id="studentName">
+                        Student
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong class="completed-status">
+                        Completed
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Reward</span>
+                    <strong class="tute-text">
+                        +50 Tute
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TUTE BALANCE -->
+
+        <div class="balance-card">
+
+            <span class="balance-label">
+                YOUR TUTE BALANCE
+            </span>
+
+            <strong id="tuteBalance">
+                0
+            </strong>
+
+            <p>
+                Keep learning, completing sessions and
+                contributing to earn more Tute.
+            </p>
+
+            <a
+                href="rewards.html"
+                class="rewards-link"
+            >
+                View Rewards →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- RATING -->
+
+    <section
+        class="rating-section"
+        id="ratingSection"
+    >
+
+        <div class="rating-heading">
+
+            <span class="rating-icon">
+                ★
+            </span>
+
+            <div>
+
+                <span class="complete-eyebrow">
+                    YOUR FEEDBACK MATTERS
+                </span>
+
+                <h2>
+                    Rate Your Tutor
+                </h2>
+
+                <p>
+                    Tell us about your experience with
+                    <strong id="ratingTutorName">
+                        your tutor
+                    </strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ALREADY RATED MESSAGE -->
+
+        <div
+            class="already-rated"
+            id="alreadyRated"
+            style="display:none;"
+        >
+
+            <div class="already-rated-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    You already rated this session
+                </strong>
+
+                <p>
+                    Your feedback for this completed session
+                    has already been recorded.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- RATING FORM -->
+
+        <form
+            id="ratingForm"
+            class="rating-form"
+        >
+
+            <div class="star-rating">
+
+                <span class="rating-label">
+                    Your rating
+                </span>
+
+                <div
+                    class="stars"
+                    id="stars"
+                    role="radiogroup"
+                    aria-label="Tutor rating"
+                >
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="1"
+                        aria-label="1 star"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="2"
+                        aria-label="2 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="3"
+                        aria-label="3 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="4"
+                        aria-label="4 stars"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        class="star-button"
+                        data-rating="5"
+                        aria-label="5 stars"
+                    >
+                        ★
+                    </button>
+
+                </div>
+
+                <span
+                    class="rating-selected"
+                    id="ratingSelected"
+                >
+                    Select a rating
+                </span>
+
+            </div>
+
+
+            <div class="review-field">
+
+                <label for="reviewText">
+                    Tell us about your experience
+                </label>
+
+                <textarea
+                    id="reviewText"
+                    rows="5"
+                    placeholder="Write a review about your session..."
+                ></textarea>
+
+            </div>
+
+
+            <div
+                class="rating-error"
+                id="ratingError"
+            >
+                Please select a star rating before submitting.
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-rating-button"
+            >
+                Submit Rating & Earn +10 Tute →
+            </button>
+
+        </form>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div
+            class="rating-success"
+            id="ratingSuccess"
+            style="display:none;"
+        >
+
+            <div class="rating-success-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    FEEDBACK RECEIVED
+                </span>
+
+                <h3>
+                    Thanks for helping TutorLink improve!
+                </h3>
+
+                <p>
+                    You earned <strong>+10 Tute</strong>
+                    for completing your feedback.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEXT STEPS -->
+
+    <section class="next-learning">
+
+        <div>
+
+            <span class="complete-eyebrow">
+                KEEP GOING
+            </span>
+
+            <h2>
+                Continue your learning journey.
+            </h2>
+
+            <p>
+                Your next step can be another lesson,
+                a quick quiz, or finding a tutor for
+                your next learning goal.
+            </p>
+
+        </div>
+
+
+        <div class="next-actions">
+
+            <a
+                href="student-dashboard.html"
+                class="primary-action"
+            >
+                Student Dashboard
+            </a>
+
+            <a
+                href="tutors.html"
+                class="secondary-action"
+            >
+                Find a Tutor
+            </a>
+
+            <a
+                href="learn.html"
+                class="secondary-action"
+            >
+                Continue Learning
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        margin: 0;
+
+        background: #f8fafc;
+
+        color: #0f172a;
+
+        font-family: "Inter", sans-serif;
+    }
+
+
+    /* NAVBAR */
+
+    .complete-navbar {
+        min-height: 72px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 0 32px;
+
+        background: white;
+
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+
+    .complete-brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #0f172a;
+
+        text-decoration: none;
+    }
+
+
+    .complete-brand-icon {
+        width: 40px;
+        height: 40px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 800;
+    }
+
+
+    .complete-brand strong {
+        display: block;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    .complete-brand small {
+        display: block;
+
+        color: #94a3b8;
+
+        font-size: .63rem;
+    }
+
+
+    .back-dashboard {
+        padding: 9px 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 10px;
+
+        color: #475569;
+
+        text-decoration: none;
+
+        font-size: .72rem;
+
+        font-weight: 700;
+    }
+
+
+    .back-dashboard:hover {
+        border-color: #c4b5fd;
+
+        color: #5b4bff;
+    }
+
+
+    /* PAGE */
+
+    .complete-page {
+        width: min(1050px, calc(100% - 30px));
+
+        margin: 0 auto;
+
+        padding: 45px 0 65px;
+    }
+
+
+    /* HERO */
+
+    .completion-hero {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 20px 15px 35px;
+    }
+
+
+    .success-icon {
+        width: 72px;
+        height: 72px;
+
+        display: grid;
+
+        place-items: center;
+
+        margin-bottom: 17px;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                #22c55e,
+                #16a34a
+            );
+
+        color: white;
+
+        font-size: 2rem;
+
+        font-weight: 800;
+
+        box-shadow:
+            0 14px 30px
+            rgba(34,197,94,.2);
+    }
+
+
+    .complete-eyebrow {
+        color: #5b4bff;
+
+        font-size: .67rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1.2px;
+    }
+
+
+    .completion-hero h1 {
+        max-width: 700px;
+
+        margin: 8px 0 10px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: clamp(2rem, 4vw, 3rem);
+
+        line-height: 1.1;
+
+        letter-spacing: -.8px;
+    }
+
+
+    .completion-hero > p {
+        max-width: 600px;
+
+        margin: 0;
+
+        color: #64748b;
+
+        font-size: .86rem;
+
+        line-height: 1.65;
+    }
+
+
+    .tute-earned-card {
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+
+        margin-top: 22px;
+
+        padding: 11px 17px;
+
+        border: 1px solid #ddd6fe;
+
+        border-radius: 15px;
+
+        background: #faf5ff;
+
+        text-align: left;
+    }
+
+
+    .tute-star {
+        width: 39px;
+        height: 39px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 11px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #8b5cf6,
+                #ec4899
+            );
+
+        color: white;
+
+        font-size: 1.2rem;
+    }
+
+
+    .tute-earned-card small {
+        display: block;
+
+        color: #7c3aed;
+
+        font-size: .57rem;
+
+        font-weight: 800;
+
+        letter-spacing: .8px;
+    }
+
+
+    .tute-earned-card strong {
+        display: block;
+
+        margin-top: 2px;
+
+        color: #6d28d9;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    /* SUMMARY */
+
+    .complete-grid {
+        display: grid;
+
+        grid-template-columns: 1.5fr .8fr;
+
+        gap: 18px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .summary-card,
+    .balance-card {
+        border: 1px solid #e2e8f0;
+
+        border-radius: 20px;
+
+        background: white;
+
+        box-shadow:
+            0 8px 25px
+            rgba(15,23,42,.04);
+    }
+
+
+    .summary-card {
+        padding: 22px;
+    }
+
+
+    .card-title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .card-title > span {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 11px;
+
+        background: #eef2ff;
+    }
+
+
+    .card-title h2 {
+        margin: 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .95rem;
+    }
+
+
+    .card-title p {
+        margin: 2px 0 0;
+
+        color: #94a3b8;
+
+        font-size: .64rem;
+    }
+
+
+    .summary-profile {
+        display: flex;
+
+        align-items: center;
+
+        gap: 11px;
+
+        padding-bottom: 18px;
+
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+
+    .summary-avatar {
+        width: 48px;
+        height: 48px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #ec4899
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 700;
+    }
+
+
+    .summary-profile strong {
+        display: block;
+
+        font-size: .82rem;
+    }
+
+
+    .summary-profile span {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #64748b;
+
+        font-size: .68rem;
+    }
+
+
+    .summary-details {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+
+        padding-top: 18px;
+    }
+
+
+    .summary-details div {
+        padding: 11px;
+
+        border-radius: 11px;
+
+        background: #f8fafc;
+    }
+
+
+    .summary-details span {
+        display: block;
+
+        margin-bottom: 4px;
+
+        color: #94a3b8;
+
+        font-size: .59rem;
+    }
+
+
+    .summary-details strong {
+        display: block;
+
+        color: #475569;
+
+        font-size: .7rem;
+    }
+
+
+    .completed-status {
+        color: #16a34a !important;
+    }
+
+
+    .tute-text {
+        color: #7c3aed !important;
+    }
+
+
+    /* BALANCE */
+
+    .balance-card {
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 25px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        border: 0;
+    }
+
+
+    .balance-label {
+        font-size: .63rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+
+        opacity: .8;
+    }
+
+
+    .balance-card > strong {
+        margin: 7px 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 2.5rem;
+
+        line-height: 1;
+    }
+
+
+    .balance-card p {
+        margin: 0 0 18px;
+
+        color: #ede9fe;
+
+        font-size: .7rem;
+
+        line-height: 1.5;
+    }
+
+
+    .rewards-link {
+        align-self: flex-start;
+
+        padding: 8px 11px;
+
+        border-radius: 9px;
+
+        background:
+            rgba(255,255,255,.15);
+
+        color: white;
+
+        text-decoration: none;
+
+        font-size: .65rem;
+
+        font-weight: 700;
+    }
+
+
+    /* RATING */
+
+    .rating-section {
+        padding: 25px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 20px;
+
+        background: white;
+
+        box-shadow:
+            0 8px 25px
+            rgba(15,23,42,.04);
+    }
+
+
+    .rating-heading {
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 13px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .rating-icon {
+        width: 44px;
+        height: 44px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 13px;
+
+        background: #fef3c7;
+
+        color: #d97706;
+
+        font-size: 1.25rem;
+    }
+
+
+    .rating-heading h2 {
+        margin: 4px 0 5px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.35rem;
+    }
+
+
+    .rating-heading p {
+        margin: 0;
+
+        color: #64748b;
+
+        font-size: .75rem;
+    }
+
+
+    /* STARS */
+
+    .star-rating {
+        display: flex;
+
+        align-items: center;
+
+        gap: 16px;
+
+        flex-wrap: wrap;
+
+        margin-bottom: 20px;
+
+        padding: 16px;
+
+        border-radius: 14px;
+
+        background: #f8fafc;
+    }
+
+
+    .rating-label {
+        color: #475569;
+
+        font-size: .73rem;
+
+        font-weight: 700;
+    }
+
+
+    .stars {
+        display: flex;
+
+        gap: 4px;
+    }
+
+
+    .star-button {
+        width: 38px;
+        height: 38px;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent;
+
+        color: #cbd5e1;
+
+        cursor: pointer;
+
+        font-size: 1.65rem;
+
+        line-height: 1;
+
+        transition:
+            transform .15s ease,
+            color .15s ease;
+    }
+
+
+    .star-button:hover {
+        color: #f59e0b;
+
+        transform: scale(1.1);
+    }
+
+
+    .star-button.selected {
+        color: #f59e0b;
+    }
+
+
+    .rating-selected {
+        color: #94a3b8;
+
+        font-size: .67rem;
+    }
+
+
+    /* REVIEW */
+
+    .review-field {
+        margin-bottom: 13px;
+    }
+
+
+    .review-field label {
+        display: block;
+
+        margin-bottom: 7px;
+
+        color: #334155;
+
+        font-size: .72rem;
+
+        font-weight: 700;
+    }
+
+
+    .review-field textarea {
+        width: 100%;
+
+        resize: vertical;
+
+        min-height: 120px;
+
+        padding: 13px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 12px;
+
+        outline: none;
+
+        font-family: inherit;
+
+        color: #334155;
+
+        font-size: .74rem;
+
+        line-height: 1.55;
+    }
+
+
+    .review-field textarea:focus {
+        border-color: #8b5cf6;
+
+        box-shadow:
+            0 0 0 3px
+            rgba(139,92,246,.08);
+    }
+
+
+    .rating-error {
+        display: none;
+
+        margin-bottom: 12px;
+
+        padding: 10px 12px;
+
+        border-radius: 9px;
+
+        background: #fef2f2;
+
+        color: #b91c1c;
+
+        font-size: .68rem;
+    }
+
+
+    .submit-rating-button {
+        padding: 12px 18px;
+
+        border: 0;
+
+        border-radius: 11px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        font-size: .73rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 8px 18px
+            rgba(91,75,255,.18);
+    }
+
+
+    .submit-rating-button:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* ALREADY RATED */
+
+    .already-rated {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 14px;
+
+        margin-bottom: 15px;
+
+        border: 1px solid #bbf7d0;
+
+        border-radius: 13px;
+
+        background: #f0fdf4;
+    }
+
+
+    .already-rated-icon {
+        width: 35px;
+        height: 35px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 50%;
+
+        background: #22c55e;
+
+        color: white;
+
+        font-weight: 800;
+    }
+
+
+    .already-rated strong {
+        display: block;
+
+        color: #166534;
+
+        font-size: .75rem;
+    }
+
+
+    .already-rated p {
+        margin: 3px 0 0;
+
+        color: #4d7c5a;
+
+        font-size: .66rem;
+    }
+
+
+    /* RATING SUCCESS */
+
+    .rating-success {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        padding: 18px;
+
+        border: 1px solid #bbf7d0;
+
+        border-radius: 14px;
+
+        background: #f0fdf4;
+    }
+
+
+    .rating-success-icon {
+        width: 45px;
+        height: 45px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 13px;
+
+        background: #22c55e;
+
+        color: white;
+
+        font-size: 1.2rem;
+
+        font-weight: 800;
+    }
+
+
+    .rating-success > div:last-child > span {
+        color: #16a34a;
+
+        font-size: .6rem;
+
+        font-weight: 800;
+
+        letter-spacing: .8px;
+    }
+
+
+    .rating-success h3 {
+        margin: 4px 0;
+
+        color: #166534;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .95rem;
+    }
+
+
+    .rating-success p {
+        margin: 0;
+
+        color: #4d7c5a;
+
+        font-size: .68rem;
+    }
+
+
+    /* NEXT */
+
+    .next-learning {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 25px;
+
+        margin-top: 18px;
+
+        padding: 24px;
+
+        border-radius: 20px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #eef2ff,
+                #faf5ff
+            );
+
+        border: 1px solid #ddd6fe;
+    }
+
+
+    .next-learning h2 {
+        margin: 5px 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.15rem;
+    }
+
+
+    .next-learning p {
+        max-width: 550px;
+
+        margin: 0;
+
+        color: #64748b;
+
+        font-size: .72rem;
+
+        line-height: 1.5;
+    }
+
+
+    .next-actions {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: flex-end;
+
+        gap: 7px;
+    }
+
+
+    .primary-action,
+    .secondary-action {
+        padding: 10px 13px;
+
+        border-radius: 10px;
+
+        text-decoration: none;
+
+        font-size: .65rem;
+
+        font-weight: 700;
+    }
+
+
+    .primary-action {
+        background: #5b4bff;
+
+        color: white;
+    }
+
+
+    .secondary-action {
+        border: 1px solid #ddd6fe;
+
+        background: white;
+
+        color: #5b4bff;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+        .complete-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .next-learning {
+            align-items: flex-start;
+
+            flex-direction: column;
+        }
+
+        .next-actions {
+            justify-content: flex-start;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .complete-navbar {
+            padding: 0 15px;
+        }
+
+        .complete-page {
+            width: min(100% - 20px, 1050px);
+
+            padding-top: 28px;
+        }
+
+        .completion-hero {
+            padding-top: 10px;
+        }
+
+        .completion-hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .summary-details {
+            grid-template-columns: 1fr;
+        }
+
+        .rating-section {
+            padding: 18px;
+        }
+
+        .rating-heading {
+            gap: 10px;
+        }
+
+        .rating-heading h2 {
+            font-size: 1.15rem;
+        }
+
+        .star-rating {
+            align-items: flex-start;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .next-actions {
+            width: 100%;
+
+            flex-direction: column;
+        }
+
+        .primary-action,
+        .secondary-action {
+            width: 100%;
+
+            text-align: center;
+        }
+
+    }
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* -------------------------
+           AUTH
+        ------------------------- */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "student") {
+
+            window.location.href =
+                "tutor-dashboard.html";
+
+            return;
+
+        }
+
+
+        /* -------------------------
+           GET BOOKING
+        ------------------------- */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const bookingId =
+            params.get(
+                "bookingId"
+            );
+
+
+        const bookings =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_bookings"
+                )
+            ) || [];
+
+
+        let booking =
+            bookingId
+                ? bookings.find(
+                    item =>
+                        item.id ===
+                        bookingId
+                )
+                : null;
+
+
+        if (!booking) {
+
+            booking =
+                bookings.find(
+                    item =>
+                        item.studentId ===
+                        currentUser.id &&
+                        item.status ===
+                        "completed"
+                );
+
+        }
+
+
+        /* -------------------------
+           FALLBACK DATA
+        ------------------------- */
+
+        const tutorName =
+            booking?.tutorName ||
+            "Ananya Sharma";
+
+
+        const subject =
+            booking?.tutorSubject ||
+            "Mathematics";
+
+
+        const topic =
+            booking?.topic ||
+            booking?.subjectTopic ||
+            "Quadratic Equations";
+
+
+        const actualBookingId =
+            booking?.id ||
+            bookingId ||
+            "demo-completed-session";
+
+
+        /* -------------------------
+           DISPLAY DATA
+        ------------------------- */
+
+        document.getElementById(
+            "tutorName"
+        ).textContent =
+            tutorName;
+
+
+        document.getElementById(
+            "ratingTutorName"
+        ).textContent =
+            tutorName;
+
+
+        document.getElementById(
+            "tutorSubject"
+        ).textContent =
+            subject;
+
+
+        document.getElementById(
+            "sessionTopic"
+        ).textContent =
+            topic;
+
+
+        document.getElementById(
+            "studentName"
+        ).textContent =
+            currentUser.name ||
+            "Student";
+
+
+        document.getElementById(
+            "tutorAvatar"
+        ).textContent =
+            tutorName
+                .charAt(0)
+                .toUpperCase();
+
+
+        /* -------------------------
+           USER STORAGE
+        ------------------------- */
+
+        const users =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_users"
+                )
+            ) || [];
+
+
+        let userIndex =
+            users.findIndex(
+                user =>
+                    user.id ===
+                    currentUser.id
+            );
+
+
+        let user =
+            userIndex >= 0
+                ? users[userIndex]
+                : currentUser;
+
+
+        const previousTute =
+            Number(
+                user.tute || 0
+            );
+
+
+        /* -------------------------
+           SESSION COMPLETION REWARD
+           +50 TUTE — ONCE ONLY
+        ------------------------- */
+
+        const completionRewardKey =
+            `tutorlink_session_reward_${actualBookingId}`;
+
+
+        const alreadyReceivedSessionTute =
+            localStorage.getItem(
+                completionRewardKey
+            ) === "true";
+
+
+        if (
+            !alreadyReceivedSessionTute
+        ) {
+
+            user.tute =
+                previousTute + 50;
+
+
+            localStorage.setItem(
+                completionRewardKey,
+                "true"
+            );
+
+
+            if (userIndex >= 0) {
+
+                users[userIndex] =
+                    user;
+
+                localStorage.setItem(
+                    "tutorlink_users",
+                    JSON.stringify(
+                        users
+                    )
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "tutorlink_current_user",
+                JSON.stringify(
+                    user
+                )
+            );
+
+        }
+
+
+        /* -------------------------
+           SHOW TUTE BALANCE
+        ------------------------- */
+
+        document.getElementById(
+            "tuteBalance"
+        ).textContent =
+            Number(
+                user.tute || 0
+            ).toLocaleString();
+
+
+        /* -------------------------
+           CHECK EXISTING REVIEW
+        ------------------------- */
+
+        const reviews =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_reviews"
+                )
+            ) || [];
+
+
+        const existingReview =
+            reviews.find(
+                review =>
+                    review.bookingId ===
+                    actualBookingId &&
+                    review.studentId ===
+                    currentUser.id
+            );
+
+
+        const ratingForm =
+            document.getElementById(
+                "ratingForm"
+            );
+
+
+        const alreadyRated =
+            document.getElementById(
+                "alreadyRated"
+            );
+
+
+        const ratingSuccess =
+            document.getElementById(
+                "ratingSuccess"
+            );
+
+
+        if (existingReview) {
+
+            ratingForm.style.display =
+                "none";
+
+
+            alreadyRated.style.display =
+                "flex";
+
+        }
+
+
+        /* -------------------------
+           STAR RATING
+        ------------------------- */
+
+        const starButtons =
+            document.querySelectorAll(
+                ".star-button"
+            );
+
+
+        const ratingSelected =
+            document.getElementById(
+                "ratingSelected"
+            );
+
+
+        let selectedRating = 0;
+
+
+        starButtons.forEach(
+            function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        selectedRating =
+                            Number(
+                                this.dataset.rating
+                            );
+
+
+                        starButtons.forEach(
+                            function (star) {
+
+                                const starValue =
+                                    Number(
+                                        star.dataset.rating
+                                    );
+
+
+                                star.classList.toggle(
+                                    "selected",
+                                    starValue <=
+                                        selectedRating
+                                );
+
+                            }
+                        );
+
+
+                        ratingSelected.textContent =
+                            `${selectedRating} / 5 stars`;
+
+
+                        ratingSelected.style.color =
+                            "#d97706";
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* -------------------------
+           SUBMIT RATING
+        ------------------------- */
+
+        ratingForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const error =
+                    document.getElementById(
+                        "ratingError"
+                    );
+
+
+                if (
+                    selectedRating < 1
+                ) {
+
+                    error.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                error.style.display =
+                    "none";
+
+
+                /* Check once more
+                   to prevent duplicate
+                   reward */
+
+                const latestReviews =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_reviews"
+                        )
+                    ) || [];
+
+
+                const duplicate =
+                    latestReviews.find(
+                        review =>
+                            review.bookingId ===
+                            actualBookingId &&
+                            review.studentId ===
+                            currentUser.id
+                    );
+
+
+                if (duplicate) {
+
+                    ratingForm.style.display =
+                        "none";
+
+                    alreadyRated.style.display =
+                        "flex";
+
+                    return;
+
+                }
+
+
+                const reviewText =
+                    document.getElementById(
+                        "reviewText"
+                    ).value.trim();
+
+
+                const review =
+                    {
+
+                        id:
+                            "review_" +
+                            Date.now(),
+
+                        bookingId:
+                            actualBookingId,
+
+                        studentId:
+                            currentUser.id,
+
+                        studentName:
+                            currentUser.name ||
+                            "Student",
+
+                        tutorId:
+                            booking?.tutorId ||
+                            "",
+
+                        tutorName:
+                            tutorName,
+
+                        rating:
+                            selectedRating,
+
+                        text:
+                            reviewText,
+
+                        createdAt:
+                            new Date().toISOString()
+
+                    };
+
+
+                latestReviews.push(
+                    review
+                );
+
+
+                localStorage.setItem(
+                    "tutorlink_reviews",
+                    JSON.stringify(
+                        latestReviews
+                    )
+                );
+
+
+                /* -------------------------
+                   +10 TUTE FOR RATING
+                   ------------------------- */
+
+                const ratingRewardKey =
+                    `tutorlink_rating_reward_${actualBookingId}`;
+
+
+                const alreadyReceivedRatingTute =
+                    localStorage.getItem(
+                        ratingRewardKey
+                    ) === "true";
+
+
+                if (
+                    !alreadyReceivedRatingTute
+                ) {
+
+                    const updatedUsers =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "tutorlink_users"
+                            )
+                        ) || [];
+
+
+                    const updatedIndex =
+                        updatedUsers.findIndex(
+                            item =>
+                                item.id ===
+                                currentUser.id
+                        );
+
+
+                    if (
+                        updatedIndex >= 0
+                    ) {
+
+                        updatedUsers[
+                            updatedIndex
+                        ].tute =
+                            Number(
+                                updatedUsers[
+                                    updatedIndex
+                                ].tute || 0
+                            ) + 10;
+
+
+                        localStorage.setItem(
+                            "tutorlink_users",
+                            JSON.stringify(
+                                updatedUsers
+                            )
+                        );
+
+
+                        localStorage.setItem(
+                            "tutorlink_current_user",
+                            JSON.stringify(
+                                updatedUsers[
+                                    updatedIndex
+                                ]
+                            )
+                        );
+
+
+                        document.getElementById(
+                            "tuteBalance"
+                        ).textContent =
+                            Number(
+                                updatedUsers[
+                                    updatedIndex
+                                ].tute
+                            ).toLocaleString();
+
+                    }
+
+
+                    localStorage.setItem(
+                        ratingRewardKey,
+                        "true"
+                    );
+
+                }
+
+
+                /* -------------------------
+                   SHOW SUCCESS
+                   ------------------------- */
+
+                ratingForm.style.display =
+                    "none";
+
+
+                ratingSuccess.style.display =
+                    "flex";
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>
