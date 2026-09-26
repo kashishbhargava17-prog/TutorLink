@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Availability | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="availability-navbar">
+
+    <div class="availability-nav-container">
+
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="tutor-dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="learn.html">Learn</a>
+
+            <a href="about.html">About</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="availability-page">
+
+    <!-- HEADER -->
+
+    <section class="availability-header">
+
+        <div>
+
+            <span class="page-eyebrow">
+                TUTOR SCHEDULE
+            </span>
+
+            <h1>
+                Your Availability
+            </h1>
+
+            <p>
+                Set the days and times when students can request
+                tutoring sessions with you.
+            </p>
+
+        </div>
+
+        <a
+            href="tutor-dashboard.html"
+            class="back-dashboard"
+        >
+            ← Dashboard
+        </a>
+
+    </section>
+
+
+    <!-- PROTOTYPE NOTICE -->
+
+    <div class="availability-notice">
+
+        <div class="notice-icon">
+            📅
+        </div>
+
+        <div>
+
+            <strong>
+                Prototype scheduling
+            </strong>
+
+            <p>
+                Your saved availability is stored locally for this
+                prototype. A production version would sync this
+                schedule with the TutorLink booking system.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- WEEKLY AVAILABILITY -->
+
+    <section class="availability-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    WEEKLY SCHEDULE
+                </span>
+
+                <h2>
+                    When can students book you?
+                </h2>
+
+            </div>
+
+            <span
+                class="saved-status"
+                id="savedStatus"
+            >
+                Not saved
+            </span>
+
+        </div>
+
+
+        <div class="days-list">
+
+
+            <!-- MONDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Monday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Monday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="10 AM"
+                            checked
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="12 PM"
+                            checked
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="2 PM"
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="6 PM"
+                            checked
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Monday"
+                            value="8 PM"
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- TUESDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Tuesday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Tuesday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="10 AM"
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="12 PM"
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="2 PM"
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="6 PM"
+                            checked
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Tuesday"
+                            value="8 PM"
+                            checked
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- WEDNESDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Wednesday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Wednesday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="10 AM"
+                            checked
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="12 PM"
+                            checked
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="2 PM"
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="6 PM"
+                            checked
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Wednesday"
+                            value="8 PM"
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- THURSDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Thursday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Thursday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="10 AM"
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="12 PM"
+                            checked
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="2 PM"
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="6 PM"
+                            checked
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Thursday"
+                            value="8 PM"
+                            checked
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- FRIDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Friday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Friday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="10 AM"
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="12 PM"
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="2 PM"
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="6 PM"
+                            checked
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Friday"
+                            value="8 PM"
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- SATURDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Saturday"
+                            checked
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Saturday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="8 AM"
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="10 AM"
+                            checked
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="12 PM"
+                            checked
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="2 PM"
+                            checked
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="4 PM"
+                            checked
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="6 PM"
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Saturday"
+                            value="8 PM"
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUNDAY -->
+
+            <div class="day-row">
+
+                <div class="day-info">
+
+                    <label class="day-switch">
+
+                        <input
+                            type="checkbox"
+                            class="day-toggle"
+                            data-day="Sunday"
+                        >
+
+                        <span class="switch-slider"></span>
+
+                    </label>
+
+                    <strong>
+                        Sunday
+                    </strong>
+
+                </div>
+
+
+                <div class="time-slots">
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="8 AM"
+                            disabled
+                        >
+                        <span>8 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="10 AM"
+                            disabled
+                        >
+                        <span>10 AM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="12 PM"
+                            disabled
+                        >
+                        <span>12 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="2 PM"
+                            disabled
+                        >
+                        <span>2 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="4 PM"
+                            disabled
+                        >
+                        <span>4 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="6 PM"
+                            disabled
+                        >
+                        <span>6 PM</span>
+                    </label>
+
+                    <label class="time-option">
+                        <input
+                            type="checkbox"
+                            data-day="Sunday"
+                            value="8 PM"
+                            disabled
+                        >
+                        <span>8 PM</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="availability-actions">
+
+            <button
+                type="button"
+                class="reset-button"
+                id="resetAvailability"
+            >
+                Reset
+            </button>
+
+            <button
+                type="button"
+                class="save-button"
+                id="saveAvailability"
+            >
+                Save Availability
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOOKING INFO -->
+
+    <section class="booking-info-card">
+
+        <div class="booking-info-icon">
+            🔗
+        </div>
+
+        <div>
+
+            <span class="section-eyebrow">
+                HOW IT CONNECTS
+            </span>
+
+            <h2>
+                Your availability helps students book you
+            </h2>
+
+            <p>
+                When a student selects a preferred day and time,
+                TutorLink can use your available slots to help
+                create a suitable schedule. If you are unavailable,
+                the platform can suggest another time or tutor.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCHEDULE SUMMARY -->
+
+    <section class="schedule-summary">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR WEEK
+                </span>
+
+                <h2>
+                    Availability Summary
+                </h2>
+
+            </div>
+
+            <span id="slotCount">
+                0 available slots
+            </span>
+
+        </div>
+
+
+        <div
+            class="summary-grid"
+            id="summaryGrid"
+        ></div>
+
+    </section>
+
+</main>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+    font-family: "Inter", sans-serif;
+}
+
+
+/* NAVBAR */
+
+.availability-navbar {
+    min-height: 76px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.availability-nav-container {
+    width: min(1200px, calc(100% - 35px));
+    min-height: 76px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.availability-navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #0f172a;
+    text-decoration: none;
+}
+
+.availability-navbar .brand-icon {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+}
+
+.availability-navbar .brand-text strong {
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.availability-navbar .brand-text small {
+    display: block;
+
+    color: #94a3b8;
+    font-size: .61rem;
+    letter-spacing: .4px;
+}
+
+.availability-navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.availability-navbar .nav-links a {
+    color: #64748b;
+    text-decoration: none;
+
+    font-size: .73rem;
+    font-weight: 600;
+}
+
+.availability-navbar .nav-links a:hover,
+.availability-navbar .nav-links a.active {
+    color: #5b4bff;
+}
+
+.availability-navbar .nav-login {
+    padding: 9px 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+
+    background: white;
+    color: #475569;
+
+    font-size: .7rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* PAGE */
+
+.availability-page {
+    width: min(1200px, calc(100% - 35px));
+    margin: auto;
+
+    padding: 42px 0 65px;
+}
+
+.availability-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 23px;
+}
+
+.page-eyebrow,
+.section-eyebrow {
+    color: #5b4bff;
+
+    font-size: .63rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+}
+
+.availability-header h1 {
+    margin: 7px 0;
+
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -.9px;
+}
+
+.availability-header p {
+    max-width: 620px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .78rem;
+    line-height: 1.65;
+}
+
+.back-dashboard {
+    padding: 10px 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+
+    background: white;
+    color: #5b4bff;
+
+    text-decoration: none;
+
+    font-size: .64rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* NOTICE */
+
+.availability-notice {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 13px 16px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #ddd6fe;
+    border-radius: 14px;
+
+    background: #faf9ff;
+}
+
+.notice-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+.availability-notice strong {
+    display: block;
+
+    color: #4c1d95;
+
+    font-size: .65rem;
+}
+
+.availability-notice p {
+    margin: 3px 0 0;
+
+    color: #6d28d9;
+
+    font-size: .57rem;
+    line-height: 1.45;
+}
+
+
+/* MAIN CARD */
+
+.availability-card {
+    padding: 22px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 7px 22px
+        rgba(15,23,42,.035);
+}
+
+.card-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.card-heading h2 {
+    margin: 4px 0 0;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.saved-status {
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    background: #f1f5f9;
+    color: #64748b;
+
+    font-size: .52rem;
+    font-weight: 700;
+}
+
+.saved-status.saved {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+/* DAYS */
+
+.days-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-row {
+    display: grid;
+
+    grid-template-columns:
+        170px 1fr;
+
+    gap: 18px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.day-row:last-child {
+    border-bottom: 0;
+}
+
+.day-info {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.day-info strong {
+    font-family: "Poppins", sans-serif;
+    font-size: .72rem;
+}
+
+
+/* SWITCH */
+
+.day-switch {
+    position: relative;
+
+    width: 35px;
+    height: 20px;
+
+    flex-shrink: 0;
+}
+
+.day-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 99px;
+
+    background: #cbd5e1;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.switch-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    left: 3px;
+    top: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    transition: .2s ease;
+}
+
+.day-switch input:checked + .switch-slider {
+    background: #5b4bff;
+}
+
+.day-switch input:checked + .switch-slider::before {
+    transform: translateX(15px);
+}
+
+
+/* TIME SLOTS */
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.time-option {
+    cursor: pointer;
+}
+
+.time-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.time-option span {
+    display: block;
+
+    padding: 8px 11px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: .56rem;
+    font-weight: 600;
+
+    transition: .16s ease;
+}
+
+.time-option:hover span {
+    border-color: #c4b5fd;
+}
+
+.time-option input:checked + span {
+    border-color: #c4b5fd;
+
+    background: #ede9fe;
+
+    color: #5b4bff;
+}
+
+.time-option input:disabled + span {
+    opacity: .38;
+    cursor: not-allowed;
+}
+
+
+/* ACTIONS */
+
+.availability-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+
+    padding-top: 20px;
+}
+
+.reset-button,
+.save-button {
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: .61rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.reset-button {
+    border: 1px solid #e2e8f0;
+
+    background: white;
+    color: #64748b;
+}
+
+.save-button {
+    border: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: white;
+}
+
+
+/* BOOKING INFO */
+
+.booking-info-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 18px;
+    padding: 20px;
+
+    border: 1px solid #bae6fd;
+    border-radius: 17px;
+
+    background: #f0f9ff;
+}
+
+.booking-info-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: white;
+}
+
+.booking-info-card h2 {
+    margin: 4px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .9rem;
+}
+
+.booking-info-card p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: #0369a1;
+
+    font-size: .59rem;
+    line-height: 1.55;
+}
+
+
+/* SUMMARY */
+
+.schedule-summary {
+    margin-top: 30px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    margin: 4px 0 0;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+#slotCount {
+    color: #94a3b8;
+
+    font-size: .57rem;
+}
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.summary-day {
+    padding: 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    background: white;
+}
+
+.summary-day strong {
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .67rem;
+}
+
+.summary-day span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: .55rem;
+}
+
+.summary-day.off {
+    opacity: .55;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .day-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .summary-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .availability-nav-container {
+        width: calc(100% - 20px);
+    }
+
+    .availability-navbar .nav-links {
+        display: none;
+    }
+
+    .availability-page {
+        width: calc(100% - 20px);
+
+        padding-top: 28px;
+    }
+
+    .availability-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .availability-card {
+        padding: 17px;
+    }
+
+    .time-slots {
+        gap: 6px;
+    }
+
+    .time-option span {
+        padding: 7px 8px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .availability-actions {
+        flex-direction: column;
+    }
+
+    .reset-button,
+    .save-button {
+        width: 100%;
+    }
+
+    .booking-info-card {
+        align-items: flex-start;
+    }
+
+}
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "tutor") {
+
+            window.location.href =
+                "student-dashboard.html";
+
+            return;
+
+        }
+
+
+        const STORAGE_KEY =
+            "tutorlink_availability";
+
+
+        const saveButton =
+            document.getElementById(
+                "saveAvailability"
+            );
+
+
+        const resetButton =
+            document.getElementById(
+                "resetAvailability"
+            );
+
+
+        const savedStatus =
+            document.getElementById(
+                "savedStatus"
+            );
+
+
+        const slotCount =
+            document.getElementById(
+                "slotCount"
+            );
+
+
+        const summaryGrid =
+            document.getElementById(
+                "summaryGrid"
+            );
+
+
+        const dayToggles =
+            document.querySelectorAll(
+                ".day-toggle"
+            );
+
+
+        const timeInputs =
+            document.querySelectorAll(
+                ".time-option input"
+            );
+
+
+        function getStorage() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    )
+                ) || {};
+
+            } catch (error) {
+
+                return {};
+
+            }
+
+        }
+
+
+        function setStorage(data) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(data)
+            );
+
+        }
+
+
+        function getDefaultAvailability() {
+
+            const result = {};
+
+
+            dayToggles.forEach(
+                function (toggle) {
+
+                    const day =
+                        toggle.dataset.day;
+
+
+                    result[day] = {
+                        enabled: toggle.checked,
+                        times: []
+                    };
+
+
+                    document.querySelectorAll(
+                        `.time-option input[data-day="${day}"]`
+                    ).forEach(
+                        function (input) {
+
+                            if (
+                                input.checked &&
+                                !input.disabled
+                            ) {
+
+                                result[day].times.push(
+                                    input.value
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+            return result;
+
+        }
+
+
+        function loadAvailability() {
+
+            const saved =
+                getStorage();
+
+
+            if (!saved || !Object.keys(saved).length) {
+
+                updateDisabledStates();
+
+                updateSummary();
+
+                return;
+
+            }
+
+
+            dayToggles.forEach(
+                function (toggle) {
+
+                    const day =
+                        toggle.dataset.day;
+
+
+                    if (!saved[day]) {
+                        return;
+                    }
+
+
+                    toggle.checked =
+                        saved[day].enabled;
+
+
+                    document.querySelectorAll(
+                        `.time-option input[data-day="${day}"]`
+                    ).forEach(
+                        function (input) {
+
+                            input.checked =
+                                saved[day].times
+                                    .includes(
+                                        input.value
+                                    );
+
+                        }
+                    );
+
+                }
+            );
+
+
+            updateDisabledStates();
+
+            updateSummary();
+
+            savedStatus.textContent =
+                "Saved";
+
+            savedStatus.classList.add(
+                "saved"
+            );
+
+        }
+
+
+        function updateDisabledStates() {
+
+            dayToggles.forEach(
+                function (toggle) {
+
+                    const day =
+                        toggle.dataset.day;
+
+
+                    const enabled =
+                        toggle.checked;
+
+
+                    document.querySelectorAll(
+                        `.time-option input[data-day="${day}"]`
+                    ).forEach(
+                        function (input) {
+
+                            input.disabled =
+                                !enabled;
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        function updateSummary() {
+
+            let totalSlots = 0;
+
+            summaryGrid.innerHTML = "";
+
+
+            dayToggles.forEach(
+                function (toggle) {
+
+                    const day =
+                        toggle.dataset.day;
+
+
+                    const enabled =
+                        toggle.checked;
+
+
+                    const selectedTimes =
+                        Array.from(
+                            document.querySelectorAll(
+                                `.time-option input[data-day="${day}"]:checked`
+                            )
+                        ).filter(
+                            function (input) {
+                                return !input.disabled;
+                            }
+                        );
+
+
+                    totalSlots +=
+                        selectedTimes.length;
+
+
+                    const summary =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    summary.className =
+                        "summary-day";
+
+
+                    if (!enabled) {
+                        summary.classList.add(
+                            "off"
+                        );
+                    }
+
+
+                    summary.innerHTML = `
+                        <strong>${day}</strong>
+                        <span>
+                            ${
+                                enabled
+                                    ? selectedTimes.length
+                                    : 0
+                            }
+                            available slot${
+                                (
+                                    enabled &&
+                                    selectedTimes.length !== 1
+                                ) || !enabled
+                                    ? "s"
+                                    : ""
+                            }
+                        </span>
+                    `;
+
+
+                    summaryGrid.appendChild(
+                        summary
+                    );
+
+                }
+            );
+
+
+            slotCount.textContent =
+                `${totalSlots} available slot${
+                    totalSlots === 1
+                        ? ""
+                        : "s"
+                }`;
+
+        }
+
+
+        dayToggles.forEach(
+            function (toggle) {
+
+                toggle.addEventListener(
+                    "change",
+                    function () {
+
+                        updateDisabledStates();
+
+                        updateSummary();
+
+                        savedStatus.textContent =
+                            "Unsaved changes";
+
+                        savedStatus.classList.remove(
+                            "saved"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        timeInputs.forEach(
+            function (input) {
+
+                input.addEventListener(
+                    "change",
+                    function () {
+
+                        updateSummary();
+
+                        savedStatus.textContent =
+                            "Unsaved changes";
+
+                        savedStatus.classList.remove(
+                            "saved"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        saveButton.addEventListener(
+            "click",
+            function () {
+
+                const availability =
+                    getDefaultAvailability();
+
+
+                setStorage(
+                    availability
+                );
+
+
+                savedStatus.textContent =
+                    "Saved";
+
+                savedStatus.classList.add(
+                    "saved"
+                );
+
+
+                saveButton.textContent =
+                    "Saved ✓";
+
+
+                setTimeout(
+                    function () {
+
+                        saveButton.textContent =
+                            "Save Availability";
+
+                    },
+                    1500
+                );
+
+            }
+        );
+
+
+        resetButton.addEventListener(
+            "click",
+            function () {
+
+                localStorage.removeItem(
+                    STORAGE_KEY
+                );
+
+
+                window.location.reload();
+
+            }
+        );
+
+
+        const logoutButton =
+            document.querySelector(
+                "[data-logout]"
+            );
+
+
+        if (
+            logoutButton &&
+            typeof logout === "function"
+        ) {
+
+            logoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+
+        loadAvailability();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
