@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Students | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="students-navbar">
+
+    <div class="students-nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="tutor-dashboard.html"
+                class="active"
+            >
+                Dashboard
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="students-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="students-header">
+
+        <div>
+
+            <span class="page-eyebrow">
+                TUTOR SPACE
+            </span>
+
+            <h1>
+                My Students
+            </h1>
+
+            <p>
+                Keep track of the learners you teach,
+                their progress, sessions and feedback.
+            </p>
+
+        </div>
+
+
+        <a
+            href="tutor-dashboard.html"
+            class="back-dashboard"
+        >
+            ← Dashboard
+        </a>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <section class="student-summary-grid">
+
+        <div class="summary-card">
+
+            <div class="summary-icon purple">
+                👥
+            </div>
+
+            <div>
+
+                <span>
+                    Active Students
+                </span>
+
+                <strong id="activeStudents">
+                    6
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon cyan">
+                📚
+            </div>
+
+            <div>
+
+                <span>
+                    Sessions This Month
+                </span>
+
+                <strong id="monthlySessions">
+                    24
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon pink">
+                ⭐
+            </div>
+
+            <div>
+
+                <span>
+                    Average Feedback
+                </span>
+
+                <strong id="averageRating">
+                    4.8
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon green">
+                📈
+            </div>
+
+            <div>
+
+                <span>
+                    Learning Progress
+                </span>
+
+                <strong>
+                    84%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH / FILTER -->
+
+    <section class="students-controls">
+
+        <div class="student-search">
+
+            <span>
+                🔎
+            </span>
+
+            <input
+                type="text"
+                id="studentSearch"
+                placeholder="Search students..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <select
+            id="subjectFilter"
+            class="subject-filter"
+        >
+
+            <option value="all">
+                All Subjects
+            </option>
+
+            <option value="Mathematics">
+                Mathematics
+            </option>
+
+            <option value="Physics">
+                Physics
+            </option>
+
+            <option value="English">
+                English
+            </option>
+
+            <option value="Computer Science">
+                Computer Science
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- STUDENT LIST -->
+
+    <section>
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR LEARNERS
+                </span>
+
+                <h2>
+                    Student List
+                </h2>
+
+            </div>
+
+            <span
+                class="student-count-label"
+                id="studentCountLabel"
+            >
+                6 students
+            </span>
+
+        </div>
+
+
+        <div
+            class="student-grid"
+            id="studentGrid"
+        >
+
+
+            <!-- STUDENT 1 -->
+
+            <article
+                class="student-card"
+                data-name="Aarav"
+                data-subject="Mathematics"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar purple-avatar">
+                        A
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Aarav
+                    </h3>
+
+                    <span class="student-subject">
+                        Mathematics • School
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            92%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:92%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 2 sessions this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.9 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Aarav','Mathematics','92%','2','4.9')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+            <!-- STUDENT 2 -->
+
+            <article
+                class="student-card"
+                data-name="Meera"
+                data-subject="Mathematics"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar cyan-avatar">
+                        M
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Meera
+                    </h3>
+
+                    <span class="student-subject">
+                        Mathematics • College
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            84%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:84%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 1 session this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.8 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Meera','Mathematics','84%','1','4.8')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+            <!-- STUDENT 3 -->
+
+            <article
+                class="student-card"
+                data-name="Rohan"
+                data-subject="Physics"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar pink-avatar">
+                        R
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Rohan
+                    </h3>
+
+                    <span class="student-subject">
+                        Physics • College
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            78%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:78%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 2 sessions this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.7 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Rohan','Physics','78%','2','4.7')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+            <!-- STUDENT 4 -->
+
+            <article
+                class="student-card"
+                data-name="Anaya"
+                data-subject="English"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar green-avatar">
+                        A
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Anaya
+                    </h3>
+
+                    <span class="student-subject">
+                        English • School
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            88%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:88%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 1 session this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.9 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Anaya','English','88%','1','4.9')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+            <!-- STUDENT 5 -->
+
+            <article
+                class="student-card"
+                data-name="Kabir"
+                data-subject="Computer Science"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar purple-avatar">
+                        K
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Kabir
+                    </h3>
+
+                    <span class="student-subject">
+                        Computer Science • College
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            81%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:81%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 2 sessions this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.8 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Kabir','Computer Science','81%','2','4.8')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+            <!-- STUDENT 6 -->
+
+            <article
+                class="student-card"
+                data-name="Ishaan"
+                data-subject="Mathematics"
+            >
+
+                <div class="student-card-top">
+
+                    <div class="student-avatar cyan-avatar">
+                        I
+                    </div>
+
+                    <span class="student-status active-status">
+                        Active
+                    </span>
+
+                </div>
+
+
+                <div class="student-main-info">
+
+                    <h3>
+                        Ishaan
+                    </h3>
+
+                    <span class="student-subject">
+                        Mathematics • School
+                    </span>
+
+                </div>
+
+
+                <div class="student-progress">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Progress
+                        </span>
+
+                        <strong>
+                            76%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress-track">
+                        <span style="width:76%;"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="student-meta">
+
+                    <span>
+                        📅 1 session this week
+                    </span>
+
+                    <span>
+                        ⭐ 4.7 feedback
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="view-student"
+                    onclick="showStudent('Ishaan','Mathematics','76%','1','4.7')"
+                >
+                    View Student
+                </button>
+
+            </article>
+
+
+        </div>
+
+
+        <div
+            id="noStudents"
+            class="no-students"
+            style="display:none;"
+        >
+            <div>
+                🔎
+            </div>
+
+            <h3>
+                No students found
+            </h3>
+
+            <p>
+                Try a different name or subject filter.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- TEACHING INSIGHT -->
+
+    <section class="teaching-insight">
+
+        <div class="insight-icon">
+            💡
+        </div>
+
+        <div>
+
+            <strong>
+                Teaching insight
+            </strong>
+
+            <p>
+                Regular feedback helps tutors understand
+                where students need more support and keeps
+                learning personalized.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- STUDENT MODAL -->
+
+<div
+    class="student-modal"
+    id="studentModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-overlay"
+        onclick="closeStudent()"
+    ></div>
+
+
+    <div
+        class="student-modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalStudentName"
+    >
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeStudent()"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-student-avatar" id="modalAvatar">
+            A
+        </div>
+
+
+        <span class="modal-eyebrow">
+            STUDENT OVERVIEW
+        </span>
+
+
+        <h2 id="modalStudentName">
+            Aarav
+        </h2>
+
+
+        <p
+            class="modal-subject"
+            id="modalStudentSubject"
+        >
+            Mathematics
+        </p>
+
+
+        <div class="modal-stats">
+
+            <div>
+                <span>
+                    Progress
+                </span>
+
+                <strong id="modalProgress">
+                    92%
+                </strong>
+            </div>
+
+
+            <div>
+                <span>
+                    Weekly sessions
+                </span>
+
+                <strong id="modalSessions">
+                    2
+                </strong>
+            </div>
+
+
+            <div>
+                <span>
+                    Feedback
+                </span>
+
+                <strong id="modalRating">
+                    4.9
+                </strong>
+            </div>
+
+        </div>
+
+
+        <div class="modal-learning">
+
+            <h3>
+                Recent activity
+            </h3>
+
+            <div class="modal-activity">
+                📘 Completed assigned practice
+            </div>
+
+            <div class="modal-activity">
+                ✓ Attended latest tutoring session
+            </div>
+
+            <div class="modal-activity">
+                ✦ Progress updated
+            </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <a
+                href="tutor-classes.html"
+                class="modal-primary"
+            >
+                View Classes
+            </a>
+
+            <button
+                type="button"
+                class="modal-secondary"
+                onclick="closeStudent()"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    body {
+        margin: 0;
+
+        background: #f8fafc;
+
+        color: #0f172a;
+
+        font-family: "Inter", sans-serif;
+    }
+
+
+    /* NAVBAR */
+
+    .students-navbar {
+        min-height: 76px;
+
+        background: white;
+
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+
+    .students-nav-container {
+        width: min(1200px, calc(100% - 35px));
+
+        min-height: 76px;
+
+        margin: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 25px;
+    }
+
+
+    .students-navbar .brand {
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        color: #0f172a;
+
+        text-decoration: none;
+    }
+
+
+    .students-navbar .brand-icon {
+        width: 40px;
+        height: 40px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 800;
+    }
+
+
+    .students-navbar .brand-text strong {
+        display: block;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    .students-navbar .brand-text small {
+        display: block;
+
+        color: #94a3b8;
+
+        font-size: .61rem;
+
+        letter-spacing: .4px;
+    }
+
+
+    .students-navbar .nav-links {
+        display: flex;
+
+        align-items: center;
+
+        gap: 25px;
+    }
+
+
+    .students-navbar .nav-links a {
+        color: #64748b;
+
+        text-decoration: none;
+
+        font-size: .73rem;
+
+        font-weight: 600;
+    }
+
+
+    .students-navbar .nav-links a:hover,
+    .students-navbar .nav-links a.active {
+        color: #5b4bff;
+    }
+
+
+    .students-navbar .nav-login {
+        padding: 9px 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 9px;
+
+        background: white;
+
+        color: #475569;
+
+        font-size: .7rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    /* PAGE */
+
+    .students-page {
+        width: min(1200px, calc(100% - 35px));
+
+        margin: auto;
+
+        padding: 42px 0 65px;
+    }
+
+
+    .students-header {
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        gap: 25px;
+
+        margin-bottom: 27px;
+    }
+
+
+    .page-eyebrow,
+    .section-eyebrow {
+        color: #5b4bff;
+
+        font-size: .63rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1.1px;
+    }
+
+
+    .students-header h1 {
+        margin: 7px 0 7px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: clamp(2rem, 4vw, 3rem);
+
+        line-height: 1.05;
+
+        letter-spacing: -.9px;
+    }
+
+
+    .students-header p {
+        max-width: 610px;
+
+        margin: 0;
+
+        color: #64748b;
+
+        font-size: .78rem;
+
+        line-height: 1.65;
+    }
+
+
+    .back-dashboard {
+        padding: 10px 14px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 10px;
+
+        background: white;
+
+        color: #5b4bff;
+
+        text-decoration: none;
+
+        font-size: .64rem;
+
+        font-weight: 700;
+
+        white-space: nowrap;
+    }
+
+
+    /* SUMMARY */
+
+    .student-summary-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 14px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .summary-card {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 17px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 17px;
+
+        background: white;
+
+        box-shadow:
+            0 7px 22px
+            rgba(15,23,42,.035);
+    }
+
+
+    .summary-icon {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 12px;
+    }
+
+
+    .summary-icon.purple {
+        background: #ede9fe;
+    }
+
+
+    .summary-icon.cyan {
+        background: #cffafe;
+    }
+
+
+    .summary-icon.pink {
+        background: #fce7f3;
+    }
+
+
+    .summary-icon.green {
+        background: #dcfce7;
+    }
+
+
+    .summary-card span {
+        display: block;
+
+        color: #64748b;
+
+        font-size: .61rem;
+    }
+
+
+    .summary-card strong {
+        display: block;
+
+        margin-top: 3px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.15rem;
+    }
+
+
+    /* CONTROLS */
+
+    .students-controls {
+        display: flex;
+
+        gap: 10px;
+
+        margin-bottom: 27px;
+    }
+
+
+    .student-search {
+        flex: 1;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 8px;
+
+        padding: 0 13px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 11px;
+
+        background: white;
+    }
+
+
+    .student-search span {
+        font-size: .75rem;
+    }
+
+
+    .student-search input {
+        width: 100%;
+
+        padding: 12px 0;
+
+        border: 0;
+
+        outline: none;
+
+        color: #334155;
+
+        font-family: inherit;
+
+        font-size: .7rem;
+    }
+
+
+    .subject-filter {
+        min-width: 155px;
+
+        padding: 0 12px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 11px;
+
+        outline: none;
+
+        background: white;
+
+        color: #475569;
+
+        font-family: inherit;
+
+        font-size: .67rem;
+    }
+
+
+    /* SECTION */
+
+    .section-heading {
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-bottom: 13px;
+    }
+
+
+    .section-heading h2 {
+        margin: 4px 0 0;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1rem;
+    }
+
+
+    .student-count-label {
+        color: #94a3b8;
+
+        font-size: .62rem;
+    }
+
+
+    /* STUDENT GRID */
+
+    .student-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 14px;
+    }
+
+
+    .student-card {
+        padding: 19px;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 18px;
+
+        background: white;
+
+        box-shadow:
+            0 7px 22px
+            rgba(15,23,42,.035);
+
+        transition: .18s ease;
+    }
+
+
+    .student-card:hover {
+        transform: translateY(-3px);
+
+        border-color: #c4b5fd;
+
+        box-shadow:
+            0 12px 28px
+            rgba(91,75,255,.08);
+    }
+
+
+    .student-card.hidden {
+        display: none;
+    }
+
+
+    .student-card-top {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        margin-bottom: 13px;
+    }
+
+
+    .student-avatar {
+        width: 43px;
+        height: 43px;
+
+        display: grid;
+
+        place-items: center;
+
+        border-radius: 12px;
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-weight: 800;
+    }
+
+
+    .purple-avatar {
+        background:
+            linear-gradient(
+                135deg,
+                #8b5cf6,
+                #5b4bff
+            );
+    }
+
+
+    .cyan-avatar {
+        background:
+            linear-gradient(
+                135deg,
+                #22d3ee,
+                #0891b2
+            );
+    }
+
+
+    .pink-avatar {
+        background:
+            linear-gradient(
+                135deg,
+                #ec4899,
+                #db2777
+            );
+    }
+
+
+    .green-avatar {
+        background:
+            linear-gradient(
+                135deg,
+                #22c55e,
+                #16a34a
+            );
+    }
+
+
+    .student-status {
+        padding: 5px 8px;
+
+        border-radius: 999px;
+
+        font-size: .52rem;
+
+        font-weight: 800;
+    }
+
+
+    .active-status {
+        background: #dcfce7;
+
+        color: #15803d;
+    }
+
+
+    .student-main-info h3 {
+        margin: 0 0 3px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .9rem;
+    }
+
+
+    .student-subject {
+        color: #94a3b8;
+
+        font-size: .6rem;
+    }
+
+
+    .student-progress {
+        margin-top: 17px;
+    }
+
+
+    .progress-label {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        margin-bottom: 6px;
+
+        color: #64748b;
+
+        font-size: .57rem;
+    }
+
+
+    .progress-label strong {
+        color: #5b4bff;
+
+        font-size: .6rem;
+    }
+
+
+    .progress-track {
+        height: 6px;
+
+        overflow: hidden;
+
+        border-radius: 99px;
+
+        background: #eef2f7;
+    }
+
+
+    .progress-track span {
+        display: block;
+
+        height: 100%;
+
+        border-radius: inherit;
+
+        background:
+            linear-gradient(
+                90deg,
+                #5b4bff,
+                #8b5cf6
+            );
+    }
+
+
+    .student-meta {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        margin-top: 13px;
+
+        color: #94a3b8;
+
+        font-size: .56rem;
+    }
+
+
+    .view-student {
+        width: 100%;
+
+        margin-top: 15px;
+
+        padding: 9px;
+
+        border: 1px solid #ddd6fe;
+
+        border-radius: 9px;
+
+        background: #faf9ff;
+
+        color: #5b4bff;
+
+        font-family: inherit;
+
+        font-size: .61rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    .view-student:hover {
+        background: #f3f0ff;
+    }
+
+
+    /* EMPTY */
+
+    .no-students {
+        padding: 50px 20px;
+
+        border: 1px dashed #cbd5e1;
+
+        border-radius: 17px;
+
+        text-align: center;
+
+        background: white;
+    }
+
+
+    .no-students > div {
+        font-size: 1.5rem;
+    }
+
+
+    .no-students h3 {
+        margin: 8px 0 4px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .9rem;
+    }
+
+
+    .no-students p {
+        margin: 0;
+
+        color: #94a3b8;
+
+        font-size: .63rem;
+    }
+
+
+    /* INSIGHT */
+
+    .teaching-insight {
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        margin-top: 20px;
+
+        padding: 15px 17px;
+
+        border: 1px solid #bae6fd;
+
+        border-radius: 15px;
+
+        background: #f0f9ff;
+    }
+
+
+    .insight-icon {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+
+        place-items: center;
+
+        flex-shrink: 0;
+
+        border-radius: 11px;
+
+        background: white;
+    }
+
+
+    .teaching-insight strong {
+        display: block;
+
+        color: #0c4a6e;
+
+        font-size: .68rem;
+    }
+
+
+    .teaching-insight p {
+        margin: 3px 0 0;
+
+        color: #0369a1;
+
+        font-size: .59rem;
+
+        line-height: 1.5;
+    }
+
+
+    /* MODAL */
+
+    .student-modal {
+        position: fixed;
+
+        inset: 0;
+
+        display: none;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        z-index: 1000;
+    }
+
+
+    .student-modal.open {
+        display: flex;
+    }
+
+
+    .modal-overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            rgba(15,23,42,.55);
+
+        backdrop-filter: blur(4px);
+    }
+
+
+    .student-modal-box {
+        position: relative;
+
+        z-index: 2;
+
+        width: min(430px, 100%);
+
+        padding: 27px;
+
+        border-radius: 21px;
+
+        background: white;
+
+        box-shadow:
+            0 25px 70px
+            rgba(15,23,42,.2);
+
+        animation:
+            modalIn .2s ease;
+    }
+
+
+    @keyframes modalIn {
+
+        from {
+            opacity: 0;
+
+            transform: translateY(10px)
+                scale(.98);
+        }
+
+        to {
+            opacity: 1;
+
+            transform: translateY(0)
+                scale(1);
+        }
+
+    }
+
+
+    .modal-close {
+        position: absolute;
+
+        top: 12px;
+
+        right: 15px;
+
+        width: 30px;
+        height: 30px;
+
+        border: 0;
+
+        border-radius: 8px;
+
+        background: #f1f5f9;
+
+        color: #64748b;
+
+        font-size: 1.2rem;
+
+        cursor: pointer;
+    }
+
+
+    .modal-student-avatar {
+        width: 55px;
+        height: 55px;
+
+        display: grid;
+
+        place-items: center;
+
+        margin-bottom: 14px;
+
+        border-radius: 16px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #ec4899
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.2rem;
+
+        font-weight: 800;
+    }
+
+
+    .modal-eyebrow {
+        color: #5b4bff;
+
+        font-size: .58rem;
+
+        font-weight: 800;
+
+        letter-spacing: 1px;
+    }
+
+
+    .student-modal-box h2 {
+        margin: 5px 0 2px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.35rem;
+    }
+
+
+    .modal-subject {
+        margin: 0;
+
+        color: #94a3b8;
+
+        font-size: .65rem;
+    }
+
+
+    .modal-stats {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+
+        margin-top: 19px;
+    }
+
+
+    .modal-stats > div {
+        padding: 11px;
+
+        border-radius: 11px;
+
+        background: #f8fafc;
+
+        text-align: center;
+    }
+
+
+    .modal-stats span {
+        display: block;
+
+        color: #94a3b8;
+
+        font-size: .52rem;
+    }
+
+
+    .modal-stats strong {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #334155;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .82rem;
+    }
+
+
+    .modal-learning {
+        margin-top: 18px;
+    }
+
+
+    .modal-learning h3 {
+        margin: 0 0 8px;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: .75rem;
+    }
+
+
+    .modal-activity {
+        padding: 9px 0;
+
+        border-bottom: 1px solid #f1f5f9;
+
+        color: #64748b;
+
+        font-size: .6rem;
+    }
+
+
+    .modal-actions {
+        display: flex;
+
+        gap: 8px;
+
+        margin-top: 18px;
+    }
+
+
+    .modal-primary,
+    .modal-secondary {
+        flex: 1;
+
+        padding: 10px;
+
+        border-radius: 9px;
+
+        text-align: center;
+
+        font-family: inherit;
+
+        font-size: .61rem;
+
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    .modal-primary {
+        border: 0;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5b4bff,
+                #8b5cf6
+            );
+
+        color: white;
+
+        text-decoration: none;
+    }
+
+
+    .modal-secondary {
+        border: 1px solid #e2e8f0;
+
+        background: white;
+
+        color: #64748b;
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+
+        .student-summary-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+        .student-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+        .students-nav-container {
+            width: calc(100% - 20px);
+        }
+
+        .students-navbar .nav-links {
+            display: none;
+        }
+
+        .students-page {
+            width: calc(100% - 20px);
+
+            padding-top: 28px;
+        }
+
+        .students-header {
+            align-items: flex-start;
+
+            flex-direction: column;
+        }
+
+        .students-controls {
+            flex-direction: column;
+        }
+
+        .subject-filter {
+            min-height: 43px;
+        }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+        .student-summary-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .student-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .modal-stats {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* ---------------------------------
+           AUTHENTICATION
+        --------------------------------- */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "tutor") {
+
+            window.location.href =
+                "student-dashboard.html";
+
+            return;
+
+        }
+
+
+        /* ---------------------------------
+           SEARCH + FILTER
+        --------------------------------- */
+
+        const searchInput =
+            document.getElementById(
+                "studentSearch"
+            );
+
+
+        const subjectFilter =
+            document.getElementById(
+                "subjectFilter"
+            );
+
+
+        const cards =
+            Array.from(
+                document.querySelectorAll(
+                    ".student-card"
+                )
+            );
+
+
+        const countLabel =
+            document.getElementById(
+                "studentCountLabel"
+            );
+
+
+        const noStudents =
+            document.getElementById(
+                "noStudents"
+            );
+
+
+        function filterStudents() {
+
+            const search =
+                searchInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+            const subject =
+                subjectFilter.value;
+
+
+            let visibleCount = 0;
+
+
+            cards.forEach(
+                function (card) {
+
+                    const name =
+                        card.dataset.name
+                            .toLowerCase();
+
+
+                    const cardSubject =
+                        card.dataset.subject;
+
+
+                    const matchesName =
+                        !search ||
+                        name.includes(search);
+
+
+                    const matchesSubject =
+                        subject === "all" ||
+                        cardSubject === subject;
+
+
+                    const visible =
+                        matchesName &&
+                        matchesSubject;
+
+
+                    card.classList.toggle(
+                        "hidden",
+                        !visible
+                    );
+
+
+                    if (visible) {
+                        visibleCount++;
+                    }
+
+                }
+            );
+
+
+            countLabel.textContent =
+                `${visibleCount} ${
+                    visibleCount === 1
+                        ? "student"
+                        : "students"
+                }`;
+
+
+            noStudents.style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            filterStudents
+        );
+
+
+        subjectFilter.addEventListener(
+            "change",
+            filterStudents
+        );
+
+
+        /* ---------------------------------
+           LOGOUT
+        --------------------------------- */
+
+        const logoutButton =
+            document.querySelector(
+                "[data-logout]"
+            );
+
+
+        if (
+            logoutButton &&
+            typeof logout === "function"
+        ) {
+
+            logoutButton.addEventListener(
+                "click",
+                logout
+            );
+
+        }
+
+    }
+);
+
+
+/* ---------------------------------
+   STUDENT MODAL
+--------------------------------- */
+
+function showStudent(
+    name,
+    subject,
+    progress,
+    sessions,
+    rating
+) {
+
+    document.getElementById(
+        "modalStudentName"
+    ).textContent =
+        name;
+
+
+    document.getElementById(
+        "modalStudentSubject"
+    ).textContent =
+        subject;
+
+
+    document.getElementById(
+        "modalProgress"
+    ).textContent =
+        progress;
+
+
+    document.getElementById(
+        "modalSessions"
+    ).textContent =
+        sessions;
+
+
+    document.getElementById(
+        "modalRating"
+    ).textContent =
+        rating;
+
+
+    document.getElementById(
+        "modalAvatar"
+    ).textContent =
+        name
+            .charAt(0)
+            .toUpperCase();
+
+
+    const modal =
+        document.getElementById(
+            "studentModal"
+        );
+
+
+    modal.classList.add("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+function closeStudent() {
+
+    const modal =
+        document.getElementById(
+            "studentModal"
+        );
+
+
+    modal.classList.remove("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeStudent();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
