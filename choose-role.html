@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Your Role | TutorLink</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.14), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(34, 211, 238, 0.12), transparent 30%),
+                #f8fafc;
+        }
+
+        .role-page {
+            min-height: calc(100vh - 82px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .role-container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 999px;
+            background: rgba(91, 75, 255, 0.1);
+            color: #5b4bff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .role-container h1 {
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .role-container > p {
+            color: #64748b;
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        .role-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .role-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 38px 30px;
+            text-align: left;
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.07);
+            transition: 0.25s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(91, 75, 255, 0.15);
+        }
+
+        .role-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 22px;
+        }
+
+        .student-icon {
+            background: rgba(34, 211, 238, 0.14);
+        }
+
+        .tutor-icon {
+            background: rgba(236, 72, 153, 0.13);
+        }
+
+        .role-card h2 {
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .role-card p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .role-button {
+            width: 100%;
+            border: none;
+            border-radius: 13px;
+            padding: 14px 18px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #5b4bff, #8b5cf6);
+        }
+
+        @media (max-width: 700px) {
+            .role-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                TutorLink
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="learn.html">Learn</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">
+                    Log In
+                </a>
+
+                <a href="signup.html" class="btn btn-primary">
+                    Sign Up
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="role-page">
+
+        <div class="role-container">
+
+            <span class="role-badge">
+                WELCOME TO TUTORLINK
+            </span>
+
+            <h1>How will you use TutorLink?</h1>
+
+            <p>
+                Choose your role to create an account and get started.
+            </p>
+
+
+            <div class="role-cards">
+
+                <div class="role-card">
+
+                    <div class="role-icon student-icon">
+                        🎓
+                    </div>
+
+                    <h2>I'm a Student</h2>
+
+                    <p>
+                        Find trusted tutors, book classes, learn at your
+                        own pace, complete learning activities and earn Tute.
+                    </p>
+
+                    <button
+                        id="studentRoleButton"
+                        class="role-button">
+                        Continue as Student
+                    </button>
+
+                </div>
+
+
+                <div class="role-card">
+
+                    <div class="role-icon tutor-icon">
+                        👩‍🏫
+                    </div>
+
+                    <h2>I'm a Tutor</h2>
+
+                    <p>
+                        Share your knowledge, teach students, manage your
+                        availability, track sessions and grow your teaching journey.
+                    </p>
+
+                    <button
+                        id="tutorRoleButton"
+                        class="role-button">
+                        Continue as Tutor
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
