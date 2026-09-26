@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Become a Tutor | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css?v=20260926"
+    >
+
+</head>
+
+
+<body class="become-tutor-page">
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+
+            <span class="brand-icon">
+                T
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    TutorLink
+                </strong>
+
+                <small>
+                    LEARN • TEACH • CONNECT
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a
+                href="about.html"
+                class="active"
+            >
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="become-container">
+
+
+    <!-- HERO -->
+
+    <section class="become-hero">
+
+        <div>
+
+            <span class="page-eyebrow">
+                SHARE YOUR KNOWLEDGE
+            </span>
+
+            <h1>
+                Become a Tutor.
+            </h1>
+
+            <p>
+                Turn what you know into meaningful learning
+                opportunities for students.
+            </p>
+
+            <div class="hero-points">
+
+                <span>
+                    ✓ Flexible teaching
+                </span>
+
+                <span>
+                    ✓ Earn through learning
+                </span>
+
+                <span>
+                    ✓ Make an impact
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-card-icon">
+                🎓
+            </div>
+
+            <strong>
+                Teach. Earn. Impact.
+            </strong>
+
+            <p>
+                TutorLink connects knowledge holders
+                with students looking for personalized learning.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- APPLICATION -->
+
+    <section
+        id="applicationSection"
+        class="application-section"
+    >
+
+        <div class="application-header">
+
+            <span class="page-eyebrow">
+                TUTOR APPLICATION
+            </span>
+
+            <h2>
+                Tell us about yourself
+            </h2>
+
+            <p>
+                Submit your details for the TutorLink
+                verification process.
+            </p>
+
+        </div>
+
+
+        <form
+            id="tutorApplicationForm"
+            class="tutor-form"
+        >
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="tutorName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="tutorName"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="tutorEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="tutorEmail"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- SUBJECT -->
+
+            <div class="form-group">
+
+                <label for="tutorSubjects">
+                    Subject(s) You Teach
+                </label>
+
+                <input
+                    type="text"
+                    id="tutorSubjects"
+                    name="subjects"
+                    placeholder="e.g. Mathematics, Python, English"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="form-group">
+
+                <label for="tutorExperience">
+                    Teaching Experience
+                </label>
+
+                <select
+                    id="tutorExperience"
+                    name="experience"
+                    required
+                >
+
+                    <option value="">
+                        Select your experience
+                    </option>
+
+                    <option value="Less than 1 year">
+                        Less than 1 year
+                    </option>
+
+                    <option value="1–2 years">
+                        1–2 years
+                    </option>
+
+                    <option value="3–5 years">
+                        3–5 years
+                    </option>
+
+                    <option value="5+ years">
+                        5+ years
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUALIFICATIONS -->
+
+            <div class="form-group full-width">
+
+                <label for="tutorQualifications">
+                    Qualifications
+                </label>
+
+                <input
+                    type="text"
+                    id="tutorQualifications"
+                    name="qualifications"
+                    placeholder="e.g. BCA, B.Sc. Mathematics, teaching certificate"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- HOURS -->
+
+            <div class="form-group full-width">
+
+                <label for="tutorHours">
+                    Preferred Teaching Hours
+                </label>
+
+                <input
+                    type="text"
+                    id="tutorHours"
+                    name="hours"
+                    placeholder="e.g. Weekdays 5 PM–8 PM"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- INTRO -->
+
+            <div class="form-group full-width">
+
+                <label for="tutorIntro">
+                    Short Introduction
+                </label>
+
+                <textarea
+                    id="tutorIntro"
+                    name="intro"
+                    rows="5"
+                    placeholder="Tell students a little about yourself and your teaching style..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- TERMS -->
+
+            <div class="application-note">
+
+                <span>
+                    ✓
+                </span>
+
+                <p>
+                    Your application will be reviewed before
+                    you can begin accepting students.
+                    This prototype demonstrates the verification
+                    workflow; production verification would use
+                    a secure backend process.
+                </p>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-application"
+            >
+                Submit Application →
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- SUCCESS -->
+
+    <section
+        id="successSection"
+        class="success-section"
+        hidden
+    >
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <span class="page-eyebrow">
+            APPLICATION RECEIVED
+        </span>
+
+
+        <h2>
+            Your application is under review.
+        </h2>
+
+
+        <p>
+            Thanks for your interest in becoming a TutorLink
+            tutor. Your application has been submitted for
+            verification.
+        </p>
+
+
+        <div class="verification-flow">
+
+            <div class="flow-step completed">
+
+                <span>
+                    1
+                </span>
+
+                <div>
+
+                    <strong>
+                        Application submitted
+                    </strong>
+
+                    <small>
+                        Your details have been received.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="flow-step current">
+
+                <span>
+                    2
+                </span>
+
+                <div>
+
+                    <strong>
+                        Verification pending
+                    </strong>
+
+                    <small>
+                        TutorLink reviews your application.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="flow-step">
+
+                <span>
+                    3
+                </span>
+
+                <div>
+
+                    <strong>
+                        Tutor approval
+                    </strong>
+
+                    <small>
+                        Approved tutors can begin teaching.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="success-actions">
+
+            <a
+                href="tutor-dashboard.html"
+                class="success-primary"
+            >
+                Tutor Dashboard
+            </a>
+
+            <a
+                href="index.html"
+                class="success-secondary"
+            >
+                Back Home
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     STYLES
+========================================= -->
+
+<style>
+
+/* =========================================
+   PAGE
+========================================= */
+
+.become-tutor-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 8% 5%,
+            rgba(139,92,246,.11),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(34,211,238,.08),
+            transparent 25%
+        ),
+        #f8fafc;
+
+    color: #0f172a;
+
+}
+
+
+.become-container {
+
+    width: min(
+        1000px,
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+
+    padding: 50px 0 75px;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.become-hero {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 40px;
+
+    align-items: center;
+
+}
+
+
+.page-eyebrow {
+
+    color: #5b4bff;
+
+    font-size: .62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.become-hero h1 {
+
+    margin: 8px 0 12px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            5vw,
+            4rem
+        );
+
+    line-height: 1.04;
+
+    letter-spacing: -2px;
+
+}
+
+
+.become-hero > div:first-child > p {
+
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .72rem;
+
+    line-height: 1.7;
+
+}
+
+
+.hero-points {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+}
+
+
+.hero-points span {
+
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    color: #475569;
+
+    font-size: .48rem;
+
+    font-weight: 700;
+
+}
+
+
+.hero-card {
+
+    padding: 27px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 18px 45px
+        rgba(91,75,255,.18);
+
+}
+
+
+.hero-card-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.15);
+
+    font-size: 1.2rem;
+
+}
+
+
+.hero-card strong {
+
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.05rem;
+
+}
+
+
+.hero-card p {
+
+    margin: 7px 0 0;
+
+    color: #ede9fe;
+
+    font-size: .55rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   APPLICATION
+========================================= */
+
+.application-section {
+
+    margin-top: 45px;
+
+    padding: 28px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px
+        rgba(15,23,42,.045);
+
+}
+
+
+.application-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.application-header h2 {
+
+    margin: 6px 0 7px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.35rem;
+
+}
+
+
+.application-header p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .57rem;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.tutor-form {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 17px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.form-group.full-width {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.form-group label {
+
+    color: #334155;
+
+    font-size: .53rem;
+
+    font-weight: 700;
+
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #0f172a;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .55rem;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 110px;
+
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #94a3b8;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139,92,246,.10);
+
+}
+
+
+/* =========================================
+   NOTE
+========================================= */
+
+.application-note {
+
+    grid-column:
+        1 / -1;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+
+    background: #f5f3ff;
+
+}
+
+
+.application-note > span {
+
+    color: #5b4bff;
+
+    font-size: .65rem;
+
+    font-weight: 800;
+
+}
+
+
+.application-note p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .48rem;
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.submit-application {
+
+    grid-column:
+        1 / -1;
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .57rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(91,75,255,.16);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.submit-application:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(91,75,255,.22);
+
+}
+
+
+/* =========================================
+   SUCCESS
+========================================= */
+
+.success-section {
+
+    margin-top: 45px;
+
+    padding: 40px 30px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px
+        rgba(15,23,42,.05);
+
+}
+
+
+.success-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 17px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+    font-size: 1.25rem;
+
+    font-weight: 800;
+
+}
+
+
+.success-section h2 {
+
+    margin: 8px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.45rem;
+
+}
+
+
+.success-section > p {
+
+    max-width: 540px;
+
+    margin: 0 auto;
+
+    color: #64748b;
+
+    font-size: .58rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   VERIFICATION FLOW
+========================================= */
+
+.verification-flow {
+
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: #f8fafc;
+
+    text-align: left;
+
+}
+
+
+.flow-step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.flow-step > span {
+
+    width: 31px;
+
+    height: 31px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e2e8f0;
+
+    color: #64748b;
+
+    font-size: .52rem;
+
+    font-weight: 800;
+
+}
+
+
+.flow-step.completed > span {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+
+.flow-step.current > span {
+
+    background: #ede9fe;
+
+    color: #5b4bff;
+
+}
+
+
+.flow-step strong {
+
+    display: block;
+
+    font-size: .56rem;
+
+}
+
+
+.flow-step small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #94a3b8;
+
+    font-size: .45rem;
+
+}
+
+
+.flow-line {
+
+    width: 2px;
+
+    height: 22px;
+
+    margin-left: 14px;
+
+    background: #e2e8f0;
+
+}
+
+
+/* =========================================
+   SUCCESS ACTIONS
+========================================= */
+
+.success-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 9px;
+
+}
+
+
+.success-primary,
+.success-secondary {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: .5rem;
+
+    font-weight: 700;
+
+}
+
+
+.success-primary {
+
+    background: #5b4bff;
+
+    color: #ffffff;
+
+}
+
+
+.success-secondary {
+
+    border: 1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    color: #475569;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .become-container {
+
+        width:
+            calc(100% - 22px);
+
+        padding-top: 30px;
+
+    }
+
+
+    .become-hero {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+    }
+
+
+    .hero-card {
+
+        padding: 22px;
+
+    }
+
+
+    .tutor-form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .form-group.full-width {
+
+        grid-column: auto;
+
+    }
+
+
+    .application-note,
+    .submit-application {
+
+        grid-column: auto;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .application-section {
+
+        padding: 20px;
+
+    }
+
+
+    .become-hero h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .success-section {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .success-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .success-primary,
+    .success-secondary {
+
+        width: 100%;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================
+     APP JS
+========================================= -->
+
+<script src="app.js?v=1023"></script>
+
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =====================================
+           AUTH
+        ===================================== */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : JSON.parse(
+                    localStorage.getItem(
+                        "tutorlink_current_user"
+                    )
+                );
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+
+        /* =====================================
+           ELEMENTS
+        ===================================== */
+
+        const form =
+            document.getElementById(
+                "tutorApplicationForm"
+            );
+
+
+        const applicationSection =
+            document.getElementById(
+                "applicationSection"
+            );
+
+
+        const successSection =
+            document.getElementById(
+                "successSection"
+            );
+
+
+
+        /* =====================================
+           CHECK EXISTING APPLICATION
+        ===================================== */
+
+        function getApplications() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        "tutorlink_tutor_applications"
+                    )
+                ) || [];
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+        function hasExistingApplication() {
+
+            const applications =
+                getApplications();
+
+
+            return applications.some(
+                function (application) {
+
+                    return (
+                        application.userId ===
+                        currentUser.id
+                    );
+
+                }
+            );
+
+        }
+
+
+        if (
+            hasExistingApplication()
+        ) {
+
+            applicationSection.hidden =
+                true;
+
+            successSection.hidden =
+                false;
+
+        }
+
+
+
+        /* =====================================
+           PREFILL
+        ===================================== */
+
+        const nameInput =
+            document.getElementById(
+                "tutorName"
+            );
+
+
+        const emailInput =
+            document.getElementById(
+                "tutorEmail"
+            );
+
+
+        if (
+            currentUser.name
+        ) {
+
+            nameInput.value =
+                currentUser.name;
+
+        }
+
+
+        if (
+            currentUser.email
+        ) {
+
+            emailInput.value =
+                currentUser.email;
+
+        }
+
+
+
+        /* =====================================
+           SUBMIT
+        ===================================== */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const application = {
+
+                    id:
+                        "tutor_application_" +
+                        Date.now(),
+
+                    userId:
+                        currentUser.id,
+
+                    name:
+                        nameInput.value.trim(),
+
+                    email:
+                        emailInput.value.trim(),
+
+                    subjects:
+                        document
+                            .getElementById(
+                                "tutorSubjects"
+                            )
+                            .value
+                            .trim(),
+
+                    experience:
+                        document
+                            .getElementById(
+                                "tutorExperience"
+                            )
+                            .value,
+
+                    qualifications:
+                        document
+                            .getElementById(
+                                "tutorQualifications"
+                            )
+                            .value
+                            .trim(),
+
+                    preferredHours:
+                        document
+                            .getElementById(
+                                "tutorHours"
+                            )
+                            .value
+                            .trim(),
+
+                    intro:
+                        document
+                            .getElementById(
+                                "tutorIntro"
+                            )
+                            .value
+                            .trim(),
+
+                    status:
+                        "verification-pending",
+
+                    submittedAt:
+                        new Date().toISOString()
+
+                };
+
+
+                const applications =
+                    getApplications();
+
+
+                applications.push(
+                    application
+                );
+
+
+                localStorage.setItem(
+                    "tutorlink_tutor_applications",
+                    JSON.stringify(
+                        applications
+                    )
+                );
+
+
+                /* ---------------------------------
+                   Update user status
+                --------------------------------- */
+
+                const users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_users"
+                        )
+                    ) || [];
+
+
+                const userIndex =
+                    users.findIndex(
+                        function (user) {
+
+                            return (
+                                user.id ===
+                                currentUser.id
+                            );
+
+                        }
+                    );
+
+
+                if (
+                    userIndex !== -1
+                ) {
+
+                    users[userIndex]
+                        .tutorApplicationStatus =
+                            "verification-pending";
+
+
+                    localStorage.setItem(
+                        "tutorlink_users",
+                        JSON.stringify(
+                            users
+                        )
+                    );
+
+                }
+
+
+                /* ---------------------------------
+                   Show success
+                --------------------------------- */
+
+                applicationSection.hidden =
+                    true;
+
+                successSection.hidden =
+                    false;
+
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
