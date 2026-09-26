@@ -1828,10 +1828,40 @@ function getTutorFromURL() {
 
 function updateNavbarForUser() {
 
-    const user = getCurrentUser();
+    const currentPage = window.location.pathname.split("/").pop();
 
-    const authLinks =
-        document.querySelector(".nav-actions");
+    // Only update the navbar on logged-in/dashboard pages
+    const loggedInPages = [
+        "student-dashboard.html",
+        "tutor-dashboard.html",
+        "tutors.html",
+        "tutor-profile.html",
+        "booking.html",
+        "bookings.html",
+        "saved.html",
+        "rewards.html",
+        "student-profile.html",
+        "virtual-classroom.html",
+        "quiz.html",
+        "tutor-students.html",
+        "tutor-classes.html",
+        "tutor-earnings.html",
+        "tutor-availability.html",
+        "session-complete.html",
+        "create-quiz.html",
+        "support.html",
+        "impact.html",
+        "business-model.html",
+        "learn.html"
+    ];
+
+    // Leave the homepage and auth pages alone
+    if (!loggedInPages.includes(currentPage)) {
+        return;
+    }
+
+    const user = getCurrentUser();
+    const authLinks = document.querySelector(".nav-actions");
 
     if (!authLinks) {
         return;
@@ -1868,7 +1898,6 @@ function updateNavbarForUser() {
         `;
 
     }
-
 }
 
 
