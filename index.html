@@ -22,7 +22,7 @@
     >
 
     <!-- TutorLink stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -35,32 +35,58 @@
 
     <div class="nav-container">
 
-        <a href="index.html" class="brand">
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+
             <div class="brand-icon">🎓</div>
 
             <div class="brand-text">
                 <span class="brand-name">TutorLink</span>
                 <span class="brand-tagline">Learn. Teach. Connect.</span>
             </div>
+
         </a>
 
         <nav class="main-nav">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="tutors.html" class="nav-link">Find Tutors</a>
-            <a href="learn.html" class="nav-link">Learn</a>
-            <a href="become-tutor.html" class="nav-link">Become a Tutor</a>
-            <a href="about.html" class="nav-link">About</a>
+
+            <a href="index.html" class="nav-link active">
+                Home
+            </a>
+
+            <a href="tutors.html" class="nav-link">
+                Find Tutors
+            </a>
+
+            <a href="learn.html" class="nav-link">
+                Learn
+            </a>
+
+            <a href="become-tutor.html" class="nav-link">
+                Become a Tutor
+            </a>
+
+            <a href="about.html" class="nav-link">
+                About
+            </a>
+
         </nav>
 
         <div class="nav-actions">
-            <a href="login.html" class="btn btn-outline">Log In</a>
-            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+
+            <a href="login.html" class="btn btn-outline">
+                Log In
+            </a>
+
+            <a href="signup.html" class="btn btn-primary">
+                Sign Up
+            </a>
+
         </div>
 
         <button
             class="mobile-menu-button"
             id="mobileMenuButton"
             aria-label="Open menu"
+            aria-expanded="false"
         >
             ☰
         </button>
@@ -68,50 +94,91 @@
     </div>
 
     <div class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="tutors.html">Find Tutors</a>
-        <a href="learn.html">Learn</a>
-        <a href="become-tutor.html">Become a Tutor</a>
-        <a href="about.html">About</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="tutors.html">
+            Find Tutors
+        </a>
+
+        <a href="learn.html">
+            Learn
+        </a>
+
+        <a href="become-tutor.html">
+            Become a Tutor
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
 
         <div class="mobile-nav-actions">
-            <a href="login.html" class="btn btn-outline">Log In</a>
-            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+
+            <a href="login.html" class="btn btn-outline">
+                Log In
+            </a>
+
+            <a href="signup.html" class="btn btn-primary">
+                Sign Up
+            </a>
+
         </div>
+
     </div>
 
 </header>
 
 
 <!-- =========================================================
-     HERO
+     MAIN
 ========================================================= -->
 
 <main>
 
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero">
 
     <div class="hero-background hero-background-one"></div>
+
     <div class="hero-background hero-background-two"></div>
 
     <div class="hero-container">
 
+        <!-- HERO TEXT -->
+
         <div class="hero-content">
 
             <div class="eyebrow">
+
                 <span class="eyebrow-dot"></span>
+
                 THE DIGITAL LEARNING ECOSYSTEM
+
             </div>
 
             <h1>
+
                 Find the right tutor.
-                <span>Learn at your pace.</span>
+
+                <span>
+                    Learn at your pace.
+                </span>
+
             </h1>
 
             <p class="hero-description">
-                TutorLink connects students with trusted tutors for
-                flexible online learning, personalized support,
+
+                TutorLink connects students with trusted tutors
+                for flexible online learning, personalized support,
                 and meaningful progress.
+
             </p>
 
             <div class="hero-buttons">
@@ -133,133 +200,154 @@
             </div>
 
             <div class="hero-note">
+
                 <span>✓</span>
+
                 Learn online • Flexible schedules • Personalized support
+
             </div>
 
         </div>
 
 
-        <!-- HERO VISUAL -->
+        <!-- =================================================
+             NEUTRAL ECOSYSTEM VISUAL
+        ================================================= -->
 
-        <div class="hero-visual">
+        <div class="hero-visual ecosystem-visual">
 
             <div class="glow glow-purple"></div>
+
             <div class="glow glow-pink"></div>
 
-            <div class="learning-card">
 
-                <div class="learning-card-header">
+            <div class="ecosystem-card">
+
+                <div class="ecosystem-card-header">
 
                     <div>
+
                         <span class="card-label">
-                            YOUR LEARNING JOURNEY
+                            THE TUTORLINK ECOSYSTEM
                         </span>
 
-                        <h3>Keep growing.</h3>
+                        <h3>
+                            Learn. Teach. Connect.
+                        </h3>
+
                     </div>
 
-                    <div class="sparkle">✨</div>
-
-                </div>
-
-
-                <div class="progress-area">
-
-                    <div class="progress-heading">
-                        <span>Weekly progress</span>
-                        <strong>84%</strong>
-                    </div>
-
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
+                    <div class="ecosystem-sparkle">
+                        ✨
                     </div>
 
                 </div>
 
 
-                <div class="learning-stats">
+                <!-- STUDENT -->
 
-                    <div class="mini-stat">
+                <div class="ecosystem-role student-role">
 
-                        <div class="mini-icon purple">
-                            📚
-                        </div>
-
-                        <div>
-                            <strong>8 / 12</strong>
-                            <span>Classes Remaining</span>
-                        </div>
-
+                    <div class="ecosystem-icon purple">
+                        🎓
                     </div>
 
-
-                    <div class="mini-stat">
-
-                        <div class="mini-icon pink">
-                            🪙
-                        </div>
-
-                        <div>
-                            <strong>275</strong>
-                            <span>Tute earned</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="upcoming-class">
-
-                    <div class="teacher-avatar">
-                        AS
-                    </div>
-
-                    <div class="class-info">
-
-                        <span>UPCOMING CLASS</span>
+                    <div class="ecosystem-role-content">
 
                         <strong>
-                            Mathematics with Ananya
+                            Students
                         </strong>
 
-                        <small>
-                            Today • 6:00 PM
-                        </small>
+                        <span>
+                            Find tutors • Book classes • Learn
+                        </span>
 
                     </div>
 
-                    <div class="online-dot"></div>
+                </div>
+
+
+                <div class="ecosystem-connector">
+
+                    <span></span>
+
+                    <small>
+                        Learn
+                    </small>
+
+                    <span></span>
 
                 </div>
 
-            </div>
 
+                <!-- PLATFORM -->
 
-            <div class="floating-card tute-floating">
+                <div class="ecosystem-platform">
 
-                <div class="floating-icon">
-                    🪙
+                    <div class="platform-icon">
+                        🔗
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            TutorLink
+                        </strong>
+
+                        <span>
+                            The learning marketplace
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong>+25 Tute</strong>
-                    <span>Quiz completed!</span>
+
+                <div class="ecosystem-connector">
+
+                    <span></span>
+
+                    <small>
+                        Teach
+                    </small>
+
+                    <span></span>
+
                 </div>
 
-            </div>
 
+                <!-- TUTOR -->
 
-            <div class="floating-card rating-floating">
+                <div class="ecosystem-role tutor-role">
 
-                <div class="rating-star">
-                    ⭐
+                    <div class="ecosystem-icon pink">
+                        👩‍🏫
+                    </div>
+
+                    <div class="ecosystem-role-content">
+
+                        <strong>
+                            Tutors
+                        </strong>
+
+                        <span>
+                            Teach • Manage classes • Earn
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong>4.9 / 5</strong>
-                    <span>Tutor rating</span>
+
+                <div class="ecosystem-footer">
+
+                    <span>
+                        ✦
+                    </span>
+
+                    One platform.
+                    Multiple learning journeys.
+
                 </div>
 
             </div>
@@ -280,23 +368,54 @@
     <div class="stats-container">
 
         <div class="stat">
-            <strong>1,000+</strong>
-            <span>Learners</span>
+
+            <strong>
+                1,000+
+            </strong>
+
+            <span>
+                Learners
+            </span>
+
         </div>
 
-        <div class="stat">
-            <strong>100+</strong>
-            <span>Tutors</span>
-        </div>
 
         <div class="stat">
-            <strong>12+</strong>
-            <span>Subjects</span>
+
+            <strong>
+                100+
+            </strong>
+
+            <span>
+                Tutors
+            </span>
+
         </div>
 
+
         <div class="stat">
-            <strong>24/7</strong>
-            <span>Learning access</span>
+
+            <strong>
+                12+
+            </strong>
+
+            <span>
+                Subjects
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                24/7
+            </strong>
+
+            <span>
+                Learning access
+            </span>
+
         </div>
 
     </div>
@@ -330,66 +449,94 @@
 
     <div class="steps-grid">
 
+
+        <!-- STEP 1 -->
+
         <div class="step-card">
 
-            <div class="step-number">01</div>
+            <div class="step-number">
+                01
+            </div>
 
             <div class="step-icon purple-bg">
                 🔍
             </div>
 
-            <h3>Discover</h3>
+            <h3>
+                Discover
+            </h3>
 
             <p>
                 Find tutors based on your subject, level,
                 availability, language and learning preferences.
             </p>
 
-            <a href="tutors.html" class="text-link">
+            <a
+                href="tutors.html"
+                class="text-link"
+            >
                 Explore tutors →
             </a>
 
         </div>
 
 
+        <!-- STEP 2 -->
+
         <div class="step-card">
 
-            <div class="step-number">02</div>
+            <div class="step-number">
+                02
+            </div>
 
             <div class="step-icon pink-bg">
                 🤝
             </div>
 
-            <h3>Connect</h3>
+            <h3>
+                Connect
+            </h3>
 
             <p>
                 Choose a plan, schedule your classes and
                 meet your tutor through the virtual classroom.
             </p>
 
-            <a href="tutors.html" class="text-link">
+            <a
+                href="tutors.html"
+                class="text-link"
+            >
                 Start learning →
             </a>
 
         </div>
 
 
+        <!-- STEP 3 -->
+
         <div class="step-card">
 
-            <div class="step-number">03</div>
+            <div class="step-number">
+                03
+            </div>
 
             <div class="step-icon cyan-bg">
                 🚀
             </div>
 
-            <h3>Grow</h3>
+            <h3>
+                Grow
+            </h3>
 
             <p>
                 Practice, complete learning activities,
                 earn Tute and track your progress.
             </p>
 
-            <a href="learn.html" class="text-link">
+            <a
+                href="learn.html"
+                class="text-link"
+            >
                 Explore learning →
             </a>
 
@@ -409,6 +556,7 @@
     <div class="section-heading section-heading-row">
 
         <div>
+
             <span class="section-eyebrow">
                 LEARN SOMETHING NEW
             </span>
@@ -416,9 +564,13 @@
             <h2>
                 Explore popular subjects.
             </h2>
+
         </div>
 
-        <a href="tutors.html" class="text-link">
+        <a
+            href="tutors.html"
+            class="text-link"
+        >
             View all subjects →
         </a>
 
@@ -427,52 +579,140 @@
 
     <div class="subjects-grid">
 
-        <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">📐</div>
-            <strong>Mathematics</strong>
-            <span>Calculus • Algebra • Geometry</span>
-        </a>
 
         <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">🔬</div>
-            <strong>Science</strong>
-            <span>Physics • Chemistry • Biology</span>
+
+            <div class="subject-icon">
+                📐
+            </div>
+
+            <strong>
+                Mathematics
+            </strong>
+
+            <span>
+                Calculus • Algebra • Geometry
+            </span>
+
         </a>
 
-        <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">💻</div>
-            <strong>Computer Science</strong>
-            <span>Programming • IT • Coding</span>
-        </a>
 
         <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">📖</div>
-            <strong>English</strong>
-            <span>Grammar • Writing • Literature</span>
+
+            <div class="subject-icon">
+                🔬
+            </div>
+
+            <strong>
+                Science
+            </strong>
+
+            <span>
+                Physics • Chemistry • Biology
+            </span>
+
         </a>
 
-        <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">💰</div>
-            <strong>Economics</strong>
-            <span>Micro • Macro • Finance</span>
-        </a>
 
         <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">📊</div>
-            <strong>Business</strong>
-            <span>Management • Marketing • Strategy</span>
+
+            <div class="subject-icon">
+                💻
+            </div>
+
+            <strong>
+                Computer Science
+            </strong>
+
+            <span>
+                Programming • IT • Coding
+            </span>
+
         </a>
 
-        <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">🎨</div>
-            <strong>Design</strong>
-            <span>UI • UX • Creative tools</span>
-        </a>
 
         <a href="tutors.html" class="subject-card">
-            <div class="subject-icon">🌍</div>
-            <strong>Languages</strong>
-            <span>Hindi • English • More</span>
+
+            <div class="subject-icon">
+                📖
+            </div>
+
+            <strong>
+                English
+            </strong>
+
+            <span>
+                Grammar • Writing • Literature
+            </span>
+
+        </a>
+
+
+        <a href="tutors.html" class="subject-card">
+
+            <div class="subject-icon">
+                💰
+            </div>
+
+            <strong>
+                Economics
+            </strong>
+
+            <span>
+                Micro • Macro • Finance
+            </span>
+
+        </a>
+
+
+        <a href="tutors.html" class="subject-card">
+
+            <div class="subject-icon">
+                📊
+            </div>
+
+            <strong>
+                Business
+            </strong>
+
+            <span>
+                Management • Marketing • Strategy
+            </span>
+
+        </a>
+
+
+        <a href="tutors.html" class="subject-card">
+
+            <div class="subject-icon">
+                🎨
+            </div>
+
+            <strong>
+                Design
+            </strong>
+
+            <span>
+                UI • UX • Creative tools
+            </span>
+
+        </a>
+
+
+        <a href="tutors.html" class="subject-card">
+
+            <div class="subject-icon">
+                🌍
+            </div>
+
+            <strong>
+                Languages
+            </strong>
+
+            <span>
+                Hindi • English • More
+            </span>
+
         </a>
 
     </div>
@@ -507,6 +747,8 @@
     <div class="tutor-grid">
 
 
+        <!-- TUTOR 1 -->
+
         <article class="tutor-card">
 
             <div class="tutor-top">
@@ -521,19 +763,25 @@
 
             </div>
 
-            <h3>Ananya Sharma</h3>
+            <h3>
+                Ananya Sharma
+            </h3>
 
             <p class="tutor-subject">
                 Mathematics Tutor
             </p>
 
             <div class="tutor-rating">
-                ⭐ 4.9 <span>•</span> 126 sessions
+                ⭐ 4.9
+                <span>•</span>
+                126 sessions
             </div>
 
             <div class="tutor-bottom">
 
-                <strong>₹300<span>/hr</span></strong>
+                <strong>
+                    ₹300<span>/hr</span>
+                </strong>
 
                 <a href="tutors.html">
                     View Profile →
@@ -543,6 +791,8 @@
 
         </article>
 
+
+        <!-- TUTOR 2 -->
 
         <article class="tutor-card">
 
@@ -558,19 +808,25 @@
 
             </div>
 
-            <h3>Aarav Mehta</h3>
+            <h3>
+                Aarav Mehta
+            </h3>
 
             <p class="tutor-subject">
                 Physics Tutor
             </p>
 
             <div class="tutor-rating">
-                ⭐ 4.8 <span>•</span> 98 sessions
+                ⭐ 4.8
+                <span>•</span>
+                98 sessions
             </div>
 
             <div class="tutor-bottom">
 
-                <strong>₹300<span>/hr</span></strong>
+                <strong>
+                    ₹300<span>/hr</span>
+                </strong>
 
                 <a href="tutors.html">
                     View Profile →
@@ -580,6 +836,8 @@
 
         </article>
 
+
+        <!-- TUTOR 3 -->
 
         <article class="tutor-card">
 
@@ -595,19 +853,25 @@
 
             </div>
 
-            <h3>Riya Iyer</h3>
+            <h3>
+                Riya Iyer
+            </h3>
 
             <p class="tutor-subject">
                 English Tutor
             </p>
 
             <div class="tutor-rating">
-                ⭐ 4.9 <span>•</span> 142 sessions
+                ⭐ 4.9
+                <span>•</span>
+                142 sessions
             </div>
 
             <div class="tutor-bottom">
 
-                <strong>₹300<span>/hr</span></strong>
+                <strong>
+                    ₹300<span>/hr</span>
+                </strong>
 
                 <a href="tutors.html">
                     View Profile →
@@ -635,112 +899,6 @@
 
 
 <!-- =========================================================
-     TUTORMATCH
-========================================================= -->
-
-<section class="match-section">
-
-    <div class="match-container">
-
-        <div class="match-content">
-
-            <span class="section-eyebrow">
-                FIND YOUR MATCH
-            </span>
-
-            <h2>
-                Not sure where to start?
-            </h2>
-
-            <p>
-                TutorMatch helps you discover tutors based on
-                your subject, learning level, schedule and
-                preferences.
-            </p>
-
-            <a
-                href="tutors.html"
-                class="btn btn-primary btn-large"
-            >
-                Find My Tutor →
-            </a>
-
-        </div>
-
-
-        <div class="match-visual">
-
-            <div class="match-card">
-
-                <div class="match-header">
-                    <strong>✨ TutorMatch</strong>
-                    <span>READY</span>
-                </div>
-
-
-                <div class="match-question">
-
-                    <div class="question-number">
-                        01
-                    </div>
-
-                    <div>
-                        <small>
-                            WHAT DO YOU WANT TO LEARN?
-                        </small>
-
-                        <strong>
-                            Mathematics
-                        </strong>
-                    </div>
-
-                </div>
-
-
-                <div class="match-question">
-
-                    <div class="question-number">
-                        02
-                    </div>
-
-                    <div>
-                        <small>
-                            YOUR LEVEL
-                        </small>
-
-                        <strong>
-                            College
-                        </strong>
-                    </div>
-
-                </div>
-
-
-                <div class="match-result">
-
-                    <div class="match-result-icon">
-                        🎯
-                    </div>
-
-                    <div>
-                        <small>TOP MATCH</small>
-                        <strong>Ananya Sharma</strong>
-                    </div>
-
-                    <b>96%</b>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
      ACCESS FUND
 ========================================================= -->
 
@@ -759,8 +917,13 @@
             </span>
 
             <h2>
+
                 Earn through learning.
-                <span>Reinvest in learning.</span>
+
+                <span>
+                    Reinvest in learning.
+                </span>
+
             </h2>
 
             <p>
@@ -774,19 +937,29 @@
 
         <div class="access-example">
 
-            <span>Example</span>
+            <span>
+                Example
+            </span>
 
-            <strong>₹36</strong>
+            <strong>
+                ₹36
+            </strong>
 
-            <small>TutorLink commission</small>
+            <small>
+                TutorLink commission
+            </small>
 
-            <div class="arrow">↓</div>
+            <div class="arrow">
+                ↓
+            </div>
 
             <strong class="access-amount">
                 ₹1.80
             </strong>
 
-            <small>Access Fund</small>
+            <small>
+                Access Fund
+            </small>
 
         </div>
 
@@ -838,6 +1011,7 @@
 
 </section>
 
+
 </main>
 
 
@@ -849,19 +1023,28 @@
 
     <div class="footer-container">
 
+
         <div class="footer-brand">
 
-            <a href="index.html" class="brand">
+            <a
+                href="index.html"
+                class="brand"
+            >
 
                 <div class="brand-icon">
                     🎓
                 </div>
 
                 <div class="brand-text">
-                    <span class="brand-name">TutorLink</span>
+
+                    <span class="brand-name">
+                        TutorLink
+                    </span>
+
                     <span class="brand-tagline">
                         Learn. Teach. Connect.
                     </span>
+
                 </div>
 
             </a>
@@ -876,18 +1059,30 @@
 
         <div class="footer-column">
 
-            <h4>Explore</h4>
+            <h4>
+                Explore
+            </h4>
 
-            <a href="tutors.html">Find Tutors</a>
-            <a href="learn.html">Learn</a>
-            <a href="about.html">About</a>
+            <a href="tutors.html">
+                Find Tutors
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
 
         </div>
 
 
         <div class="footer-column">
 
-            <h4>Teach</h4>
+            <h4>
+                Teach
+            </h4>
 
             <a href="become-tutor.html">
                 Become a Tutor
@@ -902,10 +1097,18 @@
 
         <div class="footer-column">
 
-            <h4>Support</h4>
+            <h4>
+                Support
+            </h4>
 
-            <a href="support.html">Help Centre</a>
-            <a href="impact.html">Our Impact</a>
+            <a href="support.html">
+                Help Centre
+            </a>
+
+            <a href="impact.html">
+                Our Impact
+            </a>
+
             <a href="business-model.html">
                 Business Model
             </a>
@@ -931,26 +1134,31 @@
 
 
 <!-- =========================================================
-     SIMPLE MOBILE MENU
+     MOBILE MENU
 ========================================================= -->
 
 <script>
 
-const menuButton = document.getElementById("mobileMenuButton");
-const mobileNav = document.getElementById("mobileNav");
+    const menuButton =
+        document.getElementById("mobileMenuButton");
 
-menuButton.addEventListener("click", function () {
+    const mobileNav =
+        document.getElementById("mobileNav");
 
-    mobileNav.classList.toggle("show");
 
-    const isOpen = mobileNav.classList.contains("show");
+    menuButton.addEventListener("click", function () {
 
-    menuButton.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
+        mobileNav.classList.toggle("show");
 
-});
+        const isOpen =
+            mobileNav.classList.contains("show");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+    });
 
 </script>
 
