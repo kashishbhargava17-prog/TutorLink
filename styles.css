@@ -3204,3 +3204,23 @@ p {
     }
 
 }
+
+/* Logged-in navbar button */
+.nav-logout {
+    border: 1px solid rgba(91, 75, 255, 0.25);
+    background: #ffffff;
+    color: #5B4BFF;
+    padding: 11px 20px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-logout:hover {
+    background: #5B4BFF;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
