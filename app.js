@@ -1830,48 +1830,18 @@ function updateNavbarForUser() {
 
     const currentPage = window.location.pathname.split("/").pop();
 
-    // HOMEPAGE: always show Log In + Sign Up
-    if (
-        currentPage === "" ||
-        currentPage === "index.html"
-    ) {
+    // NEVER change the homepage navbar
+    if (currentPage === "" || currentPage === "index.html") {
         return;
     }
 
-    const loggedInPages = [
-        "student-dashboard.html",
-        "tutor-dashboard.html",
-        "tutors.html",
-        "tutor-profile.html",
-        "booking.html",
-        "bookings.html",
-        "saved.html",
-        "rewards.html",
-        "student-profile.html",
-        "virtual-classroom.html",
-        "quiz.html",
-        "tutor-students.html",
-        "tutor-classes.html",
-        "tutor-earnings.html",
-        "tutor-availability.html",
-        "session-complete.html",
-        "create-quiz.html",
-        "support.html",
-        "impact.html",
-        "business-model.html",
-        "learn.html"
-    ];
-
-    if (!loggedInPages.includes(currentPage)) {
-        return;
-    }
-
-    const user = getCurrentUser();
     const authLinks = document.querySelector(".nav-actions");
 
     if (!authLinks) {
         return;
     }
+
+    const user = getCurrentUser();
 
     if (user) {
 
@@ -1888,13 +1858,8 @@ function updateNavbarForUser() {
     } else {
 
         authLinks.innerHTML = `
-            <a href="login.html" class="nav-login">
-                Log In
-            </a>
-
-            <a href="signup.html" class="nav-signup">
-                Sign Up
-            </a>
+            <a href="login.html" class="nav-login">Log In</a>
+            <a href="signup.html" class="nav-signup">Sign Up</a>
         `;
 
     }
