@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Bookings | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css?v=20260926"
+    >
+
+</head>
+
+
+<body class="bookings-page">
+
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+
+            <span class="brand-icon">
+                T
+            </span>
+
+            <span class="brand-text">
+
+                <strong>
+                    TutorLink
+                </strong>
+
+                <small>
+                    LEARN • TEACH • CONNECT
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="student-dashboard.html"
+                class="active"
+            >
+                Dashboard
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="bookings-container">
+
+
+    <!-- HERO -->
+
+    <section class="bookings-hero">
+
+        <div>
+
+            <span class="page-eyebrow">
+                MY LEARNING
+            </span>
+
+            <h1>
+                My Bookings
+            </h1>
+
+            <p>
+                Keep track of your tutoring sessions,
+                upcoming classes, and learning plans.
+            </p>
+
+        </div>
+
+
+        <a
+            href="tutors.html"
+            class="find-tutor-button"
+        >
+            Find a Tutor →
+        </a>
+
+    </section>
+
+
+
+    <!-- STATS -->
+
+    <section class="booking-stats">
+
+
+        <div class="booking-stat-card">
+
+            <div class="stat-icon purple">
+                📅
+            </div>
+
+            <div>
+
+                <span>
+                    Upcoming
+                </span>
+
+                <strong id="upcomingCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="booking-stat-card">
+
+            <div class="stat-icon cyan">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    Completed
+                </span>
+
+                <strong id="completedCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="booking-stat-card">
+
+            <div class="stat-icon pink">
+                🎓
+            </div>
+
+            <div>
+
+                <span>
+                    Classes Remaining
+                </span>
+
+                <strong id="classesRemaining">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="booking-stat-card">
+
+            <div class="stat-icon blue">
+                💜
+            </div>
+
+            <div>
+
+                <span>
+                    Tute
+                </span>
+
+                <strong id="tuteBalance">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- TABS -->
+
+    <section class="booking-list-section">
+
+        <div class="booking-heading">
+
+            <div>
+
+                <span class="page-eyebrow">
+                    YOUR SESSIONS
+                </span>
+
+                <h2>
+                    Tutoring activity
+                </h2>
+
+            </div>
+
+
+            <div class="booking-tabs">
+
+                <button
+                    type="button"
+                    class="booking-tab active"
+                    data-tab="upcoming"
+                >
+                    Upcoming
+                </button>
+
+                <button
+                    type="button"
+                    class="booking-tab"
+                    data-tab="completed"
+                >
+                    Completed
+                </button>
+
+                <button
+                    type="button"
+                    class="booking-tab"
+                    data-tab="all"
+                >
+                    All
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="bookingList"
+            class="booking-list"
+        ></div>
+
+    </section>
+
+
+
+    <!-- LEARNING PLAN -->
+
+    <section
+        id="planSection"
+        class="learning-plan"
+        hidden
+    >
+
+        <div class="plan-content">
+
+            <span class="page-eyebrow">
+                ACTIVE LEARNING PLAN
+            </span>
+
+            <h2>
+                Keep your learning momentum going.
+            </h2>
+
+            <p>
+                Your plan tracks the classes you have
+                remaining. Use them when you're ready to learn.
+            </p>
+
+        </div>
+
+
+        <div class="plan-number">
+
+            <strong id="planRemaining">
+                0
+            </strong>
+
+            <span>
+                Classes Remaining
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- EMPTY CTA -->
+
+    <section
+        id="emptyBookings"
+        class="empty-bookings"
+        hidden
+    >
+
+        <div class="empty-icon">
+            📚
+        </div>
+
+        <h2>
+            No bookings yet
+        </h2>
+
+        <p>
+            Find a tutor and book your first learning
+            session to get started.
+        </p>
+
+        <a
+            href="tutors.html"
+            class="empty-button"
+        >
+            Find a Tutor
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     PAGE STYLES
+========================================= -->
+
+<style>
+
+/* =========================================
+   PAGE
+========================================= */
+
+.bookings-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(139,92,246,.10),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 95% 15%,
+            rgba(34,211,238,.08),
+            transparent 25%
+        ),
+        #f8fafc;
+
+    color: #0f172a;
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.bookings-container {
+
+    width: min(
+        1100px,
+        calc(100% - 40px)
+    );
+
+    margin: 0 auto;
+
+    padding: 48px 0 70px;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.bookings-hero {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+
+.page-eyebrow {
+
+    display: inline-block;
+
+    color: #5b4bff;
+
+    font-size: .62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.bookings-hero h1 {
+
+    margin: 7px 0 10px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size:
+        clamp(
+            2.3rem,
+            5vw,
+            3.7rem
+        );
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+
+}
+
+
+.bookings-hero p {
+
+    max-width: 590px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .72rem;
+
+    line-height: 1.65;
+
+}
+
+
+.find-tutor-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: .55rem;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 10px 25px
+        rgba(91,75,255,.18);
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.booking-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 32px;
+
+}
+
+
+.booking-stat-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 16px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 7px 25px
+        rgba(15,23,42,.035);
+
+}
+
+
+.stat-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    font-size: .85rem;
+
+}
+
+
+.stat-icon.purple {
+
+    background: #ede9fe;
+
+    color: #6d28d9;
+
+}
+
+
+.stat-icon.cyan {
+
+    background: #cffafe;
+
+    color: #0891b2;
+
+}
+
+
+.stat-icon.pink {
+
+    background: #fce7f3;
+
+    color: #db2777;
+
+}
+
+
+.stat-icon.blue {
+
+    background: #e0e7ff;
+
+    color: #4338ca;
+
+}
+
+
+.booking-stat-card span {
+
+    display: block;
+
+    color: #64748b;
+
+    font-size: .48rem;
+
+    font-weight: 600;
+
+}
+
+
+.booking-stat-card strong {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.05rem;
+
+}
+
+
+/* =========================================
+   LIST SECTION
+========================================= */
+
+.booking-list-section {
+
+    margin-top: 36px;
+
+}
+
+
+.booking-heading {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.booking-heading h2 {
+
+    margin: 5px 0 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.25rem;
+
+}
+
+
+/* =========================================
+   TABS
+========================================= */
+
+.booking-tabs {
+
+    display: flex;
+
+    gap: 5px;
+
+    padding: 4px;
+
+    border-radius: 10px;
+
+    background: #eef2f7;
+
+}
+
+
+.booking-tab {
+
+    padding: 8px 12px;
+
+    border: 0;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .48rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.booking-tab.active {
+
+    background: #ffffff;
+
+    color: #5b4bff;
+
+    box-shadow:
+        0 2px 7px
+        rgba(15,23,42,.06);
+
+}
+
+
+/* =========================================
+   BOOKING LIST
+========================================= */
+
+.booking-list {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.booking-card {
+
+    padding: 19px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 28px
+        rgba(15,23,42,.035);
+
+}
+
+
+.booking-card-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+}
+
+
+.tutor-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.tutor-avatar {
+
+    width: 47px;
+
+    height: 47px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #ec4899
+        );
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+}
+
+
+.tutor-info h3 {
+
+    margin: 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: .82rem;
+
+}
+
+
+.tutor-info p {
+
+    margin: 3px 0 0;
+
+    color: #64748b;
+
+    font-size: .52rem;
+
+}
+
+
+.booking-status {
+
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    font-size: .43rem;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+.booking-status.confirmed {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+}
+
+
+.booking-status.completed {
+
+    background: #e0e7ff;
+
+    color: #4338ca;
+
+}
+
+
+.booking-status.cancelled {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+}
+
+
+/* =========================================
+   BOOKING DETAILS
+========================================= */
+
+.booking-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 17px;
+
+}
+
+
+.booking-detail {
+
+    padding: 11px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+}
+
+
+.booking-detail span {
+
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: .42rem;
+
+    font-weight: 600;
+
+}
+
+
+.booking-detail strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #334155;
+
+    font-size: .52rem;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+   PACKAGE BAR
+========================================= */
+
+.booking-package {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 13px;
+
+    padding-top: 13px;
+
+    border-top: 1px solid #f1f5f9;
+
+}
+
+
+.package-name {
+
+    color: #475569;
+
+    font-size: .5rem;
+
+    font-weight: 700;
+
+}
+
+
+.classes-left {
+
+    color: #5b4bff;
+
+    font-size: .5rem;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.booking-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    margin-top: 13px;
+
+}
+
+
+.booking-action {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .47rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+
+.booking-action.primary {
+
+    border: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+}
+
+
+.booking-action.secondary {
+
+    border: 1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    color: #475569;
+
+}
+
+
+/* =========================================
+   PLAN
+========================================= */
+
+.learning-plan {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+    padding: 22px 24px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 14px 35px
+        rgba(91,75,255,.15);
+
+}
+
+
+.learning-plan .page-eyebrow {
+
+    color: #ddd6fe;
+
+}
+
+
+.learning-plan h2 {
+
+    margin: 6px 0 6px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1rem;
+
+}
+
+
+.learning-plan p {
+
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #ede9fe;
+
+    font-size: .52rem;
+
+    line-height: 1.55;
+
+}
+
+
+.plan-number {
+
+    min-width: 145px;
+
+    padding: 13px;
+
+    border: 1px solid
+        rgba(255,255,255,.20);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    text-align: center;
+
+}
+
+
+.plan-number strong {
+
+    display: block;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.7rem;
+
+}
+
+
+.plan-number span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #ede9fe;
+
+    font-size: .45rem;
+
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty-bookings {
+
+    margin-top: 30px;
+
+    padding: 45px 20px;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+}
+
+
+.empty-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background: #ede9fe;
+
+    font-size: 1.3rem;
+
+}
+
+
+.empty-bookings h2 {
+
+    margin: 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.05rem;
+
+}
+
+
+.empty-bookings p {
+
+    max-width: 450px;
+
+    margin: 7px auto 18px;
+
+    color: #64748b;
+
+    font-size: .55rem;
+
+    line-height: 1.5;
+
+}
+
+
+.empty-button {
+
+    display: inline-flex;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    background: #5b4bff;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: .5rem;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   EMPTY TAB
+========================================= */
+
+.empty-tab {
+
+    padding: 30px;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    color: #64748b;
+
+    text-align: center;
+
+    font-size: .55rem;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .booking-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .booking-details {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 680px) {
+
+    .bookings-container {
+
+        width:
+            calc(100% - 22px);
+
+        padding-top: 30px;
+
+    }
+
+    .bookings-hero {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .find-tutor-button {
+
+        width: 100%;
+
+    }
+
+    .booking-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+    .booking-tabs {
+
+        width: 100%;
+
+    }
+
+    .booking-tab {
+
+        flex: 1;
+
+    }
+
+    .booking-card-top {
+
+        flex-direction: column;
+
+    }
+
+    .booking-status {
+
+        align-self: flex-start;
+
+    }
+
+    .learning-plan {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .plan-number {
+
+        width: 100%;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .booking-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .booking-details {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .booking-actions {
+
+        justify-content: stretch;
+
+    }
+
+    .booking-action {
+
+        flex: 1;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================
+     APP JS
+========================================= -->
+
+<script src="app.js?v=1023"></script>
+
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* =====================================
+           AUTH
+        ===================================== */
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : JSON.parse(
+                    localStorage.getItem(
+                        "tutorlink_current_user"
+                    )
+                );
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (
+            currentUser.role !==
+            "student"
+        ) {
+
+            window.location.href =
+                "tutor-dashboard.html";
+
+            return;
+
+        }
+
+
+
+        /* =====================================
+           ELEMENTS
+        ===================================== */
+
+        const bookingList =
+            document.getElementById(
+                "bookingList"
+            );
+
+        const upcomingCount =
+            document.getElementById(
+                "upcomingCount"
+            );
+
+        const completedCount =
+            document.getElementById(
+                "completedCount"
+            );
+
+        const classesRemaining =
+            document.getElementById(
+                "classesRemaining"
+            );
+
+        const tuteBalance =
+            document.getElementById(
+                "tuteBalance"
+            );
+
+        const planSection =
+            document.getElementById(
+                "planSection"
+            );
+
+        const planRemaining =
+            document.getElementById(
+                "planRemaining"
+            );
+
+        const emptyBookings =
+            document.getElementById(
+                "emptyBookings"
+            );
+
+        const tabs =
+            document.querySelectorAll(
+                ".booking-tab"
+            );
+
+
+        let activeTab =
+            "upcoming";
+
+
+
+        /* =====================================
+           LOAD BOOKINGS
+        ===================================== */
+
+        function getBookings() {
+
+            try {
+
+                const bookings =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_bookings"
+                        )
+                    ) || [];
+
+
+                return bookings.filter(
+                    function (booking) {
+
+                        return (
+                            booking.studentId ===
+                                currentUser.id
+                            ||
+                            (
+                                !booking.studentId &&
+                                booking.studentName ===
+                                    currentUser.name
+                            )
+                        );
+
+                    }
+                );
+
+            } catch (error) {
+
+                return [];
+
+            }
+
+        }
+
+
+
+        /* =====================================
+           USER DATA
+        ===================================== */
+
+        function getUserData() {
+
+            try {
+
+                const users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_users"
+                        )
+                    ) || [];
+
+
+                const found =
+                    users.find(
+                        function (user) {
+
+                            return user.id ===
+                                currentUser.id;
+
+                        }
+                    );
+
+
+                return found || currentUser;
+
+            } catch (error) {
+
+                return currentUser;
+
+            }
+
+        }
+
+
+
+        /* =====================================
+           STATUS
+        ===================================== */
+
+        function getBookingStatus(
+            booking
+        ) {
+
+            if (
+                booking.status ===
+                "completed"
+            ) {
+
+                return "completed";
+
+            }
+
+
+            if (
+                booking.status ===
+                "cancelled"
+            ) {
+
+                return "cancelled";
+
+            }
+
+
+            return "confirmed";
+
+        }
+
+
+
+        /* =====================================
+           INITIALS
+        ===================================== */
+
+        function getInitials(
+            name
+        ) {
+
+            if (!name) {
+
+                return "T";
+
+            }
+
+
+            return name
+                .split(" ")
+                .map(
+                    function (part) {
+
+                        return part
+                            .charAt(0)
+                            .toUpperCase();
+
+                    }
+                )
+                .slice(0, 2)
+                .join("");
+
+        }
+
+
+
+        /* =====================================
+           FORMAT PRICE
+        ===================================== */
+
+        function formatPrice(
+            amount
+        ) {
+
+            const value =
+                Number(amount) || 0;
+
+
+            return "₹" +
+                value.toLocaleString(
+                    "en-IN"
+                );
+
+        }
+
+
+
+        /* =====================================
+           BOOKING CARD
+        ===================================== */
+
+        function createBookingCard(
+            booking
+        ) {
+
+            const status =
+                getBookingStatus(
+                    booking
+                );
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "booking-card";
+
+
+            const statusLabel =
+                status === "confirmed"
+                    ? "Confirmed"
+                    : status === "completed"
+                        ? "Completed"
+                        : "Cancelled";
+
+
+            let actionHTML = "";
+
+
+            if (
+                status ===
+                "confirmed"
+            ) {
+
+                actionHTML = `
+
+                    <a
+                        href="virtual-classroom.html?bookingId=${encodeURIComponent(
+                            booking.id
+                        )}"
+                        class="booking-action primary"
+                    >
+                        Join Session
+                    </a>
+
+                    <a
+                        href="tutor-profile.html?id=${encodeURIComponent(
+                            booking.tutorId
+                        )}"
+                        class="booking-action secondary"
+                    >
+                        View Tutor
+                    </a>
+
+                `;
+
+            } else if (
+                status ===
+                "completed"
+            ) {
+
+                actionHTML = `
+
+                    <a
+                        href="tutor-profile.html?id=${encodeURIComponent(
+                            booking.tutorId
+                        )}"
+                        class="booking-action secondary"
+                    >
+                        View Tutor
+                    </a>
+
+                    <a
+                        href="booking.html?id=${encodeURIComponent(
+                            booking.tutorId
+                        )}"
+                        class="booking-action primary"
+                    >
+                        Book Again
+                    </a>
+
+                `;
+
+            } else {
+
+                actionHTML = `
+
+                    <a
+                        href="tutor-profile.html?id=${encodeURIComponent(
+                            booking.tutorId
+                        )}"
+                        class="booking-action secondary"
+                    >
+                        View Tutor
+                    </a>
+
+                    <a
+                        href="booking.html?id=${encodeURIComponent(
+                            booking.tutorId
+                        )}"
+                        class="booking-action primary"
+                    >
+                        Book Again
+                    </a>
+
+                `;
+
+            }
+
+
+            card.innerHTML = `
+
+                <div class="booking-card-top">
+
+                    <div class="tutor-info">
+
+                        <div class="tutor-avatar">
+
+                            ${getInitials(
+                                booking.tutorName
+                            )}
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                ${escapeHTML(
+                                    booking.tutorName ||
+                                    "Tutor"
+                                )}
+                            </h3>
+
+                            <p>
+                                ${escapeHTML(
+                                    booking.tutorSubject ||
+                                    "Tutoring Session"
+                                )}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        class="booking-status ${status}"
+                    >
+                        ${statusLabel}
+                    </span>
+
+                </div>
+
+
+                <div class="booking-details">
+
+                    <div class="booking-detail">
+
+                        <span>
+                            Schedule
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                booking.nextSession ||
+                                (
+                                    booking.preferredDay +
+                                    ", " +
+                                    booking.preferredTime
+                                ) ||
+                                "To be scheduled"
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="booking-detail">
+
+                        <span>
+                            Learning Plan
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                booking.package ||
+                                "Tutoring Session"
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="booking-detail">
+
+                        <span>
+                            Payment
+                        </span>
+
+                        <strong>
+                            ${formatPrice(
+                                booking.price
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="booking-detail">
+
+                        <span>
+                            Payment Status
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                booking.paymentStatus ||
+                                "Demo payment"
+                            )}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-package">
+
+                    <span class="package-name">
+
+                        ${
+                            booking.totalClasses
+                                ? booking.totalClasses +
+                                  " classes included"
+                                : "Tutoring booking"
+                        }
+
+                    </span>
+
+
+                    <span class="classes-left">
+
+                        ${
+                            booking.classesRemaining !==
+                            undefined
+                                ? booking.classesRemaining +
+                                  " Classes Remaining"
+                                : ""
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <div class="booking-actions">
+
+                    ${actionHTML}
+
+                </div>
+
+            `;
+
+
+            return card;
+
+        }
+
+
+
+        /* =====================================
+           RENDER
+        ===================================== */
+
+        function renderBookings() {
+
+            const bookings =
+                getBookings();
+
+
+            const upcoming =
+                bookings.filter(
+                    function (booking) {
+
+                        return (
+                            getBookingStatus(
+                                booking
+                            ) === "confirmed"
+                        );
+
+                    }
+                );
+
+
+            const completed =
+                bookings.filter(
+                    function (booking) {
+
+                        return (
+                            getBookingStatus(
+                                booking
+                            ) === "completed"
+                        );
+
+                    }
+                );
+
+
+            upcomingCount.textContent =
+                upcoming.length;
+
+
+            completedCount.textContent =
+                completed.length;
+
+
+            const user =
+                getUserData();
+
+
+            let remaining =
+                Number(
+                    user.classesRemaining
+                );
+
+
+            if (
+                Number.isNaN(
+                    remaining
+                )
+            ) {
+
+                const plan =
+                    localStorage.getItem(
+                        "tutorlink_student_plans"
+                    );
+
+
+                try {
+
+                    const plans =
+                        JSON.parse(
+                            plan
+                        ) || {};
+
+
+                    const studentPlan =
+                        plans[
+                            currentUser.id
+                        ];
+
+
+                    remaining =
+                        Number(
+                            studentPlan &&
+                            studentPlan.classesRemaining
+                        ) || 0;
+
+                } catch (error) {
+
+                    remaining = 0;
+
+                }
+
+            }
+
+
+            if (
+                !remaining &&
+                bookings.length
+            ) {
+
+                const bookingRemaining =
+                    bookings
+                        .filter(
+                            function (booking) {
+
+                                return (
+                                    getBookingStatus(
+                                        booking
+                                    ) ===
+                                    "confirmed"
+                                );
+
+                            }
+                        )
+                        .map(
+                            function (booking) {
+
+                                return Number(
+                                    booking.classesRemaining
+                                ) || 0;
+
+                            }
+                        );
+
+
+                if (
+                    bookingRemaining.length
+                ) {
+
+                    remaining =
+                        Math.max(
+                            ...bookingRemaining
+                        );
+
+                }
+
+            }
+
+
+            classesRemaining.textContent =
+                remaining;
+
+
+            planRemaining.textContent =
+                remaining;
+
+
+            if (
+                remaining > 0
+            ) {
+
+                planSection.hidden =
+                    false;
+
+            } else {
+
+                planSection.hidden =
+                    true;
+
+            }
+
+
+            const tute =
+                Number(
+                    user.tute
+                ) || 0;
+
+
+            tuteBalance.textContent =
+                tute;
+
+
+            let visibleBookings =
+                bookings;
+
+
+            if (
+                activeTab ===
+                "upcoming"
+            ) {
+
+                visibleBookings =
+                    upcoming;
+
+            } else if (
+                activeTab ===
+                "completed"
+            ) {
+
+                visibleBookings =
+                    completed;
+
+            }
+
+
+            bookingList.innerHTML =
+                "";
+
+
+            if (
+                visibleBookings.length ===
+                0
+            ) {
+
+                const message =
+                    activeTab ===
+                        "upcoming"
+                        ? "You don't have any upcoming classes."
+                        : activeTab ===
+                            "completed"
+                            ? "You haven't completed any classes yet."
+                            : "You don't have any bookings yet.";
+
+
+                bookingList.innerHTML = `
+
+                    <div class="empty-tab">
+
+                        ${message}
+
+                    </div>
+
+                `;
+
+
+            } else {
+
+                visibleBookings
+                    .slice()
+                    .reverse()
+                    .forEach(
+                        function (booking) {
+
+                            bookingList.appendChild(
+                                createBookingCard(
+                                    booking
+                                )
+                            );
+
+                        }
+                    );
+
+            }
+
+
+            if (
+                bookings.length ===
+                0
+            ) {
+
+                emptyBookings.hidden =
+                    false;
+
+            } else {
+
+                emptyBookings.hidden =
+                    true;
+
+            }
+
+        }
+
+
+
+        /* =====================================
+           TABS
+        ===================================== */
+
+        tabs.forEach(
+            function (tab) {
+
+                tab.addEventListener(
+                    "click",
+                    function () {
+
+                        tabs.forEach(
+                            function (item) {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            }
+                        );
+
+
+                        tab.classList.add(
+                            "active"
+                        );
+
+
+                        activeTab =
+                            tab.dataset.tab;
+
+
+                        renderBookings();
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =====================================
+           ESCAPE HTML
+        ===================================== */
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(
+                value ?? ""
+            )
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /* =====================================
+           START
+        ===================================== */
+
+        renderBookings();
+
+    }
+
+);
+
+</script>
+
+
+</body>
+</html>
