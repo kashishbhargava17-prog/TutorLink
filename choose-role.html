@@ -119,11 +119,6 @@
             background: linear-gradient(135deg, #5b4bff, #8b5cf6);
         }
 
-        .role-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(91, 75, 255, 0.2);
-        }
-
         @media (max-width: 700px) {
             .role-cards {
                 grid-template-columns: 1fr;
@@ -134,81 +129,79 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+   <header class="navbar">
 
-    <header class="navbar">
+    <div class="nav-container">
 
-        <div class="nav-container">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="TutorLink home"
+        >
 
-            <a
-                href="index.html"
-                class="brand"
-                aria-label="TutorLink home"
-            >
+            <div class="logo-icon">
+                🎓
+            </div>
 
-                <div class="brand-icon">
-                    🎓
-                </div>
+            <div class="logo-text">
 
-                <div class="brand-text">
+                <span class="logo-name">
+                    TutorLink
+                </span>
 
-                    <strong>
-                        TutorLink
-                    </strong>
-
-                    <span>
-                        LEARN • TEACH • CONNECT
-                    </span>
-
-                </div>
-
-            </a>
-
-
-            <nav class="nav-links">
-
-                <a
-                    href="index.html"
-                    class="active"
-                >
-                    Home
-                </a>
-
-                <a href="learn.html">
-                    Learn
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-            </nav>
-
-
-            <div class="nav-actions">
-
-                <a
-                    href="login.html"
-                    class="nav-login"
-                >
-                    Log In
-                </a>
-
-                <a
-                    href="signup.html"
-                    class="nav-signup"
-                >
-                    Sign Up
-                </a>
+                <span class="logo-tagline">
+                    LEARN • TEACH • CONNECT
+                </span>
 
             </div>
 
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
+
+            <a
+                href="index.html"
+                class="active"
+            >
+                Home
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="btn-login"
+            >
+                Log In
+            </a>
+
+            <a
+                href="signup.html"
+                class="btn-signup"
+            >
+                Sign Up
+            </a>
+
         </div>
 
-    </header>
+    </div>
 
-
-    <!-- ================= ROLE SELECTION ================= -->
+</header>
 
     <main class="role-page">
 
@@ -218,9 +211,7 @@
                 WELCOME TO TUTORLINK
             </span>
 
-            <h1>
-                How will you use TutorLink?
-            </h1>
+            <h1>How will you use TutorLink?</h1>
 
             <p>
                 Choose your role to create an account and get started.
@@ -229,17 +220,13 @@
 
             <div class="role-cards">
 
-                <!-- STUDENT -->
-
                 <div class="role-card">
 
                     <div class="role-icon student-icon">
                         🎓
                     </div>
 
-                    <h2>
-                        I'm a Student
-                    </h2>
+                    <h2>I'm a Student</h2>
 
                     <p>
                         Find trusted tutors, book classes, learn at your
@@ -247,17 +234,13 @@
                     </p>
 
                     <button
-                        type="button"
                         id="studentRoleButton"
-                        class="role-button"
-                    >
+                        class="role-button">
                         Continue as Student
                     </button>
 
                 </div>
 
-
-                <!-- TUTOR -->
 
                 <div class="role-card">
 
@@ -265,9 +248,7 @@
                         👩‍🏫
                     </div>
 
-                    <h2>
-                        I'm a Tutor
-                    </h2>
+                    <h2>I'm a Tutor</h2>
 
                     <p>
                         Share your knowledge, teach students, manage your
@@ -275,10 +256,8 @@
                     </p>
 
                     <button
-                        type="button"
                         id="tutorRoleButton"
-                        class="role-button"
-                    >
+                        class="role-button">
                         Continue as Tutor
                     </button>
 
@@ -294,5 +273,4 @@
     <script src="app.js"></script>
 
 </body>
-
 </html>
