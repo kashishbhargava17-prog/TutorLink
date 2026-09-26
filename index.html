@@ -8,41 +8,60 @@
 
     <meta
         name="description"
-        content="TutorLink connects students with tutors for flexible, personalized online learning."
+        content="TutorLink connects students with trusted tutors for flexible, personalized online learning."
     >
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Main CSS -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- =========================
+    <!-- ==========================================
          NAVBAR
-    ========================== -->
+    =========================================== -->
+
     <header class="navbar">
+
         <div class="nav-container">
 
+            <!-- Logo -->
             <a href="index.html" class="logo">
                 <span class="logo-icon">🎓</span>
                 <span>TutorLink</span>
             </a>
 
+
+            <!-- Desktop Navigation -->
             <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="learn.html">Learn</a>
-                <a href="about.html">About</a>
+
+                <a href="index.html" class="active">
+                    Home
+                </a>
+
+                <a href="learn.html">
+                    Learn
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
             </nav>
 
+
+            <!-- Authentication -->
             <div class="nav-actions">
+
                 <a href="login.html" class="btn btn-outline">
                     Log In
                 </a>
@@ -50,8 +69,11 @@
                 <a href="signup.html" class="btn btn-primary">
                     Sign Up
                 </a>
+
             </div>
 
+
+            <!-- Mobile Menu -->
             <button
                 class="mobile-menu-btn"
                 id="mobileMenuBtn"
@@ -62,142 +84,292 @@
 
         </div>
 
+
         <!-- Mobile Navigation -->
+
         <div class="mobile-nav" id="mobileNav">
-            <a href="index.html">Home</a>
-            <a href="learn.html">Learn</a>
-            <a href="about.html">About</a>
-            <a href="login.html">Log In</a>
-            <a href="signup.html">Sign Up</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="login.html">
+                Log In
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
         </div>
+
     </header>
 
 
-    <!-- =========================
+
+    <!-- ==========================================
          HERO
-    ========================== -->
+    =========================================== -->
+
     <main>
 
         <section class="hero hero-only">
 
             <div class="hero-container">
 
-                <!-- LEFT SIDE -->
+
+                <!-- ==================================
+                     LEFT SIDE — HERO CONTENT
+                =================================== -->
+
                 <div class="hero-content">
 
                     <div class="hero-eyebrow">
                         THE DIGITAL LEARNING ECOSYSTEM
                     </div>
 
+
                     <h1>
                         Find the right tutor.
                         <span>Learn at your pace.</span>
                     </h1>
 
+
                     <p class="hero-description">
-                        TutorLink connects students with trusted tutors for
-                        flexible online learning, personalized support, and
-                        meaningful progress.
+
+                        TutorLink connects students with trusted tutors
+                        for flexible online learning, personalized support,
+                        and meaningful progress.
+
                     </p>
 
-                    <!-- MAIN JOURNEY BUTTONS -->
+
+                    <!-- ==============================
+                         MAIN USER JOURNEYS
+                    =============================== -->
+
                     <div class="hero-actions">
+
+
+                        <!-- STUDENT JOURNEY -->
 
                         <a
                             href="login.html?role=student"
                             class="btn btn-primary btn-large"
                             onclick="setTutorLinkIntent('student')"
                         >
+
+                            <span>🎓</span>
+
                             Find a Tutor
-                            <span>→</span>
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+
                         </a>
+
+
+                        <!-- TUTOR JOURNEY -->
 
                         <a
                             href="login.html?role=tutor"
                             class="btn btn-secondary btn-large"
                             onclick="setTutorLinkIntent('tutor')"
                         >
+
+                            <span>👩‍🏫</span>
+
                             Become a Tutor
-                            <span>→</span>
+
+                            <span class="button-arrow">
+                                →
+                            </span>
+
                         </a>
 
                     </div>
 
+
+                    <!-- Small supporting text -->
+
                     <div class="hero-note">
-                        <span>✓</span> Learn online
-                        <span>✓</span> Flexible schedules
-                        <span>✓</span> Personalized support
+
+                        <span>✓</span>
+                        Learn online
+
+                        <span>✓</span>
+                        Flexible schedules
+
+                        <span>✓</span>
+                        Personalized support
+
                     </div>
 
                 </div>
 
 
-                <!-- RIGHT SIDE -->
-                <div class="hero-visual">
 
-                    <div class="ecosystem-card">
+                <!-- ==================================
+                     RIGHT SIDE — VISUAL
+                =================================== -->
 
-                        <div class="ecosystem-label">
-                            THE TUTORLINK ECOSYSTEM
-                        </div>
-
-                        <h2>
-                            Learn.
-                            <span>Teach.</span>
-                            Connect.
-                        </h2>
-
-                        <div class="ecosystem-flow">
-
-                            <div class="ecosystem-node student-node">
-                                <div class="node-icon">🧑‍🎓</div>
-
-                                <div>
-                                    <strong>Students</strong>
-                                    <p>
-                                        Find tutors • Book classes • Learn
-                                    </p>
-                                </div>
-                            </div>
+                <div class="hero-visual learning-visual">
 
 
-                            <div class="ecosystem-connector">
-                                ↓
-                            </div>
+                    <!-- Decorative background shapes -->
+
+                    <div class="visual-glow glow-one"></div>
+                    <div class="visual-glow glow-two"></div>
 
 
-                            <div class="ecosystem-node platform-node">
-                                <div class="node-icon">🔗</div>
+                    <!-- Main Learning Card -->
 
-                                <div>
-                                    <strong>TutorLink</strong>
-                                    <p>
-                                        The learning marketplace
-                                    </p>
-                                </div>
-                            </div>
+                    <div class="learning-card">
 
 
-                            <div class="ecosystem-connector">
-                                ↓
-                            </div>
+                        <div class="learning-card-top">
 
+                            <span class="small-label">
+                                YOUR LEARNING SPACE
+                            </span>
 
-                            <div class="ecosystem-node tutor-node">
-                                <div class="node-icon">👩‍🏫</div>
-
-                                <div>
-                                    <strong>Tutors</strong>
-                                    <p>
-                                        Teach • Manage classes • Earn
-                                    </p>
-                                </div>
-                            </div>
+                            <span class="online-dot">
+                                ●
+                            </span>
 
                         </div>
 
-                        <div class="ecosystem-footer">
-                            One platform. Multiple learning journeys.
+
+                        <!-- Main illustration -->
+
+                        <div class="learning-illustration">
+
+                            <div class="floating-book book-one">
+                                📚
+                            </div>
+
+                            <div class="floating-book book-two">
+                                📖
+                            </div>
+
+                            <div class="laptop">
+
+                                <div class="laptop-screen">
+
+                                    <div class="screen-header">
+                                        TutorLink
+                                    </div>
+
+                                    <div class="screen-content">
+
+                                        <div class="screen-line large"></div>
+                                        <div class="screen-line"></div>
+                                        <div class="screen-line short"></div>
+
+                                        <div class="screen-progress">
+                                            <div></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="laptop-base"></div>
+
+                            </div>
+
+
+                            <!-- Floating learning bubble -->
+
+                            <div class="learning-bubble bubble-one">
+
+                                <span>✨</span>
+
+                                <div>
+                                    <strong>
+                                        Personalized
+                                    </strong>
+
+                                    <small>
+                                        learning
+                                    </small>
+                                </div>
+
+                            </div>
+
+
+                            <div class="learning-bubble bubble-two">
+
+                                <span>✓</span>
+
+                                <div>
+                                    <strong>
+                                        Trusted Tutors
+                                    </strong>
+
+                                    <small>
+                                        verified profiles
+                                    </small>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Card bottom -->
+
+                        <div class="learning-card-bottom">
+
+                            <div>
+
+                                <strong>
+                                    Learn your way.
+                                </strong>
+
+                                <p>
+                                    Find support that fits you.
+                                </p>
+
+                            </div>
+
+                            <div class="mini-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating Tute-style decorative element
+                         This is purely visual on the homepage. -->
+
+                    <div class="floating-stat">
+
+                        <span class="stat-icon">
+                            💡
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Learn. Grow.
+                            </strong>
+
+                            <small>
+                                Every session matters.
+                            </small>
+
                         </div>
 
                     </div>
@@ -211,14 +383,18 @@
     </main>
 
 
-    <!-- =========================
+
+    <!-- ==========================================
          FOOTER
-    ========================== -->
+    =========================================== -->
+
     <footer class="footer">
 
         <div class="footer-container">
 
+
             <div class="footer-brand">
+
                 <div class="footer-logo">
                     🎓 TutorLink
                 </div>
@@ -226,17 +402,36 @@
                 <p>
                     Learn. Teach. Connect.
                 </p>
+
             </div>
+
 
             <div class="footer-links">
-                <a href="learn.html">Learn</a>
-                <a href="about.html">About</a>
-                <a href="support.html">Support</a>
-                <a href="login.html">Log In</a>
+
+                <a href="learn.html">
+                    Learn
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="support.html">
+                    Support
+                </a>
+
+                <a href="login.html">
+                    Log In
+                </a>
+
             </div>
 
+
             <div class="footer-copy">
-                © 2026 TutorLink. Prototype for educational purposes.
+
+                © 2026 TutorLink.
+                Prototype for educational purposes.
+
             </div>
 
         </div>
@@ -244,33 +439,52 @@
     </footer>
 
 
-    <!-- =========================
+
+    <!-- ==========================================
          JAVASCRIPT
-    ========================== -->
+    =========================================== -->
+
     <script>
 
         /*
-         * Remember which journey the visitor selected.
+         * Store the journey selected on the homepage.
          *
-         * student → Student Dashboard after authentication
-         * tutor   → Tutor Dashboard after authentication
+         * "student" → Student Dashboard
+         * "tutor"   → Tutor Dashboard
          */
+
         function setTutorLinkIntent(role) {
-            localStorage.setItem("tutorlinkIntent", role);
+
+            localStorage.setItem(
+                "tutorlinkIntent",
+                role
+            );
+
         }
 
 
-        /* Mobile navigation */
-        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-        const mobileNav = document.getElementById("mobileNav");
+
+        /* =========================================
+           MOBILE NAVIGATION
+        ========================================= */
+
+        const mobileMenuBtn =
+            document.getElementById("mobileMenuBtn");
+
+        const mobileNav =
+            document.getElementById("mobileNav");
+
 
         if (mobileMenuBtn && mobileNav) {
 
-            mobileMenuBtn.addEventListener("click", function () {
+            mobileMenuBtn.addEventListener(
+                "click",
+                function () {
 
-                mobileNav.classList.toggle("show");
+                    mobileNav.classList.toggle("show");
 
-            });
+                }
+            );
 
         }
 
