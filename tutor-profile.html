@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tutor Profile — TutorLink</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <span class="brand-icon">🎓</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="nav-login">
+                Log In
+            </a>
+
+            <a href="signup.html" class="nav-signup">
+                Sign Up
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="profile-page">
+
+    <!-- BACK -->
+    <div class="profile-container">
+
+        <a href="tutors.html" class="back-link">
+            ← Back to Find a Tutor
+        </a>
+
+
+        <!-- PROFILE HERO -->
+        <section class="tutor-profile-hero">
+
+            <div class="profile-main">
+
+                <div class="profile-avatar" id="profileAvatar">
+                    👩‍🏫
+                </div>
+
+                <div class="profile-heading">
+
+                    <div class="profile-name-row">
+
+                        <h1 id="profileName">
+                            Tutor Name
+                        </h1>
+
+                        <span
+                            class="verified-profile"
+                            id="profileVerified"
+                        >
+                            ✓ Verified
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="profile-subject"
+                        id="profileSubject"
+                    >
+                        Subject
+                    </p>
+
+                    <div class="profile-rating">
+
+                        <span class="stars" id="profileStars">
+                            ★★★★★
+                        </span>
+
+                        <strong id="profileRating">
+                            4.9
+                        </strong>
+
+                        <span id="profileReviews">
+                            0 reviews
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="profile-badge"
+                        id="profileBadge"
+                    >
+                        Top Rated Tutor
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="profile-save-button"
+                id="profileSaveButton"
+            >
+                ♡ Save Tutor
+            </button>
+
+        </section>
+
+
+        <!-- PROFILE CONTENT -->
+        <section class="profile-layout">
+
+            <!-- LEFT -->
+            <div class="profile-content">
+
+                <!-- ABOUT -->
+                <article class="profile-card">
+
+                    <div class="profile-card-heading">
+                        <span>👋</span>
+                        <h2>About this tutor</h2>
+                    </div>
+
+                    <p id="profileBio">
+                        Loading tutor information...
+                    </p>
+
+                </article>
+
+
+                <!-- QUICK DETAILS -->
+                <article class="profile-card">
+
+                    <div class="profile-card-heading">
+                        <span>✨</span>
+                        <h2>Tutor details</h2>
+                    </div>
+
+                    <div class="detail-grid">
+
+                        <div class="detail-item">
+                            <span class="detail-icon">📚</span>
+                            <div>
+                                <small>Teaching level</small>
+                                <strong id="profileLevel">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">⏳</span>
+                            <div>
+                                <small>Experience</small>
+                                <strong id="profileExperience">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">🌐</span>
+                            <div>
+                                <small>Languages</small>
+                                <strong id="profileLanguages">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <div>
+                                <small>Students taught</small>
+                                <strong id="profileStudents">—</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TEACHING STYLE -->
+                <article class="profile-card">
+
+                    <div class="profile-card-heading">
+                        <span>💡</span>
+                        <h2>Teaching style</h2>
+                    </div>
+
+                    <p id="profileTeachingStyle">
+                        — 
+                    </p>
+
+                </article>
+
+
+                <!-- QUALIFICATIONS -->
+                <article class="profile-card">
+
+                    <div class="profile-card-heading">
+                        <span>🎓</span>
+                        <h2>Qualifications</h2>
+                    </div>
+
+                    <div
+                        class="qualification-list"
+                        id="profileQualifications"
+                    >
+                    </div>
+
+                </article>
+
+
+                <!-- AVAILABILITY -->
+                <article class="profile-card">
+
+                    <div class="profile-card-heading">
+                        <span>🗓️</span>
+                        <h2>Availability</h2>
+                    </div>
+
+                    <div
+                        class="availability-list"
+                        id="profileAvailability"
+                    >
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- RIGHT BOOKING CARD -->
+            <aside class="booking-card">
+
+                <div class="booking-card-top">
+
+                    <span class="booking-label">
+                        START LEARNING
+                    </span>
+
+                    <h2>
+                        Book a session
+                    </h2>
+
+                    <p>
+                        Learn directly from this tutor through TutorLink's online learning platform.
+                    </p>
+
+                </div>
+
+
+                <div class="price-box">
+
+                    <span>
+                        Starting from
+                    </span>
+
+                    <strong id="profilePrice">
+                        ₹300
+                    </strong>
+
+                    <small>
+                        / hour
+                    </small>
+
+                </div>
+
+
+                <div class="booking-benefits">
+
+                    <div>
+                        <span>✓</span>
+                        Flexible online sessions
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Personalized support
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Secure booking workflow
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Earn Tute after learning
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="profile-book-button"
+                    id="profileBookButton"
+                >
+                    Book a Session →
+                </button>
+
+
+                <p class="booking-note">
+                    Demo booking • No real payment
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <!-- REVIEW PREVIEW -->
+        <section class="profile-card profile-review-card">
+
+            <div class="profile-card-heading">
+                <span>💬</span>
+                <h2>Student feedback</h2>
+            </div>
+
+            <div class="review-placeholder">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    Students can rate their tutor after every completed session.
+                    Honest feedback helps TutorLink maintain trust and improve the learning experience.
+                </p>
+
+                <span>
+                    Every completed-session rating earns +10 Tute.
+                </span>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script src="app.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const tutorId = params.get("id");
+
+    if (!tutorId) {
+        window.location.href = "tutors.html";
+        return;
+    }
+
+    if (typeof TUTORS === "undefined") {
+        console.error("Tutor data could not be loaded.");
+        return;
+    }
+
+    const tutor = TUTORS.find(function (item) {
+        return String(item.id) === String(tutorId);
+    });
+
+    if (!tutor) {
+        window.location.href = "tutors.html";
+        return;
+    }
+
+
+    /* -----------------------------
+       BASIC PROFILE INFORMATION
+    ----------------------------- */
+
+    document.title = tutor.name + " — TutorLink";
+
+    document.getElementById("profileName").textContent =
+        tutor.name;
+
+    document.getElementById("profileSubject").textContent =
+        tutor.subject;
+
+    document.getElementById("profileRating").textContent =
+        tutor.rating;
+
+    document.getElementById("profileReviews").textContent =
+        tutor.reviews + " reviews";
+
+    document.getElementById("profileBio").textContent =
+        tutor.bio || "This tutor helps students learn through personalized online sessions.";
+
+    document.getElementById("profileLevel").textContent =
+        tutor.level || "Students";
+
+    document.getElementById("profileExperience").textContent =
+        tutor.experience || "Experienced tutor";
+
+    document.getElementById("profileLanguages").textContent =
+        Array.isArray(tutor.languages)
+            ? tutor.languages.join(", ")
+            : (tutor.languages || "English");
+
+    document.getElementById("profileStudents").textContent =
+        tutor.students || "—";
+
+    document.getElementById("profileTeachingStyle").textContent =
+        tutor.teachingStyle || "Personalized and student-focused teaching.";
+
+    document.getElementById("profilePrice").textContent =
+        "₹" + tutor.price;
+
+
+    /* -----------------------------
+       AVATAR
+    ----------------------------- */
+
+    document.getElementById("profileAvatar").textContent =
+        tutor.avatar || "👩‍🏫";
+
+
+    /* -----------------------------
+       BADGE
+    ----------------------------- */
+
+    if (tutor.badge) {
+        document.getElementById("profileBadge").textContent =
+            tutor.badge;
+    } else {
+        document.getElementById("profileBadge").style.display =
+            "none";
+    }
+
+
+    /* -----------------------------
+       VERIFIED
+    ----------------------------- */
+
+    if (!tutor.verified) {
+        document.getElementById("profileVerified").style.display =
+            "none";
+    }
+
+
+    /* -----------------------------
+       QUALIFICATIONS
+    ----------------------------- */
+
+    const qualificationBox =
+        document.getElementById("profileQualifications");
+
+    let qualifications = tutor.qualifications;
+
+    if (!Array.isArray(qualifications)) {
+        qualifications = qualifications
+            ? [qualifications]
+            : ["TutorLink profile verification"];
+    }
+
+    qualificationBox.innerHTML = qualifications
+        .map(function (qualification) {
+            return `
+                <div class="qualification-item">
+                    <span>✓</span>
+                    <p>${qualification}</p>
+                </div>
+            `;
+        })
+        .join("");
+
+
+    /* -----------------------------
+       AVAILABILITY
+    ----------------------------- */
+
+    const availabilityBox =
+        document.getElementById("profileAvailability");
+
+    let availability = tutor.availability;
+
+    if (!Array.isArray(availability)) {
+        availability = availability
+            ? [availability]
+            : ["Flexible online availability"];
+    }
+
+    availabilityBox.innerHTML = availability
+        .map(function (slot) {
+            return `
+                <div class="availability-item">
+                    <span>🟢</span>
+                    <p>${slot}</p>
+                </div>
+            `;
+        })
+        .join("");
+
+
+    /* -----------------------------
+       RATING STARS
+    ----------------------------- */
+
+    const rating =
+        Number(tutor.rating) || 0;
+
+    const fullStars =
+        Math.round(rating);
+
+    document.getElementById("profileStars").textContent =
+        "★".repeat(fullStars) +
+        "☆".repeat(5 - fullStars);
+
+
+    /* -----------------------------
+       SAVE TUTOR
+    ----------------------------- */
+
+    const saveButton =
+        document.getElementById("profileSaveButton");
+
+    function updateSaveButton() {
+
+        let savedTutors = [];
+
+        if (typeof getSavedTutors === "function") {
+            savedTutors = getSavedTutors();
+        }
+
+        const saved =
+            savedTutors.map(String).includes(String(tutor.id));
+
+        if (saved) {
+
+            saveButton.innerHTML =
+                "♥ Saved";
+
+            saveButton.classList.add("saved");
+
+        } else {
+
+            saveButton.innerHTML =
+                "♡ Save Tutor";
+
+            saveButton.classList.remove("saved");
+
+        }
+    }
+
+    updateSaveButton();
+
+
+    saveButton.addEventListener("click", function () {
+
+        if (typeof toggleSaveTutor === "function") {
+
+            toggleSaveTutor(tutor.id);
+
+            setTimeout(updateSaveButton, 50);
+
+        }
+
+    });
+
+
+    /* -----------------------------
+       BOOK SESSION
+    ----------------------------- */
+
+    document
+        .getElementById("profileBookButton")
+        .addEventListener("click", function () {
+
+            if (typeof bookSession === "function") {
+
+                bookSession(tutor.id);
+
+            } else {
+
+                window.location.href =
+                    "booking.html?id=" +
+                    encodeURIComponent(tutor.id);
+
+            }
+
+        });
+
+});
+</script>
+
+</body>
+</html>
