@@ -2,1862 +2,1210 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<title>My Bookings | TutorLink</title>
 
-    <title>My Bookings | TutorLink</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+<link rel="stylesheet"
+      href="styles.css?v=20260926">
 
-    <link
-        rel="stylesheet"
-        href="styles.css?v=20260926"
-    >
+<style>
 
+.bookings-page {
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+.bookings-container {
+    width:min(1100px,calc(100% - 32px));
+    margin:auto;
+    padding:45px 0 70px;
+}
+
+.bookings-hero h1 {
+    margin:7px 0;
+    font-family:Poppins,sans-serif;
+    font-size:clamp(2rem,4vw,3rem);
+    letter-spacing:-1.5px;
+}
+
+.bookings-hero p {
+    margin:0;
+    color:#64748b;
+    font-size:.75rem;
+}
+
+.eyebrow {
+    color:#5b4bff;
+    font-size:.6rem;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    margin:28px 0;
+}
+
+.stat {
+    padding:18px;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:15px;
+}
+
+.stat span {
+    display:block;
+    color:#64748b;
+    font-size:.5rem;
+}
+
+.stat strong {
+    display:block;
+    margin-top:5px;
+    font-family:Poppins,sans-serif;
+    font-size:1.15rem;
+}
+
+.tabs {
+    display:flex;
+    gap:7px;
+    margin-bottom:17px;
+}
+
+.tab {
+    padding:9px 14px;
+    border:1px solid #e2e8f0;
+    border-radius:999px;
+    background:#fff;
+    color:#64748b;
+    font-size:.52rem;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.tab.active {
+    border-color:#5b4bff;
+    background:#5b4bff;
+    color:#fff;
+}
+
+.booking-list {
+    display:grid;
+    gap:14px;
+}
+
+.booking-card {
+    padding:21px;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(15,23,42,.035);
+}
+
+.booking-top {
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.tutor-info {
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.avatar {
+    width:45px;
+    height:45px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:linear-gradient(135deg,#5b4bff,#8b5cf6);
+    color:#fff;
+    font-weight:800;
+}
+
+.tutor-info strong {
+    display:block;
+    font-size:.68rem;
+}
+
+.tutor-info span {
+    display:block;
+    margin-top:3px;
+    color:#64748b;
+    font-size:.5rem;
+}
+
+.status {
+    padding:6px 9px;
+    border-radius:999px;
+    background:#dcfce7;
+    color:#15803d;
+    font-size:.45rem;
+    font-weight:800;
+}
+
+.status.cancelled {
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.status.completed {
+    background:#e0e7ff;
+    color:#4338ca;
+}
+
+.booking-details {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:17px;
+    padding-top:16px;
+    border-top:1px solid #eef2f7;
+}
+
+.detail {
+    padding:10px;
+    border-radius:10px;
+    background:#f8fafc;
+}
+
+.detail span {
+    display:block;
+    color:#94a3b8;
+    font-size:.43rem;
+}
+
+.detail strong {
+    display:block;
+    margin-top:4px;
+    font-size:.53rem;
+}
+
+.booking-actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:15px;
+}
+
+.action {
+    padding:8px 11px;
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+    background:#fff;
+    color:#475569;
+    font-size:.48rem;
+    font-weight:700;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.action.primary {
+    border-color:#5b4bff;
+    background:#5b4bff;
+    color:#fff;
+}
+
+.action.danger {
+    border-color:#fecaca;
+    color:#b91c1c;
+}
+
+.action:disabled {
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.empty {
+    padding:45px 20px;
+    text-align:center;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+}
+
+.empty h2 {
+    margin:0 0 7px;
+    font-family:Poppins,sans-serif;
+    font-size:1.1rem;
+}
+
+.empty p {
+    margin:0 0 18px;
+    color:#64748b;
+    font-size:.55rem;
+}
+
+.primary-link {
+    display:inline-block;
+    padding:10px 14px;
+    border-radius:9px;
+    background:#5b4bff;
+    color:#fff;
+    text-decoration:none;
+    font-size:.5rem;
+    font-weight:700;
+}
+
+
+/* MODAL */
+
+.modal {
+    position:fixed;
+    inset:0;
+    display:none;
+    place-items:center;
+    padding:20px;
+    background:rgba(15,23,42,.5);
+    z-index:1000;
+}
+
+.modal.show {
+    display:grid;
+}
+
+.modal-card {
+    width:min(480px,100%);
+    max-height:90vh;
+    overflow:auto;
+    padding:25px;
+    border-radius:20px;
+    background:#fff;
+}
+
+.modal-card h2 {
+    margin:0 0 7px;
+    font-family:Poppins,sans-serif;
+    font-size:1.15rem;
+}
+
+.modal-card > p {
+    margin:0 0 20px;
+    color:#64748b;
+    font-size:.55rem;
+    line-height:1.6;
+}
+
+.reason-box {
+    padding:13px;
+    border-radius:11px;
+    background:#f8fafc;
+    color:#475569;
+    font-size:.52rem;
+    line-height:1.6;
+}
+
+.modal-actions {
+    display:flex;
+    gap:8px;
+    margin-top:17px;
+}
+
+.modal-actions button {
+    flex:1;
+    padding:10px;
+    border-radius:9px;
+    border:1px solid #e2e8f0;
+    background:#fff;
+    font-size:.5rem;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.modal-actions .confirm {
+    border-color:#5b4bff;
+    background:#5b4bff;
+    color:#fff;
+}
+
+.modal-actions .danger {
+    border-color:#dc2626;
+    background:#dc2626;
+    color:#fff;
+}
+
+.reschedule-fields {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.reschedule-fields label {
+    display:block;
+    margin-bottom:6px;
+    font-size:.48rem;
+    font-weight:700;
+}
+
+.reschedule-fields select {
+    width:100%;
+    box-sizing:border-box;
+    padding:10px;
+    border:1px solid #dbe2ea;
+    border-radius:8px;
+    background:#fff;
+    font-size:.52rem;
+}
+
+@media(max-width:800px) {
+
+    .stats {
+        grid-template-columns:1fr 1fr;
+    }
+
+    .booking-details {
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:500px) {
+
+    .stats,
+    .booking-details,
+    .reschedule-fields {
+        grid-template-columns:1fr;
+    }
+
+    .booking-top {
+        flex-direction:column;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body class="bookings-page">
 
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
 <header class="navbar">
 
-    <div class="nav-container">
+<div class="nav-container">
 
-        <a
-            href="index.html"
-            class="brand"
-            aria-label="TutorLink home"
-        >
+<a href="index.html"
+   class="brand"
+   aria-label="TutorLink home">
 
-            <span class="brand-icon">
-                T
-            </span>
+<span class="brand-icon">T</span>
 
-            <span class="brand-text">
+<span class="brand-text">
+<strong>TutorLink</strong>
+<small>LEARN • TEACH • CONNECT</small>
+</span>
 
-                <strong>
-                    TutorLink
-                </strong>
-
-                <small>
-                    LEARN • TEACH • CONNECT
-                </small>
-
-            </span>
-
-        </a>
+</a>
 
 
-        <nav
-            class="nav-links"
-            aria-label="Main navigation"
-        >
+<nav class="nav-links">
 
-            <a href="index.html">
-                Home
-            </a>
+<a href="index.html">Home</a>
 
-            <a
-                href="student-dashboard.html"
-                class="active"
-            >
-                Dashboard
-            </a>
+<a href="tutors.html">Find Tutors</a>
 
-            <a href="learn.html">
-                Learn
-            </a>
+<a href="bookings.html"
+   class="active">
+My Bookings
+</a>
 
-            <a href="about.html">
-                About
-            </a>
-
-        </nav>
+</nav>
 
 
-        <div class="nav-actions">
+<div class="nav-actions">
 
-            <button
-                type="button"
-                class="nav-login"
-                data-logout
-            >
-                Log Out
-            </button>
+<button type="button"
+        class="nav-login"
+        data-logout>
+Log Out
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </header>
 
 
 
-<!-- =========================================
-     MAIN
-========================================= -->
-
 <main class="bookings-container">
 
 
-    <!-- HERO -->
+<section class="bookings-hero">
 
-    <section class="bookings-hero">
+<span class="eyebrow">
+YOUR LEARNING SCHEDULE
+</span>
 
-        <div>
+<h1>
+My Bookings
+</h1>
 
-            <span class="page-eyebrow">
-                MY LEARNING
-            </span>
+<p>
+Manage your upcoming sessions, reschedule when needed,
+and keep track of your learning credits.
+</p>
 
-            <h1>
-                My Bookings
-            </h1>
+</section>
 
-            <p>
-                Keep track of your tutoring sessions,
-                upcoming classes, and learning plans.
-            </p>
 
-        </div>
 
+<section class="stats">
 
-        <a
-            href="tutors.html"
-            class="find-tutor-button"
-        >
-            Find a Tutor →
-        </a>
+<div class="stat">
+<span>Upcoming</span>
+<strong id="upcomingCount">0</strong>
+</div>
 
-    </section>
+<div class="stat">
+<span>Completed</span>
+<strong id="completedCount">0</strong>
+</div>
 
+<div class="stat">
+<span>Classes Remaining</span>
+<strong id="classesRemaining">0</strong>
+</div>
 
+<div class="stat">
+<span>Tute</span>
+<strong id="tuteBalance">0</strong>
+</div>
 
-    <!-- STATS -->
+</section>
 
-    <section class="booking-stats">
 
 
-        <div class="booking-stat-card">
+<div class="tabs">
 
-            <div class="stat-icon purple">
-                📅
-            </div>
+<button class="tab active"
+        data-filter="upcoming">
+Upcoming
+</button>
 
-            <div>
+<button class="tab"
+        data-filter="completed">
+Completed
+</button>
 
-                <span>
-                    Upcoming
-                </span>
+<button class="tab"
+        data-filter="all">
+All
+</button>
 
-                <strong id="upcomingCount">
-                    0
-                </strong>
+</div>
 
-            </div>
 
-        </div>
 
-
-        <div class="booking-stat-card">
-
-            <div class="stat-icon cyan">
-                ✓
-            </div>
-
-            <div>
-
-                <span>
-                    Completed
-                </span>
-
-                <strong id="completedCount">
-                    0
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <div class="booking-stat-card">
-
-            <div class="stat-icon pink">
-                🎓
-            </div>
-
-            <div>
-
-                <span>
-                    Classes Remaining
-                </span>
-
-                <strong id="classesRemaining">
-                    0
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <div class="booking-stat-card">
-
-            <div class="stat-icon blue">
-                💜
-            </div>
-
-            <div>
-
-                <span>
-                    Tute
-                </span>
-
-                <strong id="tuteBalance">
-                    0
-                </strong>
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- TABS -->
-
-    <section class="booking-list-section">
-
-        <div class="booking-heading">
-
-            <div>
-
-                <span class="page-eyebrow">
-                    YOUR SESSIONS
-                </span>
-
-                <h2>
-                    Tutoring activity
-                </h2>
-
-            </div>
-
-
-            <div class="booking-tabs">
-
-                <button
-                    type="button"
-                    class="booking-tab active"
-                    data-tab="upcoming"
-                >
-                    Upcoming
-                </button>
-
-                <button
-                    type="button"
-                    class="booking-tab"
-                    data-tab="completed"
-                >
-                    Completed
-                </button>
-
-                <button
-                    type="button"
-                    class="booking-tab"
-                    data-tab="all"
-                >
-                    All
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div
-            id="bookingList"
-            class="booking-list"
-        ></div>
-
-    </section>
-
-
-
-    <!-- LEARNING PLAN -->
-
-    <section
-        id="planSection"
-        class="learning-plan"
-        hidden
-    >
-
-        <div class="plan-content">
-
-            <span class="page-eyebrow">
-                ACTIVE LEARNING PLAN
-            </span>
-
-            <h2>
-                Keep your learning momentum going.
-            </h2>
-
-            <p>
-                Your plan tracks the classes you have
-                remaining. Use them when you're ready to learn.
-            </p>
-
-        </div>
-
-
-        <div class="plan-number">
-
-            <strong id="planRemaining">
-                0
-            </strong>
-
-            <span>
-                Classes Remaining
-            </span>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- EMPTY CTA -->
-
-    <section
-        id="emptyBookings"
-        class="empty-bookings"
-        hidden
-    >
-
-        <div class="empty-icon">
-            📚
-        </div>
-
-        <h2>
-            No bookings yet
-        </h2>
-
-        <p>
-            Find a tutor and book your first learning
-            session to get started.
-        </p>
-
-        <a
-            href="tutors.html"
-            class="empty-button"
-        >
-            Find a Tutor
-        </a>
-
-    </section>
+<section id="bookingList"
+         class="booking-list">
+</section>
 
 
 </main>
 
 
 
-<!-- =========================================
-     PAGE STYLES
-========================================= -->
+<!-- CANCEL MODAL -->
 
-<style>
+<div id="cancelModal"
+     class="modal">
 
-/* =========================================
-   PAGE
-========================================= */
+<div class="modal-card">
 
-.bookings-page {
+<h2>
+Cancel this booking?
+</h2>
 
-    min-height: 100vh;
+<p>
+Your cancellation outcome depends on how much time
+remains before the scheduled class.
+</p>
 
-    background:
-        radial-gradient(
-            circle at 5% 5%,
-            rgba(139,92,246,.10),
-            transparent 24%
-        ),
-        radial-gradient(
-            circle at 95% 15%,
-            rgba(34,211,238,.08),
-            transparent 25%
-        ),
-        #f8fafc;
+<div id="cancelReason"
+     class="reason-box">
+</div>
 
-    color: #0f172a;
+<div class="modal-actions">
 
-}
+<button type="button"
+        id="closeCancel">
+Keep Booking
+</button>
 
+<button type="button"
+        id="confirmCancel"
+        class="danger">
+Confirm Cancellation
+</button>
 
-/* =========================================
-   CONTAINER
-========================================= */
+</div>
 
-.bookings-container {
+</div>
 
-    width: min(
-        1100px,
-        calc(100% - 40px)
-    );
+</div>
 
-    margin: 0 auto;
 
-    padding: 48px 0 70px;
 
-}
+<!-- RESCHEDULE MODAL -->
 
+<div id="rescheduleModal"
+     class="modal">
 
-/* =========================================
-   HERO
-========================================= */
+<div class="modal-card">
 
-.bookings-hero {
+<h2>
+Reschedule Session
+</h2>
 
-    display: flex;
+<p>
+Your class credit will remain available while the
+session is rescheduled.
+</p>
 
-    align-items: flex-end;
 
-    justify-content: space-between;
+<div class="reschedule-fields">
 
-    gap: 25px;
+<div>
 
-}
+<label for="newDay">
+New day
+</label>
 
+<select id="newDay">
 
-.page-eyebrow {
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+<option>Saturday</option>
+<option>Sunday</option>
 
-    display: inline-block;
+</select>
 
-    color: #5b4bff;
+</div>
 
-    font-size: .62rem;
 
-    font-weight: 800;
+<div>
 
-    letter-spacing: 1.2px;
+<label for="newTime">
+New time
+</label>
 
-}
+<select id="newTime">
 
+<option value="08:00">8:00 AM</option>
+<option value="10:00">10:00 AM</option>
+<option value="12:00">12:00 PM</option>
+<option value="14:00">2:00 PM</option>
+<option value="16:00">4:00 PM</option>
+<option value="18:00">6:00 PM</option>
+<option value="20:00">8:00 PM</option>
 
-.bookings-hero h1 {
+</select>
 
-    margin: 7px 0 10px;
+</div>
 
-    font-family: "Poppins", sans-serif;
+</div>
 
-    font-size:
-        clamp(
-            2.3rem,
-            5vw,
-            3.7rem
-        );
 
-    line-height: 1.05;
+<div class="modal-actions">
 
-    letter-spacing: -1.8px;
+<button type="button"
+        id="closeReschedule">
+Keep Current Time
+</button>
 
-}
+<button type="button"
+        id="confirmReschedule"
+        class="confirm">
+Save New Time
+</button>
 
+</div>
 
-.bookings-hero p {
+</div>
 
-    max-width: 590px;
+</div>
 
-    margin: 0;
 
-    color: #64748b;
-
-    font-size: .72rem;
-
-    line-height: 1.65;
-
-}
-
-
-.find-tutor-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 12px 18px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5b4bff,
-            #8b5cf6
-        );
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: .55rem;
-
-    font-weight: 700;
-
-    white-space: nowrap;
-
-    box-shadow:
-        0 10px 25px
-        rgba(91,75,255,.18);
-
-}
-
-
-/* =========================================
-   STATS
-========================================= */
-
-.booking-stats {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 12px;
-
-    margin-top: 32px;
-
-}
-
-
-.booking-stat-card {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-
-    padding: 16px;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 7px 25px
-        rgba(15,23,42,.035);
-
-}
-
-
-.stat-icon {
-
-    width: 38px;
-
-    height: 38px;
-
-    display: grid;
-
-    place-items: center;
-
-    flex-shrink: 0;
-
-    border-radius: 11px;
-
-    font-size: .85rem;
-
-}
-
-
-.stat-icon.purple {
-
-    background: #ede9fe;
-
-    color: #6d28d9;
-
-}
-
-
-.stat-icon.cyan {
-
-    background: #cffafe;
-
-    color: #0891b2;
-
-}
-
-
-.stat-icon.pink {
-
-    background: #fce7f3;
-
-    color: #db2777;
-
-}
-
-
-.stat-icon.blue {
-
-    background: #e0e7ff;
-
-    color: #4338ca;
-
-}
-
-
-.booking-stat-card span {
-
-    display: block;
-
-    color: #64748b;
-
-    font-size: .48rem;
-
-    font-weight: 600;
-
-}
-
-
-.booking-stat-card strong {
-
-    display: block;
-
-    margin-top: 2px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1.05rem;
-
-}
-
-
-/* =========================================
-   LIST SECTION
-========================================= */
-
-.booking-list-section {
-
-    margin-top: 36px;
-
-}
-
-
-.booking-heading {
-
-    display: flex;
-
-    align-items: flex-end;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.booking-heading h2 {
-
-    margin: 5px 0 0;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1.25rem;
-
-}
-
-
-/* =========================================
-   TABS
-========================================= */
-
-.booking-tabs {
-
-    display: flex;
-
-    gap: 5px;
-
-    padding: 4px;
-
-    border-radius: 10px;
-
-    background: #eef2f7;
-
-}
-
-
-.booking-tab {
-
-    padding: 8px 12px;
-
-    border: 0;
-
-    border-radius: 7px;
-
-    background: transparent;
-
-    color: #64748b;
-
-    font-family: "Inter", sans-serif;
-
-    font-size: .48rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-}
-
-
-.booking-tab.active {
-
-    background: #ffffff;
-
-    color: #5b4bff;
-
-    box-shadow:
-        0 2px 7px
-        rgba(15,23,42,.06);
-
-}
-
-
-/* =========================================
-   BOOKING LIST
-========================================= */
-
-.booking-list {
-
-    display: grid;
-
-    gap: 12px;
-
-}
-
-
-.booking-card {
-
-    padding: 19px;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 17px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 8px 28px
-        rgba(15,23,42,.035);
-
-}
-
-
-.booking-card-top {
-
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 18px;
-
-}
-
-
-.tutor-info {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-}
-
-
-.tutor-avatar {
-
-    width: 47px;
-
-    height: 47px;
-
-    display: grid;
-
-    place-items: center;
-
-    flex-shrink: 0;
-
-    border-radius: 13px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5b4bff,
-            #ec4899
-        );
-
-    color: #ffffff;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: .85rem;
-
-    font-weight: 700;
-
-}
-
-
-.tutor-info h3 {
-
-    margin: 0;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: .82rem;
-
-}
-
-
-.tutor-info p {
-
-    margin: 3px 0 0;
-
-    color: #64748b;
-
-    font-size: .52rem;
-
-}
-
-
-.booking-status {
-
-    padding: 6px 9px;
-
-    border-radius: 999px;
-
-    font-size: .43rem;
-
-    font-weight: 800;
-
-    white-space: nowrap;
-
-}
-
-
-.booking-status.confirmed {
-
-    background: #dcfce7;
-
-    color: #15803d;
-
-}
-
-
-.booking-status.completed {
-
-    background: #e0e7ff;
-
-    color: #4338ca;
-
-}
-
-
-.booking-status.cancelled {
-
-    background: #fee2e2;
-
-    color: #b91c1c;
-
-}
-
-
-/* =========================================
-   BOOKING DETAILS
-========================================= */
-
-.booking-details {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 8px;
-
-    margin-top: 17px;
-
-}
-
-
-.booking-detail {
-
-    padding: 11px;
-
-    border-radius: 10px;
-
-    background: #f8fafc;
-
-}
-
-
-.booking-detail span {
-
-    display: block;
-
-    color: #94a3b8;
-
-    font-size: .42rem;
-
-    font-weight: 600;
-
-}
-
-
-.booking-detail strong {
-
-    display: block;
-
-    margin-top: 3px;
-
-    color: #334155;
-
-    font-size: .52rem;
-
-    line-height: 1.4;
-
-}
-
-
-/* =========================================
-   PACKAGE BAR
-========================================= */
-
-.booking-package {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-top: 13px;
-
-    padding-top: 13px;
-
-    border-top: 1px solid #f1f5f9;
-
-}
-
-
-.package-name {
-
-    color: #475569;
-
-    font-size: .5rem;
-
-    font-weight: 700;
-
-}
-
-
-.classes-left {
-
-    color: #5b4bff;
-
-    font-size: .5rem;
-
-    font-weight: 800;
-
-}
-
-
-/* =========================================
-   ACTIONS
-========================================= */
-
-.booking-actions {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    gap: 7px;
-
-    margin-top: 13px;
-
-}
-
-
-.booking-action {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 8px 12px;
-
-    border-radius: 8px;
-
-    font-family: "Inter", sans-serif;
-
-    font-size: .47rem;
-
-    font-weight: 700;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-}
-
-
-.booking-action.primary {
-
-    border: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5b4bff,
-            #8b5cf6
-        );
-
-    color: #ffffff;
-
-}
-
-
-.booking-action.secondary {
-
-    border: 1px solid #e2e8f0;
-
-    background: #ffffff;
-
-    color: #475569;
-
-}
-
-
-/* =========================================
-   PLAN
-========================================= */
-
-.learning-plan {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    margin-top: 30px;
-
-    padding: 22px 24px;
-
-    border-radius: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #5b4bff,
-            #8b5cf6
-        );
-
-    color: #ffffff;
-
-    box-shadow:
-        0 14px 35px
-        rgba(91,75,255,.15);
-
-}
-
-
-.learning-plan .page-eyebrow {
-
-    color: #ddd6fe;
-
-}
-
-
-.learning-plan h2 {
-
-    margin: 6px 0 6px;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1rem;
-
-}
-
-
-.learning-plan p {
-
-    max-width: 570px;
-
-    margin: 0;
-
-    color: #ede9fe;
-
-    font-size: .52rem;
-
-    line-height: 1.55;
-
-}
-
-
-.plan-number {
-
-    min-width: 145px;
-
-    padding: 13px;
-
-    border: 1px solid
-        rgba(255,255,255,.20);
-
-    border-radius: 13px;
-
-    background:
-        rgba(255,255,255,.10);
-
-    text-align: center;
-
-}
-
-
-.plan-number strong {
-
-    display: block;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1.7rem;
-
-}
-
-
-.plan-number span {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: #ede9fe;
-
-    font-size: .45rem;
-
-}
-
-
-/* =========================================
-   EMPTY
-========================================= */
-
-.empty-bookings {
-
-    margin-top: 30px;
-
-    padding: 45px 20px;
-
-    border: 1px dashed #cbd5e1;
-
-    border-radius: 18px;
-
-    background: #ffffff;
-
-    text-align: center;
-
-}
-
-
-.empty-icon {
-
-    width: 55px;
-
-    height: 55px;
-
-    display: grid;
-
-    place-items: center;
-
-    margin: 0 auto 12px;
-
-    border-radius: 50%;
-
-    background: #ede9fe;
-
-    font-size: 1.3rem;
-
-}
-
-
-.empty-bookings h2 {
-
-    margin: 0;
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 1.05rem;
-
-}
-
-
-.empty-bookings p {
-
-    max-width: 450px;
-
-    margin: 7px auto 18px;
-
-    color: #64748b;
-
-    font-size: .55rem;
-
-    line-height: 1.5;
-
-}
-
-
-.empty-button {
-
-    display: inline-flex;
-
-    padding: 10px 15px;
-
-    border-radius: 9px;
-
-    background: #5b4bff;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: .5rem;
-
-    font-weight: 700;
-
-}
-
-
-/* =========================================
-   EMPTY TAB
-========================================= */
-
-.empty-tab {
-
-    padding: 30px;
-
-    border: 1px dashed #cbd5e1;
-
-    border-radius: 15px;
-
-    background: #ffffff;
-
-    color: #64748b;
-
-    text-align: center;
-
-    font-size: .55rem;
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 850px) {
-
-    .booking-stats {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-    .booking-details {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
-    }
-
-}
-
-
-@media (max-width: 680px) {
-
-    .bookings-container {
-
-        width:
-            calc(100% - 22px);
-
-        padding-top: 30px;
-
-    }
-
-    .bookings-hero {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-    .find-tutor-button {
-
-        width: 100%;
-
-    }
-
-    .booking-heading {
-
-        align-items: flex-start;
-
-        flex-direction: column;
-
-    }
-
-    .booking-tabs {
-
-        width: 100%;
-
-    }
-
-    .booking-tab {
-
-        flex: 1;
-
-    }
-
-    .booking-card-top {
-
-        flex-direction: column;
-
-    }
-
-    .booking-status {
-
-        align-self: flex-start;
-
-    }
-
-    .learning-plan {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-    .plan-number {
-
-        width: 100%;
-
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .booking-stats {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .booking-details {
-
-        grid-template-columns: 1fr 1fr;
-
-    }
-
-    .booking-actions {
-
-        justify-content: stretch;
-
-    }
-
-    .booking-action {
-
-        flex: 1;
-
-    }
-
-}
-
-</style>
-
-
-
-<!-- =========================================
-     APP JS
-========================================= -->
 
 <script src="app.js?v=1023"></script>
 
 
-
 <script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
+
+    const currentUser =
+        typeof getCurrentUser === "function"
+            ? getCurrentUser()
+            : JSON.parse(localStorage.getItem("tutorlink_current_user"));
+
+    if (!currentUser) {
+        window.location.href = "login.html";
+        return;
+    }
 
 
-        /* =====================================
-           AUTH
-        ===================================== */
+    const list =
+        document.getElementById("bookingList");
 
-        const currentUser =
-            typeof getCurrentUser === "function"
-                ? getCurrentUser()
-                : JSON.parse(
-                    localStorage.getItem(
-                        "tutorlink_current_user"
-                    )
-                );
+    const cancelModal =
+        document.getElementById("cancelModal");
+
+    const rescheduleModal =
+        document.getElementById("rescheduleModal");
+
+    let selectedBookingId = null;
+
+    let activeFilter = "upcoming";
 
 
-        if (!currentUser) {
+    function getBookings() {
 
-            window.location.href =
-                "login.html";
+        try {
 
-            return;
+            return JSON.parse(
+                localStorage.getItem("tutorlink_bookings")
+            ) || [];
+
+        } catch {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveBookings(bookings) {
+
+        localStorage.setItem(
+            "tutorlink_bookings",
+            JSON.stringify(bookings)
+        );
+
+    }
+
+
+    function getUserBookings() {
+
+        return getBookings().filter(
+            booking =>
+                booking.studentId === currentUser.id
+        );
+
+    }
+
+
+    function getUsers() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem("tutorlink_users")
+            ) || [];
+
+        } catch {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveUsers(users) {
+
+        localStorage.setItem(
+            "tutorlink_users",
+            JSON.stringify(users)
+        );
+
+    }
+
+
+    function addNotification(message) {
+
+        const notifications =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_notifications"
+                )
+            ) || [];
+
+
+        notifications.unshift({
+
+            id:
+                "notification_" +
+                Date.now(),
+
+            userId:
+                currentUser.id,
+
+            type:
+                "booking-update",
+
+            message,
+
+            createdAt:
+                new Date().toISOString(),
+
+            read:false
+
+        });
+
+
+        localStorage.setItem(
+            "tutorlink_notifications",
+            JSON.stringify(notifications)
+        );
+
+    }
+
+
+    function formatTime(value) {
+
+        if (!value) return "—";
+
+        const [hour, minute] =
+            value.split(":").map(Number);
+
+        const suffix =
+            hour >= 12 ? "PM" : "AM";
+
+        const displayHour =
+            hour % 12 || 12;
+
+        return displayHour +
+            ":" +
+            String(minute).padStart(2,"0") +
+            " " +
+            suffix;
+
+    }
+
+
+    function formatDate(value) {
+
+        if (!value) return "Scheduled";
+
+        const date =
+            new Date(value);
+
+        if (Number.isNaN(date.getTime())) {
+            return "Scheduled";
+        }
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day:"numeric",
+                month:"short",
+                year:"numeric"
+            }
+        );
+
+    }
+
+
+    function hoursUntil(booking) {
+
+        if (!booking.scheduledAt) {
+            return 999;
+        }
+
+        const date =
+            new Date(booking.scheduledAt);
+
+        if (Number.isNaN(date.getTime())) {
+            return 999;
+        }
+
+        return (
+            date.getTime() -
+            Date.now()
+        ) / 3600000;
+
+    }
+
+
+    function getCancellationRule(booking) {
+
+        if (booking.status === "completed") {
+
+            return {
+                allowed:false,
+                type:"completed",
+                message:
+                    "This class has already been completed and cannot be cancelled."
+            };
 
         }
 
 
         if (
-            currentUser.role !==
-            "student"
+            booking.status === "cancelled"
         ) {
 
-            window.location.href =
-                "tutor-dashboard.html";
+            return {
+                allowed:false,
+                type:"cancelled",
+                message:
+                    "This booking has already been cancelled."
+            };
+
+        }
+
+
+        const hours =
+            hoursUntil(booking);
+
+
+        if (hours >= 12) {
+
+            return {
+                allowed:true,
+                type:"refund-or-reschedule",
+                message:
+                    "This booking is more than 12 hours away. You may request an eligible refund or reschedule the session."
+            };
+
+        }
+
+
+        if (hours >= 2) {
+
+            return {
+                allowed:true,
+                type:"reschedule-only",
+                message:
+                    "This booking is between 2 and 12 hours away. Rescheduling is available; refunds are normally not issued."
+            };
+
+        }
+
+
+        return {
+            allowed:true,
+            type:"used-credit",
+            message:
+                "This booking starts in less than 2 hours. Cancellation normally counts the class as used."
+        };
+
+    }
+
+
+    function updateStats() {
+
+        const bookings =
+            getUserBookings();
+
+        const upcoming =
+            bookings.filter(
+                b =>
+                    b.status === "confirmed"
+            );
+
+        const completed =
+            bookings.filter(
+                b =>
+                    b.status === "completed"
+            );
+
+
+        document.getElementById(
+            "upcomingCount"
+        ).textContent =
+            upcoming.length;
+
+
+        document.getElementById(
+            "completedCount"
+        ).textContent =
+            completed.length;
+
+
+        let remaining = 0;
+
+        const plans =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_student_plans"
+                )
+            ) || {};
+
+
+        if (
+            plans[currentUser.id] &&
+            typeof plans[currentUser.id].classesRemaining === "number"
+        ) {
+
+            remaining =
+                plans[currentUser.id].classesRemaining;
+
+        } else {
+
+            upcoming.forEach(
+                booking => {
+
+                    remaining +=
+                        Number(
+                            booking.classesRemaining || 0
+                        );
+
+                }
+            );
+
+        }
+
+
+        document.getElementById(
+            "classesRemaining"
+        ).textContent =
+            remaining;
+
+
+        const users =
+            getUsers();
+
+        const user =
+            users.find(
+                u => u.id === currentUser.id
+            );
+
+
+        document.getElementById(
+            "tuteBalance"
+        ).textContent =
+            user && typeof user.tute === "number"
+                ? user.tute
+                : 0;
+
+    }
+
+
+    function render() {
+
+        const bookings =
+            getUserBookings();
+
+
+        updateStats();
+
+
+        let filtered =
+            bookings;
+
+
+        if (activeFilter === "upcoming") {
+
+            filtered =
+                bookings.filter(
+                    b =>
+                        b.status === "confirmed"
+                );
+
+        }
+
+
+        if (activeFilter === "completed") {
+
+            filtered =
+                bookings.filter(
+                    b =>
+                        b.status === "completed"
+                );
+
+        }
+
+
+        if (!filtered.length) {
+
+            list.innerHTML = `
+
+                <div class="empty">
+
+                    <h2>
+                        No ${activeFilter} bookings
+                    </h2>
+
+                    <p>
+                        Your learning schedule will appear here.
+                    </p>
+
+                    <a
+                        href="tutors.html"
+                        class="primary-link"
+                    >
+                        Find a Tutor
+                    </a>
+
+                </div>
+
+            `;
 
             return;
 
         }
 
 
+        list.innerHTML =
+            filtered
+            .sort(
+                (a,b) =>
+                    new Date(a.scheduledAt || a.createdAt) -
+                    new Date(b.scheduledAt || b.createdAt)
+            )
+            .map(renderBooking)
+            .join("");
 
-        /* =====================================
-           ELEMENTS
-        ===================================== */
-
-        const bookingList =
-            document.getElementById(
-                "bookingList"
-            );
-
-        const upcomingCount =
-            document.getElementById(
-                "upcomingCount"
-            );
-
-        const completedCount =
-            document.getElementById(
-                "completedCount"
-            );
-
-        const classesRemaining =
-            document.getElementById(
-                "classesRemaining"
-            );
-
-        const tuteBalance =
-            document.getElementById(
-                "tuteBalance"
-            );
-
-        const planSection =
-            document.getElementById(
-                "planSection"
-            );
-
-        const planRemaining =
-            document.getElementById(
-                "planRemaining"
-            );
-
-        const emptyBookings =
-            document.getElementById(
-                "emptyBookings"
-            );
-
-        const tabs =
-            document.querySelectorAll(
-                ".booking-tab"
-            );
+    }
 
 
-        let activeTab =
-            "upcoming";
+    function renderBooking(booking) {
+
+        const statusClass =
+            booking.status === "completed"
+                ? "completed"
+                : booking.status === "cancelled"
+                    ? "cancelled"
+                    : "";
 
 
-
-        /* =====================================
-           LOAD BOOKINGS
-        ===================================== */
-
-        function getBookings() {
-
-            try {
-
-                const bookings =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "tutorlink_bookings"
-                        )
-                    ) || [];
+        const statusText =
+            booking.status === "completed"
+                ? "Completed"
+                : booking.status === "cancelled"
+                    ? "Cancelled"
+                    : "Confirmed";
 
 
-                return bookings.filter(
-                    function (booking) {
+        const remaining =
+            booking.classesRemaining ?? "—";
 
-                        return (
-                            booking.studentId ===
-                                currentUser.id
-                            ||
-                            (
-                                !booking.studentId &&
-                                booking.studentName ===
-                                    currentUser.name
-                            )
-                        );
 
-                    }
-                );
+        let actions = "";
 
-            } catch (error) {
 
-                return [];
+        if (booking.status === "confirmed") {
 
-            }
+            actions += `
+
+                <a
+                    class="action primary"
+                    href="virtual-classroom.html?booking=${encodeURIComponent(booking.id)}"
+                >
+                    Join Session
+                </a>
+
+                <button
+                    class="action"
+                    data-reschedule="${booking.id}"
+                >
+                    Reschedule
+                </button>
+
+                <button
+                    class="action danger"
+                    data-cancel="${booking.id}"
+                >
+                    Cancel
+                </button>
+
+            `;
 
         }
 
 
+        if (booking.status === "completed") {
 
-        /* =====================================
-           USER DATA
-        ===================================== */
+            actions += `
 
-        function getUserData() {
+                <a
+                    class="action"
+                    href="tutor-profile.html?id=${encodeURIComponent(booking.tutorId)}"
+                >
+                    View Tutor
+                </a>
 
-            try {
+                <a
+                    class="action primary"
+                    href="booking.html?id=${encodeURIComponent(booking.tutorId)}"
+                >
+                    Book Again
+                </a>
 
-                const users =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "tutorlink_users"
-                        )
-                    ) || [];
-
-
-                const found =
-                    users.find(
-                        function (user) {
-
-                            return user.id ===
-                                currentUser.id;
-
-                        }
-                    );
-
-
-                return found || currentUser;
-
-            } catch (error) {
-
-                return currentUser;
-
-            }
+            `;
 
         }
 
 
+        if (booking.status === "cancelled") {
 
-        /* =====================================
-           STATUS
-        ===================================== */
+            actions += `
 
-        function getBookingStatus(
-            booking
-        ) {
+                <a
+                    class="action"
+                    href="tutor-profile.html?id=${encodeURIComponent(booking.tutorId)}"
+                >
+                    View Tutor
+                </a>
 
-            if (
-                booking.status ===
-                "completed"
-            ) {
-
-                return "completed";
-
-            }
-
-
-            if (
-                booking.status ===
-                "cancelled"
-            ) {
-
-                return "cancelled";
-
-            }
-
-
-            return "confirmed";
+            `;
 
         }
 
 
+        return `
 
-        /* =====================================
-           INITIALS
-        ===================================== */
+            <article class="booking-card">
 
-        function getInitials(
-            name
-        ) {
-
-            if (!name) {
-
-                return "T";
-
-            }
-
-
-            return name
-                .split(" ")
-                .map(
-                    function (part) {
-
-                        return part
-                            .charAt(0)
-                            .toUpperCase();
-
-                    }
-                )
-                .slice(0, 2)
-                .join("");
-
-        }
-
-
-
-        /* =====================================
-           FORMAT PRICE
-        ===================================== */
-
-        function formatPrice(
-            amount
-        ) {
-
-            const value =
-                Number(amount) || 0;
-
-
-            return "₹" +
-                value.toLocaleString(
-                    "en-IN"
-                );
-
-        }
-
-
-
-        /* =====================================
-           BOOKING CARD
-        ===================================== */
-
-        function createBookingCard(
-            booking
-        ) {
-
-            const status =
-                getBookingStatus(
-                    booking
-                );
-
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-
-            card.className =
-                "booking-card";
-
-
-            const statusLabel =
-                status === "confirmed"
-                    ? "Confirmed"
-                    : status === "completed"
-                        ? "Completed"
-                        : "Cancelled";
-
-
-            let actionHTML = "";
-
-
-            if (
-                status ===
-                "confirmed"
-            ) {
-
-                actionHTML = `
-
-                    <a
-                        href="virtual-classroom.html?bookingId=${encodeURIComponent(
-                            booking.id
-                        )}"
-                        class="booking-action primary"
-                    >
-                        Join Session
-                    </a>
-
-                    <a
-                        href="tutor-profile.html?id=${encodeURIComponent(
-                            booking.tutorId
-                        )}"
-                        class="booking-action secondary"
-                    >
-                        View Tutor
-                    </a>
-
-                `;
-
-            } else if (
-                status ===
-                "completed"
-            ) {
-
-                actionHTML = `
-
-                    <a
-                        href="tutor-profile.html?id=${encodeURIComponent(
-                            booking.tutorId
-                        )}"
-                        class="booking-action secondary"
-                    >
-                        View Tutor
-                    </a>
-
-                    <a
-                        href="booking.html?id=${encodeURIComponent(
-                            booking.tutorId
-                        )}"
-                        class="booking-action primary"
-                    >
-                        Book Again
-                    </a>
-
-                `;
-
-            } else {
-
-                actionHTML = `
-
-                    <a
-                        href="tutor-profile.html?id=${encodeURIComponent(
-                            booking.tutorId
-                        )}"
-                        class="booking-action secondary"
-                    >
-                        View Tutor
-                    </a>
-
-                    <a
-                        href="booking.html?id=${encodeURIComponent(
-                            booking.tutorId
-                        )}"
-                        class="booking-action primary"
-                    >
-                        Book Again
-                    </a>
-
-                `;
-
-            }
-
-
-            card.innerHTML = `
-
-                <div class="booking-card-top">
+                <div class="booking-top">
 
                     <div class="tutor-info">
 
-                        <div class="tutor-avatar">
-
-                            ${getInitials(
-                                booking.tutorName
-                            )}
-
+                        <div class="avatar">
+                            ${(booking.tutorName || "T").charAt(0)}
                         </div>
 
                         <div>
 
-                            <h3>
-                                ${escapeHTML(
-                                    booking.tutorName ||
-                                    "Tutor"
-                                )}
-                            </h3>
+                            <strong>
+                                ${escapeHtml(booking.tutorName || "TutorLink Tutor")}
+                            </strong>
 
-                            <p>
-                                ${escapeHTML(
-                                    booking.tutorSubject ||
-                                    "Tutoring Session"
-                                )}
-                            </p>
+                            <span>
+                                ${escapeHtml(booking.tutorSubject || "Learning Session")}
+                            </span>
 
                         </div>
 
                     </div>
 
 
-                    <span
-                        class="booking-status ${status}"
-                    >
-                        ${statusLabel}
+                    <span class="status ${statusClass}">
+                        ${statusText}
                     </span>
 
                 </div>
@@ -1865,475 +1213,538 @@ document.addEventListener(
 
                 <div class="booking-details">
 
-                    <div class="booking-detail">
-
-                        <span>
-                            Schedule
-                        </span>
-
+                    <div class="detail">
+                        <span>Schedule</span>
                         <strong>
-                            ${escapeHTML(
-                                booking.nextSession ||
-                                (
-                                    booking.preferredDay +
-                                    ", " +
-                                    booking.preferredTime
-                                ) ||
-                                "To be scheduled"
-                            )}
+                            ${escapeHtml(booking.preferredDay || "—")}
                         </strong>
-
                     </div>
 
-
-                    <div class="booking-detail">
-
-                        <span>
-                            Learning Plan
-                        </span>
-
+                    <div class="detail">
+                        <span>Time</span>
                         <strong>
-                            ${escapeHTML(
-                                booking.package ||
-                                "Tutoring Session"
-                            )}
+                            ${formatTime(booking.preferredTime)}
                         </strong>
-
                     </div>
 
-
-                    <div class="booking-detail">
-
-                        <span>
-                            Payment
-                        </span>
-
+                    <div class="detail">
+                        <span>Package</span>
                         <strong>
-                            ${formatPrice(
-                                booking.price
-                            )}
+                            ${escapeHtml(booking.package || "—")}
                         </strong>
-
                     </div>
 
-
-                    <div class="booking-detail">
-
-                        <span>
-                            Payment Status
-                        </span>
-
+                    <div class="detail">
+                        <span>Classes Remaining</span>
                         <strong>
-                            ${escapeHTML(
-                                booking.paymentStatus ||
-                                "Demo payment"
-                            )}
+                            ${remaining}
                         </strong>
-
                     </div>
 
                 </div>
 
 
-                <div class="booking-package">
+                ${
+                    booking.scheduledAt
+                        ? `
+                        <div class="booking-details">
 
-                    <span class="package-name">
+                            <div class="detail">
 
-                        ${
-                            booking.totalClasses
-                                ? booking.totalClasses +
-                                  " classes included"
-                                : "Tutoring booking"
-                        }
+                                <span>Next Session</span>
 
-                    </span>
+                                <strong>
+                                    ${formatDate(booking.scheduledAt)}
+                                </strong>
 
+                            </div>
 
-                    <span class="classes-left">
+                            <div class="detail">
 
-                        ${
-                            booking.classesRemaining !==
-                            undefined
-                                ? booking.classesRemaining +
-                                  " Classes Remaining"
-                                : ""
-                        }
+                                <span>Payment</span>
 
-                    </span>
+                                <strong>
+                                    Demo Paid
+                                </strong>
 
-                </div>
+                            </div>
+
+                        </div>
+                        `
+                        : ""
+                }
 
 
                 <div class="booking-actions">
 
-                    ${actionHTML}
+                    ${actions}
 
                 </div>
 
-            `;
+            </article>
+
+        `;
+
+    }
 
 
-            return card;
+    function escapeHtml(value) {
+
+        return String(value)
+            .replace(/&/g,"&amp;")
+            .replace(/</g,"&lt;")
+            .replace(/>/g,"&gt;")
+            .replace(/"/g,"&quot;")
+            .replace(/'/g,"&#039;");
+
+    }
+
+
+    document.querySelectorAll(".tab")
+        .forEach(tab => {
+
+            tab.addEventListener(
+                "click",
+                function () {
+
+                    document
+                        .querySelectorAll(".tab")
+                        .forEach(t =>
+                            t.classList.remove("active")
+                        );
+
+                    this.classList.add("active");
+
+                    activeFilter =
+                        this.dataset.filter;
+
+                    render();
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const cancelButton =
+                event.target.closest(
+                    "[data-cancel]"
+                );
+
+
+            const rescheduleButton =
+                event.target.closest(
+                    "[data-reschedule]"
+                );
+
+
+            if (cancelButton) {
+
+                selectedBookingId =
+                    cancelButton.dataset.cancel;
+
+                const booking =
+                    getUserBookings()
+                        .find(
+                            b =>
+                                b.id ===
+                                selectedBookingId
+                        );
+
+
+                if (!booking) return;
+
+
+                const rule =
+                    getCancellationRule(booking);
+
+
+                document.getElementById(
+                    "cancelReason"
+                ).textContent =
+                    rule.message;
+
+
+                document.getElementById(
+                    "confirmCancel"
+                ).disabled =
+                    !rule.allowed;
+
+
+                cancelModal.classList.add(
+                    "show"
+                );
+
+            }
+
+
+            if (rescheduleButton) {
+
+                selectedBookingId =
+                    rescheduleButton.dataset.reschedule;
+
+                rescheduleModal.classList.add(
+                    "show"
+                );
+
+            }
 
         }
+    );
 
 
+    document.getElementById(
+        "closeCancel"
+    ).addEventListener(
+        "click",
+        function () {
 
-        /* =====================================
-           RENDER
-        ===================================== */
+            cancelModal.classList.remove(
+                "show"
+            );
 
-        function renderBookings() {
+        }
+    );
+
+
+    document.getElementById(
+        "closeReschedule"
+    ).addEventListener(
+        "click",
+        function () {
+
+            rescheduleModal.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+    document.getElementById(
+        "confirmCancel"
+    ).addEventListener(
+        "click",
+        function () {
 
             const bookings =
                 getBookings();
 
-
-            const upcoming =
-                bookings.filter(
-                    function (booking) {
-
-                        return (
-                            getBookingStatus(
-                                booking
-                            ) === "confirmed"
-                        );
-
-                    }
+            const index =
+                bookings.findIndex(
+                    b =>
+                        b.id ===
+                        selectedBookingId &&
+                        b.studentId ===
+                        currentUser.id
                 );
 
 
-            const completed =
-                bookings.filter(
-                    function (booking) {
+            if (index === -1) return;
 
-                        return (
-                            getBookingStatus(
-                                booking
-                            ) === "completed"
-                        );
 
-                    }
+            const booking =
+                bookings[index];
+
+
+            const rule =
+                getCancellationRule(
+                    booking
                 );
 
 
-            upcomingCount.textContent =
-                upcoming.length;
-
-
-            completedCount.textContent =
-                completed.length;
-
-
-            const user =
-                getUserData();
-
-
-            let remaining =
-                Number(
-                    user.classesRemaining
-                );
+            if (!rule.allowed) {
+                return;
+            }
 
 
             if (
-                Number.isNaN(
-                    remaining
-                )
+                rule.type ===
+                "used-credit"
             ) {
 
-                const plan =
-                    localStorage.getItem(
-                        "tutorlink_student_plans"
-                    );
-
-
-                try {
-
-                    const plans =
-                        JSON.parse(
-                            plan
-                        ) || {};
-
-
-                    const studentPlan =
-                        plans[
-                            currentUser.id
-                        ];
-
-
-                    remaining =
+                booking.classesRemaining =
+                    Math.max(
+                        0,
                         Number(
-                            studentPlan &&
-                            studentPlan.classesRemaining
-                        ) || 0;
-
-                } catch (error) {
-
-                    remaining = 0;
-
-                }
-
-            }
-
-
-            if (
-                !remaining &&
-                bookings.length
-            ) {
-
-                const bookingRemaining =
-                    bookings
-                        .filter(
-                            function (booking) {
-
-                                return (
-                                    getBookingStatus(
-                                        booking
-                                    ) ===
-                                    "confirmed"
-                                );
-
-                            }
-                        )
-                        .map(
-                            function (booking) {
-
-                                return Number(
-                                    booking.classesRemaining
-                                ) || 0;
-
-                            }
-                        );
-
-
-                if (
-                    bookingRemaining.length
-                ) {
-
-                    remaining =
-                        Math.max(
-                            ...bookingRemaining
-                        );
-
-                }
-
-            }
-
-
-            classesRemaining.textContent =
-                remaining;
-
-
-            planRemaining.textContent =
-                remaining;
-
-
-            if (
-                remaining > 0
-            ) {
-
-                planSection.hidden =
-                    false;
-
-            } else {
-
-                planSection.hidden =
-                    true;
-
-            }
-
-
-            const tute =
-                Number(
-                    user.tute
-                ) || 0;
-
-
-            tuteBalance.textContent =
-                tute;
-
-
-            let visibleBookings =
-                bookings;
-
-
-            if (
-                activeTab ===
-                "upcoming"
-            ) {
-
-                visibleBookings =
-                    upcoming;
-
-            } else if (
-                activeTab ===
-                "completed"
-            ) {
-
-                visibleBookings =
-                    completed;
-
-            }
-
-
-            bookingList.innerHTML =
-                "";
-
-
-            if (
-                visibleBookings.length ===
-                0
-            ) {
-
-                const message =
-                    activeTab ===
-                        "upcoming"
-                        ? "You don't have any upcoming classes."
-                        : activeTab ===
-                            "completed"
-                            ? "You haven't completed any classes yet."
-                            : "You don't have any bookings yet.";
-
-
-                bookingList.innerHTML = `
-
-                    <div class="empty-tab">
-
-                        ${message}
-
-                    </div>
-
-                `;
-
-
-            } else {
-
-                visibleBookings
-                    .slice()
-                    .reverse()
-                    .forEach(
-                        function (booking) {
-
-                            bookingList.appendChild(
-                                createBookingCard(
-                                    booking
-                                )
-                            );
-
-                        }
+                            booking.classesRemaining || 0
+                        ) - 1
                     );
 
+                updatePlanRemaining(
+                    booking.classesRemaining
+                );
+
             }
 
 
             if (
-                bookings.length ===
-                0
+                rule.type ===
+                "refund-or-reschedule"
             ) {
 
-                emptyBookings.hidden =
-                    false;
-
-            } else {
-
-                emptyBookings.hidden =
-                    true;
+                booking.refundStatus =
+                    "eligible";
 
             }
+
+
+            booking.status =
+                "cancelled";
+
+            booking.cancellationType =
+                rule.type;
+
+            booking.cancelledAt =
+                new Date().toISOString();
+
+
+            saveBookings(bookings);
+
+
+            addNotification(
+                "Your session with " +
+                booking.tutorName +
+                " has been cancelled."
+            );
+
+
+            cancelModal.classList.remove(
+                "show"
+            );
+
+
+            render();
 
         }
+    );
 
 
+    document.getElementById(
+        "confirmReschedule"
+    ).addEventListener(
+        "click",
+        function () {
 
-        /* =====================================
-           TABS
-        ===================================== */
+            const bookings =
+                getBookings();
 
-        tabs.forEach(
-            function (tab) {
-
-                tab.addEventListener(
-                    "click",
-                    function () {
-
-                        tabs.forEach(
-                            function (item) {
-
-                                item.classList.remove(
-                                    "active"
-                                );
-
-                            }
-                        );
-
-
-                        tab.classList.add(
-                            "active"
-                        );
-
-
-                        activeTab =
-                            tab.dataset.tab;
-
-
-                        renderBookings();
-
-                    }
+            const index =
+                bookings.findIndex(
+                    b =>
+                        b.id ===
+                        selectedBookingId &&
+                        b.studentId ===
+                        currentUser.id
                 );
 
-            }
+
+            if (index === -1) return;
+
+
+            const booking =
+                bookings[index];
+
+
+            const day =
+                document.getElementById(
+                    "newDay"
+                ).value;
+
+
+            const time =
+                document.getElementById(
+                    "newTime"
+                ).value;
+
+
+            const nextDate =
+                getNextOccurrence(
+                    day,
+                    time
+                );
+
+
+            booking.preferredDay =
+                day;
+
+            booking.preferredTime =
+                time;
+
+            booking.scheduledAt =
+                nextDate.toISOString();
+
+            booking.nextSession =
+                day +
+                ", " +
+                formatTime(time);
+
+            booking.rescheduledAt =
+                new Date().toISOString();
+
+            booking.rescheduleCount =
+                Number(
+                    booking.rescheduleCount || 0
+                ) + 1;
+
+            booking.status =
+                "confirmed";
+
+
+            saveBookings(bookings);
+
+
+            addNotification(
+                "Your session with " +
+                booking.tutorName +
+                " has been rescheduled to " +
+                day +
+                " at " +
+                formatTime(time) +
+                "."
+            );
+
+
+            rescheduleModal.classList.remove(
+                "show"
+            );
+
+
+            render();
+
+        }
+    );
+
+
+    function getNextOccurrence(
+        dayName,
+        timeValue
+    ) {
+
+        const days = {
+
+            Sunday:0,
+            Monday:1,
+            Tuesday:2,
+            Wednesday:3,
+            Thursday:4,
+            Friday:5,
+            Saturday:6
+
+        };
+
+
+        const now =
+            new Date();
+
+        const result =
+            new Date(now);
+
+
+        const [hour,minute] =
+            timeValue
+                .split(":")
+                .map(Number);
+
+
+        result.setHours(
+            hour,
+            minute,
+            0,
+            0
         );
 
 
+        let difference =
+            days[dayName] -
+            now.getDay();
 
-        /* =====================================
-           ESCAPE HTML
-        ===================================== */
 
-        function escapeHTML(
-            value
+        if (difference < 0) {
+            difference += 7;
+        }
+
+
+        if (
+            difference === 0 &&
+            result <= now
+        ) {
+            difference = 7;
+        }
+
+
+        result.setDate(
+            now.getDate() +
+            difference
+        );
+
+
+        return result;
+
+    }
+
+
+    function updatePlanRemaining(
+        remaining
+    ) {
+
+        const plans =
+            JSON.parse(
+                localStorage.getItem(
+                    "tutorlink_student_plans"
+                )
+            ) || {};
+
+
+        if (
+            plans[currentUser.id]
         ) {
 
-            return String(
-                value ?? ""
-            )
-                .replace(
-                    /&/g,
-                    "&amp;"
-                )
-                .replace(
-                    /</g,
-                    "&lt;"
-                )
-                .replace(
-                    />/g,
-                    "&gt;"
-                )
-                .replace(
-                    /"/g,
-                    "&quot;"
-                )
-                .replace(
-                    /'/g,
-                    "&#039;"
-                );
+            plans[currentUser.id]
+                .classesRemaining =
+                remaining;
+
+            localStorage.setItem(
+                "tutorlink_student_plans",
+                JSON.stringify(plans)
+            );
 
         }
 
 
+        const users =
+            getUsers();
 
-        /* =====================================
-           START
-        ===================================== */
+        const index =
+            users.findIndex(
+                u =>
+                    u.id ===
+                    currentUser.id
+            );
 
-        renderBookings();
+
+        if (index !== -1) {
+
+            users[index]
+                .classesRemaining =
+                remaining;
+
+            saveUsers(users);
+
+        }
 
     }
 
-);
+
+    render();
+
+});
 
 </script>
-
 
 </body>
 </html>
