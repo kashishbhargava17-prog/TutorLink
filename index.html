@@ -2,1165 +2,279 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TutorLink — Learn. Teach. Connect.</title>
 
     <meta
         name="description"
-        content="TutorLink — Learn. Teach. Connect. A digital tutoring ecosystem connecting students and tutors."
+        content="TutorLink connects students with tutors for flexible, personalized online learning."
     >
-
-    <title>TutorLink — Learn. Teach. Connect.</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-    <!-- TutorLink stylesheet -->
-    <link rel="stylesheet" href="./styles.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+        <div class="nav-container">
 
-<header class="site-header">
-
-    <div class="nav-container">
-
-        <a href="index.html" class="brand" aria-label="TutorLink home">
-
-            <div class="brand-icon">🎓</div>
-
-            <div class="brand-text">
-                <span class="brand-name">TutorLink</span>
-                <span class="brand-tagline">Learn. Teach. Connect.</span>
-            </div>
-
-        </a>
-
-        <nav class="main-nav">
-
-            <a href="index.html" class="nav-link active">
-                Home
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎓</span>
+                <span>TutorLink</span>
             </a>
 
-            <a href="tutors.html" class="nav-link">
-                Find Tutors
-            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="learn.html">Learn</a>
+                <a href="about.html">About</a>
+            </nav>
 
-            <a href="learn.html" class="nav-link">
-                Learn
-            </a>
-
-            <a href="become-tutor.html" class="nav-link">
-                Become a Tutor
-            </a>
-
-            <a href="about.html" class="nav-link">
-                About
-            </a>
-
-        </nav>
-
-        <div class="nav-actions">
-
-            <a href="login.html" class="btn btn-outline">
-                Log In
-            </a>
-
-            <a href="signup.html" class="btn btn-primary">
-                Sign Up
-            </a>
-
-        </div>
-
-        <button
-            class="mobile-menu-button"
-            id="mobileMenuButton"
-            aria-label="Open menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-    </div>
-
-    <div class="mobile-nav" id="mobileNav">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="tutors.html">
-            Find Tutors
-        </a>
-
-        <a href="learn.html">
-            Learn
-        </a>
-
-        <a href="become-tutor.html">
-            Become a Tutor
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-        <div class="mobile-nav-actions">
-
-            <a href="login.html" class="btn btn-outline">
-                Log In
-            </a>
-
-            <a href="signup.html" class="btn btn-primary">
-                Sign Up
-            </a>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="hero-background hero-background-one"></div>
-
-    <div class="hero-background hero-background-two"></div>
-
-    <div class="hero-container">
-
-        <!-- HERO TEXT -->
-
-        <div class="hero-content">
-
-            <div class="eyebrow">
-
-                <span class="eyebrow-dot"></span>
-
-                THE DIGITAL LEARNING ECOSYSTEM
-
-            </div>
-
-            <h1>
-
-                Find the right tutor.
-
-                <span>
-                    Learn at your pace.
-                </span>
-
-            </h1>
-
-            <p class="hero-description">
-
-                TutorLink connects students with trusted tutors
-                for flexible online learning, personalized support,
-                and meaningful progress.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="tutors.html"
-                    class="btn btn-primary btn-large"
-                >
-                    🔍 Find a Tutor
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">
+                    Log In
                 </a>
 
-                <a
-                    href="become-tutor.html"
-                    class="btn btn-white btn-large"
-                >
-                    📚 Become a Tutor
+                <a href="signup.html" class="btn btn-primary">
+                    Sign Up
                 </a>
-
             </div>
 
-            <div class="hero-note">
-
-                <span>✓</span>
-
-                Learn online • Flexible schedules • Personalized support
-
-            </div>
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
 
         </div>
 
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="learn.html">Learn</a>
+            <a href="about.html">About</a>
+            <a href="login.html">Log In</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </header>
 
-        <!-- =================================================
-             NEUTRAL ECOSYSTEM VISUAL
-        ================================================= -->
 
-        <div class="hero-visual ecosystem-visual">
+    <!-- =========================
+         HERO
+    ========================== -->
+    <main>
 
-            <div class="glow glow-purple"></div>
+        <section class="hero hero-only">
 
-            <div class="glow glow-pink"></div>
+            <div class="hero-container">
+
+                <!-- LEFT SIDE -->
+                <div class="hero-content">
+
+                    <div class="hero-eyebrow">
+                        THE DIGITAL LEARNING ECOSYSTEM
+                    </div>
+
+                    <h1>
+                        Find the right tutor.
+                        <span>Learn at your pace.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        TutorLink connects students with trusted tutors for
+                        flexible online learning, personalized support, and
+                        meaningful progress.
+                    </p>
+
+                    <!-- MAIN JOURNEY BUTTONS -->
+                    <div class="hero-actions">
+
+                        <a
+                            href="login.html?role=student"
+                            class="btn btn-primary btn-large"
+                            onclick="setTutorLinkIntent('student')"
+                        >
+                            Find a Tutor
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="login.html?role=tutor"
+                            class="btn btn-secondary btn-large"
+                            onclick="setTutorLinkIntent('tutor')"
+                        >
+                            Become a Tutor
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                    <div class="hero-note">
+                        <span>✓</span> Learn online
+                        <span>✓</span> Flexible schedules
+                        <span>✓</span> Personalized support
+                    </div>
+
+                </div>
 
 
-            <div class="ecosystem-card">
+                <!-- RIGHT SIDE -->
+                <div class="hero-visual">
 
-                <div class="ecosystem-card-header">
+                    <div class="ecosystem-card">
 
-                    <div>
-
-                        <span class="card-label">
+                        <div class="ecosystem-label">
                             THE TUTORLINK ECOSYSTEM
-                        </span>
+                        </div>
 
-                        <h3>
-                            Learn. Teach. Connect.
-                        </h3>
+                        <h2>
+                            Learn.
+                            <span>Teach.</span>
+                            Connect.
+                        </h2>
 
-                    </div>
+                        <div class="ecosystem-flow">
 
-                    <div class="ecosystem-sparkle">
-                        ✨
-                    </div>
+                            <div class="ecosystem-node student-node">
+                                <div class="node-icon">🧑‍🎓</div>
 
-                </div>
-
-
-                <!-- STUDENT -->
-
-                <div class="ecosystem-role student-role">
-
-                    <div class="ecosystem-icon purple">
-                        🎓
-                    </div>
-
-                    <div class="ecosystem-role-content">
-
-                        <strong>
-                            Students
-                        </strong>
-
-                        <span>
-                            Find tutors • Book classes • Learn
-                        </span>
-
-                    </div>
-
-                </div>
+                                <div>
+                                    <strong>Students</strong>
+                                    <p>
+                                        Find tutors • Book classes • Learn
+                                    </p>
+                                </div>
+                            </div>
 
 
-                <div class="ecosystem-connector">
-
-                    <span></span>
-
-                    <small>
-                        Learn
-                    </small>
-
-                    <span></span>
-
-                </div>
+                            <div class="ecosystem-connector">
+                                ↓
+                            </div>
 
 
-                <!-- PLATFORM -->
+                            <div class="ecosystem-node platform-node">
+                                <div class="node-icon">🔗</div>
 
-                <div class="ecosystem-platform">
+                                <div>
+                                    <strong>TutorLink</strong>
+                                    <p>
+                                        The learning marketplace
+                                    </p>
+                                </div>
+                            </div>
 
-                    <div class="platform-icon">
-                        🔗
-                    </div>
 
-                    <div>
+                            <div class="ecosystem-connector">
+                                ↓
+                            </div>
 
-                        <strong>
-                            TutorLink
-                        </strong>
 
-                        <span>
-                            The learning marketplace
-                        </span>
+                            <div class="ecosystem-node tutor-node">
+                                <div class="node-icon">👩‍🏫</div>
+
+                                <div>
+                                    <strong>Tutors</strong>
+                                    <p>
+                                        Teach • Manage classes • Earn
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="ecosystem-footer">
+                            One platform. Multiple learning journeys.
+                        </div>
 
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="ecosystem-connector">
+        </section>
 
-                    <span></span>
+    </main>
 
-                    <small>
-                        Teach
-                    </small>
 
-                    <span></span>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
 
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    🎓 TutorLink
                 </div>
 
+                <p>
+                    Learn. Teach. Connect.
+                </p>
+            </div>
 
-                <!-- TUTOR -->
+            <div class="footer-links">
+                <a href="learn.html">Learn</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+                <a href="login.html">Log In</a>
+            </div>
 
-                <div class="ecosystem-role tutor-role">
-
-                    <div class="ecosystem-icon pink">
-                        👩‍🏫
-                    </div>
-
-                    <div class="ecosystem-role-content">
-
-                        <strong>
-                            Tutors
-                        </strong>
-
-                        <span>
-                            Teach • Manage classes • Earn
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="ecosystem-footer">
-
-                    <span>
-                        ✦
-                    </span>
-
-                    One platform.
-                    Multiple learning journeys.
-
-                </div>
-
+            <div class="footer-copy">
+                © 2026 TutorLink. Prototype for educational purposes.
             </div>
 
         </div>
 
-    </div>
+    </footer>
 
-</section>
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
 
-<!-- =========================================================
-     STATS
-========================================================= -->
+        /*
+         * Remember which journey the visitor selected.
+         *
+         * student → Student Dashboard after authentication
+         * tutor   → Tutor Dashboard after authentication
+         */
+        function setTutorLinkIntent(role) {
+            localStorage.setItem("tutorlinkIntent", role);
+        }
 
-<section class="stats-section">
 
-    <div class="stats-container">
+        /* Mobile navigation */
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileNav = document.getElementById("mobileNav");
 
-        <div class="stat">
+        if (mobileMenuBtn && mobileNav) {
 
-            <strong>
-                1,000+
-            </strong>
+            mobileMenuBtn.addEventListener("click", function () {
 
-            <span>
-                Learners
-            </span>
+                mobileNav.classList.toggle("show");
 
-        </div>
+            });
 
+        }
 
-        <div class="stat">
-
-            <strong>
-                100+
-            </strong>
-
-            <span>
-                Tutors
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                12+
-            </strong>
-
-            <span>
-                Subjects
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                24/7
-            </strong>
-
-            <span>
-                Learning access
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     HOW IT WORKS
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-heading centered">
-
-        <span class="section-eyebrow">
-            HOW TUTORLINK WORKS
-        </span>
-
-        <h2>
-            From finding a tutor to making progress.
-        </h2>
-
-        <p>
-            Everything you need to turn a tutoring session
-            into a complete learning journey.
-        </p>
-
-    </div>
-
-
-    <div class="steps-grid">
-
-
-        <!-- STEP 1 -->
-
-        <div class="step-card">
-
-            <div class="step-number">
-                01
-            </div>
-
-            <div class="step-icon purple-bg">
-                🔍
-            </div>
-
-            <h3>
-                Discover
-            </h3>
-
-            <p>
-                Find tutors based on your subject, level,
-                availability, language and learning preferences.
-            </p>
-
-            <a
-                href="tutors.html"
-                class="text-link"
-            >
-                Explore tutors →
-            </a>
-
-        </div>
-
-
-        <!-- STEP 2 -->
-
-        <div class="step-card">
-
-            <div class="step-number">
-                02
-            </div>
-
-            <div class="step-icon pink-bg">
-                🤝
-            </div>
-
-            <h3>
-                Connect
-            </h3>
-
-            <p>
-                Choose a plan, schedule your classes and
-                meet your tutor through the virtual classroom.
-            </p>
-
-            <a
-                href="tutors.html"
-                class="text-link"
-            >
-                Start learning →
-            </a>
-
-        </div>
-
-
-        <!-- STEP 3 -->
-
-        <div class="step-card">
-
-            <div class="step-number">
-                03
-            </div>
-
-            <div class="step-icon cyan-bg">
-                🚀
-            </div>
-
-            <h3>
-                Grow
-            </h3>
-
-            <p>
-                Practice, complete learning activities,
-                earn Tute and track your progress.
-            </p>
-
-            <a
-                href="learn.html"
-                class="text-link"
-            >
-                Explore learning →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SUBJECTS
-========================================================= -->
-
-<section class="section subjects-section">
-
-    <div class="section-heading section-heading-row">
-
-        <div>
-
-            <span class="section-eyebrow">
-                LEARN SOMETHING NEW
-            </span>
-
-            <h2>
-                Explore popular subjects.
-            </h2>
-
-        </div>
-
-        <a
-            href="tutors.html"
-            class="text-link"
-        >
-            View all subjects →
-        </a>
-
-    </div>
-
-
-    <div class="subjects-grid">
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                📐
-            </div>
-
-            <strong>
-                Mathematics
-            </strong>
-
-            <span>
-                Calculus • Algebra • Geometry
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                🔬
-            </div>
-
-            <strong>
-                Science
-            </strong>
-
-            <span>
-                Physics • Chemistry • Biology
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                💻
-            </div>
-
-            <strong>
-                Computer Science
-            </strong>
-
-            <span>
-                Programming • IT • Coding
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                📖
-            </div>
-
-            <strong>
-                English
-            </strong>
-
-            <span>
-                Grammar • Writing • Literature
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                💰
-            </div>
-
-            <strong>
-                Economics
-            </strong>
-
-            <span>
-                Micro • Macro • Finance
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                📊
-            </div>
-
-            <strong>
-                Business
-            </strong>
-
-            <span>
-                Management • Marketing • Strategy
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                🎨
-            </div>
-
-            <strong>
-                Design
-            </strong>
-
-            <span>
-                UI • UX • Creative tools
-            </span>
-
-        </a>
-
-
-        <a href="tutors.html" class="subject-card">
-
-            <div class="subject-icon">
-                🌍
-            </div>
-
-            <strong>
-                Languages
-            </strong>
-
-            <span>
-                Hindi • English • More
-            </span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FEATURED TUTORS
-========================================================= -->
-
-<section class="section tutor-section">
-
-    <div class="section-heading centered">
-
-        <span class="section-eyebrow">
-            MEET THE TUTORS
-        </span>
-
-        <h2>
-            Learn from people who love to teach.
-        </h2>
-
-        <p>
-            Discover verified demo tutors across subjects,
-            experience levels and teaching styles.
-        </p>
-
-    </div>
-
-
-    <div class="tutor-grid">
-
-
-        <!-- TUTOR 1 -->
-
-        <article class="tutor-card">
-
-            <div class="tutor-top">
-
-                <div class="avatar avatar-purple">
-                    AS
-                </div>
-
-                <div class="verified">
-                    ✓ Verified
-                </div>
-
-            </div>
-
-            <h3>
-                Ananya Sharma
-            </h3>
-
-            <p class="tutor-subject">
-                Mathematics Tutor
-            </p>
-
-            <div class="tutor-rating">
-                ⭐ 4.9
-                <span>•</span>
-                126 sessions
-            </div>
-
-            <div class="tutor-bottom">
-
-                <strong>
-                    ₹300<span>/hr</span>
-                </strong>
-
-                <a href="tutors.html">
-                    View Profile →
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- TUTOR 2 -->
-
-        <article class="tutor-card">
-
-            <div class="tutor-top">
-
-                <div class="avatar avatar-pink">
-                    AM
-                </div>
-
-                <div class="verified">
-                    ✓ Verified
-                </div>
-
-            </div>
-
-            <h3>
-                Aarav Mehta
-            </h3>
-
-            <p class="tutor-subject">
-                Physics Tutor
-            </p>
-
-            <div class="tutor-rating">
-                ⭐ 4.8
-                <span>•</span>
-                98 sessions
-            </div>
-
-            <div class="tutor-bottom">
-
-                <strong>
-                    ₹300<span>/hr</span>
-                </strong>
-
-                <a href="tutors.html">
-                    View Profile →
-                </a>
-
-            </div>
-
-        </article>
-
-
-        <!-- TUTOR 3 -->
-
-        <article class="tutor-card">
-
-            <div class="tutor-top">
-
-                <div class="avatar avatar-cyan">
-                    RI
-                </div>
-
-                <div class="verified">
-                    ✓ Verified
-                </div>
-
-            </div>
-
-            <h3>
-                Riya Iyer
-            </h3>
-
-            <p class="tutor-subject">
-                English Tutor
-            </p>
-
-            <div class="tutor-rating">
-                ⭐ 4.9
-                <span>•</span>
-                142 sessions
-            </div>
-
-            <div class="tutor-bottom">
-
-                <strong>
-                    ₹300<span>/hr</span>
-                </strong>
-
-                <a href="tutors.html">
-                    View Profile →
-                </a>
-
-            </div>
-
-        </article>
-
-    </div>
-
-
-    <div class="center-button">
-
-        <a
-            href="tutors.html"
-            class="btn btn-light btn-large"
-        >
-            Explore All Tutors →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     ACCESS FUND
-========================================================= -->
-
-<section class="section">
-
-    <div class="access-card">
-
-        <div class="access-icon">
-            💜
-        </div>
-
-        <div class="access-content">
-
-            <span class="section-eyebrow">
-                OUR SOCIAL MISSION
-            </span>
-
-            <h2>
-
-                Earn through learning.
-
-                <span>
-                    Reinvest in learning.
-                </span>
-
-            </h2>
-
-            <p>
-                TutorLink's Access Fund directs 5% of
-                TutorLink's commission toward subsidized
-                learning opportunities for eligible students.
-            </p>
-
-        </div>
-
-
-        <div class="access-example">
-
-            <span>
-                Example
-            </span>
-
-            <strong>
-                ₹36
-            </strong>
-
-            <small>
-                TutorLink commission
-            </small>
-
-            <div class="arrow">
-                ↓
-            </div>
-
-            <strong class="access-amount">
-                ₹1.80
-            </strong>
-
-            <small>
-                Access Fund
-            </small>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta-section">
-
-    <div class="cta-container">
-
-        <div class="cta-icon">
-            🚀
-        </div>
-
-        <h2>
-            Ready to start learning?
-        </h2>
-
-        <p>
-            Find a tutor, book your first class and
-            start building your learning journey.
-        </p>
-
-        <div class="cta-buttons">
-
-            <a
-                href="tutors.html"
-                class="btn btn-white btn-large"
-            >
-                Find a Tutor
-            </a>
-
-            <a
-                href="signup.html"
-                class="btn btn-transparent btn-large"
-            >
-                Create Account
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-    <div class="footer-container">
-
-
-        <div class="footer-brand">
-
-            <a
-                href="index.html"
-                class="brand"
-            >
-
-                <div class="brand-icon">
-                    🎓
-                </div>
-
-                <div class="brand-text">
-
-                    <span class="brand-name">
-                        TutorLink
-                    </span>
-
-                    <span class="brand-tagline">
-                        Learn. Teach. Connect.
-                    </span>
-
-                </div>
-
-            </a>
-
-            <p>
-                A digital tutoring ecosystem connecting
-                learners and knowledge providers.
-            </p>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>
-                Explore
-            </h4>
-
-            <a href="tutors.html">
-                Find Tutors
-            </a>
-
-            <a href="learn.html">
-                Learn
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>
-                Teach
-            </h4>
-
-            <a href="become-tutor.html">
-                Become a Tutor
-            </a>
-
-            <a href="tutor-dashboard.html">
-                Tutor Dashboard
-            </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>
-                Support
-            </h4>
-
-            <a href="support.html">
-                Help Centre
-            </a>
-
-            <a href="impact.html">
-                Our Impact
-            </a>
-
-            <a href="business-model.html">
-                Business Model
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 TutorLink. College project prototype.
-        </p>
-
-        <p>
-            Learn. Teach. Connect.
-        </p>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     MOBILE MENU
-========================================================= -->
-
-<script>
-
-    const menuButton =
-        document.getElementById("mobileMenuButton");
-
-    const mobileNav =
-        document.getElementById("mobileNav");
-
-
-    menuButton.addEventListener("click", function () {
-
-        mobileNav.classList.toggle("show");
-
-        const isOpen =
-            mobileNav.classList.contains("show");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-    });
-
-</script>
+    </script>
 
 </body>
 </html>
