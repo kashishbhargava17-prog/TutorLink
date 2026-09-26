@@ -17,27 +17,29 @@
 
     <title>TutorLink — Learn. Teach. Connect.</title>
 
-
     <!-- Google Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-
     <!-- Main Styles -->
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260927">
 
 </head>
 
 
-<body>
+<body class="home-page">
 
 
     <!-- =====================================================
@@ -46,86 +48,49 @@
 
     <header class="navbar">
 
-        <div class="nav-container">
+    <div class="nav-container">
+
+        <!-- TutorLink Logo -->
+        <a href="index.html" class="brand" aria-label="TutorLink home">
+
+            <span class="brand-icon">🎓</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+
+        </a>
 
 
-            <!-- TutorLink Logo -->
+        <!-- Main Navigation -->
+        <nav class="nav-links" aria-label="Main navigation">
 
-            <a
-                href="index.html"
-                class="logo"
-                aria-label="TutorLink home"
-            >
+            <a href="index.html">Home</a>
 
-                <div class="logo-icon">
-                    🎓
-                </div>
+            <a href="learn.html">Learn</a>
 
-                <div class="logo-text">
+            <a href="about.html">About</a>
 
-                    <span class="logo-name">
-                        TutorLink
-                    </span>
+        </nav>
 
-                    <span class="logo-tagline">
-                        LEARN • TEACH • CONNECT
-                    </span>
 
-                </div>
+        <!-- Authentication -->
+        <div class="nav-actions">
 
+            <a href="login.html" class="nav-login">
+                Log In
             </a>
 
-
-            <!-- Main Navigation -->
-
-            <nav
-                class="nav-links"
-                aria-label="Main navigation"
-            >
-
-                <a
-                    href="index.html"
-                    class="active"
-                >
-                    Home
-                </a>
-
-                <a href="learn.html">
-                    Learn
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-            </nav>
-
-
-            <!-- Authentication -->
-
-            <div class="nav-actions">
-
-                <a
-                    href="login.html"
-                    class="btn-login"
-                >
-                    Log In
-                </a>
-
-                <a
-                    href="signup.html"
-                    class="btn-signup"
-                >
-                    Sign Up
-                </a>
-
-            </div>
-
+            <a href="signup.html" class="nav-signup">
+                Sign Up
+            </a>
 
         </div>
 
-    </header>
+    </div>
 
+</header>
 
 
     <!-- =====================================================
@@ -143,7 +108,6 @@
 
                 <div class="hero-content">
 
-
                     <div class="hero-badge">
 
                         <span>
@@ -157,10 +121,10 @@
 
                     <h1>
 
-                        Find the right tutor.
+                        Where learning
 
                         <span>
-                            Learn at your pace.
+                            meets opportunity.
                         </span>
 
                     </h1>
@@ -169,9 +133,9 @@
                     <p class="hero-description">
 
                         TutorLink connects students with trusted
-                        tutors for flexible online learning,
-                        personalized support, and meaningful
-                        progress.
+                        tutors and gives educators a platform to
+                        share their knowledge, grow their teaching
+                        journey, and make a meaningful impact.
 
                     </p>
 
@@ -186,7 +150,10 @@
                         >
 
                             🎓 Find a Tutor
-                            <span>→</span>
+
+                            <span>
+                                →
+                            </span>
 
                         </a>
 
@@ -197,7 +164,10 @@
                         >
 
                             👩‍🏫 Become a Tutor
-                            <span>→</span>
+
+                            <span>
+                                →
+                            </span>
 
                         </a>
 
@@ -220,14 +190,14 @@
 
                     </div>
 
-
                 </div>
 
 
-                <!-- HERO VISUAL -->
+                <!-- =================================================
+                     HERO VISUAL
+                ================================================== -->
 
                 <div class="hero-visual">
-
 
                     <!-- Decorative glow -->
 
@@ -239,7 +209,6 @@
                     <!-- Main Ecosystem Card -->
 
                     <div class="ecosystem-card">
-
 
                         <div class="ecosystem-label">
 
@@ -299,13 +268,17 @@
                                 ✦
                             </div>
 
-                            <strong>
-                                TutorLink
-                            </strong>
+                            <div>
 
-                            <span>
-                                Learning Marketplace
-                            </span>
+                                <strong>
+                                    TutorLink
+                                </strong>
+
+                                <span>
+                                    Learning Marketplace
+                                </span>
+
+                            </div>
 
                         </div>
 
@@ -357,11 +330,10 @@
 
                         </div>
 
-
                     </div>
 
 
-                    <!-- Floating card -->
+                    <!-- Floating cards -->
 
                     <div class="floating-card one">
 
@@ -388,16 +360,13 @@
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
         </section>
 
     </main>
-
 
 
     <!-- JavaScript -->
