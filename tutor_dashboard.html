@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tutor Dashboard | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body class="tutor-dashboard-body">
+
+<header class="dashboard-navbar">
+
+    <div class="dashboard-nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
+            <a href="index.html">Home</a>
+
+            <a
+                href="tutor-dashboard.html"
+                class="active"
+            >
+                Dashboard
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="tutor-dashboard">
+
+    <!-- WELCOME -->
+
+    <section class="tutor-welcome">
+
+        <div>
+
+            <span class="dashboard-eyebrow">
+                TUTOR DASHBOARD
+            </span>
+
+            <h1>
+                Welcome back, <span id="tutorWelcomeName">Tutor</span> 👋
+            </h1>
+
+            <p>
+                Manage your students, sessions, availability and
+                teaching journey from one place.
+            </p>
+
+        </div>
+
+
+        <div class="tutor-profile-chip">
+
+            <div
+                class="profile-chip-avatar"
+                id="profileAvatar"
+            >
+                T
+            </div>
+
+            <div>
+
+                <strong id="profileName">
+                    Tutor
+                </strong>
+
+                <span id="profileSubject">
+                    Tutor
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="tutor-stats
