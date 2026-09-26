@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saved Tutors | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+            </span>
+        </a>
+
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="student-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="learn.html">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="saved-page">
+
+    <section class="saved-header">
+
+        <div>
+
+            <span class="eyebrow">
+                YOUR TUTOR COLLECTION
+            </span>
+
+            <h1>
+                Saved Tutors
+            </h1>
+
+            <p>
+                Keep your favourite tutors in one place so you can
+                compare them and book a session whenever you're ready.
+            </p>
+
+        </div>
+
+
+        <a
+            href="tutors.html"
+            class="find-button"
+        >
+            Find More Tutors
+        </a>
+
+    </section>
+
+
+    <section>
+
+        <div
+            id="savedTutorGrid"
+            class="saved-grid"
+        ></div>
+
+    </section>
+
+</main>
+
+
+<style>
+
+    .saved-page {
+        min-height: calc(100vh - 82px);
+        padding: 52px 20px 80px;
+
+        background:
+            radial-gradient(
+                circle at 10% 10%,
+                rgba(139, 92, 246, .10),
+                transparent 30%
+            ),
+            radial-gradient(
+                circle at 90% 20%,
+                rgba(34, 211, 238, .10),
+                transparent 30%
+            ),
+            #f8fafc;
+    }
+
+
+    .saved-header {
+        width: min(1120px, 100%);
+        margin: 0 auto 35px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        gap: 25px;
+    }
+
+
+    .eyebrow {
+        display: inline-block;
+
+        margin-bottom: 9px;
+
+        color: #5B4BFF;
+
+        font-size: .76rem;
+        font-weight: 800;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .saved-header h1 {
+        margin: 0 0 10px;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: clamp(
+            2.1rem,
+            4vw,
+            3.3rem
+        );
+
+        line-height: 1.08;
+    }
+
+
+    .saved-header p {
+        max-width: 650px;
+
+        margin: 0;
+
+        color: #64748B;
+
+        line-height: 1.7;
+    }
+
+
+    .find-button {
+        flex-shrink: 0;
+
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 13px 20px;
+
+        border-radius: 13px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5B4BFF,
+                #8B5CF6
+            );
+
+        color: white;
+
+        text-decoration: none;
+
+        font-weight: 800;
+
+        box-shadow:
+            0 10px 25px
+            rgba(91, 75, 255, .20);
+
+        transition: .2s ease;
+    }
+
+
+    .find-button:hover {
+        transform: translateY(-2px);
+    }
+
+
+    .saved-grid {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+
+    .saved-card {
+        position: relative;
+
+        background: #fff;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 22px;
+
+        padding: 22px;
+
+        box-shadow:
+            0 14px 38px
+            rgba(15, 23, 42, .06);
+
+        transition: .22s ease;
+    }
+
+
+    .saved-card:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 20px 45px
+            rgba(15, 23, 42, .10);
+    }
+
+
+    .saved-card-top {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: flex-start;
+
+        gap: 12px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .saved-avatar {
+        width: 58px;
+        height: 58px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 17px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5B4BFF,
+                #EC4899
+            );
+
+        color: white;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.05rem;
+        font-weight: 800;
+    }
+
+
+    .remove-save {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+        place-items: center;
+
+        border: 1px solid #e2e8f0;
+
+        border-radius: 12px;
+
+        background: white;
+
+        color: #EC4899;
+
+        font-size: 1.05rem;
+
+        cursor: pointer;
+
+        transition: .2s ease;
+    }
+
+
+    .remove-save:hover {
+        background: #fff1f2;
+
+        border-color: #fecdd3;
+    }
+
+
+    .saved-card h2 {
+        margin: 0 0 5px;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+
+        font-size: 1.2rem;
+    }
+
+
+    .saved-subject {
+        margin: 0;
+
+        color: #64748B;
+
+        font-size: .88rem;
+    }
+
+
+    .verified {
+        display: inline-flex;
+
+        margin-top: 9px;
+
+        padding: 5px 9px;
+
+        border-radius: 999px;
+
+        background: #ecfdf5;
+
+        color: #047857;
+
+        font-size: .7rem;
+
+        font-weight: 800;
+    }
+
+
+    .saved-info {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+        margin: 20px 0;
+    }
+
+
+    .info-box {
+        padding: 12px;
+
+        border-radius: 13px;
+
+        background: #f8fafc;
+    }
+
+
+    .info-box span {
+        display: block;
+
+        margin-bottom: 4px;
+
+        color: #94A3B8;
+
+        font-size: .7rem;
+    }
+
+
+    .info-box strong {
+        color: #0F172A;
+
+        font-size: .88rem;
+    }
+
+
+    .saved-style {
+        margin-bottom: 20px;
+
+        color: #64748B;
+
+        font-size: .82rem;
+
+        line-height: 1.55;
+    }
+
+
+    .saved-actions {
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 10px;
+    }
+
+
+    .saved-actions a,
+    .saved-actions button {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 43px;
+
+        border-radius: 11px;
+
+        font: inherit;
+
+        font-size: .82rem;
+
+        font-weight: 800;
+
+        text-decoration: none;
+
+        cursor: pointer;
+    }
+
+
+    .view-profile {
+        border: 1px solid #cbd5e1;
+
+        background: white;
+
+        color: #334155;
+    }
+
+
+    .book-now {
+        border: 0;
+
+        background:
+            linear-gradient(
+                135deg,
+                #5B4BFF,
+                #8B5CF6
+            );
+
+        color: white;
+    }
+
+
+    .empty-state {
+        width: min(650px, 100%);
+
+        margin: 35px auto 0;
+
+        padding: 60px 25px;
+
+        text-align: center;
+
+        background: white;
+
+        border: 1px dashed #cbd5e1;
+
+        border-radius: 24px;
+    }
+
+
+    .empty-icon {
+        margin-bottom: 12px;
+
+        font-size: 2.8rem;
+    }
+
+
+    .empty-state h2 {
+        margin: 0 0 8px;
+
+        color: #0F172A;
+
+        font-family: "Poppins", sans-serif;
+    }
+
+
+    .empty-state p {
+        max-width: 470px;
+
+        margin: 0 auto 22px;
+
+        color: #64748B;
+
+        line-height: 1.6;
+    }
+
+
+    @media (max-width: 900px) {
+
+        .saved-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .saved-header {
+            flex-direction: column;
+
+            align-items: flex-start;
+        }
+
+        .saved-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .saved-page {
+            padding: 35px 15px 60px;
+        }
+
+    }
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const currentUser =
+            typeof getCurrentUser === "function"
+                ? getCurrentUser()
+                : null;
+
+
+        if (!currentUser) {
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        if (currentUser.role !== "student") {
+
+            window.location.href =
+                "tutor-dashboard.html";
+
+            return;
+
+        }
+
+
+        const grid =
+            document.getElementById(
+                "savedTutorGrid"
+            );
+
+
+        function renderSavedTutors() {
+
+            const savedIds =
+                typeof getSavedTutors === "function"
+                    ? getSavedTutors()
+                    : JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_saved_tutors"
+                        )
+                    ) || [];
+
+
+            const savedTutors =
+                typeof TUTORS !== "undefined"
+                    ? TUTORS.filter(
+                        tutor =>
+                            savedIds.includes(
+                                tutor.id
+                            )
+                    )
+                    : [];
+
+
+            if (savedTutors.length === 0) {
+
+                grid.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ♡
+                        </div>
+
+                        <h2>
+                            No saved tutors yet
+                        </h2>
+
+                        <p>
+                            When you find a tutor you like,
+                            tap the heart button to save them here.
+                            Your saved tutors will stay connected
+                            to your TutorLink account.
+                        </p>
+
+                        <a
+                            href="tutors.html"
+                            class="find-button"
+                        >
+                            Explore Tutors
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            grid.innerHTML =
+                savedTutors
+                    .map(
+                        tutor => {
+
+                            const initials =
+                                tutor.name
+                                    .split(" ")
+                                    .map(
+                                        word =>
+                                            word.charAt(0)
+                                    )
+                                    .slice(0, 2)
+                                    .join("")
+                                    .toUpperCase();
+
+
+                            return `
+
+                                <article
+                                    class="saved-card"
+                                >
+
+                                    <div
+                                        class="saved-card-top"
+                                    >
+
+                                        <div
+                                            class="saved-avatar"
+                                        >
+                                            ${initials}
+                                        </div>
+
+
+                                        <button
+                                            type="button"
+                                            class="remove-save"
+                                            data-remove-save="${tutor.id}"
+                                            aria-label="Remove ${tutor.name} from saved tutors"
+                                            title="Remove from saved tutors"
+                                        >
+                                            ♥
+                                        </button>
+
+                                    </div>
+
+
+                                    <h2>
+                                        ${tutor.name}
+                                    </h2>
+
+
+                                    <p
+                                        class="saved-subject"
+                                    >
+                                        ${tutor.subject}
+                                        •
+                                        ${tutor.level}
+                                    </p>
+
+
+                                    ${
+                                        tutor.verified
+                                            ? `
+                                                <span
+                                                    class="verified"
+                                                >
+                                                    ✓ Verified Tutor
+                                                </span>
+                                            `
+                                            : ""
+                                    }
+
+
+                                    <div
+                                        class="saved-info"
+                                    >
+
+                                        <div
+                                            class="info-box"
+                                        >
+
+                                            <span>
+                                                Rating
+                                            </span>
+
+                                            <strong>
+                                                ⭐ ${tutor.rating}
+                                            </strong>
+
+                                        </div>
+
+
+                                        <div
+                                            class="info-box"
+                                        >
+
+                                            <span>
+                                                Experience
+                                            </span>
+
+                                            <strong>
+                                                ${tutor.experience}
+                                            </strong>
+
+                                        </div>
+
+
+                                        <div
+                                            class="info-box"
+                                        >
+
+                                            <span>
+                                                Starting price
+                                            </span>
+
+                                            <strong>
+                                                ₹${tutor.price}/hr
+                                            </strong>
+
+                                        </div>
+
+
+                                        <div
+                                            class="info-box"
+                                        >
+
+                                            <span>
+                                                Students
+                                            </span>
+
+                                            <strong>
+                                                ${tutor.students}
+                                            </strong>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <p
+                                        class="saved-style"
+                                    >
+                                        ${tutor.teachingStyle}
+                                    </p>
+
+
+                                    <div
+                                        class="saved-actions"
+                                    >
+
+                                        <a
+                                            href="tutor-profile.html?id=${tutor.id}"
+                                            class="view-profile"
+                                        >
+                                            View Profile
+                                        </a>
+
+
+                                        <a
+                                            href="booking.html?id=${tutor.id}"
+                                            class="book-now"
+                                        >
+                                            Book Session
+                                        </a>
+
+                                    </div>
+
+                                </article>
+
+                            `;
+
+                        }
+                    )
+                    .join("");
+
+
+            document
+                .querySelectorAll(
+                    "[data-remove-save]"
+                )
+                .forEach(
+                    button => {
+
+                        button.addEventListener(
+                            "click",
+                            function () {
+
+                                const tutorId =
+                                    this.dataset.removeSave;
+
+
+                                if (
+                                    typeof toggleSaveTutor ===
+                                    "function"
+                                ) {
+
+                                    toggleSaveTutor(
+                                        tutorId
+                                    );
+
+                                } else {
+
+                                    let ids =
+                                        JSON.parse(
+                                            localStorage.getItem(
+                                                "tutorlink_saved_tutors"
+                                            )
+                                        ) || [];
+
+
+                                    ids =
+                                        ids.filter(
+                                            id =>
+                                                id !== tutorId
+                                        );
+
+
+                                    localStorage.setItem(
+                                        "tutorlink_saved_tutors",
+                                        JSON.stringify(ids)
+                                    );
+
+                                }
+
+
+                                renderSavedTutors();
+
+                            }
+                        );
+
+                    }
+                );
+
+        }
+
+
+        renderSavedTutors();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
