@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quick Quiz | TutorLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css?v=20260926">
+</head>
+
+<body class="quiz-page">
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="TutorLink home"
+        >
+            <span class="brand-icon">T</span>
+
+            <span class="brand-text">
+                <strong>TutorLink</strong>
+                <small>LEARN • TEACH • CONNECT</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="learn.html" class="active">
+                Learn
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="business-model.html">
+                Business Model
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                type="button"
+                class="nav-login"
+                data-logout
+            >
+                Log Out
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="quiz-container">
+
+    <!-- QUIZ HEADER -->
+
+    <section class="quiz-hero">
+
+        <div>
+
+            <span class="quiz-eyebrow">
+                QUICK CHECK
+            </span>
+
+            <h1>
+                Test what you know.
+            </h1>
+
+            <p>
+                Complete a short quiz, check your understanding,
+                and earn Tute as you keep learning.
+            </p>
+
+        </div>
+
+        <div class="tute-mini-card">
+
+            <span>
+                YOUR TUTE
+            </span>
+
+            <strong id="tuteBalance">
+                0
+            </strong>
+
+            <small>
+                +25 Tute for completing this quiz
+            </small>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ CARD -->
+
+    <section
+        class="quiz-card"
+        id="quizCard"
+    >
+
+        <div class="quiz-top">
+
+            <div>
+
+                <span id="quizSubject">
+                    Mathematics
+                </span>
+
+                <h2 id="quizTitle">
+                    Quadratic Equations — Quick Check
+                </h2>
+
+            </div>
+
+            <div class="question-counter">
+                Question
+                <strong id="currentQuestion">
+                    1
+                </strong>
+                /
+                <span id="totalQuestions">
+                    5
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="quiz-progress">
+
+            <span id="quizProgressBar"></span>
+
+        </div>
+
+
+        <div
+            class="question-area"
+            id="questionArea"
+        >
+
+            <h3 id="questionText">
+                What is the value of x in x² − 9 = 0?
+            </h3>
+
+
+            <div
+                class="answer-options"
+                id="answerOptions"
+            >
+            </div>
+
+
+            <div
+                class="question-feedback"
+                id="questionFeedback"
+            >
+            </div>
+
+        </div>
+
+
+        <div class="quiz-controls">
+
+            <button
+                type="button"
+                class="quiz-secondary"
+                id="previousButton"
+            >
+                ← Previous
+            </button>
+
+            <button
+                type="button"
+                class="quiz-primary"
+                id="nextButton"
+            >
+                Next →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section
+        class="quiz-result"
+        id="quizResult"
+        hidden
+    >
+
+        <div class="result-icon">
+            ✓
+        </div>
+
+        <span class="quiz-eyebrow">
+            QUIZ COMPLETE
+        </span>
+
+        <h2>
+            Nice work!
+        </h2>
+
+        <p>
+            You completed the quiz and checked your understanding.
+        </p>
+
+
+        <div class="result-score">
+
+            <span>
+                Your Score
+            </span>
+
+            <strong id="finalScore">
+                0/5
+            </strong>
+
+            <small id="scorePercentage">
+                0%
+            </small>
+
+        </div>
+
+
+        <div class="reward-earned">
+
+            <span>
+                Tute Earned
+            </span>
+
+            <strong>
+                +25
+            </strong>
+
+            <small>
+                Learning rewards are for participation,
+                not academic marks or money.
+            </small>
+
+        </div>
+
+
+        <div class="result-actions">
+
+            <a
+                href="learn.html"
+                class="result-primary"
+            >
+                Back to Learning
+            </a>
+
+            <a
+                href="student-dashboard.html"
+                class="result-secondary"
+            >
+                Student Dashboard
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFO -->
+
+    <section class="quiz-info">
+
+        <div>
+
+            <span class="info-icon">
+                ✦
+            </span>
+
+            <div>
+
+                <strong>
+                    How Tute works
+                </strong>
+
+                <p>
+                    Completing a quiz earns +25 Tute.
+                    Tute is TutorLink's learning reward and
+                    has no cash value or academic-mark value.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <span class="info-icon">
+                ✓
+            </span>
+
+            <div>
+
+                <strong>
+                    Keep learning
+                </strong>
+
+                <p>
+                    Quizzes are optional. You never need to
+                    complete a quiz or book another session
+                    to continue using TutorLink.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<style>
+
+/* ================================
+   PAGE
+================================ */
+
+.quiz-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(139,92,246,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(34,211,238,.08),
+            transparent 25%
+        ),
+        #f8fafc;
+
+    color: #0f172a;
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.quiz-container {
+    width: min(960px, calc(100% - 35px));
+
+    margin: auto;
+
+    padding: 48px 0 70px;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.quiz-hero {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.quiz-eyebrow {
+    color: #5b4bff;
+
+    font-size: .62rem;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.quiz-hero h1 {
+    margin: 7px 0 10px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+}
+
+.quiz-hero p {
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .72rem;
+
+    line-height: 1.65;
+}
+
+
+/* ================================
+   TUTE CARD
+================================ */
+
+.tute-mini-card {
+    min-width: 155px;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 12px 30px
+        rgba(91,75,255,.20);
+}
+
+.tute-mini-card span {
+    display: block;
+
+    font-size: .5rem;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    opacity: .8;
+}
+
+.tute-mini-card strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.7rem;
+}
+
+.tute-mini-card small {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: .4rem;
+
+    line-height: 1.4;
+
+    opacity: .85;
+}
+
+
+/* ================================
+   QUIZ CARD
+================================ */
+
+.quiz-card {
+    margin-top: 30px;
+
+    padding: 28px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 15px 45px
+        rgba(15,23,42,.06);
+}
+
+.quiz-top {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.quiz-top > div:first-child > span {
+    color: #8b5cf6;
+
+    font-size: .5rem;
+    font-weight: 800;
+
+    letter-spacing: .8px;
+}
+
+.quiz-top h2 {
+    margin: 5px 0 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.15rem;
+}
+
+.question-counter {
+    flex-shrink: 0;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: .48rem;
+}
+
+.question-counter strong {
+    color: #5b4bff;
+}
+
+.question-counter strong,
+.question-counter span {
+    font-weight: 800;
+}
+
+
+/* ================================
+   PROGRESS
+================================ */
+
+.quiz-progress {
+    height: 6px;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #eef2f7;
+}
+
+.quiz-progress span {
+    display: block;
+
+    width: 20%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b4bff,
+            #ec4899
+        );
+
+    transition: width .25s ease;
+}
+
+
+/* ================================
+   QUESTION
+================================ */
+
+.question-area {
+    padding: 35px 0 25px;
+}
+
+.question-area h3 {
+    max-width: 760px;
+
+    margin: 0 0 24px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.2rem;
+
+    line-height: 1.45;
+}
+
+.answer-options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+.answer-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    text-align: left;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .65rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.answer-option:hover {
+    border-color: #c4b5fd;
+
+    background: #faf9ff;
+
+    transform: translateY(-1px);
+}
+
+.answer-option.selected {
+    border-color: #5b4bff;
+
+    background: #f5f3ff;
+
+    color: #4338ca;
+}
+
+.answer-letter {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: .55rem;
+    font-weight: 800;
+}
+
+.answer-option.selected .answer-letter {
+    background: #5b4bff;
+
+    color: #ffffff;
+}
+
+
+/* ================================
+   FEEDBACK
+================================ */
+
+.question-feedback {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    color: #64748b;
+
+    font-size: .52rem;
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   CONTROLS
+================================ */
+
+.quiz-controls {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #f1f5f9;
+}
+
+.quiz-secondary,
+.quiz-primary {
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: .52rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.quiz-secondary {
+    border: 1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    color: #64748b;
+}
+
+.quiz-secondary:disabled {
+    opacity: .4;
+
+    cursor: not-allowed;
+}
+
+.quiz-primary {
+    border: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b4bff,
+            #8b5cf6
+        );
+
+    color: #ffffff;
+}
+
+
+/* ================================
+   RESULT
+================================ */
+
+.quiz-result {
+    margin-top: 30px;
+
+    padding: 40px 28px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 45px
+        rgba(15,23,42,.06);
+}
+
+.result-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.quiz-result h2 {
+    margin: 8px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.6rem;
+}
+
+.quiz-result > p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: .6rem;
+}
+
+.result-score {
+    margin: 25px auto 12px;
+
+    padding: 18px;
+
+    max-width: 220px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+}
+
+.result-score span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: .48rem;
+}
+
+.result-score strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #5b4bff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 2rem;
+}
+
+.result-score small {
+    color: #94a3b8;
+
+    font-size: .5rem;
+}
+
+.reward-earned {
+    max-width: 300px;
+
+    margin: 0 auto;
+
+    padding: 15px;
+
+    border: 1px solid #ddd6fe;
+
+    border-radius: 13px;
+
+    background: #faf9ff;
+}
+
+.reward-earned span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: .45rem;
+}
+
+.reward-earned strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #8b5cf6;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 1.3rem;
+}
+
+.reward-earned small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: .39rem;
+
+    line-height: 1.45;
+}
+
+.result-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 23px;
+}
+
+.result-primary,
+.result-secondary {
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: .5rem;
+    font-weight: 700;
+}
+
+.result-primary {
+    background: #5b4bff;
+
+    color: #ffffff;
+}
+
+.result-secondary {
+    border: 1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    color: #475569;
+}
+
+
+/* ================================
+   INFO
+================================ */
+
+.quiz-info {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.quiz-info > div {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+}
+
+.info-icon {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: #ede9fe;
+
+    color: #5b4bff;
+
+    font-size: .7rem;
+}
+
+.quiz-info strong {
+    display: block;
+
+    font-size: .52rem;
+}
+
+.quiz-info p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: .42rem;
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 750px) {
+
+    .quiz-container {
+        width: calc(100% - 20px);
+    }
+
+    .quiz-hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .tute-mini-card {
+        width: 100%;
+    }
+
+    .quiz-top {
+        flex-direction: column;
+    }
+
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-info {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .quiz-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .quiz-card {
+        padding: 20px;
+    }
+
+    .question-area {
+        padding-top: 25px;
+    }
+
+    .question-area h3 {
+        font-size: 1rem;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-primary,
+    .result-secondary {
+        display: block;
+    }
+
+}
+
+</style>
+
+
+<script src="app.js?v=1023"></script>
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const quizQuestions = [
+
+            {
+                question:
+                    "What are the solutions of x² − 9 = 0?",
+
+                options: [
+                    "x = 3 and x = −3",
+                    "x = 9 and x = −9",
+                    "x = 0 and x = 9",
+                    "x = 3 only"
+                ],
+
+                answer: 0
+            },
+
+            {
+                question:
+                    "Which expression represents the factorisation of x² − 9?",
+
+                options: [
+                    "(x − 3)(x + 3)",
+                    "(x − 9)(x + 1)",
+                    "(x − 3)²",
+                    "(x + 9)(x − 1)"
+                ],
+
+                answer: 0
+            },
+
+            {
+                question:
+                    "What is the degree of the quadratic expression 4x² + 7x − 2?",
+
+                options: [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+
+                answer: 1
+            },
+
+            {
+                question:
+                    "If x² = 25, which values can x take?",
+
+                options: [
+                    "5 only",
+                    "−5 only",
+                    "5 and −5",
+                    "25 and −25"
+                ],
+
+                answer: 2
+            },
+
+            {
+                question:
+                    "Which of these is a quadratic equation?",
+
+                options: [
+                    "2x + 5 = 0",
+                    "x² + 3x + 2 = 0",
+                    "7x − 4 = 0",
+                    "x + 1 = 3"
+                ],
+
+                answer: 1
+            }
+
+        ];
+
+
+        let currentQuestion = 0;
+
+        let selectedAnswers =
+            new Array(
+                quizQuestions.length
+            ).fill(null);
+
+
+        const currentQuestionElement =
+            document.getElementById(
+                "currentQuestion"
+            );
+
+        const totalQuestionsElement =
+            document.getElementById(
+                "totalQuestions"
+            );
+
+        const questionText =
+            document.getElementById(
+                "questionText"
+            );
+
+        const answerOptions =
+            document.getElementById(
+                "answerOptions"
+            );
+
+        const progressBar =
+            document.getElementById(
+                "quizProgressBar"
+            );
+
+        const previousButton =
+            document.getElementById(
+                "previousButton"
+            );
+
+        const nextButton =
+            document.getElementById(
+                "nextButton"
+            );
+
+        const quizCard =
+            document.getElementById(
+                "quizCard"
+            );
+
+        const quizResult =
+            document.getElementById(
+                "quizResult"
+            );
+
+        const finalScore =
+            document.getElementById(
+                "finalScore"
+            );
+
+        const scorePercentage =
+            document.getElementById(
+                "scorePercentage"
+            );
+
+        const tuteBalance =
+            document.getElementById(
+                "tuteBalance"
+            );
+
+
+        totalQuestionsElement.textContent =
+            quizQuestions.length;
+
+
+        /* ================================
+           TUTE
+        ================================= */
+
+        function getCurrentUserSafe() {
+
+            try {
+
+                return typeof getCurrentUser === "function"
+                    ? getCurrentUser()
+                    : null;
+
+            } catch (error) {
+
+                return null;
+
+            }
+
+        }
+
+
+        function updateTuteDisplay() {
+
+            const user =
+                getCurrentUserSafe();
+
+            tuteBalance.textContent =
+                user && user.tute
+                    ? user.tute
+                    : "0";
+
+        }
+
+
+        /* ================================
+           RENDER QUESTION
+        ================================= */
+
+        function renderQuestion() {
+
+            const question =
+                quizQuestions[currentQuestion];
+
+
+            currentQuestionElement.textContent =
+                currentQuestion + 1;
+
+
+            questionText.textContent =
+                question.question;
+
+
+            answerOptions.innerHTML = "";
+
+
+            question.options.forEach(
+                function (option, index) {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+                    button.type = "button";
+
+                    button.className =
+                        "answer-option";
+
+
+                    if (
+                        selectedAnswers[currentQuestion]
+                        === index
+                    ) {
+
+                        button.classList.add(
+                            "selected"
+                        );
+
+                    }
+
+
+                    button.innerHTML =
+
+                        '<span class="answer-letter">' +
+                        String.fromCharCode(
+                            65 + index
+                        ) +
+                        '</span>' +
+
+                        '<span>' +
+                        option +
+                        '</span>';
+
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            selectedAnswers[
+                                currentQuestion
+                            ] = index;
+
+                            renderQuestion();
+
+                        }
+                    );
+
+
+                    answerOptions.appendChild(
+                        button
+                    );
+
+                }
+            );
+
+
+            progressBar.style.width =
+                (
+                    (
+                        currentQuestion + 1
+                    )
+                    /
+                    quizQuestions.length
+                    *
+                    100
+                ) + "%";
+
+
+            previousButton.disabled =
+                currentQuestion === 0;
+
+
+            nextButton.textContent =
+                currentQuestion ===
+                quizQuestions.length - 1
+                    ? "Finish Quiz"
+                    : "Next →";
+
+        }
+
+
+        /* ================================
+           PREVIOUS
+        ================================= */
+
+        previousButton.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    currentQuestion > 0
+                ) {
+
+                    currentQuestion--;
+
+                    renderQuestion();
+
+                }
+
+            }
+        );
+
+
+        /* ================================
+           NEXT
+        ================================= */
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    selectedAnswers[currentQuestion]
+                    === null
+                ) {
+
+                    alert(
+                        "Please select an answer before continuing."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    currentQuestion <
+                    quizQuestions.length - 1
+                ) {
+
+                    currentQuestion++;
+
+                    renderQuestion();
+
+                } else {
+
+                    finishQuiz();
+
+                }
+
+            }
+        );
+
+
+        /* ================================
+           FINISH
+        ================================= */
+
+        function finishQuiz() {
+
+            let score = 0;
+
+
+            quizQuestions.forEach(
+                function (question, index) {
+
+                    if (
+                        selectedAnswers[index]
+                        === question.answer
+                    ) {
+
+                        score++;
+
+                    }
+
+                }
+            );
+
+
+            const percentage =
+                Math.round(
+                    (
+                        score
+                        /
+                        quizQuestions.length
+                    )
+                    *
+                    100
+                );
+
+
+            finalScore.textContent =
+                score +
+                "/" +
+                quizQuestions.length;
+
+
+            scorePercentage.textContent =
+                percentage +
+                "%";
+
+
+            const user =
+                getCurrentUserSafe();
+
+
+            if (user) {
+
+                const users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "tutorlink_users"
+                        )
+                    ) || [];
+
+
+                const userIndex =
+                    users.findIndex(
+                        function (item) {
+
+                            return item.id === user.id;
+
+                        }
+                    );
+
+
+                /*
+                 * +25 Tute is awarded once
+                 * for this quiz completion.
+                 */
+
+                const rewardKey =
+                    "tutorlink_quiz_reward_quadratic";
+
+
+                const alreadyRewarded =
+                    localStorage.getItem(
+                        rewardKey
+                    );
+
+
+                if (
+                    !alreadyRewarded &&
+                    userIndex !== -1
+                ) {
+
+                    users[userIndex].tute =
+                        (
+                            Number(
+                                users[userIndex].tute
+                            ) || 0
+                        ) + 25;
+
+
+                    localStorage.setItem(
+                        "tutorlink_users",
+                        JSON.stringify(users)
+                    );
+
+
+                    localStorage.setItem(
+                        rewardKey,
+                        "true"
+                    );
+
+
+                    const currentUser =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "tutorlink_current_user"
+                            )
+                        ) || {};
+
+
+                    currentUser.tute =
+                        users[userIndex].tute;
+
+
+                    localStorage.setItem(
+                        "tutorlink_current_user",
+                        JSON.stringify(
+                            currentUser
+                        )
+                    );
+
+                }
+
+            }
+
+
+            /* Save result */
+
+            const results =
+                JSON.parse(
+                    localStorage.getItem(
+                        "tutorlink_quiz_results"
+                    )
+                ) || [];
+
+
+            results.push({
+
+                quiz:
+                    "Quadratic Equations — Quick Check",
+
+                subject:
+                    "Mathematics",
+
+                score:
+                    score,
+
+                total:
+                    quizQuestions.length,
+
+                percentage:
+                    percentage,
+
+                tute:
+                    25,
+
+                completedAt:
+                    new Date().toISOString()
+
+            });
+
+
+            localStorage.setItem(
+                "tutorlink_quiz_results",
+                JSON.stringify(results)
+            );
+
+
+            updateTuteDisplay();
+
+
+            quizCard.hidden = true;
+
+            quizResult.hidden = false;
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        updateTuteDisplay();
+
+        renderQuestion();
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>
