@@ -1828,27 +1828,21 @@ function getTutorFromURL() {
 
 function updateNavbarForUser() {
 
-    const currentPage = window.location.pathname.split("/").pop();
+    const user = getCurrentUser();
 
-    // NEVER change the homepage navbar
-    if (currentPage === "" || currentPage === "index.html") {
-        return;
-    }
-
-    const authLinks = document.querySelector(".nav-actions");
+    const authLinks =
+        document.querySelector(".nav-auth");
 
     if (!authLinks) {
         return;
     }
-
-    const user = getCurrentUser();
 
     if (user) {
 
         authLinks.innerHTML = `
             <button
                 type="button"
-                class="nav-logout"
+                class="nav-login"
                 onclick="logout()"
             >
                 Log Out
@@ -1858,11 +1852,23 @@ function updateNavbarForUser() {
     } else {
 
         authLinks.innerHTML = `
-            <a href="login.html" class="nav-login">Log In</a>
-            <a href="signup.html" class="nav-signup">Sign Up</a>
+            <a
+                href="login.html"
+                class="nav-login"
+            >
+                Log In
+            </a>
+
+            <a
+                href="signup.html"
+                class="nav-signup"
+            >
+                Sign Up
+            </a>
         `;
 
     }
+
 }
 
 
